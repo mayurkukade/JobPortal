@@ -1,14 +1,18 @@
 
 import Navbars from './Compoments/Navbars'
 import Footer from './Compoments/Footer'
+import Registration from './Compoments/Forms/Registration'
+
 
 function App() {
  
 
   return (
     <>
-    <Navbars/>
-    <Footer/>
+    {/* <Navbars/>
+    <Footer/> */}
+    <Registration/>
+    
     </>
   )
 }
