@@ -3,28 +3,28 @@ import { Typography } from "@material-tailwind/react";
 
 const LINKS = [
     {
-      title: "Product",
-      items: ["Overview", "Features", "Solutions", "Tutorials"],
+      title: "Placement",
+      items: ["Fresher", "Working Professional", ],
     },
     {
       title: "Company",
       items: ["About us", "Careers", "Press", "News"],
     },
-    {
-      title: "Resource",
-      items: ["Blog", "Newsletter", "Events", "Help center"],
-    },
+   
   ];
    
   const currentYear = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <footer className="relative w-full mt-10 bg-cover bg-center bg-[url('https://t4.ftcdn.net/jpg/05/00/76/75/360_F_500767502_AdezwSUsyb04l79RpV6zubKulRnIHpd0.jpg')] ">
+    <footer className="relative w-full mt-10  bg-[#FFE9C8] ">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className=" text-white text-4xl flex items-center ">
-            Preferable
+          <Typography variant="h5" className=" text-[#CF4307] text-4xl flex items-center ">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 47 45" fill="none" className='mt-1'>
+            <path d="M45 13.0336V21.5752C38.9921 24.0671 31.5314 25.4907 23.5 25.4907C15.4686 25.4907 8.00786 24.0671 2 21.5752V13.0336C2 11.4664 3.13925 10.1863 4.52941 10.1863H14.9627V8.04978C14.9627 4.77433 17.3667 2 20.3372 2H26.6608C29.6333 2 32.0352 4.77661 32.0352 8.04978V10.1863H42.4686C43.8608 10.1863 45 11.4687 45 13.0336ZM18.1255 8.04978V10.1863H28.8765V8.04978C28.8765 6.69678 27.8648 5.55789 26.6628 5.55789H20.3392C19.1373 5.55789 18.1255 6.69678 18.1255 8.04978ZM20.3392 21.0764V22.5C20.3392 22.9282 20.5922 23.2129 20.9726 23.2129H26.0314C26.4119 23.2129 26.6648 22.9282 26.6648 22.5V21.0764C26.6648 20.6482 26.4119 20.3634 26.0314 20.3634H20.9726C20.5922 20.3634 20.3392 20.6482 20.3392 21.0764ZM2 40.1528V24.6343C8.07059 26.9827 15.4686 28.3357 23.5 28.3357C31.5314 28.3357 38.9294 26.9827 45 24.6343V40.1528C45 41.7199 43.8608 43 42.4706 43H4.52941C3.13722 43 2 41.7176 2 40.1528ZM26.6628 32.8206V31.397C26.6628 30.9688 26.4098 30.6841 26.0294 30.6841H20.9706C20.5902 30.6841 20.3372 30.9688 20.3372 31.397V32.8206C20.3372 33.2488 20.5902 33.5336 20.9706 33.5336H26.0294C26.4098 33.5336 26.6628 33.2488 26.6628 32.8206Z" fill="#CF4307" stroke="#CF4307" stroke-width="2.4375"/>
+          </svg>
+           <p className='ml-5'> Preferable</p>
           </Typography>
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
@@ -55,21 +55,13 @@ export default function Footer() {
         <div className="mt-12 flex w-full flex-col items-center justify-center border-t border-blue-gray-50 py-4 md:flex-row md:justify-between">
           <Typography
             variant="small"
-            className="mb-4 text-center font-normal text-blue-gray-50 md:mb-0"
+            className="mb-4 text-center font-normal  md:mb-0"
           >
             &copy; {currentYear} <a href="">Preferable</a>. All
             Rights Reserved.
           </Typography>
-          <div className="flex gap-4 text-blue-gray-50 sm:justify-center">
-            <Typography as="a" href="#" className="opacity-80 transition-opacity hover:opacity-100">
-              <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path
-                  fill-rule="evenodd"
-                  d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </Typography>
+          <div className="flex gap-4 sm:justify-center">
+            <p>Follow Us On :</p>
             <Typography as="a" href="#" className="opacity-80 transition-opacity hover:opacity-100">
               <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path
