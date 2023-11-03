@@ -35,6 +35,9 @@ module.exports = withMT({
         xl: "1700px",
         laptop: "1024px",
       },
+      spacing: {
+        '100px': '100px',
+      },
     },
   },
   plugins: [],

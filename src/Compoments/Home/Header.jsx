@@ -6,13 +6,14 @@ export default function Header() {
     <div className="flex flex-wrap  justify-center">
 
       {/* left side of container */}
-      <div className="md:pt-36 pt-20 md:spl-[50px]">
-        <p className=" md:text-6xl text-5xl font-[Poppins] font-semibold text-[#160202]">
+      <div className="md:pt-36 pt-20 md:spl-[50px] ">
+        <p className=" text-6xl font-[Poppins] font-semibold text-[#160202] ">
           We Help
-          <br />
-          <span className="text-[#FF8400] stroke-brown-900 ">You</span> Get The
-          <br />
-          Right <span className="text-[#FF8400] ">Job</span>
+          
+          <div className="pt-3">
+          <span className="text-[#FF8400] stroke-brown-900 ">You</span> Get The</div>
+          <div className="pt-3">
+          Right <span className="text-[#FF8400] ">Job</span></div>
         </p>
 
         <p className="mt-10 font-[Poppins] text-2xl">Join us and take your career to the <br /> next level.</p>
@@ -29,7 +30,7 @@ export default function Header() {
 
       <div className="md:ml-[100px] mt-5">
         <img
-          className="md:h-[600px] h-[550px] w-[750px] "
+          className="md:h-[37.5rem] h-[34.375rem] w-[46.875rem]  "
           src={preferable}
           alt="image"
         />
