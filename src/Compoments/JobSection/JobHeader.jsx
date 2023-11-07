@@ -5,7 +5,7 @@ import down from "../Images/down.svg"
 export default function JobHeader() {
   return (
     <div className='flex justify-center '>
-        <div className='bg-[#3F3D56] md:w-[85rem] md:h-[25rem]'>
+        <div className='bg-BackHeader md:w-[85rem] md:h-[25rem]'>
           <p className=' md:text-[2.5rem] text-[20px] font-Inter text-[#FFF] md:pl-5 pl-10 mt-5'>Find Better Through ACCESS,Better CONNECTIONS,Better Jobs.</p>
           <p className=' md:text-[1.25rem] text-[15px] font-Inter text-[#FFF] md:pl-5 pl-10 mt-2'>Preferable helps you find the perfect job for you.</p>
 

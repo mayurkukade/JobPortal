@@ -18,7 +18,7 @@ const LINKS = [
 
 export default function Footer() {
   return (
-    <footer className="relative w-full mt-10  bg-[#657ED4] ">
+    <footer className="relative w-full mt-10  bg-NavColour ">
       <div className="mx-auto w-full max-w-7xl px-8">
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <Typography variant="h5" className=" text-white text-4xl mt-20 items-center ">

@@ -6,11 +6,11 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
-        'text': '#0e0106',
-        'background': '#fafaff',
-        'primary': '#3526a6',
-        'secondary': '#647ed3',
-        'accent': '#ff311f',
+        'NavColour': '#657ED4',
+        'BackHeader': '#3F3D56',
+        'Details': '#DCE1F6',
+        'Text': '#080101',
+        'save': '#3626A7',
       },
       fontFamily: {
         Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma

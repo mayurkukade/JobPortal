@@ -19,7 +19,7 @@ export default function Header() {
         <p className="mt-10 font-[Poppins] text-2xl">Join us and take your career to the <br /> next level.</p>
 
           <div className="flex mt-10"> 
-          <button className=" font-[Poppins] w-44 h-10  mt-3 text-lg font-bold bg-[#657ED4] rounded-md">How does it work?</button>           
+          <button className=" font-[Poppins] w-44 h-10  mt-3 text-lg font-bold bg-NavColour rounded-md">How does it work?</button>           
         <button className="bg-[#FF8400] md:ml-10 ml-5 content-center font-bold w-44 h-10 rounded-md mt-3">
           Get Started
         </button>
