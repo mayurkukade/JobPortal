@@ -1,8 +1,8 @@
 
-import Navbars from './Compoments/Navbars'
-import Footer from './Compoments/Footer'
-import Registration from './Compoments/Forms/Registration'
 import HomePage from './Compoments/Home/HomePage'
+import SingUp from './Compoments/Forms/SingUp'
+import Registration from './Compoments/Forms/Registration'
+import JobSection from './Compoments/JobSection/JobSection'
 
 
 function App() {
@@ -10,10 +10,11 @@ function App() {
 
   return (
     <>
-    {/* <Navbars/>
-    <Footer/>
-    <Registration/> */}
+    {/*
+    <SingUp/> */}
     <HomePage/>
+    {/* <Registration/> */}
+    {/* <JobSection/> */}
     </>
   )
 }

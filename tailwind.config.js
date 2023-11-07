@@ -6,20 +6,11 @@ module.exports = withMT({
   theme: {
     extend: {
       colors: {
-        darkGreen: "#005F59",
-        yellow: "#FECD08",
-        secondaryYellow2: "#FFCD05", // Fixed missing "#" character
-        white: "#FFFFFF",
-        offwhite: "#FFF",
-        lightBlue: "#E9FEFF", // Fixed extra space character
-        grey: "#5B5B5B",
-        black: "#000000",
-        darkgrey: "#B3B3B3", // Fixed missing "#" character
-        red: "#660000",
-        gradientblue: "#0E5F59", // Fixed missing "#" character
-        darkGrey: "#D9D9D9", // Fixed missing "#" character
-        aqua: "#F3F7F7",
-        lightgrey: "#B6B6B6", // Fixed missing "#" character
+        'text': '#0e0106',
+        'background': '#fafaff',
+        'primary': '#3526a6',
+        'secondary': '#647ed3',
+        'accent': '#ff311f',
       },
       fontFamily: {
         Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma

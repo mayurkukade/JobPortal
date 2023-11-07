@@ -1,5 +1,5 @@
 import React from "react";
-import preferable from "../Images/preferable.png";
+import preferable from "../Images/preferable2.png";
 
 export default function Header() {
   return (
@@ -19,8 +19,8 @@ export default function Header() {
         <p className="mt-10 font-[Poppins] text-2xl">Join us and take your career to the <br /> next level.</p>
 
           <div className="flex mt-10"> 
-          <p className="text-2xl font-[Poppins] pt-4">How does it work?</p>           
-        <button className="bg-[#FF8400] md:ml-10 ml-5 content-center font-bold w-44 h-10 rounded-3xl mt-3">
+          <button className=" font-[Poppins] w-44 h-10  mt-3 text-lg font-bold bg-[#657ED4] rounded-md">How does it work?</button>           
+        <button className="bg-[#FF8400] md:ml-10 ml-5 content-center font-bold w-44 h-10 rounded-md mt-3">
           Get Started
         </button>
         </div> 
