@@ -11,7 +11,7 @@ export default function JobSecond() {
       <div className='flex flex-wrap'>
         {/* Left-side  */}
 
-        <div className='w-[20rem] h-[30rem] bg-Details rounded-lg md:ml-20 ml-10'>
+        <div className='w-[20rem] h-[30rem] bg-faintBackgroundBlue rounded-lg md:ml-20 ml-10'>
 
           <div className='flex ml-10 mt-5'>
            <img src={Job} className='w-[1.5rem] h-[3rem]' alt="" />
@@ -39,7 +39,7 @@ export default function JobSecond() {
 
          <div className='md:ml-20'>
 
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] justify-center'>
+           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] justify-center'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
              </div>
@@ -51,7 +51,7 @@ export default function JobSecond() {
              </div>
            </div>
 
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
+           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
              <div className='flex items-center  '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
              </div>
@@ -63,20 +63,7 @@ export default function JobSecond() {
              </div>
            </div>
 
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
+           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
              <div className='flex items-center  '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
              </div>
@@ -89,7 +76,20 @@ export default function JobSecond() {
            </div>
 
 
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
+           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
+             <div className='flex items-center  '>
+                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
+             </div>
+             <div className='md:ml-20 ml-5 pt-7'>
+                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
+                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
+                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
+                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
+             </div>
+           </div>
+
+
+           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
              <div className='flex items-center  '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
              </div>
