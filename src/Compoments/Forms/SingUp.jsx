@@ -28,24 +28,25 @@ export default function SingUp() {
     }
   };
   return (
-    <div className='flex justify-center items-center  min-h-screen bg-[#1b8080] '>
+    <div className='flex justify-center mt-5 '>
 
       {/* Deskstop View */}
         {/* main div start */}
 
-      <div className='bg-yellow-500 rounded-lg'>
+      <div className='bg-Details rounded-lg md:w-[80rem] flex justify-center '>
+        <div>
         <p className='text-4xl  text-center py-5'>SingUp</p>
-        <form action="" className='p-5' >
+        <form action="" className='p-5 ' >
             <label htmlFor="First Name"> Name :- </label>
-             <input type="text" placeholder='Enter your Full name' className='border-2 rounded-md  w-96  h-10 pl-2 md:ml-[65px]' /><br /><br />
+             <input type="text" placeholder='Enter your Full name' className='border-2 rounded-md  md:w-96  h-10 pl-2 md:ml-[65px] ml-16' /><br /><br />
             <label htmlFor="Mobile Number">Mobile Number  :- </label>
-             <input type="Number" placeholder='Enter your Number' className='border-2 rounded-md  w-96 h-10 pl-2 ' /><br /><br />
+             <input type="Number" placeholder='Enter your Number' className='border-2 rounded-md  md:w-96 h-10 pl-2 ' /><br /><br />
             <label htmlFor="Email"> Email :- </label>
-             <input type="email" placeholder='Enter your Email' className='border-2 rounded-md w-96 h-10 pl-2 ml-[70px]' /><br /><br />
+             <input type="email" placeholder='Enter your Email' className='border-2 rounded-md md:w-96 h-10 pl-2 ml-[70px]' /><br /><br />
             <label htmlFor="Password"> Password :- </label>
-             <input type="password" placeholder='Enter your Password' className='border-2 rounded-md  w-96 h-10 pl-2  ml-[40px]' /><br /><br />
+             <input type="password" placeholder='Enter your Password' className='border-2 rounded-md  md:w-96 h-10 pl-2  ml-[40px]' /><br /><br />
             <label htmlFor="Password">Conf. Password :- </label>
-            <input type="password" placeholder='Enter your Password' className='border-2 rounded-md  w-96 h-10 pl-2' /><br /><br />
+            <input type="password" placeholder='Enter your Password' className='border-2 rounded-md  md:w-96 h-10 pl-2' /><br /><br />
  
             <label htmlFor="otp" className='md:mr-[75px]'>OTP :- </label>
         {inputRefs.map((ref, index) => (
@@ -58,8 +59,9 @@ export default function SingUp() {
           />
         ))}<br />
 
-             <button type='submit' className='w-48 h-10 md:ml-[128px] mt-5  border-2 rounded-md bg-green-700'>SingUp</button>
+             <button type='submit' className='w-48 h-10 md:ml-[128px] mt-5  border-2 rounded-md bg-save text-white'>SingUp</button>
         </form>
+        </div>
       </div>
 
 {/* main div end */}

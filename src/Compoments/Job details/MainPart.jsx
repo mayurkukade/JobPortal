@@ -58,7 +58,7 @@ export default function MainPart() {
               </p>
 
                 {/* first Card */}
-              <div className='flex bg-NavColour rounded-lg md:w-[30rem] w-[26rem] md:h-[10rem] justify-center'>
+              <div className='flex bg-NavColour rounded-lg md:w-[30rem]  w-[24.2rem] md:h-[10rem] justify-center'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -70,7 +70,7 @@ export default function MainPart() {
              </div>
            </div>
                 {/* Second Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[26rem] md:h-[10rem] justify-center mt-5'>
+              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -82,7 +82,7 @@ export default function MainPart() {
              </div>
            </div>
                 {/* Third Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[26rem] md:h-[10rem] justify-center mt-5'>
+              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -94,7 +94,7 @@ export default function MainPart() {
              </div>
            </div>
                 {/* Fourth Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[26rem] md:h-[10rem] justify-center mt-5'>
+              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -106,7 +106,7 @@ export default function MainPart() {
              </div>
            </div>
                 {/* Fifth Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[26rem] md:h-[10rem] justify-center mt-5'>
+              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -118,7 +118,7 @@ export default function MainPart() {
              </div>
            </div>
                 {/* Sixth Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[26rem] md:h-[10rem] justify-center mt-5'>
+              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -130,7 +130,7 @@ export default function MainPart() {
              </div>
            </div>
                 {/* Seventh Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[26rem] md:h-[10rem] justify-center mt-5'>
+              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -145,7 +145,7 @@ export default function MainPart() {
             </div>
 
             {/* Right Side */}
-            <div className='bg-Details rounded-md md:ml-10 mt-5 pl-5 md:w-[49.5rem] h-[] '>
+            <div className='bg-Details rounded-md md:ml-10 mt-5 pl-5 md:w-[49.5rem]  w-[24.2rem] '>
                  {/* Top Name */}
               <p className='md:text-[2.5rem] text-2xl text-[#FF331F] font-Inter mt-2'>Full Stack Developer</p>
                <div className='flex'>
@@ -176,28 +176,28 @@ export default function MainPart() {
                  <p className='text-[2.2rem] '>About the job
                  </p>
 
-                 <p className='mt-5 text-[1.4rem]'>Lenskart  is building a new product using MERN stack - an all in one business operation platform for SMEs. You will be the right fit, if you have a keen eye for details and high standards for code quality and efficiency, creating innovative new features and maintaining existing ones. Responsibilities: Developing user interface components and implementing them following well-known React.js workflows. Building reusable components and front-end libraries for future use. Optimizing components for maximum performance across a vast array of web-capable devices and browsers Integration of the front-end and back-end aspects of the web application Requirements: Min 2+ years of experience in developing modern web applications using MERN Stack and Typescript. Experience with MongoDB,Nodejs framework and Reactjs Strong proficiency in with OOPs concepts and Typescript Good understanding of Database schema, design, optimization, scalability. Great communication skills, a strong... work ethic. Ownership of the product from start to finish. Ability to learn new technologies quickly. You must be located in Bangalore and be able to come to office. *** Recommeded**** Experience with AWS, microservices,Devops Experience building mobile apps on MongoDB, GraphQL Expert level understanding of the HTML DOM and underlying event model Prior Open source contributions Experience building responsive designs Job Perks Get to work on new product from stratch implementing MERN stack on web and mobile. Open and embracing culture for the latest hot technologies. A competitive salary and holidays Company has roots in Silicon Valley, CA. Lenskart focuses on Enterprise Software, B2B, Small and Medium Businesses, and Startups.</p>
+                 <p className='mt-5 md:text-[1.4rem]'>Lenskart  is building a new product using MERN stack - an all in one business operation platform for SMEs. You will be the right fit, if you have a keen eye for details and high standards for code quality and efficiency, creating innovative new features and maintaining existing ones. Responsibilities: Developing user interface components and implementing them following well-known React.js workflows. Building reusable components and front-end libraries for future use. Optimizing components for maximum performance across a vast array of web-capable devices and browsers Integration of the front-end and back-end aspects of the web application Requirements: Min 2+ years of experience in developing modern web applications using MERN Stack and Typescript. Experience with MongoDB,Nodejs framework and Reactjs Strong proficiency in with OOPs concepts and Typescript Good understanding of Database schema, design, optimization, scalability. Great communication skills, a strong... work ethic. Ownership of the product from start to finish. Ability to learn new technologies quickly. You must be located in Bangalore and be able to come to office. *** Recommeded**** Experience with AWS, microservices,Devops Experience building mobile apps on MongoDB, GraphQL Expert level understanding of the HTML DOM and underlying event model Prior Open source contributions Experience building responsive designs Job Perks Get to work on new product from stratch implementing MERN stack on web and mobile. Open and embracing culture for the latest hot technologies. A competitive salary and holidays Company has roots in Silicon Valley, CA. Lenskart focuses on Enterprise Software, B2B, Small and Medium Businesses, and Startups.</p>
                </div>
 
                <p className='text-[2.2rem] mt-2 '>About the Company
                  </p>
                  
-            <div className='flex bg-NavColour rounded-lg md:w-[46rem] w-[26rem] md:h-[11rem] justify-center'>
+            <div className='flex bg-NavColour rounded-lg md:w-[46rem] w-[22.9rem] md:h-[11rem] justify-center md:pb-0 pb-5'>
                   <div className='flex items-center '>
-                    <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
+                    <img src={Lens} className='md:w-[3.875rem] w-16 md:h-[2.75rem] md:pt-0 pt-4 ' alt="" />
                  </div>
-                 <div className='md:ml-12 ml-5 pt-7'>
+                 <div className='md:ml-12 ml-5 md:pt-7 pt-5'>
                    <p className='md:text-[2.5rem] text-white font-Inter'>Full Stack Developer</p>
               
                     <p className='md:text-[1rem]  font-Inter text-[#005F59]'>296,495 followers</p>
                 </div>
                  
-                 <button className='w-[11rem] h-[4rem] bg-save rounded-2xl text-white text-[2rem] flex justify-center items-center md:mt-10 mt-5 ml-5'>Follow</button>
+                 <button className='md:w-[11rem] md:h-[4rem] h-10 w-20 bg-save rounded-2xl text-white md:text-[2rem] flex justify-center items-center md:mt-10 mt-5 ml-5'>Follow</button>
 
            </div>
 
            <div>
-             <p className='text-[1.4rem]'>Lenskart is Asia’s largest eyewear company serving 40 Million people - helping them see better and lead better quality lives. We have more than 1500 omnichannel stores across 175 cities in India, Singapore and Dubai. Our aim is to serve One Billion eyes by 2025 globally. And in this journey, we want to go beyond vision correction to transform the way people see and experience the world. That’s our new purpose - and we can only get there through cutting-edge technology and exceptional people</p>
+             <p className='md:text-[1.4rem]'>Lenskart is Asia’s largest eyewear company serving 40 Million people - helping them see better and lead better quality lives. We have more than 1500 omnichannel stores across 175 cities in India, Singapore and Dubai. Our aim is to serve One Billion eyes by 2025 globally. And in this journey, we want to go beyond vision correction to transform the way people see and experience the world. That’s our new purpose - and we can only get there through cutting-edge technology and exceptional people</p>
            </div>
 
             </div>

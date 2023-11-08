@@ -1,9 +1,9 @@
 
 import HomePage from './Compoments/Home/HomePage'
-import SingUp from './Compoments/Forms/SingUp'
 import Registration from './Compoments/Forms/Registration'
 import JobSection from './Compoments/JobSection/JobSection'
 import JobDetails from './Compoments/Job details/JobDetails'
+import Forms from './Compoments/Forms/Forms'
 
 
 function App() {
@@ -11,12 +11,11 @@ function App() {
 
   return (
     <>
-    {/*
-    <SingUp/> */}
-    {/* <HomePage/> */}
+    <HomePage/>
     {/* <Registration/> */}
     {/* <JobSection/> */}
-    <JobDetails/>
+    {/* <JobDetails/> */}
+    {/* <Forms/> */}
     </>
   )
 }
