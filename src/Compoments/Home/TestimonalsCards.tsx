@@ -18,7 +18,7 @@ const TestimonalsCards = ({ testimonals, name, company,testimonalsImg }) => {
 
         <div className="flex-col  self-center mt-3 p-3 leading-7 ">
           <p className="text-white text-xl font-Lexend ">{name}</p>
-          <p className='text-yellow text-[1rem] '>Placed from Preferable</p>
+          <p className=' text-[1rem] dark:text-white '>Placed from Preferable</p>
           <span className="text-white text-[1.2rem]">{company} </span>
        
         </div>

@@ -1,6 +1,7 @@
 const withMT = require("@material-tailwind/react/utils/withMT");
 
 module.exports = withMT({
+  darkMode: 'class',
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
@@ -11,7 +12,9 @@ module.exports = withMT({
         'secondary': '#647ed3',
         'accent': '#ff311f',
         'faintBackgroundBlue':'#DCE1F6',
-        'darkBlueBackground':'#3F3D56'
+        'darkBlueBackground':'#3F3D56',
+        'dark':'#000000',
+        'white':'white'
       },
       fontFamily: {
         Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma

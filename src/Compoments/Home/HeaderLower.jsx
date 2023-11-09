@@ -15,38 +15,46 @@ export default function HeaderLower() {
   const rounded4 = useTransform(count4, Math.round);
 
   useEffect(() => {
-    // First animation to 400
-    const animation1 = animate(count1, 1200, {
-      duration: 2
-    });
+    const delay = 100; // Delay in milliseconds (1 second)
 
-    // Second animation to 300
-    const animation2 = animate(count2, 200, {
-      duration: 2
-    });
-    // First animation to 400
-    const animation3 = animate(count3, 2000, {
-      duration: 2
-    });
+    const timeout = setTimeout(() => {
+      // First animation to 400
+      const animation1 = animate(count1, 1200, {
+        duration: 2
+      });
 
-    // Second animation to 300
-    const animation4 = animate(count4, 30, {
-      duration: 2
-    });
+      // Second animation to 300
+      const animation2 = animate(count2, 200, {
+        duration: 2
+      });
+      // First animation to 400
+      const animation3 = animate(count3, 2000, {
+        duration: 2
+      });
 
-    // Stop both animations when the component unmounts
+      // Second animation to 300
+      const animation4 = animate(count4, 30, {
+        duration: 2
+      });
+
+      // Stop both animations when the component unmounts
+      return () => {
+        animation1.stop();
+        animation2.stop();
+        animation3.stop();
+        animation4.stop();
+      };
+    }, delay);
+
     return () => {
-      animation1.stop();
-      animation2.stop();
-      animation3.stop();
-      animation4.stop();
+      clearTimeout(timeout); // Clear the timeout if the component unmounts before the delay is reached
     };
   }, []);
   return (
     <>
     
       <div className="w-full md:mt-3 xl:mt-[7rem]   h-3 flex-shrink-0 bg-primary "></div>
-      <div className="flex justify-center bg-faintBackgroundBlue p-5  ">
+      <div className="flex justify-center bg-faintBackgroundBlue p-5 dark:bg-dark  ">
         <div className="md:grid md:grid-cols-12 mt-5 xl:gap-12 md:divide-x-4 md:divide-gray-900">
           {/* First block */}
           <div className="col-span-3 w-[300px]  ">
