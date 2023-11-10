@@ -3,7 +3,7 @@ import preferable from "../Images/preferable2.png";
 
 export default function Header() {
   return (
-    <div className="flex flex-wrap  justify-center">
+    <div className="flex bg-background flex-wrap " >
 
       {/* left side of container */}
       <div className="md:pt-36 pt-20 md:spl-[50px] ">
