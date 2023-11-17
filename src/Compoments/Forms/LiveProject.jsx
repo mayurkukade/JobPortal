@@ -10,10 +10,12 @@ export default function LiveProject() {
         <p className='text-[2rem] font-Inter'>Carrier Planning</p>
         <hr className='border-black' />
 
+
         <p className='text-[1.8rem] font-Inter pb-5 pt-5 ml-36'>Live Project</p>
 
         <label className='font-semebold sm:text-[1.5rem] font-Inter sm:ml-0 ml-2'>Select Domain</label>
          <div className="md:w-[30rem] w-[24rem] mt-3 bg-Details sm:ml-0 ml-2">
+
              <Input label="Eg. Data Analysis" />
           </div>
 
@@ -35,13 +37,17 @@ export default function LiveProject() {
           <p className='lg:text-[1.5rem] md:text-2xl font-Inter mt-5 sm:ml-0 ml-2  '>Internship</p>
 
           <div className="">
+
             <input type="text" className='md:w-[30rem] h-[5rem] w-[24rem] mt-3 bg-Details sm:ml-0 ml-2' />
+
+
           </div>
 
           <p className='lg:text-[1.5rem] md:text-2xl font-Inter mt-5 sm:ml-0 ml-2  '>Internship</p>
 
           <div>
             <input type="text" placeholder='Business Analyst Documentation' className='md:w-[20rem] h-[5rem] w-[10rem] mt-3 pl-5 bg-Details sm:ml-0 ml-2' />
+
           </div>
 
           <Button
