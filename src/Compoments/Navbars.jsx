@@ -7,6 +7,8 @@ import {
     IconButton,
   } from "@material-tailwind/react";
 
+  import {NavData} from "./Data/NavData"
+
   import Pref from "./Images/preferable-icon 1.png"
 
 export default function Navbars() {
@@ -41,7 +43,13 @@ export default function Navbars() {
         </svg> */}
  
         <a href="#" className="flex items-center">
-          Pages
+        {NavData.map((data,key) =>{
+          return(
+            <div key ={key}>
+              {data.compoment}
+            </div>
+          )
+         })}
         </a>
       </Typography>
       <Typography
@@ -65,7 +73,13 @@ export default function Navbars() {
           />
         </svg> */}
         <a href="#" className="flex items-center">
-          Account
+        {NavData.map((data,key) =>{
+          return(
+            <div key ={key}>
+              {data.Menu}
+            </div>
+          )
+         })}
         </a>
       </Typography>
       <Typography
@@ -87,7 +101,13 @@ export default function Navbars() {
           />
         </svg> */}
         <a href="#" className="flex items-center">
-          Blocks
+        {NavData.map((data,key) =>{
+          return(
+            <div key ={key}>
+              {data.Block}
+            </div>
+          )
+         })}
         </a>
       </Typography>
       <Typography
@@ -111,7 +131,13 @@ export default function Navbars() {
           />
         </svg> */}
         <a href="#" className="flex items-center">
-          Docs
+        {NavData.map((data,key) =>{
+          return(
+            <div key ={key}>
+              {data.Contact}
+            </div>
+          )
+         })}
         </a>
       </Typography>
     </ul>
@@ -127,7 +153,13 @@ export default function Navbars() {
         >
            <img src={Pref} className='w-10 ml-10 lg:block hidden' alt="" />
           <div className='ml-2 text-white'>
-         Preferable
+         {NavData.map((data,key) =>{
+          return(
+            <div key ={key}>
+              {data.title}
+            </div>
+          )
+         })}
          </div>
         </Typography>
         <Typography className='lg:block hidden'>

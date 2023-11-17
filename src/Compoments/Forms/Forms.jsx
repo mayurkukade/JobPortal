@@ -17,10 +17,10 @@ export default function Forms() {
       <SingUp/> */}
       {/* <Registration/> */}
       {/* <MultiStepForm/> */}
-      {/* <JobAssistment/> */}
+      <JobAssistment/>
       {/* <MentorBooking/> */}
       {/* <ITItraning/> */}
-      <LiveProject/>
+      {/* <LiveProject/> */}
     </div>
   )
 }
