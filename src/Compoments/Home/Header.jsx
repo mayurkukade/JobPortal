@@ -7,7 +7,7 @@ export default function Header() {
       {/* left side of container */}
       <div className="md:pt-20 md:mb-8  md:spl-[50px]  ">
         <p className=" md:text-6xl font-[Poppins] font-semibold dark:text-white text-text xl:text-8xl ">
-          We Helps
+          We Help
           <div className="pt-3">
             <span className="text-accent    ">You</span> Get The
           </div>
