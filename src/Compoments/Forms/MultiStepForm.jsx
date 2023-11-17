@@ -41,11 +41,11 @@ export default function MultiStepForm() {
              <input type="email" placeholder='Enter your Email' value={email} onChange={(e) => setEmail(e.target.value)} required className='bg-Details  rounded-md md:w-96 h-10 pl-2 ml-[70px]' /><br /><br />
 
              <div className='flex justify-center'>
-                <div className='w-[15rem] h-[8rem] bg-Details flex justify-center items-center'>
+                <div className='md:w-[15rem] w-44 h-28 md:h-[8rem] bg-Details flex justify-center items-center'>
                 <p>Experinced</p>
                 </div>
 
-                <div className='w-[15rem] h-[8rem] bg-Details flex justify-center items-center ml-2'>
+                <div className='md:w-[15rem] md:h-[8rem] w-44 h-28 bg-Details flex justify-center items-center ml-2'>
                     <p>Fresher</p>
                 </div>
              </div>
@@ -53,7 +53,7 @@ export default function MultiStepForm() {
              <div className='flex mt-5'>
                 <p className='pt-3'>Company :- </p>
                 <div className='ml-4'>
-                   <input type="text" className='bg-Details w-[20rem] h-[3rem]' /> 
+                   <input type="text" className='bg-Details md:w-[20rem] w-64 h-10 md:h-[3rem]' /> 
                 </div>
              </div>
 
@@ -117,14 +117,14 @@ export default function MultiStepForm() {
 
                 <p className='text-[1.5rem] mt-5'>Course Type</p>
 
-               <div className='flex mt-2 '>
+               <div className='flex flex-wrap mt-2 '>
                  <div className='w-[10rem] h-[3rem] flex items-center justify-center bg-Details'>
                    <p className='text-[1.2rem]  '>Full Time</p>
                  </div>
                   <div className='w-[10rem] h-[3rem] flex items-center justify-center bg-Details ml-5 '>
                     <p className='text-[1.2rem]  '>Part Time</p>
                   </div>
-                  <div className='w-[10rem] h-[3rem] flex items-center justify-center bg-Details ml-5 '>
+                  <div className='w-[10rem] h-[3rem] flex items-center justify-center bg-Details md:ml-5 md:mt-0 mt-2  '>
                     <p className='text-[1.2rem]  '>Distant Learning</p>
                   </div>
                 </div>
@@ -147,20 +147,20 @@ export default function MultiStepForm() {
                
                 <p className='text-[1.5rem] mt-5'>Key Skills</p>
 
-                <div className='w-[30rem] h-[4rem] bg-Details'>
+                <div className='md:w-[30rem] md:h-[4rem] h-10 w-48 bg-Details'>
 
                 </div>
 
                 <div className='flex mt-5'>
-                   <div className='w-[18.75rem] h-[4.5625rem] bg-Details flex justify-center items-center'>
+                   <div className='md:w-[18.75rem] md:h-[4.5625rem] w-36 h-18 bg-Details flex justify-center items-center'>
                       <p className='text-[1.5rem]'> + Frontend</p>
                    </div>
-                   <div className='w-[18.75rem] h-[4.5625rem] bg-Details ml-10 flex justify-center items-center'>
+                   <div className='md:w-[18.75rem] w-36 h-18 md:h-[4.5625rem] bg-Details ml-10 flex justify-center items-center'>
                       <p className='text-[1.5rem]'> + Backend</p>
                    </div>
                 </div>
 
-                <div className=' flex justify-end min-w-full'>
+                <div className=' flex justify-end min-w-full md:mb-0 mb-5'>
              <Button className='bg-save mt-5 ' onClick={togglestep3}>Next</Button>
              </div>
 
@@ -185,14 +185,14 @@ export default function MultiStepForm() {
          </div>
 
          <p className='text-[2rem] mt-5'>Short Description about Yourself</p>
-         <input type="text" placeholder='Eg. Data Analysis' className='w-[50rem] h-[5rem] rounded-md bg-Details pl-5' />
+         <input type="text" placeholder='Eg. Data Analysis' className='md:w-[50rem] w-80 h-10 md:h-[5rem] rounded-md bg-Details pl-5' />
 
          <p className='text-[2rem] mt-5'>Preffered work Location </p>
-         <div className='flex'>
+         <div className='flex flex-wrap'>
 
          <input type="text" placeholder='Search' className='w-[20rem] h-[3rem] rounded-lg bg-Details pl-5' />
-          <Button className='ml-10 text-[1.5rem]' color='blue'>+ Pune</Button>
-          <Button className='ml-10 text-[1.5rem]' color='blue'>+ Mumbai</Button>
+          <Button className='md:ml-10 ml-5 md:mt-0 mt-2 md:text-[1.5rem]' color='blue'>+ Pune</Button>
+          <Button className='md:ml-10 ml-5 md:mt-0 mt-2 md:text-[1.5rem]' color='blue'>+ Mumbai</Button>
           </div>
             
 

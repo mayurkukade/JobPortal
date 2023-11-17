@@ -4,6 +4,10 @@ import Navbars from '../Navbars'
 import Plan from './Plan'
 import Registration from './Registration'
 import MultiStepForm from './MultiStepForm'
+import JobAssistment from './JobAssistment'
+import MentorBooking from './MentorBooking'
+import ITItraning from './ITItraning'
+import LiveProject from './LiveProject'
 
 export default function Forms() {
   return (
@@ -12,7 +16,11 @@ export default function Forms() {
       {/* <Plan/>
       <SingUp/> */}
       {/* <Registration/> */}
-      <MultiStepForm/>
+      {/* <MultiStepForm/> */}
+      {/* <JobAssistment/> */}
+      {/* <MentorBooking/> */}
+      {/* <ITItraning/> */}
+      <LiveProject/>
     </div>
   )
 }

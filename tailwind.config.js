@@ -11,6 +11,7 @@ module.exports = withMT({
         'Details': '#DCE1F6',
         'Text': '#080101',
         'save': '#3626A7',
+        'Table': '#657ED480',
       },
       fontFamily: {
         Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma
