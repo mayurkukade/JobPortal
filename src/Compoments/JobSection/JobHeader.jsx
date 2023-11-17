@@ -20,7 +20,7 @@ export default function JobHeader() {
   useEffect(()=>{
     let interval = setInterval(()=>{
       setTextIndex(getRandomInt(0, texts.length));
-    },4000)
+    },3000)
     return () => {
       clearInterval(interval);
     };
@@ -44,7 +44,7 @@ export default function JobHeader() {
         
         </section>
         </p>
-        <p className=" md:text-[1.25rem] text-[15px] text-secondary font-Inter  mt-2">
+        <p className=" md:text-[1.25rem] text-[15px] text-[#a5b4fc] font-Inter  mt-2">
           Preferable helps you find the perfect job for you.
         </p>
 

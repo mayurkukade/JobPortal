@@ -55,7 +55,7 @@ const handleThemeSwitch = () =>{
           />
         </svg> */}
 
-        <a href="#" className="flex items-center text-white">
+        <a href="/" className="flex items-center text-white">
           Home
         </a>
       </Typography>
@@ -79,7 +79,7 @@ const handleThemeSwitch = () =>{
             fill="#90A4AE"
           />
         </svg> */}
-        <a href="#" className="flex items-center text-white">
+        <a href="/jobsection" className="flex items-center text-white">
           Jobs
         </a>
       </Typography>
