@@ -20,7 +20,7 @@ export default function JobHeader() {
   useEffect(()=>{
     let interval = setInterval(()=>{
       setTextIndex(getRandomInt(0, texts.length));
-    },3000)
+    },2000)
     return () => {
       clearInterval(interval);
     };
@@ -89,9 +89,16 @@ export default function JobHeader() {
         <motion.button
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.85 }}
-            className=" text-white  font-[Poppins] md:w-44  md:h-11 xl:w-[12rem]  md:mt-6 md:text-lg xl:text-xl  font-bold bg-secondary rounded-md"
+            className=" text-white  font-[Poppins] md:w-40  md:h-10 xl:w-[12rem]  md:mt-6 md:text-lg xl:text-xl  font-bold bg-secondary rounded-md"
           >
             Find
+          </motion.button>
+        <motion.button
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.85 }}
+            className=" text-white ml-5 font-[Poppins] md:w-40  md:h-10 xl:w-[12rem]  md:mt-6 md:text-lg xl:text-xl  font-bold bg-secondary rounded-md"
+          >
+            Reset
           </motion.button>
         
       </div>
