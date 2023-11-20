@@ -11,6 +11,7 @@ import Pref from "./Images/preferable-icon 1.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import {BiSun,BiMoon} from 'react-icons/bi'
+
 export default function Navbars() {
   const [openNav, setOpenNav] = React.useState(false);
   const [theme,setTheme] = useState('light')
@@ -54,7 +55,7 @@ const handleThemeSwitch = () =>{
           />
         </svg> */}
 
-        <a href="#" className="flex items-center text-white">
+        <a href="/" className="flex items-center text-white">
           Home
         </a>
       </Typography>
@@ -78,7 +79,7 @@ const handleThemeSwitch = () =>{
             fill="#90A4AE"
           />
         </svg> */}
-        <a href="#" className="flex items-center text-white">
+        <a href="/jobsection" className="flex items-center text-white">
           Jobs
         </a>
       </Typography>
@@ -143,7 +144,10 @@ const handleThemeSwitch = () =>{
           className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl xl:text-4xl xl:ml "
         >
           <img src={Pref} className="w-10 ml-10 lg:block hidden" alt="" />
-          <div className="ml-2 text-accent">Preferable</div>
+          <div className="ml-2 text-accent">
+   
+          Preferable
+          </div>
         </Typography>
         <Typography className="lg:block hidden">
           <input
