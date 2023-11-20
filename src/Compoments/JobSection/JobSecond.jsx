@@ -173,7 +173,7 @@ export default function JobSecond() {
                 color="blue-gray"
                 className="text-[#5594d5]"
               >
-                Full Stack Web Develope
+                Full Stack Web Developer
               </Typography>
               <Typography variant="h6" color="gray" className=" uppercase">
                 lenskart
