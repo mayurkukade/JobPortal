@@ -1,6 +1,5 @@
 import  { useEffect,useState } from "react";
-// import Location from "../Images/location.svg";
-// import down from "../Images/down.svg";
+
 import { motion } from "framer-motion";
 import { Input } from "@material-tailwind/react";
 import ReactTextTransition, { presets } from "react-text-transition";
