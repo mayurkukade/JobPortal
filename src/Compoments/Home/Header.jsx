@@ -3,11 +3,11 @@ import preferable from "../Images/preferable2.png";
 
 export default function Header() {
   return (
-    <div className="flex bg-background flex-wrap " >
+    <div className="flex bg-background flex-wrap justify-center " >
 
       {/* left side of container */}
-      <div className="md:pt-36 pt-20 md:spl-[50px] ">
-        <p className=" text-6xl font-[Poppins] font-semibold text-[#160202] ">
+      <div className="md:pt-36 pt-20 md:spl-[50px]  ">
+        <p className=" md:text-6xl text-4xl font-[Poppins] font-semibold text-[#160202] ">
           We Help
           
           <div className="pt-3">
@@ -28,9 +28,9 @@ export default function Header() {
 
       {/* Right side of container */}
 
-      <div className="md:ml-[100px] mt-5">
+      <div className="md:ml-[200px] lg:ml-[150px]  mt-14">
         <img
-          className="md:h-[37.5rem] h-[34.375rem] w-[46.875rem]  "
+          className="md:h-[32rem] h-[32rem] w-[40rem]  "
           src={preferable}
           alt="image"
         />

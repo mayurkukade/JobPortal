@@ -82,6 +82,7 @@ export default function Navbars() {
          })}
         </a>
       </Typography>
+     
       <Typography
         as="li"
         variant="small"

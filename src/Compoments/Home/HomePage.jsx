@@ -4,6 +4,7 @@ import Navbars from '../Navbars'
 import HeaderLower from './HeaderLower'
 import Placement from './Placement'
 import Footer from '../Footer'
+import Footer1 from '../Footer1'
 
 export default function HomePage() {
   return (
@@ -12,7 +13,8 @@ export default function HomePage() {
         <Header/>
         <HeaderLower/>
         <Placement/>
-        <Footer/>
+        {/* <Footer/> */}
+        <Footer1/>
     </div>
   )
 }

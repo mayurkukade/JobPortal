@@ -4,8 +4,20 @@ import Pref from "./Images/preferable-icon 1.png"
 
 const LINKS = [
     {
-      title: "Placement",
+      title: "Service",
       items: ["Fresher", "Working Professional", ],
+    },
+    {
+      title: "Company",
+      items: ["About us", "Careers", "Press", "News"],
+    },
+    {
+      title: "Company",
+      items: ["About us", "Careers", "Press", "News"],
+    },
+    {
+      title: "Company",
+      items: ["About us", "Careers", "Press", "News"],
     },
     {
       title: "Company",
@@ -19,13 +31,16 @@ const LINKS = [
 export default function Footer() {
   return (
     <footer className="relative w-full mt-10  bg-NavColour ">
-      <div className="mx-auto w-full max-w-7xl px-8">
-        <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
-          <Typography variant="h5" className=" text-white text-4xl mt-20 items-center ">
+      <div className="flex flex-wrap">
+        <div className="">
+
+          <Typography variant="h5" className=" text-white mt-20 items-center ">
           <img src={Pref} className='w-10 ml-16 mb-2 ' alt="" />
-           <p className='ml-5'> Preferable</p>
+           <p className='ml-5 text-4xl '> Preferable</p>
+           <p className='ml-5 text-sm'>Crafting Careers</p>
           </Typography>
-          <div className="grid grid-cols-3 justify-between gap-4">
+          
+          <div className="grid grid-cols-10 ">
             {LINKS.map(({ title, items }) => (
               <ul key={title}>
                 <Typography

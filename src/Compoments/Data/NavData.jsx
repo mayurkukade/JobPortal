@@ -5,6 +5,7 @@ export const NavData = [
         compoment : "Pages",
         Menu : "Account",
         Block : "Blocks",
-        Contact : "Contact us"
+        Contact : "Contact us",
+        Jobs : "Jobs"
     }
 ]
