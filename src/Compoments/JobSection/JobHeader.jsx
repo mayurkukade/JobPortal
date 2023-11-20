@@ -24,7 +24,7 @@ export default function JobHeader() {
     return () => {
       clearInterval(interval);
     };
-  },[])
+  },[texts.length])
   return (
     <div className="bg-darkBlueBackground md:h-[18rem]  ">
       <div className="container mx-auto p-5">

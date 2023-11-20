@@ -49,7 +49,7 @@ export default function HeaderLower() {
     return () => {
       clearTimeout(timeout); // Clear the timeout if the component unmounts before the delay is reached
     };
-  }, []);
+  }, [count1, count2, count3, count4]);
   return (
     <>
     
