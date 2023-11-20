@@ -1,6 +1,6 @@
-import React from 'react'
+
 import Location from "../Images/location.svg"
-import down from "../Images/down.svg"
+
 
 export default function JobHeader() {
   return (
@@ -22,7 +22,7 @@ export default function JobHeader() {
 
             <div className='w-[25rem] h-[5rem] bg-white ml-5 rounded-md flex items-center '>
               <p className='font-Inter text-[1.1rem] pl-5'>Experience</p>
-              <img src={down} className='w-[2.8125rem] h-[3.125rem] ml-60' alt="" />
+              <img src={Location} className='w-[2.8125rem] h-[3.125rem] ml-60' alt="" />
             </div>
 
           </div>
