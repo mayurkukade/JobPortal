@@ -14,7 +14,9 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/jobsection" element={<JobSection/>} />
+          <Route path="/jobdetails" element={<JobDetails/>} />
           <Route path="/counter" element={<Counter/>} />
+
         </Route>
       </Routes>
       {/*
