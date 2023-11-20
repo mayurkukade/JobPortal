@@ -1,110 +1,194 @@
-import React from 'react'
-import Job from "../Images/job.svg"
-import Skill from "../Images/skill.svg"
-import Assis from "../Images/assist.svg"
-import Inter from "../Images/inter.svg"
-import Lens from "../Images/Lenskart.png"
+import React from "react";
+import Job from "../Images/job.svg";
+import Skill from "../Images/skill.svg";
+import Assis from "../Images/assist.svg";
+import Inter from "../Images/inter.svg";
+import Lens from "../Images/Lenskart.png";
 
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  CheckIcon,
+} from "@material-tailwind/react";
 export default function JobSecond() {
   return (
-    <div className='flex justify-center  mt-20 '>
-      <div className='flex flex-wrap'>
+    <div className="mx-auto container  mt-20 ">
+      <div className="flex flex-wrap gap-12 lg:justify-center ">
         {/* Left-side  */}
 
-        <div className='w-[20rem] h-[30rem] bg-faintBackgroundBlue rounded-lg md:ml-20 ml-10'>
-
-          <div className='flex ml-10 mt-5'>
-           <img src={Job} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Applied Jobs</p>
-          </div>
-           <br />
-          <div className='flex ml-10 mt-5'>
-           <img src={Skill} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Skill Assessment</p>
-          </div>
-          <br />
-          <div className='flex ml-10 mt-5'>
-           <img src={Assis} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Skill Assessment</p>
-          </div>
-          <br />
-          <div className='flex ml-10 mt-5'>
-           <img src={Inter} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Skill Assessment</p>
-          </div>
-
+        <div className="   w-[21rem] h-[30rem]  ">
+          <Card
+            color="white"
+            variant="gradient"
+            className="w-full max-w-[20rem] p-8"
+          >
+            <CardBody className="p-0">
+              <ul className="flex flex-col gap-4 ">
+                <li className="flex items-center gap-4"></li>
+                <li className="flex items-center gap-4">
+                  <img src={Job} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Applied Jobs
+                  </Typography>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src={Skill} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Skill Assesment
+                  </Typography>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src={Assis} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Interview prep
+                  </Typography>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src={Inter} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Saved Jobs
+                  </Typography>
+                </li>
+              </ul>
+            </CardBody>
+          </Card>
         </div>
 
-         {/* Right side */}
+        {/* Right side */}
 
-         <div className='md:ml-20'>
-
-           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] justify-center'>
-             <div className='flex items-center '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-
-           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-
-           <div className='flex bg-faintBackgroundBlue rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-
-         </div>
-
+        <div className="w-[25rem] xl:w-[40rem]  ">
+          <Card className="   flex-row mb-5 ">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="#03a9f4"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developer
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card>
+          <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developer
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card>
+          <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developer
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card>
+          <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developers
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card>
+        </div>
       </div>
     </div>
-  )
+  );
 }

@@ -14,7 +14,8 @@ module.exports = withMT({
         'faintBackgroundBlue':'#DCE1F6',
         'darkBlueBackground':'#3F3D56',
         'dark':'#000000',
-        'white':'white'
+        'white':'white',
+        'textColor':'#a5b4fc'
       },
       fontFamily: {
         Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma
