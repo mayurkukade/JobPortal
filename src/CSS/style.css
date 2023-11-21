@@ -1,0 +1,15 @@
+
+.background{
+    border-radius: 2.5rem;
+    background: linear-gradient(to bottom left,#240EBD6A 20%, #240EBDBE 0%, #240EBD 60%, #240EBDBE 0%, #240EBD6A 80%)
+}
+
+.background1{
+    border-radius: 2.5rem;
+    background: linear-gradient(to bottom right,#d2d4df10 1%, #061a81 10%,#062df0 60%, #d2d4df10 100%);
+
+}
+.background2{
+    border-radius: 2.5rem;
+    background: linear-gradient(to bottom left,#03091800 0%, #153692c6 30%,  #031652 0%, #153692c6 70%, #0043F68F 00%, #03091800 100%)
+}

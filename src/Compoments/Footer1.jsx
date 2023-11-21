@@ -10,26 +10,26 @@ import { CiLinkedin } from "react-icons/ci";
 
 export default function Footer1() {
   return (
-    <div className='flex justify-center'>
-      <div>
+    <div className='flex justify-center bg-NavColour'>
+      <div className=''>
        <div className='flex flex-wrap'>
           
           {/* Preferable Icon */}
         <div className='sm:ml-10 ml-9 mt-14'>
            <img src={Pref} className='w-10 ml-16 mb-2 ' alt="" />
-           <p className='ml-5 text-4xl '> Preferable</p>
-           <p className='ml-5 text-sm'>Crafting Careers</p>
+           <p className='ml-5 text-4xl text-white '> Preferable</p>
+           <p className='ml-5 text-sm text-white'>Crafting Careers</p>
         </div>
           {/* Other Services */}
           <div className='flex flex-wrap'>
              {FooterData.map(({title,items})=>(
                 <ul key={title}>
-                  <div className='text-2xl font-Inter ml-14 mt-8 text-black pb-2'>
+                  <div className='text-2xl text-white font-Inter ml-14 mt-8  pb-2'>
                     {title}
                   </div>
                   {items.map((link) =>(
                      <li>
-                        <div className='text-sm font-Inter ml-14 text-black pb-2' >
+                        <div className='text-sm font-Inter ml-14 text-gray-400 pb-2' >
                         {link}
                         </div>
                         
@@ -40,8 +40,8 @@ export default function Footer1() {
           </div>
            
            <div>
-              <p className='text-2xl font-Inter ml-14 mt-8 text-black pb-2'>Suscribe to our newsletter</p>
-              <p className='text-sm font-Inter ml-14 text-black pb-2'>Curated content craft careers</p>
+              <p className='text-2xl font-Inter ml-14 mt-8  pb-2 text-white'>Suscribe to our newsletter</p>
+              <p className='text-sm font-Inter ml-14  pb-2 text-gray-400'>Curated content craft careers</p>
 
               <div className='flex ml-14 '>
                 <input type="email" placeholder='Enter email' className='w-36 h-10 border-2 mt-2 border-black rounded-md p-2'/>

@@ -5,12 +5,14 @@ import HeaderLower from './HeaderLower'
 import Placement from './Placement'
 import Footer from '../Footer'
 import Footer1 from '../Footer1'
+import HomeCard from './HomeCard'
 
 export default function HomePage() {
   return (
     <div>
         <Navbars/>
         <Header/>
+        <HomeCard/>
         <HeaderLower/>
         <Placement/>
         {/* <Footer/> */}

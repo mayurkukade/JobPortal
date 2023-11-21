@@ -8,6 +8,8 @@ import JobAssistment from './JobAssistment'
 import MentorBooking from './MentorBooking'
 import ITItraning from './ITItraning'
 import LiveProject from './LiveProject'
+import Card from './Cards'
+import Cards from './Cards'
 
 export default function Forms() {
   return (
@@ -20,7 +22,8 @@ export default function Forms() {
       {/* <JobAssistment/> */}
       {/* <MentorBooking/> */}
       {/* <ITItraning/> */}
-      <LiveProject/>
+      {/* <LiveProject/> */}
+      <Cards/>
     </div>
   )
 }
