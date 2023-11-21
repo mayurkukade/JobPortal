@@ -224,12 +224,43 @@ export default function JobDetails() {
       {/* <JobDetailsHeader/>
       <MainPart/> */}
 
-      <Tabs value="html" orientation="vertical">
+      <Tabs value="html" orientation="vertical" >
         <TabsHeader className="max-h-[400px] overflow-y-auto ">
           {data.map(({ label, value, icon }) => (
             <Tab key={value} value={value} className="flex items-start">
               <div className="flex">
-                <p className="">{label}</p>
+              <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developers
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card>
               </div>
             </Tab>
           ))}
