@@ -1,4 +1,4 @@
-import React from "react";
+
 import Job from "../Images/job.svg";
 import Skill from "../Images/skill.svg";
 import Assis from "../Images/assist.svg";
@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardBody,
   Typography,
-  CheckIcon,
+  
 } from "@material-tailwind/react";
 export default function JobSecond() {
   return (
