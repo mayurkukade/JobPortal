@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function HeaderLower() {
   return (
-    <div className='flex justify-center mt-10'>
+    <div className='flex justify-center mt-28'>
 
       <div className='md:grid md:grid-cols-12 md:divide-x-4 md:divide-gray-900'>
         

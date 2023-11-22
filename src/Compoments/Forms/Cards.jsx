@@ -12,7 +12,7 @@ import React from 'react'
 export default function Cards() {
   const [activeTab, setActiveTab] = React.useState("html");
   return (
-    <div className='flex justify-center '>
+    <div className='flex justify-center mt-20'>
       <Tabs value={activeTab} className="sm:w-[1200px]">
       <TabsHeader
         className="rounded-none border-b border-blue-gray-50 bg-transparent p-0"

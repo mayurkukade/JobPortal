@@ -3,7 +3,7 @@ import jobs from "../Images/jobs.jpg";
 import top from "../Images/top.jpg";
 import upskills from "../Images/upskills.webp";
 import hiring from "../Images/hiring.jpg";
-
+import { Button } from "@material-tailwind/react";
 
 export default function HomeCard() {
   return (
@@ -11,9 +11,9 @@ export default function HomeCard() {
       <div className="sm:grid sm:grid-cols-12">
           {/* first card start */}
 
-        <div class="relative flex flex-col   shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border">
-          <div class="relative  mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
-            <img src={jobs} className="rounded-md" />
+        <div class="  shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border">
+          <div class=" mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
+            <img src={jobs} className="rounded-md lg:w-[500px]" />
           </div>
           <div class="p-6">
             <h5 class="block mb-2 font-sans text-xl antialiased font-semibold leading-snug tracking-normal text-blue-gray-900">
@@ -30,20 +30,21 @@ export default function HomeCard() {
            
           </div>
           <div class="p-6 pt-0">
-          <button
+          <Button
               class="select-none rounded-lg border-1 border-blue-600 py-3 text-black px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
+              variant="outlined"
               data-ripple-light="true"
             >
               Learn More
-            </button>
+            </Button>
           </div>
         </div>
        {/* first card end */}
 
           {/* second card start */}
 
-        <div class="relative flex flex-col   shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border">
+        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border">
           <div class="relative  mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
             <img src={top} className="rounded-md" />
           </div>
@@ -62,20 +63,21 @@ export default function HomeCard() {
            
           </div>
           <div class="p-6 pt-0 ">
-          <button
-              class="select-none rounded-lg  py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-black shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          <Button
+              class="select-none rounded-lg border-1 border-blue-600 py-3 text-black px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
+              variant="outlined"
               data-ripple-light="true"
             >
               Learn More
-            </button>
+            </Button>
           </div>
         </div>
        {/* second card end */}
 
           {/* Third card start */}
 
-        <div class="relative flex flex-col   shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border">
+        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border">
           <div class="relative  mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
             <img src={upskills} className="rounded-md" />
           </div>
@@ -94,20 +96,21 @@ export default function HomeCard() {
            
           </div>
           <div class="p-6 pt-0">
-          <button
-              class="select-none rounded-lg border-1 border-blue-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-black shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          <Button
+              class="select-none rounded-lg border-1 border-blue-600 py-3 text-black px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
+              variant="outlined"
               data-ripple-light="true"
             >
               Learn More
-            </button>
+            </Button>
           </div>
         </div>
        {/* Third card end */}
 
           {/* Fourth card start */}
 
-        <div class="relative flex flex-col   shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border">
+        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border">
           <div class="relative  mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
             <img src={hiring } className="rounded-md" />
           </div>
@@ -126,13 +129,14 @@ export default function HomeCard() {
            
           </div>
           <div class="p-6 pt-0">
-            <button
-              class="select-none rounded-lg border-1 border-blue-600 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-black shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+          <Button
+              class="select-none rounded-lg border-1 border-blue-600 py-3 text-black px-6 text-center align-middle font-sans text-xs font-bold uppercase  shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
               type="button"
+              variant="outlined"
               data-ripple-light="true"
             >
               Learn More
-            </button>
+            </Button>
           </div>
         </div>
        {/* Fourths card end */}

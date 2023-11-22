@@ -11,40 +11,39 @@ import {
   } from "@material-tailwind/react";
 
 export default function MainPart() {
-    // First Page
-    const [open , setOpen] = React.useState(false);
+  
+  const [open , setOpen] = React.useState(false);
+  const [open1 , setOpen1] = React.useState(false);
+  const [open2 , setOpen2] = React.useState(false);
 
-    const handleOpen = () =>{
-        setOpen (!open);
-        
-    }
+   // First Page
 
- // Second Page
+const handleOpen = () =>{
+  setOpen (!open);
+  
+}
 
-    const [open1 , setOpen1] = React.useState(false);
+// Second Page
+const handleOpen1 = () =>{
+  setOpen1 (!open1);
+}
 
-    const handleOpen1 = () =>{
-        setOpen1 (!open1);
-    }
+const handleOpen2 = () =>{
+  setOpen (!open);
+  setOpen1 (!open1);
+}
 
-    const handleOpen2 = () =>{
-        setOpen (!open);
-        setOpen1 (!open1);
-    }
+// Third page
 
-    // Third page
+const handleOpen3 = () =>{
+  setOpen2 (!open2);
+  setOpen1 (!open1);
+}
+const handleOpen4 = () =>{
+  setOpen2 (!open2);
+  setOpen1 (!open1);
 
-    const [open2 , setOpen2] = React.useState(false);
-
-    const handleOpen3 = () =>{
-        setOpen2 (!open2);
-        setOpen1 (!open1);
-    }
-    const handleOpen4 = () =>{
-        setOpen2 (!open2);
-        setOpen1 (!open1);
-
-    }
+}
 
   return (
     <div className='flex justify-center'>
@@ -165,6 +164,7 @@ export default function MainPart() {
                   <path d="M10.2386 6.0492H4.74621C4.01787 6.0492 3.31936 6.47581 2.80435 7.23519C2.28933 7.99456 2 9.02449 2 10.0984V30.3444C2 31.4183 2.28933 32.4483 2.80435 33.2076C3.31936 33.967 4.01787 34.3936 4.74621 34.3936H18.4773C19.2056 34.3936 19.9041 33.967 20.4191 33.2076C20.9342 32.4483 21.2235 31.4183 21.2235 30.3444V22.246M15.7311 2H23.9697M23.9697 2V14.1476M23.9697 2L10.2386 22.246" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
                    </svg>
                 </button>
+
                 <button className='bg-save ml-5 flex text-xl w-32 h-12 items-center justify-center text-white rounded-xl'>Save </button>
 
                </div>
@@ -331,6 +331,8 @@ export default function MainPart() {
       </Dialog>
        </div>
        {/* Third Part End */}
+
+
     </div>
   )
 }
