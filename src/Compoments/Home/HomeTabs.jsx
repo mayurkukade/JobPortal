@@ -31,7 +31,7 @@ function CheckIcon() {
     </svg>
   );
 }
-import {Card1} from './Card1'
+
 import {
   Square3Stack3DIcon,
   UserCircleIcon,
@@ -41,6 +41,7 @@ import React from "react";
 import { calcLength } from "framer-motion";
 import Card2 from "./Card2";
 import Card3 from "./Card3";
+import Card1 from "./Card1";
 const HomeTabs = () => {
   const cardOne = [
     {
@@ -144,8 +145,8 @@ const HomeTabs = () => {
         <TabsBody className="flex justify-between">
           {cardOne.map(({ value, desc,plan }) => (
             <>
-              <TabPanel key={value} value={value} >
-           
+              <TabPanel key={value} value={value}  >
+           <Card1/>
               <Card2/>
               <Card3/>
               </TabPanel>
