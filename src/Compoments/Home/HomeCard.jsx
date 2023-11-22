@@ -7,11 +7,11 @@ import { Button } from "@material-tailwind/react";
 
 export default function HomeCard() {
   return (
-    <div className="flex mt-5 justify-center ml-2 ">
+    <div className="flex mt-20 justify-center ml-2 ">
       <div className="sm:grid sm:grid-cols-12">
           {/* first card start */}
 
-        <div class="  shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border">
+        <div class="  shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border bg-Details">
           <div class=" mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
             <img src={jobs} className="rounded-md lg:w-[500px]" />
           </div>
@@ -44,7 +44,7 @@ export default function HomeCard() {
 
           {/* second card start */}
 
-        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border">
+        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border bg-Details">
           <div class="relative  mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
             <img src={top} className="rounded-md" />
           </div>
@@ -77,7 +77,7 @@ export default function HomeCard() {
 
           {/* Third card start */}
 
-        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border">
+        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2  bg-clip-border bg-Details">
           <div class="relative  mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
             <img src={upskills} className="rounded-md" />
           </div>
@@ -110,7 +110,7 @@ export default function HomeCard() {
 
           {/* Fourth card start */}
 
-        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border">
+        <div class=" shadow-md sm:col-span-3 rounded-xl mt-3 sm:ml-2 bg-clip-border bg-Details">
           <div class="relative  mx-4 -mt-6   shadow-lg   bg-clip-border shadow-blue-gray-500/40">
             <img src={hiring } className="rounded-md" />
           </div>
