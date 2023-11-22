@@ -1,7 +1,8 @@
 
-
+import { useGetStudentQuery } from '../../services/Registration/registrationSlice';
 import React from 'react'
 import { useRef ,useState } from 'react';
+
 
 export default function SingUp() {
   // const [mobile,setMobile] = useState(false);
@@ -9,6 +10,8 @@ export default function SingUp() {
   // const mobileView = () =>{
   //   if (window)
   // }
+
+
 
   const inputRefs = [
     useRef(),

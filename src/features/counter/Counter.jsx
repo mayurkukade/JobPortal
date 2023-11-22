@@ -1,11 +1,11 @@
 
 import { useSelector, useDispatch } from 'react-redux'
 import { decrement, increment } from './counterSlice'
-import { useGetPokemonByNameQuery } from '../../services/pokemon'
+
 export function Counter() {
   const count = useSelector((state) => state.counter.value)
   const dispatch = useDispatch()
-  const { data, error, isLoading } = useGetPokemonByNameQuery('bulbasaur')
+ 
   return (
     <div>
       <div>

@@ -1,7 +1,7 @@
 import React from "react";
 
 import lenskart from "../../asset/techmahindra.png";
-import dot from "../Images/Dot.svg";
+
 import Marquee from "react-fast-marquee";
 
 const PlacementCompany = () => {

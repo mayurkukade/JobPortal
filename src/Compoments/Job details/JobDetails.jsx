@@ -16,6 +16,29 @@ import {
   Typography,
   CheckIcon,
 } from "@material-tailwind/react";
+import { ThemeProvider,DefaultTheme } from "@material-tailwind/react";
+
+
+const theme = {
+  tabPanel: {
+    defaultProps: {
+      className: "",
+    },
+    styles: {
+      base: {
+        width: "w-full",
+        height: "h-max",
+        color: "text-gray-700",
+        p: "p-4",
+        fontSmoothing: "antialiased",
+        fontFamily: "font-sans",
+        fontSize: "text-base",
+        fontWeight: "font-light",
+        lineHeight: "leading-relaxed",
+      },
+    },
+  },
+};
 import Lens from "../Images/Lenskart.png";
 export default function JobDetails() {
   const data = [
@@ -146,90 +169,21 @@ export default function JobDetails() {
       desc: `We're not always in the position that we want to be at.
       We're constantly growing. We're constantly making mistakes. We're
       constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
-    {
-      label: "Zoho",
-      value: "svelte",
-      desc: `We're not always in the position that we want to be at.
-      We're constantly growing. We're constantly making mistakes. We're
-      constantly trying to express ourselves and actualize our dreams.`,
-    },
+    }
   ];
 
   return (
     <div className="container mx-auto m-12 z-0 ">
       {/* <JobDetailsHeader/>
       <MainPart/> */}
-
-      <Tabs value="html" orientation="vertical" >
-        <TabsHeader className="max-h-[400px] overflow-y-auto ">
+      
+      <Tabs value="html" orientation="vertical"     >
+        <TabsHeader className="max-h-[400px] lg:max-h-[800px] overflow-y-auto "  >
           {data.map(({ label, value, icon }) => (
+            
             <Tab key={value} value={value} className="flex items-start">
               <div className="flex">
-              <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+              <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2 h-[9rem]">
             <CardHeader
               shadow={false}
               floated={false}
@@ -273,6 +227,7 @@ export default function JobDetails() {
           ))}
         </TabsBody>
       </Tabs>
+     
     </div>
   );
 }
