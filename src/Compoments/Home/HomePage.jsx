@@ -14,7 +14,6 @@ export default function HomePage() {
         <Navbars/>
         <Header/>
         <HomeCard/>
-       
         <HeaderLower/>
         <Cards/>
         <Placement/>

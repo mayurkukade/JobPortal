@@ -15,6 +15,13 @@ export default function MainPart() {
   const [open , setOpen] = React.useState(false);
   const [open1 , setOpen1] = React.useState(false);
   const [open2 , setOpen2] = React.useState(false);
+  const [rightopen1 , setRightopen1] = React.useState(true);
+  const [rightopen2 , setRightopen2] = React.useState(false);
+  const [rightopen3 , setRightopen3] = React.useState(false);
+  const [rightopen4 , setRightopen4] = React.useState(false);
+  const [rightopen5 , setRightopen5] = React.useState(false);
+  const [rightopen6 , setRightopen6] = React.useState(false);
+  const [rightopen7 , setRightopen7] = React.useState(false);
 
    // First Page
 
@@ -45,6 +52,246 @@ const handleOpen4 = () =>{
 
 }
 
+// JavaScript
+
+function firstCard () {
+  document.getElementById('firstcard').setAttribute("style","background:#657ED4");
+  document.getElementById('secondcard').removeAttribute("style");
+ 
+  if(rightopen1==false){
+    setRightopen1(!rightopen1);
+  }else{
+    setRightopen1(rightopen1);
+  }
+
+  if(rightopen2==true){
+    setRightopen2(!rightopen2);
+  }
+
+  document.getElementById('thirdcard').removeAttribute("style");
+  document.getElementById('fourthcard').removeAttribute("style");
+  document.getElementById('fifthcard').removeAttribute("style");
+  document.getElementById('sixcard').removeAttribute("style");
+  document.getElementById('seventhcard').removeAttribute("style");
+
+  if(rightopen3==true){
+    setRightopen3(!rightopen3);
+  }
+  if(rightopen4==true){
+    setRightopen4(!rightopen4);
+  }
+  if(rightopen5==true){
+    setRightopen5(!rightopen5);
+  }
+  if(rightopen6==true){
+    setRightopen6(!rightopen6);
+  }
+  if(rightopen7==true){
+    setRightopen7(!rightopen7);
+  }
+ 
+}
+
+function secontCard () {
+  document.getElementById('secondcard').setAttribute("style","background:#657ED4");
+  document.getElementById('firstcard').removeAttribute("style");
+  document.getElementById('thirdcard').removeAttribute("style");
+  document.getElementById('fourthcard').removeAttribute("style");
+  document.getElementById('fifthcard').removeAttribute("style");
+  document.getElementById('sixcard').removeAttribute("style");
+  document.getElementById('seventhcard').removeAttribute("style");
+  
+  
+  if(rightopen2==false){
+    setRightopen2(!rightopen2);
+  }
+
+  if(rightopen1==true){
+    setRightopen1(!rightopen1);
+  }
+  if(rightopen3==true){
+    setRightopen3(!rightopen3);
+  }
+  if(rightopen4==true){
+    setRightopen4(!rightopen4);
+  }
+  if(rightopen5==true){
+    setRightopen5(!rightopen5);
+  }
+  if(rightopen6==true){
+    setRightopen6(!rightopen6);
+  }
+  if(rightopen7==true){
+    setRightopen7(!rightopen7);
+  }
+
+}
+function thirdCard () {
+  document.getElementById('thirdcard').setAttribute("style","background:#657ED4");
+  document.getElementById('firstcard').removeAttribute("style");
+  document.getElementById('secondcard').removeAttribute("style");
+  document.getElementById('fourthcard').removeAttribute("style");
+  document.getElementById('fifthcard').removeAttribute("style");
+  document.getElementById('sixcard').removeAttribute("style");
+  document.getElementById('seventhcard').removeAttribute("style");
+
+  if(rightopen3==false){
+    setRightopen3(!rightopen3);
+  }
+
+ if(rightopen2==true){
+  setRightopen2(!rightopen2);
+    }
+ if(rightopen1==true){
+  setRightopen1(!rightopen1);
+    }
+    if(rightopen4==true){
+      setRightopen4(!rightopen4);
+    }
+    if(rightopen5==true){
+      setRightopen5(!rightopen5);
+    }
+    if(rightopen6==true){
+      setRightopen6(!rightopen6);
+    }
+    if(rightopen7==true){
+      setRightopen7(!rightopen7);
+    }
+}  
+  function fourthCard () {
+  document.getElementById('fourthcard').setAttribute("style","background:#657ED4");
+  document.getElementById('firstcard').removeAttribute("style");
+  document.getElementById('secondcard').removeAttribute("style");
+  document.getElementById('thirdcard').removeAttribute("style");
+  document.getElementById('fifthcard').removeAttribute("style");
+  document.getElementById('sixcard').removeAttribute("style");
+  document.getElementById('seventhcard').removeAttribute("style");
+  
+  
+
+  if(rightopen4==false){
+    setRightopen4(!rightopen4);
+  }
+  if(rightopen2==true){
+    setRightopen2(!rightopen2);
+      }
+   if(rightopen1==true){
+    setRightopen1(!rightopen1);
+      }
+      if(rightopen3==true){
+        setRightopen3(!rightopen3);
+      }
+      if(rightopen5==true){
+        setRightopen5(!rightopen5);
+      }
+      if(rightopen6==true){
+        setRightopen6(!rightopen6);
+      }
+      if(rightopen7==true){
+        setRightopen7(!rightopen7);
+      }
+
+}
+function fifthCard () {
+  document.getElementById('fifthcard').setAttribute("style","background:#657ED4");
+  document.getElementById('firstcard').removeAttribute("style");
+  document.getElementById('secondcard').removeAttribute("style");
+  document.getElementById('thirdcard').removeAttribute("style");
+  document.getElementById('fourthcard').removeAttribute("style");
+  document.getElementById('sixcard').removeAttribute("style");
+  document.getElementById('seventhcard').removeAttribute("style");
+  
+  if(rightopen5==false){
+    setRightopen5(!rightopen5);
+  }
+
+  if(rightopen4==true){
+    setRightopen4(!rightopen4);
+  }
+  if(rightopen2==true){
+    setRightopen2(!rightopen2);
+      }
+   if(rightopen1==true){
+    setRightopen1(!rightopen1);
+      }
+      if(rightopen3==true){
+        setRightopen3(!rightopen3);
+      }
+      if(rightopen6==true){
+        setRightopen6(!rightopen6);
+      }
+      if(rightopen7==true){
+        setRightopen7(!rightopen7);
+      }
+
+}
+function sixCard () {
+  document.getElementById('sixcard').setAttribute("style","background:#657ED4");
+  document.getElementById('firstcard').removeAttribute("style");
+  document.getElementById('secondcard').removeAttribute("style");
+  document.getElementById('thirdcard').removeAttribute("style");
+  document.getElementById('fourthcard').removeAttribute("style");
+  document.getElementById('fifthcard').removeAttribute("style");
+  document.getElementById('seventhcard').removeAttribute("style");
+  
+  if(rightopen6==false){
+    setRightopen6(!rightopen6);
+  }
+
+  if(rightopen4==true){
+    setRightopen4(!rightopen4);
+  }
+  if(rightopen2==true){
+    setRightopen2(!rightopen2);
+      }
+   if(rightopen1==true){
+    setRightopen1(!rightopen1);
+      }
+      if(rightopen3==true){
+        setRightopen3(!rightopen3);
+      }
+      if(rightopen5==true){
+        setRightopen5(!rightopen5);
+      }
+      if(rightopen7==true){
+        setRightopen7(!rightopen7);
+      }
+
+}
+function seventhCard () {
+  document.getElementById('seventhcard').setAttribute("style","background:#657ED4");
+  document.getElementById('firstcard').removeAttribute("style");
+  document.getElementById('secondcard').removeAttribute("style");
+  document.getElementById('thirdcard').removeAttribute("style");
+  document.getElementById('fourthcard').removeAttribute("style");
+  document.getElementById('fifthcard').removeAttribute("style");
+  document.getElementById('sixcard').removeAttribute("style");
+  
+  if(rightopen7==false){
+    setRightopen7(!rightopen7);
+  }
+
+  if(rightopen4==true){
+    setRightopen4(!rightopen4);
+  }
+  if(rightopen2==true){
+    setRightopen2(!rightopen2);
+      }
+   if(rightopen1==true){
+    setRightopen1(!rightopen1);
+      }
+      if(rightopen3==true){
+        setRightopen3(!rightopen3);
+      }
+      if(rightopen5==true){
+        setRightopen5(!rightopen5);
+      }
+      if(rightopen6==true){
+        setRightopen6(!rightopen6);
+      }
+
+}
+
   return (
     <div className='flex justify-center'>
             {/* First Part start */}
@@ -57,19 +304,19 @@ const handleOpen4 = () =>{
               </p>
 
                 {/* first Card */}
-              <div className='flex bg-NavColour rounded-lg md:w-[30rem]  w-[24.2rem] md:h-[10rem] justify-center'>
+              <div onClick={firstCard} id='firstcard' className='flex rounded-lg bg-Details md:w-[30rem]  w-[24.2rem] md:h-[10rem] justify-center'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
              <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[1.5rem] text-white font-Inter'>Full Stack Developer</p>
+                <p className='md:text-[1.5rem] text-[#FF331F] font-Inter'>Full Stack Developer</p>
                 <p className='md:text-[1rem]  font-Inter'>Lenskart</p>
                 <p className='md:text-[1rem]  font-Inter'>India (Remote)</p>
                 <p className='md:text-[1rem]  font-Inter text-[#005F59]'>3 hours ago</p>
              </div>
            </div>
                 {/* Second Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              <div onClick={secontCard} id='secondcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -81,7 +328,7 @@ const handleOpen4 = () =>{
              </div>
            </div>
                 {/* Third Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              <div onClick={thirdCard} id='thirdcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -93,7 +340,7 @@ const handleOpen4 = () =>{
              </div>
            </div>
                 {/* Fourth Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              <div onClick={fourthCard} id='fourthcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -105,7 +352,7 @@ const handleOpen4 = () =>{
              </div>
            </div>
                 {/* Fifth Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              <div onClick={fifthCard} id='fifthcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -117,7 +364,7 @@ const handleOpen4 = () =>{
              </div>
            </div>
                 {/* Sixth Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              <div onClick={sixCard} id='sixcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -129,7 +376,7 @@ const handleOpen4 = () =>{
              </div>
            </div>
                 {/* Seventh Card */}
-              <div className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              <div onClick={seventhCard} id='seventhcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -144,7 +391,7 @@ const handleOpen4 = () =>{
             </div>
 
             {/* Right Side */}
-            <div className='bg-Details rounded-md md:ml-10 mt-5 pl-5 md:w-[49.5rem]  w-[24.2rem] '>
+          {rightopen1 && (<div className='bg-Details rounded-md md:ml-10 mt-5 pl-5 md:w-[49.5rem]  w-[24.2rem] '>
                  {/* Top Name */}
               <p className='md:text-[2.5rem] text-2xl text-[#FF331F] font-Inter mt-2'>Full Stack Developer</p>
                <div className='flex'>
@@ -200,7 +447,43 @@ const handleOpen4 = () =>{
              <p className='md:text-[1.4rem]'>Lenskart is Asia’s largest eyewear company serving 40 Million people - helping them see better and lead better quality lives. We have more than 1500 omnichannel stores across 175 cities in India, Singapore and Dubai. Our aim is to serve One Billion eyes by 2025 globally. And in this journey, we want to go beyond vision correction to transform the way people see and experience the world. That’s our new purpose - and we can only get there through cutting-edge technology and exceptional people</p>
            </div>
 
-            </div>
+            </div>)} 
+
+            {rightopen2 && (
+              <div>
+                <p>Second Open</p>
+              </div>
+            )} 
+
+            {rightopen3 && (
+              <div>
+                <p>Third Open</p>
+              </div>
+            )} 
+
+            {rightopen4 && (
+              <div>
+                <p>Fourth Open</p>
+              </div>
+            )} 
+
+            {rightopen5 && (
+              <div>
+                <p>Fifth Open</p>
+              </div>
+            )} 
+
+            {rightopen6 && (
+              <div>
+                <p>Sixth Open</p>
+              </div>
+            )} 
+
+            {rightopen7 && (
+              <div>
+                <p>Seventh Open</p>
+              </div>
+            )} 
 
         </div>
          {/* First Part end */}
