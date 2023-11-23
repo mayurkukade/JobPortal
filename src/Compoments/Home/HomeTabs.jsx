@@ -39,9 +39,8 @@ import {
 } from "@heroicons/react/24/solid";
 import React from "react";
 import { calcLength } from "framer-motion";
-import Card2 from "./Card2";
-import Card3 from "./Card3";
-import Card1 from "./Card1";
+
+
 const HomeTabs = () => {
   const cardOne = [
     {
@@ -59,7 +58,7 @@ const HomeTabs = () => {
       icon: UserCircleIcon,
       desc: `Because it's about motivating the doers. Because I'm here
           to follow my dreams and inspire other people to follow their dreams, too.`,
-      plan: "BASIC",
+      plan: "standard",
     },
     {
       label: "Settings",
@@ -68,7 +67,7 @@ const HomeTabs = () => {
       desc: `We're not always in the position that we want to be at.
           We're constantly growing. We're constantly making mistakes. We're
           constantly trying to express ourselves and actualize our dreams.`,
-      plan: "BASIC",
+      plan: "premium",
     },
   ];
   const cardTwo = [
@@ -144,11 +143,16 @@ const HomeTabs = () => {
         </TabsHeader>
         <TabsBody className="flex justify-between">
           {cardOne.map(({ value, desc,plan }) => (
+            
             <>
               <TabPanel key={value} value={value}  >
-           <Card1/>
-              <Card2/>
-              <Card3/>
+           
+              <div className="flex justify-around">
+             
+              {/* <Card2/>
+              <Card3/> */}
+              </div>
+         
               </TabPanel>
             </>
           ))}

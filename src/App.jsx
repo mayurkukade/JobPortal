@@ -19,6 +19,7 @@ console.log(data,error,isLoading,isError)
           <Route path="/jobsection" element={<JobSection/>} />
           <Route path="/jobdetails" element={<JobDetails/>} />
           <Route path="/counter" element={<Counter/>} />
+          <Route path="/studentSignUp" element={<SingUp/>}/>
        
 
         </Route>

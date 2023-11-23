@@ -6,15 +6,32 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-
+import { useNavigate } from "react-router-dom";
 import Pref from "./Images/preferable-icon 1.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import {BiSun,BiMoon} from 'react-icons/bi'
-
+import { Link } from "react-router-dom";
+import {
+  
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
 export default function Navbars() {
   const [openNav, setOpenNav] = React.useState(false);
   const [theme,setTheme] = useState('light')
+  const [open, setOpen] = React.useState(false);
+ 
+  const handleOpen = () => setOpen(!open);
+const navigate = useNavigate()
+  const studentFormNavigate = ()=>{
+    navigate('/studentSignUp')
+    handleOpen()
+
+  }
+
   console.log(theme)
   React.useEffect(() => {
     window.addEventListener(
@@ -166,7 +183,7 @@ const handleThemeSwitch = () =>{
             size="sm"
             className="hidden lg:inline-block"
           >
-            <span className="text-accent">Sign in</span>
+            <span className="text-accent" onClick={handleOpen} >Sign in</span>
           </Button>
         </div>
         <IconButton
@@ -214,9 +231,30 @@ const handleThemeSwitch = () =>{
             <Button fullWidth variant="text" size="sm" className="">
               <span>Log In</span>
             </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
+            <Button fullWidth onClick={handleOpen} variant="gradient" size="sm" >
               <span>Sign in</span>
             </Button>
+            
+      <Dialog open={open} handler={handleOpen}>
+        <DialogHeader>Choose your signup profile</DialogHeader>
+        <DialogBody className="flex gap-10">
+        <Button onClick={studentFormNavigate}>STUDENT</Button>
+        <Button>TPO</Button>
+        <Button >RECEUITER</Button>
+        </DialogBody>
+        <DialogFooter>
+          <Button
+            variant="text"
+            color="red"
+            onClick={handleOpen}
+            className="mr-1"
+          >
+            <span>Cancel</span>
+          </Button>
+         
+        </DialogFooter>
+      </Dialog>
+
           </div>
         </div>
       </MobileNav>
