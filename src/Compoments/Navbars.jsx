@@ -31,6 +31,16 @@ const navigate = useNavigate()
     handleOpen()
 
   }
+  const tpoFormNavigate = ()=>{
+    navigate('/tpo')
+    handleOpen()
+
+  }
+  const RecruiterFormNavigate = ()=>{
+    navigate('/recruitersignup')
+    handleOpen()
+
+  }
 
   console.log(theme)
   React.useEffect(() => {
@@ -182,8 +192,9 @@ const handleThemeSwitch = () =>{
             variant="gradient"
             size="sm"
             className="hidden lg:inline-block"
+            onClick={handleOpen}
           >
-            <span className="text-accent" onClick={handleOpen} >Sign in</span>
+            <span className="text-accent"  >Sign in</span>
           </Button>
         </div>
         <IconButton
@@ -236,11 +247,11 @@ const handleThemeSwitch = () =>{
             </Button>
             
       <Dialog open={open} handler={handleOpen}>
-        <DialogHeader>Choose your signup profile</DialogHeader>
-        <DialogBody className="flex gap-10">
+        <DialogHeader className="flex justify-center">Choose your signup profile</DialogHeader>
+        <DialogBody className="flex gap-10 justify-center">
         <Button onClick={studentFormNavigate}>STUDENT</Button>
-        <Button>TPO</Button>
-        <Button >RECEUITER</Button>
+        <Button onClick={tpoFormNavigate}>TPO</Button>
+        <Button onClick={RecruiterFormNavigate} >RECEUITER</Button>
         </DialogBody>
         <DialogFooter>
           <Button

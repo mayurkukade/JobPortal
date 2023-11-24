@@ -1,5 +1,5 @@
 // import React from 'react'
-// import Navbars from '../Navbars'
+ import Navbars from '../Navbars'
 // import JobDetailsHeader from './JobDetailsHeader'
 // import MainPart from './MainPart'
 import {
@@ -8,6 +8,7 @@ import {
   TabsBody,
   Tab,
   TabPanel,
+  Navbar,
 } from "@material-tailwind/react";
 import {
   Card,
@@ -173,12 +174,15 @@ export default function JobDetails() {
   ];
 
   return (
-    <div className="container mx-auto m-12 z-0 ">
+    <>
+
+   <Navbars/>
+    <div className="container mx-auto m-12  ">
       {/* <JobDetailsHeader/>
       <MainPart/> */}
       
-      <Tabs value="html" orientation="vertical"     >
-        <TabsHeader className="max-h-[400px] lg:max-h-[800px] overflow-y-auto "  >
+      <Tabs value="html" orientation="vertical"  className="h-[70vh]"   >
+        <TabsHeader className=" max-h-[80vh]  overflow-y-auto "  >
           {data.map(({ label, value, icon }) => (
             
             <Tab key={value} value={value} className="flex items-start">
@@ -229,5 +233,6 @@ export default function JobDetails() {
       </Tabs>
      
     </div>
+    </>
   );
 }

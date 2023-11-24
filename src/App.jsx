@@ -6,29 +6,29 @@ import JobSection from "./Pages/JobSection";
 import JobDetails from "./Compoments/Job details/JobDetails";
 import AppLayout from "./Compoments/layout/AppLayout";
 import { Counter } from "./features/counter/Counter";
-import { useGetStudentQuery } from "./services/Registration/registrationSlice";
 import RegistrationPage from "./Pages/RegistrationPage";
+import StudentSignUpForm from "./Compoments/Forms/StudentSignUpForm";
+import TpoSignUpForm from "./Compoments/Forms/TpoSignUpForm";
+import RecruiterSignUpForm from "./Compoments/Forms/RecruiterSignUpForm";
+
 function App() {
-  const {data,error,isLoading,isError} = useGetStudentQuery()
-console.log(data,error,isLoading,isError)
   return (
     <>
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/jobsection" element={<JobSection/>} />
-          <Route path="/jobdetails" element={<JobDetails/>} />
-          <Route path="/counter" element={<Counter/>} />
-          <Route path="/studentSignUp" element={<SingUp/>}/>
-       
-
+          <Route path="/jobsection" element={<JobSection />} />
+        
+          <Route path="/counter" element={<Counter />} />
         </Route>
-        <Route path="register" element={<RegistrationPage/>} />
+        <Route path="register" element={<RegistrationPage />} />
+        <Route path="/studentSignUp" element={<StudentSignUpForm />} />
+        <Route path="/tpo" element={<TpoSignUpForm />} />
+        <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
+        <Route path="/jobdetails" element={<JobDetails />} />
       </Routes>
 
-      
-      
-    {/* <SingUp/> */}
+      {/* <SingUp/> */}
       {/* <HomePage/> */}
       {/* <Registration/> */}
       {/* <JobSection/> */}

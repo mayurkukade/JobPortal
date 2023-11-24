@@ -12,7 +12,57 @@ import {
   Typography,
   CheckIcon,
 } from "@material-tailwind/react";
+import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
+import { calcLength } from "framer-motion";
+
 export default function JobSecond() {
+  const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
+  console.log(isSuccess);
+  console.log(data);
+  
+  const jobData = data?.list?.map((item,index)=>{
+    console.log(item)
+    return(
+      <div key={item.id}>
+      <Card className="   flex-row mb-5 ">
+          <CardHeader
+            shadow={false}
+            floated={false}
+            className="m-0 w-1/5 shrink-0 rounded-r-none "
+          >
+            <img
+              src={Lens}
+              className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+              alt=""
+            />
+          </CardHeader>
+          <CardBody>
+            <Typography variant="h5" color="#03a9f4" className="text-[#5594d5]">
+              {item.postName}
+            </Typography>
+            <Typography variant="h6" color="gray" className=" uppercase">
+              {item.companyName}
+            </Typography>
+            <Typography color="gray" className=" font-normal">
+              {item.jobLocation}
+            </Typography>
+            <Typography color="green" className=" font-normal">
+              3 hours ago
+            </Typography>
+            <Typography color="green" className=" font-normal"></Typography>
+          </CardBody>
+        </Card>
+      </div>
+    )
+  })
+
+
+  let fetchedJob;
+  if (isSuccess) {
+    fetchedJob =jobData
+  } else if (isLoading) {
+    <p>loading</p>;
+  }
   return (
     <div className="mx-auto container  mt-20 ">
       <div className="flex flex-wrap gap-12 lg:justify-center ">
@@ -59,7 +109,8 @@ export default function JobSecond() {
         {/* Right side */}
 
         <div className="w-[25rem] xl:w-[40rem]  ">
-          <Card className="   flex-row mb-5 ">
+        {fetchedJob}
+          {/* <Card className="   flex-row mb-5 ">
             <CardHeader
               shadow={false}
               floated={false}
@@ -90,8 +141,9 @@ export default function JobSecond() {
               </Typography>
               <Typography color="green" className=" font-normal"></Typography>
             </CardBody>
-          </Card>
-          <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+          </Card> */}
+          {/* {fetchedJob} */}
+          {/* <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
             <CardHeader
               shadow={false}
               floated={false}
@@ -186,7 +238,7 @@ export default function JobSecond() {
               </Typography>
               <Typography color="green" className=" font-normal"></Typography>
             </CardBody>
-          </Card>
+          </Card> */}
         </div>
       </div>
     </div>

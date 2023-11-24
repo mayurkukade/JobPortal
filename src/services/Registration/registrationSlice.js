@@ -6,6 +6,7 @@ export const registrationSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: "/account/register",
         method: "POST",
+       
         body: data,
       }),
       invalidatesTags: ["registerPost"],
