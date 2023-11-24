@@ -10,6 +10,8 @@ import {
     DialogFooter,
   } from "@material-tailwind/react";
 
+  
+
 export default function MainPart() {
   
   const [open , setOpen] = React.useState(false);
@@ -450,9 +452,7 @@ function seventhCard () {
             </div>)} 
 
             {rightopen2 && (
-              <div>
-                <p>Second Open</p>
-              </div>
+              <div><p>Second Open</p></div>
             )} 
 
             {rightopen3 && (

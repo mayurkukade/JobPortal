@@ -13,8 +13,8 @@ function App() {
     <>
     {/* <HomePage/> */}
     {/* <Registration/> */}
-    {/* <JobSection/> */}
-    <JobDetails/>
+    <JobSection/>
+    {/* <JobDetails/> */}
     {/* <Forms/> */}
     </>
   )

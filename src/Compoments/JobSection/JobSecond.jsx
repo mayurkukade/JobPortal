@@ -4,6 +4,7 @@ import Skill from "../Images/skill.svg"
 import Assis from "../Images/assist.svg"
 import Inter from "../Images/inter.svg"
 import Lens from "../Images/Lenskart.png"
+import { JobSection } from '../Data/JobSectionData'
 
 export default function JobSecond() {
   return (
@@ -37,72 +38,15 @@ export default function JobSecond() {
 
          {/* Right side */}
 
-         <div className='md:ml-20'>
+         <div className='sm:ml-20'>
 
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] justify-center'>
-             <div className='flex items-center '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
+           {JobSection.map(({Job}) =>(
+             <div>
+               {Job}
              </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
+           ))}
+           
            </div>
-
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-
-           <div className='flex bg-Details rounded-lg md:w-[40rem] w-[27rem] md:h-[15rem] mt-10 justify-center'>
-             <div className='flex items-center  '>
-                <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem]' alt="" />
-             </div>
-             <div className='md:ml-20 ml-5 pt-7'>
-                <p className='md:text-[2.5rem] text-[#CF4307] font-Inter'>Full Stack Developer</p>
-                <p className='md:text-[2rem]  font-Inter'>Lenskart</p>
-                <p className='md:text-[1.5rem]  font-Inter'>India (Remote)</p>
-                <p className='md:text-[1.5rem]  font-Inter text-[#005F59]'>3 hours ago</p>
-             </div>
-           </div>
-
-
-         </div>
 
       </div>
     </div>

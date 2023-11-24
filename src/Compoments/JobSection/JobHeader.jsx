@@ -11,16 +11,16 @@ export default function JobHeader() {
 
           <div className='flex flex-wrap mt-5'>
 
-            <div className='w-[25rem] h-[5rem] bg-white ml-5 rounded-md flex items-center justify-center'>
+            <div className='w-[25rem] h-[5rem] bg-white sm:mt-0 mt-5 ml-5 rounded-md flex items-center justify-center'>
               <p className='font-Inter text-[1.1rem] '>Job title,keywords or company name</p>
             </div>
 
-            <div className='w-[25rem] h-[5rem] bg-white ml-5 rounded-md flex items-center '>
+            <div className='w-[25rem] h-[5rem] bg-white sm:mt-1 lg:mt-0 mt-5 ml-5 rounded-md flex items-center '>
               <p className='font-Inter text-[1.1rem] pl-5'>city or state</p>
               <img src={Location} className='w-[2.8125rem] h-[3.125rem] ml-60' alt="" />
             </div>
 
-            <div className='w-[25rem] h-[5rem] bg-white ml-5 rounded-md flex items-center '>
+            <div className='w-[25rem] h-[5rem] bg-white sm:mt-0 mt-5 ml-5 rounded-md flex items-center '>
               <p className='font-Inter text-[1.1rem] pl-5'>Experience</p>
               <img src={down} className='w-[2.8125rem] h-[3.125rem] ml-60' alt="" />
             </div>

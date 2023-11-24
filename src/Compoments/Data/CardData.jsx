@@ -302,30 +302,24 @@ export const data = [
             <span className="rounded-full p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Apply for Jobs</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Industry relations - 1 event per month</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white  p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Profile with CV</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Student benchmarking & assessment - 1 time</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to blogs , Success Stories. </Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to mentor booking</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Bootcamps </Typography>
           </li>
           
         </ul>
       </CardBody>
-      <CardFooter className="mt-12 p-0">
+      <CardFooter className="mt-20 p-0">
         <Button
           size="lg"
           color="white"
@@ -389,25 +383,19 @@ export const data = [
             <span className="rounded-full p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Apply for Jobs</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Industry relations - 1 per week</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white  p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Profile with CV</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Student benchmarking & feedback every month</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to blogs , Success Stories. </Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to mentor booking</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Higher education - event </Typography>
           </li>
           
         </ul>
@@ -475,25 +463,19 @@ export const data = [
             <span className="rounded-full p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Apply for Jobs</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Training on IT skills / soft skills / analytical skills</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white  p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Profile with CV</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">MS / Phd university connect</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to blogs , Success Stories. </Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to mentor booking</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Incubator program </Typography>
           </li>
           
         </ul>
@@ -551,30 +533,18 @@ export const data = [
             <span className="rounded-full p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Apply for Jobs</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Unlimited job listings</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white  p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Profile with CV</Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to blogs , Success Stories. </Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to mentor booking</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Unlimited profile access</Typography>
           </li>
           
         </ul>
       </CardBody>
-      <CardFooter className="mt-12 p-0">
+      <CardFooter className="mt-48 p-0">
         <Button
           size="lg"
           color="white"
@@ -638,30 +608,18 @@ export const data = [
             <span className="rounded-full p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Apply for Jobs</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Candidate skills and assessment scores visibility</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white  p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Profile with CV</Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to blogs , Success Stories. </Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to mentor booking</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Application tracking system</Typography>
           </li>
           
         </ul>
       </CardBody>
-      <CardFooter className="mt-12 p-0">
+      <CardFooter className="mt-28 p-0">
         <Button
           size="lg"
           color="white"
@@ -724,30 +682,18 @@ export const data = [
             <span className="rounded-full p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Apply for Jobs</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Candidate assessments - virtual / in person</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full text-white  p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Profile with CV</Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to blogs , Success Stories. </Typography>
-          </li>
-          <li className="flex items-center gap-4">
-            <span className="rounded-full text-white p-1">
-              <CheckIcon />
-            </span>
-            <Typography className="font-normal text-white text-[0.9rem]">Access to mentor booking</Typography>
+            <Typography className="font-normal text-white text-[0.9rem]">Interview - industry consultants</Typography>
           </li>
           
         </ul>
       </CardBody>
-      <CardFooter className="mt-12 p-0">
+      <CardFooter className="mt-28 p-0">
         <Button
           size="lg"
           color="white"
