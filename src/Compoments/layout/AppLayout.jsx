@@ -1,6 +1,6 @@
-import Navbar  from "../Navbars"
-import { Outlet } from "react-router-dom"
-import Footer from "../Footer"
+import Navbar from "../Navbars";
+import { Outlet } from "react-router-dom";
+import Footer from "../Footer";
 // import { useState } from "react";
 // import { useEffect } from "react";
 const AppLayout = () => {
@@ -17,15 +17,26 @@ const AppLayout = () => {
   //   },[theme])
   return (
     <div>
-    <Navbar />
-    <div className="dark:bg-black"   >
-    <Outlet/>
-    </div>
-   
-    <Footer/>
-      
-    </div>
-  )
-}
+        <div className="min-h-screen flex flex-col">
+      {/* Navbar at the top */}
+      <header >
+        {/* Navbar content */}
+        <Navbar/>
+      </header>
 
-export default AppLayout
+      {/* Main content */}
+      <main className="flex-grow dark:bg-black ">
+        {/* Your page content goes here */}
+       <Outlet/>
+      </main>
+
+      {/* Footer in the last outlet in the middle */}
+      <Footer>
+        <Footer/>
+      </Footer>
+      </div>
+    </div>
+  );
+};
+
+export default AppLayout;

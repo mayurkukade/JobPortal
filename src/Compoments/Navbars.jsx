@@ -6,15 +6,42 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
-
+import { useNavigate } from "react-router-dom";
 import Pref from "./Images/preferable-icon 1.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import {BiSun,BiMoon} from 'react-icons/bi'
-
+import { Link } from "react-router-dom";
+import {
+  
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
 export default function Navbars() {
   const [openNav, setOpenNav] = React.useState(false);
   const [theme,setTheme] = useState('light')
+  const [open, setOpen] = React.useState(false);
+ 
+  const handleOpen = () => setOpen(!open);
+const navigate = useNavigate()
+  const studentFormNavigate = ()=>{
+    navigate('/studentSignUp')
+    handleOpen()
+
+  }
+  const tpoFormNavigate = ()=>{
+    navigate('/tpo')
+    handleOpen()
+
+  }
+  const RecruiterFormNavigate = ()=>{
+    navigate('/recruitersignup')
+    handleOpen()
+
+  }
+
   console.log(theme)
   React.useEffect(() => {
     window.addEventListener(
@@ -136,7 +163,7 @@ const handleThemeSwitch = () =>{
   );
 
   return (
-    <Navbar className="  sticky top-0 z-10 h-max max-w-full rounded-none px-4 py-2 lg:px-8   bg-primary">
+    <Navbar className="  sticky top-0 z-30 h-max max-w-full rounded-none px-4 py-2 lg:px-8   bg-primary">
       <div className=" flex items-center justify-between text-blue-gray-900 xl:ml-[4.2rem]">
         <Typography
           as="a"
@@ -144,7 +171,7 @@ const handleThemeSwitch = () =>{
           className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl xl:text-4xl xl:ml "
         >
           <img src={Pref} className="w-10 ml-10 lg:block hidden" alt="" />
-          <div className="ml-2 text-accent">
+          <div className="ml-2 text-white">
    
           Preferable
           </div>
@@ -165,8 +192,9 @@ const handleThemeSwitch = () =>{
             variant="gradient"
             size="sm"
             className="hidden lg:inline-block"
+            onClick={handleOpen}
           >
-            <span className="text-accent">Sign in</span>
+            <span className="text-accent"  >Sign in</span>
           </Button>
         </div>
         <IconButton
@@ -214,9 +242,30 @@ const handleThemeSwitch = () =>{
             <Button fullWidth variant="text" size="sm" className="">
               <span>Log In</span>
             </Button>
-            <Button fullWidth variant="gradient" size="sm" className="">
+            <Button fullWidth onClick={handleOpen} variant="gradient" size="sm" >
               <span>Sign in</span>
             </Button>
+            
+      <Dialog open={open} handler={handleOpen}>
+        <DialogHeader className="flex justify-center">Choose your signup profile</DialogHeader>
+        <DialogBody className="flex gap-10 justify-center">
+        <Button onClick={studentFormNavigate}>STUDENT</Button>
+        <Button onClick={tpoFormNavigate}>TPO</Button>
+        <Button onClick={RecruiterFormNavigate} >RECEUITER</Button>
+        </DialogBody>
+        <DialogFooter>
+          <Button
+            variant="text"
+            color="red"
+            onClick={handleOpen}
+            className="mr-1"
+          >
+            <span>Cancel</span>
+          </Button>
+         
+        </DialogFooter>
+      </Dialog>
+
           </div>
         </div>
       </MobileNav>
