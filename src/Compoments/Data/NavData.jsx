@@ -2,10 +2,10 @@
 export const NavData = [
     {
         title : "Preferable",
-        compoment : "Pages",
-        Menu : "Account",
-        Block : "Blocks",
-        Contact : "Contact us",
+        compoment : "Home",
+        Menu : "JobSection",
+        Block : "JobDetails",
+        Contact : "Forms",
         Jobs : "Jobs"
     }
 ]

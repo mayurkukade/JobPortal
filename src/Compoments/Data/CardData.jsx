@@ -9,6 +9,7 @@ import {
   } from "@material-tailwind/react";
   
   import '../../CSS/Style.css'
+  
   function CheckIcon() {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">

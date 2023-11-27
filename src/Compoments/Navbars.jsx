@@ -10,6 +10,7 @@ import {
   import {NavData} from "./Data/NavData"
 
   import Pref from "./Images/preferable-icon 1.png"
+  import { Link } from 'react-router-dom';
 
 export default function Navbars() {
     const [openNav, setOpenNav] = React.useState(false);
@@ -42,7 +43,7 @@ export default function Navbars() {
           />
         </svg> */}
  
-        <a href="#" className="flex items-center">
+        <Link to="/" className="flex items-center">
         {NavData.map((data,key) =>{
           return(
             <div key ={key}>
@@ -50,7 +51,7 @@ export default function Navbars() {
             </div>
           )
          })}
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -72,7 +73,7 @@ export default function Navbars() {
             fill="#90A4AE"
           />
         </svg> */}
-        <a href="#" className="flex items-center">
+        <Link to="/JobSection" className="flex items-center">
         {NavData.map((data,key) =>{
           return(
             <div key ={key}>
@@ -80,7 +81,7 @@ export default function Navbars() {
             </div>
           )
          })}
-        </a>
+        </Link>
       </Typography>
      
       <Typography
@@ -101,7 +102,7 @@ export default function Navbars() {
             fill="#90A4AE"
           />
         </svg> */}
-        <a href="#" className="flex items-center">
+        <Link to="/JobDetails" className="flex items-center">
         {NavData.map((data,key) =>{
           return(
             <div key ={key}>
@@ -109,7 +110,7 @@ export default function Navbars() {
             </div>
           )
          })}
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -131,7 +132,7 @@ export default function Navbars() {
             fill="#90A4AE"
           />
         </svg> */}
-        <a href="#" className="flex items-center">
+        <Link to="/Forms" className="flex items-center">
         {NavData.map((data,key) =>{
           return(
             <div key ={key}>
@@ -139,7 +140,7 @@ export default function Navbars() {
             </div>
           )
          })}
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
@@ -148,10 +149,10 @@ export default function Navbars() {
    <Navbar className="mx-auto max-w-screen-xl px-4 py-2 lg:px-8 lg:py-4 bg-NavColour">
       <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
         <Typography
-          as="a"
-          href="#"
+          
           className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl "
         >
+          <Link to="/">
            <img src={Pref} className='w-10 ml-10 lg:block hidden' alt="" />
           <div className='ml-2 text-white'>
          {NavData.map((data,key) =>{
@@ -162,6 +163,7 @@ export default function Navbars() {
           )
          })}
          </div>
+         </Link>
         </Typography>
         <Typography className='lg:block hidden'>
           <input type="search" className='bg-[#373737] text-white pl-2 w-52 h-10 rounded-md' placeholder='Search' />

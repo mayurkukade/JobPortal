@@ -12,6 +12,27 @@ import {
 
   
 
+ 
+
+  const createJob = (id,className,idname, title, company, location, postedTime) => ({
+    id,
+    className,
+    idname,
+    title,
+    company,
+    location,
+    postedTime,
+  });
+
+  const generateJobData = () => {
+    return  [
+      createJob(1,"firstCard","firstcard", "Full Stack Developer", "Lenskart", "India (Remote)", "3 hours ago"),
+      createJob(2,"secontCard","secondcard", "Full Stack Developer", "Lenskart", "India (Remote)", "3 hours ago"),
+      createJob(3,"thirdCard","thirdcard", "Full Stack Developer", "Lenskart", "India (Remote)", "3 hours ago"),
+    ];
+  };
+  const jobData = generateJobData();
+
 export default function MainPart() {
   
   const [open , setOpen] = React.useState(false);
@@ -59,7 +80,7 @@ const handleOpen4 = () =>{
 function firstCard () {
   document.getElementById('firstcard').setAttribute("style","background:#657ED4");
   document.getElementById('secondcard').removeAttribute("style");
- 
+
   if(rightopen1==false){
     setRightopen1(!rightopen1);
   }else{
@@ -305,8 +326,24 @@ function seventhCard () {
                     197 results
               </p>
 
+              <div>
+              {jobData.map((job) => (
+                <div  key={job.id} onClick={() => job.className()} id={job.idname} className='flex rounded-lg bg-Details mt-5 md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center'>
+                  <div  className='flex items-center '>
+                    <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
+                  </div>
+                  <div className='md:ml-20 ml-5 pt-7'>
+                    <p className='md:text-[1.5rem] text-[#FF331F] font-Inter'>{job.title}</p>
+                    <p className='md:text-[1rem]  font-Inter'>{job.company}</p>
+                    <p className='md:text-[1rem]  font-Inter'>{job.location}</p>
+                    <p className='md:text-[1rem]  font-Inter text-[#005F59]'>{job.postedTime}</p>
+                  </div>
+                </div>
+              ))}
+              </div>
+                 {/* key={job.id} onClick={() => job.className()} id={job.idname} */}
                 {/* first Card */}
-              <div onClick={firstCard} id='firstcard' className='flex rounded-lg bg-Details md:w-[30rem]  w-[24.2rem] md:h-[10rem] justify-center'>
+              {/* <div onClick={firstCard} id='firstcard' className='flex rounded-lg bg-Details md:w-[30rem]  w-[24.2rem] md:h-[10rem] justify-center'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -316,9 +353,9 @@ function seventhCard () {
                 <p className='md:text-[1rem]  font-Inter'>India (Remote)</p>
                 <p className='md:text-[1rem]  font-Inter text-[#005F59]'>3 hours ago</p>
              </div>
-           </div>
+           </div> */}
                 {/* Second Card */}
-              <div onClick={secontCard} id='secondcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              {/* <div onClick={secontCard} id='secondcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -328,9 +365,9 @@ function seventhCard () {
                 <p className='md:text-[1rem]  font-Inter'>India (Remote)</p>
                 <p className='md:text-[1rem]  font-Inter text-[#005F59]'>3 hours ago</p>
              </div>
-           </div>
+           </div> */}
                 {/* Third Card */}
-              <div onClick={thirdCard} id='thirdcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              {/* <div onClick={thirdCard} id='thirdcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -340,9 +377,9 @@ function seventhCard () {
                 <p className='md:text-[1rem]  font-Inter'>India (Remote)</p>
                 <p className='md:text-[1rem]  font-Inter text-[#005F59]'>3 hours ago</p>
              </div>
-           </div>
+           </div> */}
                 {/* Fourth Card */}
-              <div onClick={fourthCard} id='fourthcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              {/* <div onClick={fourthCard} id='fourthcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -354,7 +391,7 @@ function seventhCard () {
              </div>
            </div>
                 {/* Fifth Card */}
-              <div onClick={fifthCard} id='fifthcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              {/* <div onClick={fifthCard} id='fifthcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -364,9 +401,9 @@ function seventhCard () {
                 <p className='md:text-[1rem]  font-Inter'>India (Remote)</p>
                 <p className='md:text-[1rem]  font-Inter text-[#005F59]'>3 hours ago</p>
              </div>
-           </div>
+           </div>  */}
                 {/* Sixth Card */}
-              <div onClick={sixCard} id='sixcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              {/* <div onClick={sixCard} id='sixcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -376,9 +413,9 @@ function seventhCard () {
                 <p className='md:text-[1rem]  font-Inter'>India (Remote)</p>
                 <p className='md:text-[1rem]  font-Inter text-[#005F59]'>3 hours ago</p>
              </div>
-           </div>
+           </div> */}
                 {/* Seventh Card */}
-              <div onClick={seventhCard} id='seventhcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
+              {/* <div onClick={seventhCard} id='seventhcard' className='flex bg-Details rounded-lg md:w-[30rem] w-[24.2rem] md:h-[10rem] justify-center mt-5'>
              <div className='flex items-center '>
                 <img src={Lens} className='md:w-[3.875rem] md:h-[2.75rem] ' alt="" />
              </div>
@@ -388,7 +425,7 @@ function seventhCard () {
                 <p className='md:text-[1rem]  font-Inter'>India (Remote)</p>
                 <p className='md:text-[1rem]  font-Inter text-[#005F59]'>3 hours ago</p>
              </div>
-           </div>
+           </div> */}
 
             </div>
 

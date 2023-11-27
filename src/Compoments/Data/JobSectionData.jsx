@@ -16,6 +16,7 @@ const createJob = (id, title, company, location, postedTime) => ({
       createJob(2, "Full Stack Developer", "Lenskart", "India (Remote)", "3 hours ago"),
       createJob(3, "Full Stack Developer", "Lenskart", "India (Remote)", "3 hours ago"),
      
+     
     ];
   };
   const jobData = generateJobData();

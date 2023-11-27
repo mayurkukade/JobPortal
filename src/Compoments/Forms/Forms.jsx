@@ -10,11 +10,14 @@ import ITItraning from './ITItraning'
 import LiveProject from './LiveProject'
 import Card from './Cards'
 import Cards from './Cards'
+import { Route,Routes } from 'react-router-dom'
 
 export default function Forms() {
   return (
     <div>
+
       <Navbars/>
+      
       {/* <Plan/>
       <SingUp/> */}
       {/* <Registration/> */}
@@ -23,7 +26,17 @@ export default function Forms() {
       {/* <MentorBooking/> */}
       {/* <ITItraning/> */}
       {/* <LiveProject/> */}
-      <Cards/>
+      {/* <Cards/> */}
+
+      <Routes>
+        <Route to="/SingUp" element={<SingUp/>}/>
+        <Route to="/JobAssistment" element={<JobAssistment/>}/>
+        <Route to="/MentorBooking" element={<MentorBooking/>}/>
+        <Route to="/ITItraning" element={<ITItraning/>}/>
+        <Route to="/Registration" element={<Registration/>}/>
+        <Route to="/<LiveProject/>" element={<LiveProject/>}/>
+     </Routes>
+     
     </div>
   )
 }
