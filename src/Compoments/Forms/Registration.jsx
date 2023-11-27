@@ -1,5 +1,6 @@
 import { Button, Input } from "@material-tailwind/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Registration() {
   return (
@@ -60,13 +61,14 @@ export default function Registration() {
             <Input type="password" label="Enter Confirm Password" />
           </div>
         </div>
-       
+       <Link to="/Forms/LiveProject">
         <Button
           type="next"
           className="sm:w-48 sm:h-10  mt-5  border-2 rounded-md bg-save"
         >
           Register
         </Button>
+        </Link>
       </div>
     </div>
   );

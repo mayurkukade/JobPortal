@@ -74,7 +74,7 @@ const handlesubmit = (e) =>{
   return (
     <div className='flex justify-center mt-5 '>
      <div className='bg-Details rounded-lg md:w-[80rem] flex justify-center '>
-        <div>
+      <div>
         <p className='text-4xl  text-center py-5'>SingUp</p>
         <form onSubmit={handlesubmit} className='p-5 ' >
 
@@ -103,7 +103,7 @@ const handlesubmit = (e) =>{
             onInput={(e) => handleInput(e, index)}
           />
         ))}<br />
-            <Link to="">
+            <Link to="/Forms/MultiStepForm">
              <button type='submit' className='w-48 h-10 md:ml-[128px] mt-5  border-2 rounded-md bg-save text-white'>SingUp</button>
              </Link>
         </form>

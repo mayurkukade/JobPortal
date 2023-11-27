@@ -18,8 +18,8 @@ export default function Forms() {
 
       <Navbars/>
       
-      {/* <Plan/>
-      <SingUp/> */}
+      {/* <Plan/> */}
+      {/* <SingUp/> */}
       {/* <Registration/> */}
       {/* <MultiStepForm/> */}
       {/* <JobAssistment/> */}
@@ -29,13 +29,15 @@ export default function Forms() {
       {/* <Cards/> */}
 
       <Routes>
-        <Route to="/SingUp" element={<SingUp/>}/>
-        <Route to="/JobAssistment" element={<JobAssistment/>}/>
-        <Route to="/MentorBooking" element={<MentorBooking/>}/>
-        <Route to="/ITItraning" element={<ITItraning/>}/>
-        <Route to="/Registration" element={<Registration/>}/>
-        <Route to="/<LiveProject/>" element={<LiveProject/>}/>
-     </Routes>
+         
+         <Route path="JobAssistment" element={<JobAssistment />} />
+          <Route index="/SingUp" element={<SingUp/>} />
+         <Route path="MultiStepForm" element={<MultiStepForm/>} />
+         <Route path="MentorBooking" element={<MentorBooking />} />
+         <Route path="ITItraning" element={<ITItraning />} />
+         <Route path="Registration" element={<Registration />} />
+         <Route path="LiveProject" element={<LiveProject />} />
+      </Routes>
      
     </div>
   )

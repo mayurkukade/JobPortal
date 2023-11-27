@@ -1,7 +1,7 @@
 import { Button } from '@material-tailwind/react'
 import React from 'react'
 import { Input } from "@material-tailwind/react";
-
+import { Link } from 'react-router-dom';
 
 export default function JobAssistment() {
   return (
@@ -49,7 +49,11 @@ export default function JobAssistment() {
                    <path d="M66 76L36.5551 38.5L95.4449 38.5L66 76Z" fill="black"/>
                  </svg>
                </div>
-            
+               <Link to="/Forms/MentorBooking">
+               <Button>
+                 Next
+               </Button>
+               </Link>
              </div>
            </div>
         </div>

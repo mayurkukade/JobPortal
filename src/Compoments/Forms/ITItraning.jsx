@@ -2,6 +2,7 @@ import React from 'react'
 import { Input } from '@material-tailwind/react'
 import { Button } from '@material-tailwind/react'
 import { Card, Typography } from "@material-tailwind/react";
+import { Link } from 'react-router-dom';
 
 const TABLE_HEAD = ["Sr. No","Topic", "Duration", "Mentor", "Cost","Enroll"];
 const TABLE_HEAD1 = ["Sr. No","Topic", "Duration", "Start Date", "End Date","Enroll"];
@@ -196,6 +197,11 @@ export default function ITItraning() {
     </Card>
 {/* Table 2 end */}
 
+         <Link to="/Forms/Registration">
+               <Button>
+                 Next
+               </Button>
+           </Link>
       </div>
     </div>
   )

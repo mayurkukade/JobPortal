@@ -2,7 +2,7 @@
 import { Input } from '@material-tailwind/react'
 import React from 'react'
 import { Button } from '@material-tailwind/react'
-
+import { Link } from 'react-router-dom'
 
 export default function MentorBooking() {
   return (
@@ -62,6 +62,12 @@ export default function MentorBooking() {
          
           <p className='lg:text-[1.5rem] md:text-2xl font-Inter mt-5 sm:ml-0 ml-2  '>Cost</p>
           <p className='lg:text-[1.1rem] md:text-2xl font-Inter mt-2 sm:ml-0 ml-2  '>2500/- Per Session (1 Hr)</p>
+           
+          <Link to="/Forms/ITItraning">
+               <Button>
+                 Next
+               </Button>
+               </Link>
       </div>
     </div>
   )

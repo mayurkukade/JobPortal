@@ -1,6 +1,6 @@
 import { Button,Radio } from '@material-tailwind/react';
 import React from 'react'
-
+import { Link } from 'react-router-dom';
 
 export default function MultiStepForm() {
     const [name , setName] = React.useState("");
@@ -205,7 +205,9 @@ export default function MultiStepForm() {
           <Radio name="type" label="Female"  />
 
           <div className=' flex justify-end min-w-full'>
+            <Link to="/Forms/JobAssistment">
              <Button className='bg-save mt-5 '>Next</Button>
+            </Link>
           </div>
 
        </div>)}
