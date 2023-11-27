@@ -1,3 +1,4 @@
+
 export const allIngredients = [
     { icon: "🧑🏿‍🎓",basic:"0",standard:"15999",premium:"24999", label: "STUDENT" },
     { icon: "👮🏿‍♂️",basic:"0",standard:"19999",premium:"29999", label: "TRAINING PLACEMENT OFFICER" },
