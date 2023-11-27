@@ -103,9 +103,9 @@ const handlesubmit = (e) =>{
             onInput={(e) => handleInput(e, index)}
           />
         ))}<br />
-            <Link to="/Forms/MultiStepForm">
+            
              <button type='submit' className='w-48 h-10 md:ml-[128px] mt-5  border-2 rounded-md bg-save text-white'>SingUp</button>
-             </Link>
+            
         </form>
         </div>
       </div>
