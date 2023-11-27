@@ -169,7 +169,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -256,7 +256,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -328,7 +328,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -409,7 +409,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+         Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -489,7 +489,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -553,7 +553,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -628,7 +628,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -702,7 +702,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
