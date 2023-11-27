@@ -1,6 +1,5 @@
-import React, { useEffect,useState } from "react";
-import Location from "../Images/location.svg";
-import down from "../Images/down.svg";
+import  { useEffect,useState } from "react";
+
 import { motion } from "framer-motion";
 import { Input } from "@material-tailwind/react";
 import ReactTextTransition, { presets } from "react-text-transition";
@@ -24,7 +23,7 @@ export default function JobHeader() {
     return () => {
       clearInterval(interval);
     };
-  },[])
+  },[texts.length])
   return (
     <div className="bg-darkBlueBackground md:h-[18rem]  ">
       <div className="container mx-auto p-5">

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
 
@@ -49,7 +49,7 @@ export default function HeaderLower() {
     return () => {
       clearTimeout(timeout); // Clear the timeout if the component unmounts before the delay is reached
     };
-  }, []);
+  }, [count1, count2, count3, count4]);
   return (
     <>
     
@@ -67,7 +67,7 @@ export default function HeaderLower() {
           <div className="col-span-3 w-[300px]  ">
             <p className="text-3xl text-accent flex justify-center"><motion.h1>{rounded2}</motion.h1>+</p>
             <p className="text-[30px] flex justify-center text-[#060000]">
-              Top Compimes
+              Top Companies
             </p>
           </div>
           {/* First block */}
