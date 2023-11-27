@@ -19,12 +19,12 @@ export default function JobSecond() {
   const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
   console.log(isSuccess);
   console.log(data);
-  
-  const jobData = data?.list?.map((item,index)=>{
-    console.log(item)
-    return(
+
+  const jobData = data?.list?.map((item, index) => {
+    console.log(item);
+    return (
       <div key={item.id}>
-      <Card className="   flex-row mb-5 ">
+        <Card className="   flex-row mb-5 cursor-pointer ">
           <CardHeader
             shadow={false}
             floated={false}
@@ -53,13 +53,12 @@ export default function JobSecond() {
           </CardBody>
         </Card>
       </div>
-    )
-  })
-
+    );
+  });
 
   let fetchedJob;
   if (isSuccess) {
-    fetchedJob =jobData
+    fetchedJob = jobData;
   } else if (isLoading) {
     <p>loading</p>;
   }
@@ -108,8 +107,8 @@ export default function JobSecond() {
 
         {/* Right side */}
 
-        <div className="w-[25rem] xl:w-[40rem]  ">
-        {fetchedJob}
+        <div className="w-[25rem] xl:w-[40rem] max-h-[70vh] overflow-y-scroll ">
+          {fetchedJob}
           {/* <Card className="   flex-row mb-5 ">
             <CardHeader
               shadow={false}

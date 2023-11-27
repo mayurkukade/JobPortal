@@ -41,7 +41,11 @@ const theme = {
   },
 };
 import Lens from "../Images/Lenskart.png";
+import { useGetAllJobQuery } from '../../services/job/jobApiSlice';
 export default function JobDetails() {
+
+  const {data:jobData} = useGetAllJobQuery()
+  
   const data = [
     {
       label: "Lenskart",
@@ -181,11 +185,11 @@ export default function JobDetails() {
       {/* <JobDetailsHeader/>
       <MainPart/> */}
       
-      <Tabs value="html" orientation="vertical"  className="h-[70vh]"   >
+      <Tabs value="html" orientation="vertical"  className="h-[80vh]"   >
         <TabsHeader className=" max-h-[80vh]  overflow-y-auto "  >
-          {data.map(({ label, value, icon }) => (
+          {jobData?.list?.map(({ label, jobId,companyName, icon,postName,jobLocation }) => (
             
-            <Tab key={value} value={value} className="flex items-start">
+            <Tab key={jobId} value={jobId} className="flex items-start">
               <div className="flex">
               <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2 h-[9rem]">
             <CardHeader
@@ -205,13 +209,13 @@ export default function JobDetails() {
                 color="blue-gray"
                 className="text-[#5594d5]"
               >
-                Full Stack Web Developers
+              {postName}
               </Typography>
               <Typography variant="h6" color="gray" className=" uppercase">
-                lenskart
+                {companyName}
               </Typography>
               <Typography color="gray" className=" font-normal">
-                India(Remote)
+                {jobLocation}
               </Typography>
               <Typography color="green" className=" font-normal">
                 3 hours ago
@@ -224,9 +228,9 @@ export default function JobDetails() {
           ))}
         </TabsHeader>
         <TabsBody className="overflow-y-auto max-h-[400px]">
-          {data.map(({ value, desc }) => (
-            <TabPanel key={value} value={value} className="py-0   ">
-              {desc}
+          {jobData?.list?.map(({ jobId,jobDescription, desc }) => (
+            <TabPanel key={jobId} value={jobId} className="py-0   ">
+              {jobDescription}
             </TabPanel>
           ))}
         </TabsBody>

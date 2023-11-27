@@ -171,7 +171,7 @@ const handleThemeSwitch = () =>{
           className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl xl:text-4xl xl:ml "
         >
           <img src={Pref} className="w-10 ml-10 lg:block hidden" alt="" />
-          <div className="ml-2 text-accent">
+          <div className="ml-2 text-white">
    
           Preferable
           </div>

@@ -11,6 +11,7 @@ import {
   Button,
 } from "@material-tailwind/react";
 import './card.css'
+import { useNavigate } from "react-router-dom";
 
 function CheckIcon() {
   return (
@@ -32,6 +33,7 @@ function CheckIcon() {
 }
 const Card2 = () => {
   const [selectedTab,setSelectedTab] = useState(tabs[0])
+  const navigate = useNavigate()
   return (
     <div className="window container mx-auto">
       <nav>
@@ -128,6 +130,7 @@ const Card2 = () => {
           className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
           ripple={false}
           fullWidth={true}
+          onClick={()=>navigate('/studentSignUp')}
         >
           Buy Now
         </Button>

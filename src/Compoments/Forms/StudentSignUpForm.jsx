@@ -5,6 +5,7 @@ import { useStudentRegisterPostMutation } from "../../services/Registration/regi
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
+import Navbars from "../Navbars";
 const StudentSignUpForm = () => {
   const [fullNameState, setFullName] = useState("");
   const [emailState, setEmail] = useState("");
@@ -68,11 +69,13 @@ const StudentSignUpForm = () => {
   };
 
   return (
-    <section className="bg-blue-gray-900 h-[100vh]">
+    <>
+      <Navbars/>
+      <section className="bg-blue-gray-900 h-[100vh]">
       <Toaster position="top-center" reverseOrder={false} />
-      <div className="flex justify-center items-center h-full">
+      <div className="flex justify-center items-center  h-full">
         <form
-          className="bg-white p-5 space-y-3 w-[25rem]"
+          className="bg-white p-5 space-y-3 w-[25rem] "
           onSubmit={onSubmitHandler}
         >
           <h1 className="text-center text-lg">Student Register</h1>
@@ -136,10 +139,13 @@ const StudentSignUpForm = () => {
             <option value="female">Female</option>
           </select>
 
-          <Button type="onSubmit">Sign Up</Button>
+          <Button type="onSubmit"className="block m-auto" >Sign Up</Button>
+          <p className="text-center">Already sign up? please  sign in</p>
         </form>
       </div>
     </section>
+    </>
+   
   );
 };
 
