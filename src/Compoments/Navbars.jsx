@@ -47,17 +47,12 @@ export default function Navbars() {
   // console.log(token)
   
   
-  const isAuthenticatedSelector = useSelector((state)=>state.authSlice.isAuthenticated)
+  const isAuthenticatedSelector = Cookies.get("cookie")
   console.log(isAuthenticatedSelector)
   
  const tokenSelector = useSelector((state)=>state.authSlice.token)
 console.log(tokenSelector)
-if(isAuthenticatedSelector){
- 
-  
-    const tokendecode = jwtDecode(tokenSelector?.data)
-    console.log(tokendecode)
-  }
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
@@ -204,12 +199,13 @@ if(isAuthenticatedSelector){
                 variant="text"
                 size="sm"
                 className="hidden lg:inline-block"
+                onClick={() => {
+                    navigate("/signin");
+                  }}
               >
                 <span
                   className="text-white"
-                  onClick={() => {
-                    navigate("/signin");
-                  }}
+                  
                 >
                   Log In
                 </span>

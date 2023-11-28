@@ -11,6 +11,7 @@ import StudentSignUpForm from "./Compoments/Forms/StudentSignUpForm";
 import TpoSignUpForm from "./Compoments/Forms/TpoSignUpForm";
 import RecruiterSignUpForm from "./Compoments/Forms/RecruiterSignUpForm";
 import SignIn from "./Compoments/Forms/SignIn";
+import StudentProfile from "./Compoments/studentProfile/StudentProfile";
 
 function App() {
   return (
@@ -19,7 +20,7 @@ function App() {
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/jobsection" element={<JobSection />} />
-        
+        <Route path="/profile" element={<StudentProfile/>} />
           <Route path="/counter" element={<Counter />} />
         </Route>
         <Route path="register" element={<RegistrationPage />} />
