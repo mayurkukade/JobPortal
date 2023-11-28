@@ -10,6 +10,7 @@ import RegistrationPage from "./Pages/RegistrationPage";
 import StudentSignUpForm from "./Compoments/Forms/StudentSignUpForm";
 import TpoSignUpForm from "./Compoments/Forms/TpoSignUpForm";
 import RecruiterSignUpForm from "./Compoments/Forms/RecruiterSignUpForm";
+import SignIn from "./Compoments/Forms/SignIn";
 
 function App() {
   return (
@@ -26,13 +27,10 @@ function App() {
         <Route path="/tpo" element={<TpoSignUpForm />} />
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
+        <Route path="/signin" element={<SignIn/>} />
       </Routes>
 
-      {/* <SingUp/> */}
-      {/* <HomePage/> */}
-      {/* <Registration/> */}
-      {/* <JobSection/> */}
-      {/* <JobDetails/> */}
+      
     </>
   );
 }

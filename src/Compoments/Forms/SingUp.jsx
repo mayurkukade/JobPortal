@@ -65,11 +65,7 @@ export default function SingUp() {
         </form>
       </div>
 
-{/* main div end */}
 
-{/* mobile view */}
-
-    {/* {mobileView && ()} */}
     </div>
   )
 }
