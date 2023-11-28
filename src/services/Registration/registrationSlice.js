@@ -21,12 +21,19 @@ export const registrationSlice = apiSlice.injectEndpoints({
     }),
     UpdateRegisterDetails: builder.mutation({
       query: (data) => ({
-        userl: "/user/updateUserDetails",
+        url: "/user/updateUserDetails",
         method: "PATCH",
         body: data,
       }),
       invalidatesTags: ["registerPost"],
     }),
+    loginApi:builder.mutation({
+      query:(data) =>({
+        url:"/jwt/login",
+        method:'POST',
+        body:data
+      })
+    })
   }),
 });
 
@@ -35,4 +42,5 @@ export const {
   useGetAllStudentQuery,
   useStudentRegisterPostMutation,
   useUpdateRegisterDetailsMutation,
+  useLoginApiMutation
 } = registrationSlice;

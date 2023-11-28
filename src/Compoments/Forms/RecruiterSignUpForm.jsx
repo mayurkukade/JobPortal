@@ -18,6 +18,7 @@ const RecruiterSignUpForm = () => {
   const navigate = useNavigate();
 
   const [studentRegisterPost] = useStudentRegisterPostMutation();
+
   const onChangeFullName = (e) => {
     setFullName(e.target.value);
   };
@@ -64,6 +65,7 @@ const RecruiterSignUpForm = () => {
         
       });
       console.log(res)
+   
       if (res && res.error && res.error.data && res.error.data.code === "Unsuccessful") {
         toast.error("Unsuccessful registration");
       } else {

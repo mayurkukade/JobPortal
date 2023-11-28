@@ -10,56 +10,67 @@ import { useNavigate } from "react-router-dom";
 import Pref from "./Images/preferable-icon 1.png";
 import { useState } from "react";
 import { useEffect } from "react";
-import {BiSun,BiMoon} from 'react-icons/bi'
-import { Link } from "react-router-dom";
+import { BiSun, BiMoon } from "react-icons/bi";
+import { jwtDecode } from "jwt-decode";
 import {
-  
   Dialog,
   DialogHeader,
   DialogBody,
   DialogFooter,
 } from "@material-tailwind/react";
+import Cookies from "js-cookie";
+import Profile from "./Profile/Profile";
+import { useSelector } from "react-redux";
+
+
 export default function Navbars() {
   const [openNav, setOpenNav] = React.useState(false);
-  const [theme,setTheme] = useState('light')
+  const [theme, setTheme] = useState("light");
   const [open, setOpen] = React.useState(false);
- 
+
   const handleOpen = () => setOpen(!open);
-const navigate = useNavigate()
-  const studentFormNavigate = ()=>{
-    navigate('/studentSignUp')
-    handleOpen()
+  const navigate = useNavigate();
+  const studentFormNavigate = () => {
+    navigate("/studentSignUp");
+    handleOpen();
+  };
+  const tpoFormNavigate = () => {
+    navigate("/tpo");
+    handleOpen();
+  };
+  const RecruiterFormNavigate = () => {
+    navigate("/recruitersignup");
+    handleOpen();
+  };
 
-  }
-  const tpoFormNavigate = ()=>{
-    navigate('/tpo')
-    handleOpen()
+  // const token = Cookies.get("jwtToken");
+  // console.log(token)
+  
+  
+  const isAuthenticatedSelector = Cookies.get("cookie")
+  console.log(isAuthenticatedSelector)
+  
+ const tokenSelector = useSelector((state)=>state.authSlice.token)
+console.log(tokenSelector)
 
-  }
-  const RecruiterFormNavigate = ()=>{
-    navigate('/recruitersignup')
-    handleOpen()
-
-  }
-
-  console.log(theme)
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
-const handleThemeSwitch = () =>{
-  setTheme(theme === 'dark' ? 'light' :'dark')
-}
-  useEffect(()=>{
-    if(theme === 'dark'){
-      document.documentElement.classList.add('dark')
-    }else{
-      document.documentElement.classList.remove('dark')
+  const handleThemeSwitch = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
+  useEffect(() => {
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
+    } else {
+      document.documentElement.classList.remove("dark");
     }
-  },[theme])
-// On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  }, [theme]);
+
+
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center  ">
@@ -116,12 +127,11 @@ const handleThemeSwitch = () =>{
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-       
         <a href="#" className="flex items-center text-white">
           About
         </a>
       </Typography>
-    
+
       <Typography
         as="li"
         variant="small"
@@ -153,10 +163,8 @@ const handleThemeSwitch = () =>{
         onClick={handleThemeSwitch}
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-       
-        <button  className="flex items-center text-white">
-        {theme=='light' ? <BiSun size={20} /> : <BiMoon size={20} />}
-
+        <button className="flex items-center text-white">
+          {theme == "light" ? <BiSun size={20} /> : <BiMoon size={20} />}
         </button>
       </Typography>
     </ul>
@@ -171,10 +179,7 @@ const handleThemeSwitch = () =>{
           className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl xl:text-4xl xl:ml "
         >
           <img src={Pref} className="w-10 ml-10 lg:block hidden" alt="" />
-          <div className="ml-2 text-white">
-   
-          Preferable
-          </div>
+          <div className="ml-2 text-white">Preferable</div>
         </Typography>
         <Typography className="lg:block hidden">
           <input
@@ -184,18 +189,37 @@ const handleThemeSwitch = () =>{
           />
         </Typography>
         <div className="hidden lg:block">{navList}</div>
+
         <div className="flex items-center gap-x-1">
-          <Button variant="text" size="sm" className="hidden lg:inline-block">
-            <span className="text-white">Log In</span>
-          </Button>
-          <Button
-            variant="gradient"
-            size="sm"
-            className="hidden lg:inline-block"
-            onClick={handleOpen}
-          >
-            <span className="text-accent"  >Sign in</span>
-          </Button>
+          {isAuthenticatedSelector ? (
+            <Profile  />
+          ) : (
+            <>
+              <Button
+                variant="text"
+                size="sm"
+                className="hidden lg:inline-block"
+                onClick={() => {
+                    navigate("/signin");
+                  }}
+              >
+                <span
+                  className="text-white"
+                  
+                >
+                  Log In
+                </span>
+              </Button>
+              <Button
+                variant="gradient"
+                size="sm"
+                className="hidden lg:inline-block"
+                onClick={handleOpen}
+              >
+                <span className="text-accent">Sign up</span>
+              </Button>
+            </>
+          )}
         </div>
         <IconButton
           variant="text"
@@ -242,30 +266,30 @@ const handleThemeSwitch = () =>{
             <Button fullWidth variant="text" size="sm" className="">
               <span>Log In</span>
             </Button>
-            <Button fullWidth onClick={handleOpen} variant="gradient" size="sm" >
+            <Button fullWidth onClick={handleOpen} variant="gradient" size="sm">
               <span>Sign in</span>
             </Button>
-            
-      <Dialog open={open} handler={handleOpen}>
-        <DialogHeader className="flex justify-center">Choose your signup profile</DialogHeader>
-        <DialogBody className="flex gap-10 justify-center">
-        <Button onClick={studentFormNavigate}>STUDENT</Button>
-        <Button onClick={tpoFormNavigate}>TPO</Button>
-        <Button onClick={RecruiterFormNavigate} >RECEUITER</Button>
-        </DialogBody>
-        <DialogFooter>
-          <Button
-            variant="text"
-            color="red"
-            onClick={handleOpen}
-            className="mr-1"
-          >
-            <span>Cancel</span>
-          </Button>
-         
-        </DialogFooter>
-      </Dialog>
 
+            <Dialog open={open} handler={handleOpen}>
+              <DialogHeader className="flex justify-center">
+                Choose your signup profile
+              </DialogHeader>
+              <DialogBody className="flex gap-10 justify-center">
+                <Button onClick={studentFormNavigate}>STUDENT</Button>
+                <Button onClick={tpoFormNavigate}>TPO</Button>
+                <Button onClick={RecruiterFormNavigate}>RECEUITER</Button>
+              </DialogBody>
+              <DialogFooter>
+                <Button
+                  variant="text"
+                  color="red"
+                  onClick={handleOpen}
+                  className="mr-1"
+                >
+                  <span>Cancel</span>
+                </Button>
+              </DialogFooter>
+            </Dialog>
           </div>
         </div>
       </MobileNav>

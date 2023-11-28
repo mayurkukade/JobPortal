@@ -23,7 +23,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 justify-between gap-4 md:grid-cols-2">
           <Typography variant="h5" className=" text-white text-4xl mt-20 items-center ">
           <img src={Pref} className='w-10 ml-16 mb-2 ' alt="" />
-           <p className='ml-5 text-accent'> Preferable</p>
+           <p className='ml-5 text-white'> Preferable</p>
           </Typography>
           <div className="grid grid-cols-3 justify-between gap-4">
             {LINKS.map(({ title, items }) => (
