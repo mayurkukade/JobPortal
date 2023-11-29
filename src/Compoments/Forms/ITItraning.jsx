@@ -16,7 +16,7 @@ const TABLE_ROWS = [
     Cost: "Virtual",
     StartDate: "21/10/2023",
     EndDate: "21/11/23",
-    Enroll: <Button className='bg-save'>Enroll</Button>,
+    Enroll: <Button className='bg-secondary'>Enroll</Button>,
   },
   {
     SrNo : 2,
@@ -26,7 +26,7 @@ const TABLE_ROWS = [
     Cost: "Virtual",
     StartDate: "21/10/2023",
     EndDate: "21/11/23",
-    Enroll: <Button className='bg-save'>Enroll</Button>,
+    Enroll: <Button className='bg-secondary'>Enroll</Button>,
   },
   {
     SrNo : 3,
@@ -36,7 +36,7 @@ const TABLE_ROWS = [
     Cost: "Virtual",
     StartDate: "21/10/2023",
     EndDate: "21/11/23",
-    Enroll: <Button className='bg-save'>Enroll</Button>,
+    Enroll: <Button className='bg-secondary'>Enroll</Button>,
   },
  
 ];
@@ -53,14 +53,14 @@ export default function ITItraning() {
         </div>
          
          <label className='font-semebold sm:text-[1.5rem] font-Inter sm:ml-0 ml-2'>Select Domain</label>
-         <div className="md:w-[30rem] w-[24rem] mt-3 bg-Details sm:ml-0 ml-2">
+         <div className="md:w-[30rem] w-[24rem] mt-3 bg-faintBackgroundBlue sm:ml-0 ml-2">
              <Input label="Eg. Data Analysis" />
           </div>
 
           <div className='mt-10'>
             <label className='font-semebold sm:text-[1.5rem] font-Inter sm:ml-0 ml-2'>Select Mentorship Type</label>
             <div className='flex'>
-            <div className=" bg-Details sm:ml-0 ml-2">
+            <div className=" bg-faintBackgroundBlue sm:ml-0 ml-2">
                    <Input label="Select Stream " />
              </div>
                  <svg xmlns="http://www.w3.org/2000/svg" width="50" height="39" viewBox="0 0 132 106" fill="none">
@@ -70,7 +70,7 @@ export default function ITItraning() {
                  </svg>
               </div>
 
-              <Button variant ="text" className='bg-Details w-64 rounded-none sm:ml-0 ml-2'>Distance Lerning</Button>
+              <Button variant ="text" className='bg-faintBackgroundBlue w-64 rounded-none sm:ml-0 ml-2'>Distance Lerning</Button>
           </div>
 
           {/* Table Part */}
@@ -81,7 +81,7 @@ export default function ITItraning() {
         <thead>
           <tr>
             {TABLE_HEAD.map((head) => (
-              <th key={head} className="border-b border-blue-gray-100 bg-NavColour  p-4">
+              <th key={head} className="border-b border-blue-gray-100 bg-secondary  p-4">
                 <Typography
                   variant="small"
                   color="black"
@@ -122,7 +122,7 @@ export default function ITItraning() {
                 </Typography>
               </td>
               <td className="p-2">
-                <Typography variant="small" color="blue-gray" className="font-normal sm:w-auto w-1/2">
+                <Typography variant="small" color="blue-gray" className="font-normal sm:w-auto w-1/2 ">
                   {Enroll}
                 </Typography>
               </td>
@@ -144,7 +144,7 @@ export default function ITItraning() {
         <thead>
           <tr>
             {TABLE_HEAD1.map((head) => (
-              <th key={head} className="border-b border-blue-gray-100 bg-NavColour  p-4">
+              <th key={head} className="border-b border-blue-gray-100 bg-secondary  p-4">
                 <Typography
                   variant="small"
                   color="black"
@@ -158,7 +158,7 @@ export default function ITItraning() {
         </thead>
         <tbody>
           {TABLE_ROWS.map(({ SrNo, Topic, Duration,Mentor,Cost,Enroll }) => (
-            <tr key={SrNo} className="odd:bg-Table">
+            <tr key={SrNo} className="odd:bg-Table ">
               <td className="p-2">
                 <Typography variant="small" color="blue-gray" className="font-normal">
                   {SrNo}
@@ -196,12 +196,13 @@ export default function ITItraning() {
       </table>
     </Card>
 {/* Table 2 end */}
-
+          <div className='mt-5'>
          <Link to="/Forms/Registration">
                <Button>
                  Next
                </Button>
            </Link>
+           </div>
       </div>
     </div>
   )

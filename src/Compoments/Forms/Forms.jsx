@@ -31,7 +31,7 @@ export default function Forms() {
       <Routes>
          
          <Route path="JobAssistment" element={<JobAssistment />} />
-          <Route index="/SingUp" element={<SingUp/>} />
+          <Route index="SingUp" element={<SingUp/>} />
          <Route path="MultiStepForm" element={<MultiStepForm/>} />
          <Route path="MentorBooking" element={<MentorBooking />} />
          <Route path="ITItraning" element={<ITItraning />} />

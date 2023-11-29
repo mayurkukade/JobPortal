@@ -1,4 +1,3 @@
-
 import {
     Card,
     CardHeader,
@@ -7,10 +6,10 @@ import {
     Typography,
     Button,
   } from "@material-tailwind/react";
+
   
-  import '../../CSS/Style.css'
-  
-  function CheckIcon() {
+ function CheckIcon() {
+    
     return (
         <svg xmlns="http://www.w3.org/2000/svg" width="10" height="16" viewBox="0 0 10 16" fill="none">
         <path d="M1.5415 1L8.5415 8L1.5415 15" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -23,17 +22,17 @@ export const data = [
       label: "Student",
       value: "html",
       desc: <div className="flex flex-wrap">
-        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 background">
+        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px]" color="gray">
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+        className="m-0 mb-5 rounded-none border-b border-white/10 pb- text-center"
       >
         <Typography
           variant="small"
           color="white"
-          className="font-normal text-[2rem] font-Inter "
+          className=" text-[2rem] font-Inter "
         >
           Free Package
         </Typography>
@@ -79,11 +78,12 @@ export const data = [
         <Button
           size="lg"
           color="white"
-          className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100"
+          className="hover:scale-[1.02] focus:scale-[1.02] active:scale-100 mt-14"
           ripple={false}
           fullWidth={true}
+          onClick={()=>navigate('/studentSignUp')}
         >
-          Choose
+          Buy now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -93,7 +93,7 @@ export const data = [
 
     {/* card second */}
 
-    <Card  variant="gradient" className="w-full max-w-[20rem] p-8 background1 sm:ml-10 sm:mt-0 mt-5">
+    <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px] sm:ml-10 sm:mt-0 mt-5" color="gray">
       <CardHeader
         floated={false}
         shadow={false}
@@ -169,7 +169,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -180,7 +180,7 @@ export const data = [
     {/* second card end */}
 
     {/* third card start */}
-    <Card  variant="gradient" className="w-full max-w-[20rem] p-8 background2 sm:ml-10 sm:mt-0 mt-5">
+    <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px] sm:ml-10 sm:mt-0 mt-5" color="gray">
       <CardHeader
         floated={false}
         shadow={false}
@@ -256,7 +256,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -274,7 +274,7 @@ export const data = [
       desc: <div className="flex flex-wrap">
 
         {/* first card start */}
-        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 background">
+        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px]" color="gray" >
       <CardHeader
         floated={false}
         shadow={false}
@@ -328,7 +328,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -339,7 +339,7 @@ export const data = [
         {/* first card end */}
 
         {/* second card start */}
-        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 sm:ml-10 background1 sm:mt-0 mt-5">
+        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 sm:ml-10 h-[590px] sm:mt-0 mt-5" color="gray">
       <CardHeader
         floated={false}
         shadow={false}
@@ -409,7 +409,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+         Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -419,7 +419,7 @@ export const data = [
     {/* second card end */}
 
     {/* third card start */}
-    <Card  variant="gradient" className="w-full max-w-[20rem] p-8 background2 sm:ml-10 sm:mt-0 mt-5">
+    <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px] sm:ml-10 sm:mt-0 mt-5" color="gray" >
       <CardHeader
         floated={false}
         shadow={false}
@@ -489,7 +489,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -505,12 +505,12 @@ export const data = [
       desc: <div className="flex flex-wrap">
  
           {/* first card start */}
-        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 background">
+        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px]" color="gray">
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+        className="m-0 mb-8 rounded-none border-b border-white/10 pb-14 text-center"
       >
         <Typography
           variant="small"
@@ -553,7 +553,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -564,12 +564,12 @@ export const data = [
         {/* first card end */}
 
         {/* second card start */}
-        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 sm:ml-10 background1 sm:mt-0 mt-5">
+        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 sm:ml-10 h-[590px] sm:mt-0 mt-5" color="gray">
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+        className="m-0 mb-8 rounded-none border-b border-white/10 pb-14 text-center"
       >
         <Typography
           variant="small"
@@ -628,7 +628,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>
@@ -638,12 +638,12 @@ export const data = [
     {/* second card end */}
 
         {/* third card start */}
-        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 background2 sm:ml-10 sm:mt-0 mt-5">
+        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px] sm:ml-10 sm:mt-0 mt-5" color="gray">
       <CardHeader
         floated={false}
         shadow={false}
         color="transparent"
-        className="m-0 mb-8 rounded-none border-b border-white/10 pb-8 text-center"
+        className="m-0 mb-8 rounded-none border-b border-white/10 pb-14 text-center"
       >
         <Typography
           variant="small"
@@ -702,7 +702,7 @@ export const data = [
           ripple={false}
           fullWidth={true}
         >
-          Choose
+          Buy Now
         </Button>
         <Typography>
             <p className="text-[0.7rem] text-white mt-5">30 day money back guarantee</p>

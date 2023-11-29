@@ -1,17 +1,21 @@
+import withMT from "@material-tailwind/react/utils/withMT";
 
-const withMT = require("@material-tailwind/react/utils/withMT");
-
-module.exports = withMT({
+export default withMT({
+  darkMode: 'class',
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
-        'NavColour': '#657ED4',
-        'BackHeader': '#3F3D56',
-        'Details': '#DCE1F6',
-        'Text': '#080101',
-        'save': '#3626A7',
-        'Table': '#657ED480',
+        'text': '#0e0106',
+        'background': '#FFFFFF',
+        'primary': '#3526a6',
+        'secondary': '#647ed3',
+        'accent': '#ff311f',
+        'faintBackgroundBlue':'#DCE1F6',
+        'darkBlueBackground':'#3F3D56',
+        'dark':'#000000',
+        'white':'white',
+        'textColor':'#a5b4fc'
       },
       fontFamily: {
         Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma
@@ -28,7 +32,7 @@ module.exports = withMT({
         laptop: "1024px",
       },
       spacing: {
-        '100px': '100px',
+        "100px": "100px",
       },
     },
   },

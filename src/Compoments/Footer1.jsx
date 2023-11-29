@@ -10,7 +10,7 @@ import { CiLinkedin } from "react-icons/ci";
 
 export default function Footer1() {
   return (
-    <div className='flex justify-center bg-NavColour'>
+    <div className='flex justify-center bg-darkBlueBackground'>
       <div className=''>
        <div className='flex flex-wrap'>
           

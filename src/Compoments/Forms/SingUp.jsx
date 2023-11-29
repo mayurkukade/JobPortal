@@ -1,8 +1,10 @@
 
-
+import { Button, Input } from '@material-tailwind/react';
+import { useGetStudentQuery } from '../../services/Registration/registrationSlice';
 import React from 'react'
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
+
 
 export default function SingUp() {
  const inputRefs = [
@@ -79,19 +81,19 @@ const handlesubmit = (e) =>{
         <form onSubmit={handlesubmit} className='p-5 ' >
 
             <label htmlFor="First Name"> Name :- </label>
-             <input type="text" placeholder='Enter your Full name' value={name} onChange={(e) => setName(e.target.value)} required className='border-2 rounded-md  md:w-96  h-10 pl-2 md:ml-[65px] ml-16' /><br /><br />
+             <Input type="text" label='Enter your Full name' value={name} onChange={(e) => setName(e.target.value)} required className='' /><br />
 
             <label htmlFor="Mobile Number">Mobile Number  :- </label>
-             <input type="Number" placeholder='Enter your Number' required value={number} onChange={(e) => setNumber(e.target.value)} className='border-2 rounded-md  md:w-96 h-10 pl-2 ' /><br /><br />
+             <Input type="Number" label='Enter your Number' required value={number} onChange={(e) => setNumber(e.target.value)} className=' ' /><br />
 
             <label htmlFor="Email"> Email :- </label>
-             <input type="email" placeholder='Enter your Email' value={email} onChange={(e) => setEmail(e.target.value)} required className='border-2 rounded-md md:w-96 h-10 pl-2 ml-[70px]' /><br /><br />
+             <Input type="email" label='Enter your Email' value={email} onChange={(e) => setEmail(e.target.value)} required className='' /><br />
 
             <label htmlFor="Password"> Password :- </label>
-             <input type="password" placeholder='Enter your Password' value={password} onChange={(e) => setPassword(e.target.value)} required className='border-2 rounded-md  md:w-96 h-10 pl-2  ml-[40px]' /><br /><br />
+             <Input type="password" label='Enter your Password' value={password} onChange={(e) => setPassword(e.target.value)} required className='' /><br />
 
             <label htmlFor="Password">Conf. Password :- </label>
-            <input type="password" placeholder='Enter your Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className='border-2 rounded-md  md:w-96 h-10 pl-2' /><br /><br />
+            <Input type="password" label='Enter your Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className='' /><br />
  
             <label htmlFor="otp" className='md:mr-[75px]'>OTP :- </label>
         {inputRefs.map((ref, index) => (
@@ -103,9 +105,9 @@ const handlesubmit = (e) =>{
             onInput={(e) => handleInput(e, index)}
           />
         ))}<br />
-            
-             <button type='submit' className='w-48 h-10 md:ml-[128px] mt-5  border-2 rounded-md bg-save text-white'>SingUp</button>
-            
+            <Link to="/Forms/MultiStepForm">
+             <Button type='submit' className='w-48 h-10 md:ml-[128px] mt-5  border-2 rounded-md  text-white'>Sing Up</Button>
+             </Link>
         </form>
         </div>
       </div>

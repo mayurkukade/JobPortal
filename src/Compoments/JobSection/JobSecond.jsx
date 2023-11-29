@@ -1,54 +1,245 @@
-import React from 'react'
-import Job from "../Images/job.svg"
-import Skill from "../Images/skill.svg"
-import Assis from "../Images/assist.svg"
-import Inter from "../Images/inter.svg"
-import Lens from "../Images/Lenskart.png"
-import { JobSection } from '../Data/JobSectionData'
+
+import Job from "../Images/job.svg";
+import Skill from "../Images/skill.svg";
+import Assis from "../Images/assist.svg";
+import Inter from "../Images/inter.svg";
+import Lens from "../Images/Lenskart.png";
+
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  Typography,
+  
+} from "@material-tailwind/react";
+import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
+import { calcLength } from "framer-motion";
 
 export default function JobSecond() {
+  const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
+  console.log(isSuccess);
+  console.log(data);
+
+  const jobData = data?.list?.map((item, index) => {
+    console.log(item);
+    return (
+      <div key={item.id}>
+        <Card className="   flex-row mb-5 cursor-pointer ">
+          <CardHeader
+            shadow={false}
+            floated={false}
+            className="m-0 w-1/5 shrink-0 rounded-r-none "
+          >
+            <img
+              src={Lens}
+              className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+              alt=""
+            />
+          </CardHeader>
+          <CardBody>
+            <Typography variant="h5" color="#03a9f4" className="text-[#5594d5]">
+              {item.postName}
+            </Typography>
+            <Typography variant="h6" color="gray" className=" uppercase">
+              {item.companyName}
+            </Typography>
+            <Typography color="gray" className=" font-normal">
+              {item.jobLocation}
+            </Typography>
+            <Typography color="green" className=" font-normal">
+              3 hours ago
+            </Typography>
+            <Typography color="green" className=" font-normal"></Typography>
+          </CardBody>
+        </Card>
+      </div>
+    );
+  });
+
+  let fetchedJob;
+  if (isSuccess) {
+    fetchedJob = jobData;
+  } else if (isLoading) {
+    <p>loading</p>;
+  }
   return (
-    <div className='flex justify-center  mt-20 '>
-      <div className='flex flex-wrap'>
+    <div className="mx-auto container  mt-20 ">
+      <div className="flex flex-wrap gap-12 lg:justify-center ">
         {/* Left-side  */}
 
-        <div className='w-[20rem] h-[30rem] bg-Details rounded-lg md:ml-20 ml-10'>
-
-          <div className='flex ml-10 mt-5'>
-           <img src={Job} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Applied Jobs</p>
-          </div>
-           <br />
-          <div className='flex ml-10 mt-5'>
-           <img src={Skill} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Skill Assessment</p>
-          </div>
-          <br />
-          <div className='flex ml-10 mt-5'>
-           <img src={Assis} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Skill Assessment</p>
-          </div>
-          <br />
-          <div className='flex ml-10 mt-5'>
-           <img src={Inter} className='w-[1.5rem] h-[3rem]' alt="" />
-           <p className='text-[1.5rem] pl-5 pt-2 font-Inter'>Skill Assessment</p>
-          </div>
-
+        <div className="   w-[21rem] h-[30rem]  ">
+          <Card
+            color="white"
+            variant="gradient"
+            className="w-full max-w-[20rem] p-8"
+          >
+            <CardBody className="p-0">
+              <ul className="flex flex-col gap-4 ">
+                <li className="flex items-center gap-4"></li>
+                <li className="flex items-center gap-4">
+                  <img src={Job} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Applied Jobs
+                  </Typography>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src={Skill} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Skill Assesment
+                  </Typography>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src={Assis} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Interview prep
+                  </Typography>
+                </li>
+                <li className="flex items-center gap-4">
+                  <img src={Inter} className="w-[1.5rem] h-[3rem]" alt="" />
+                  <Typography className="font-normal cursor-pointer hover:text-primary">
+                    Saved Jobs
+                  </Typography>
+                </li>
+              </ul>
+            </CardBody>
+          </Card>
         </div>
 
-         {/* Right side */}
+        {/* Right side */}
 
-         <div className='sm:ml-20'>
-
-           {JobSection.map(({Job}) =>(
-             <div>
-               {Job}
-             </div>
-           ))}
-           
-           </div>
-
+        <div className="w-[25rem] xl:w-[40rem] max-h-[70vh] overflow-y-scroll ">
+          {fetchedJob}
+          {/* <Card className="   flex-row mb-5 ">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="#03a9f4"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developer
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card> */}
+          {/* {fetchedJob} */}
+          {/* <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developer
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card>
+          <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developer
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card>
+          <Card className="w-[25rem] xl:w-[40rem] flex-row mb-2">
+            <CardHeader
+              shadow={false}
+              floated={false}
+              className="m-0 w-1/5 shrink-0 rounded-r-none "
+            >
+              <img
+                src={Lens}
+                className="md:w-[3.875rem] md:h-[2.75rem] mt-7 ml-5"
+                alt=""
+              />
+            </CardHeader>
+            <CardBody>
+              <Typography
+                variant="h5"
+                color="blue-gray"
+                className="text-[#5594d5]"
+              >
+                Full Stack Web Developers
+              </Typography>
+              <Typography variant="h6" color="gray" className=" uppercase">
+                lenskart
+              </Typography>
+              <Typography color="gray" className=" font-normal">
+                India(Remote)
+              </Typography>
+              <Typography color="green" className=" font-normal">
+                3 hours ago
+              </Typography>
+              <Typography color="green" className=" font-normal"></Typography>
+            </CardBody>
+          </Card> */}
+        </div>
       </div>
     </div>
-  )
+  );
 }
