@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom'
 
 export default function MentorBooking() {
   return (
-    <div className='flex justify-center'>
-      <div>
+    <div className='flex justify-center bg-darkBlueBackground'>
+      <div className='bg-white rounded-md p-5 mt-2'>
         <p className='lg:text-[1.8rem] md:text-2xl font-Inter pb-10 pt-10 sm:ml-0 ml-2  '>Mentor Booking</p>
         <hr className='border-1 border-black' />
 

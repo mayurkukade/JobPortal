@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 
 export default function JobAssistment() {
   return (
-    <div className='flex justify-center'>
-        <div>
+    <div className='flex justify-center bg-darkBlueBackground min-h-screen items-center'>
+        <div className='bg-white p-5 rounded-md'>
            <p className='lg:text-[2rem] md:text-2xl font-Inter pb-10 pt-10  '>Assesment</p>
            <hr className='border-1 border-black' />
            <div className='flex mt-5 justify-center'>

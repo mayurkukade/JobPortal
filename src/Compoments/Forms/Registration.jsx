@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function Registration() {
   return (
-    <div className="flex justify-center ">
-      <div>
+    <div className="flex justify-center bg-darkBlueBackground min-h-screen">
+      <div className='bg-white rounded-md p-5 mt-2'>
         <p className="text-4xl  text-center py-5">Mentor Booking</p>
         <hr className="border-black" />
         
@@ -64,7 +64,7 @@ export default function Registration() {
        <Link to="/Forms/LiveProject">
         <Button
           type="next"
-          className="sm:w-48 sm:h-10  mt-5  border-2 rounded-md bg-save"
+          className="sm:w-48 sm:h-10  mt-5  border-2 rounded-md "
         >
           Register
         </Button>

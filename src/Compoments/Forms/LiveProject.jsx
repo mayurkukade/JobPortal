@@ -5,8 +5,8 @@ import { Button } from '@material-tailwind/react'
 
 export default function LiveProject() {
   return (
-    <div className='flex justify-center'>
-      <div>
+    <div className='flex justify-center bg-darkBlueBackground'>
+      <div className='bg-white p-5 m-5 rounded-md'>
         <p className='text-[2rem] font-Inter'>Carrier Planning</p>
         <hr className='border-black' />
 
@@ -38,7 +38,7 @@ export default function LiveProject() {
 
           <div className="">
 
-            <input type="text" className='md:w-[30rem] h-[5rem] w-[24rem] mt-3 bg-Details sm:ml-0 ml-2' />
+            <Input type="text" className='' />
 
 
           </div>
@@ -46,13 +46,13 @@ export default function LiveProject() {
           <p className='lg:text-[1.5rem] md:text-2xl font-Inter mt-5 sm:ml-0 ml-2  '>Internship</p>
 
           <div>
-            <input type="text" placeholder='Business Analyst Documentation' className='md:w-[20rem] h-[5rem] w-[10rem] mt-3 pl-5 bg-Details sm:ml-0 ml-2' />
+            <Input type="text" label='Business Analyst Documentation' className='' />
 
           </div>
 
           <Button
           type="next"
-          className="sm:w-24 sm:h-10  mt-5  border-2 rounded-md bg-save"
+          className=" mt-5"
         >
           Next
         </Button>
