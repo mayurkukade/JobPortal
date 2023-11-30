@@ -26,6 +26,7 @@ const StudentProfile = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
+    
     console.log('Form submitted:', formData);
     // You can send the form data to the server or perform other actions here
   };

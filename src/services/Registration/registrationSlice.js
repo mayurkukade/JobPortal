@@ -11,14 +11,7 @@ export const registrationSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["registerPost"],
     }),
-    getStudent: builder.query({
-      query: (id) => `user/getById?userId=${id}`,
-      providesTags: ["registerPost"],
-    }),
-    getAllStudent: builder.query({
-      query: (id) => `/user/getAllUsers?pageNo=${id}`,
-      providesTags: ["registerPost"],
-    }),
+    
     UpdateRegisterDetails: builder.mutation({
       query: (data) => ({
         url: "/user/updateUserDetails",
