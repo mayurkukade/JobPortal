@@ -3,7 +3,7 @@ import { Button, Input } from '@material-tailwind/react';
 import { useGetStudentQuery } from '../../services/Registration/registrationSlice';
 import React from 'react'
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 export default function SingUp() {
@@ -23,6 +23,11 @@ export default function SingUp() {
     if (input.value !== '' && index < inputRefs.length - 1) {
       inputRefs[index + 1].current.focus();
     }
+
+    // Update the OTP values in the state
+    const newOtpValues = [...otpValues];
+    newOtpValues[index] = input.value;
+    setOtpValues(newOtpValues);
   };
 
 const [name , setName] = React.useState("");
@@ -31,6 +36,8 @@ const [password, setPassword] =  React.useState("");
 const [confirmPassword, setConfirmPassword] =  React.useState("");
 const [email, setEmail] = React.useState("");
 const [passwordsMatch, setPasswordsMatch] = React.useState(true);
+const [otpValues, setOtpValues] = React.useState(["", "", "", "", ""]);
+const navigate = useNavigate();
 
 const handlesubmit = (e) =>{
   e.preventDefault();
@@ -62,8 +69,11 @@ const handlesubmit = (e) =>{
     console.log("Mobile Number:", number);
     console.log("Password:", password);
     console.log("Confirm Password:", confirmPassword);
+    console.log("OTP:", otpValues.join(""));
 
     alert("You are successfully Register");
+
+    
 
     setName("");
     setEmail("");
@@ -71,12 +81,15 @@ const handlesubmit = (e) =>{
     setPassword("");
     setConfirmPassword("");
     setPasswordsMatch(true);
+    setOtpValues(["", "", "", "", ""]);
+
+    navigate("/Forms/MultiStepForm");
 }
 
   return (
-    <div className='flex justify-center mt-5 '>
-     <div className='bg-Details rounded-lg md:w-[80rem] flex justify-center '>
-      <div>
+    <div className='flex justify-center bg-gray-300'>
+     <div className='bg-Details rounded-lg md:w-[80rem] flex justify-center mt-2 '>
+      <div className='p-5  rounded-md bg-gray-200 shadow-xl mb-5 shadow-gray-900 '>
         <p className='text-4xl  text-center py-5'>SingUp</p>
         <form onSubmit={handlesubmit} className='p-5 ' >
 
@@ -88,14 +101,11 @@ const handlesubmit = (e) =>{
 
             <label htmlFor="Email"> Email :- </label>
              <Input type="email" label='Enter your Email' value={email} onChange={(e) => setEmail(e.target.value)} required className='' /><br />
-
-            <label htmlFor="Password"> Password :- </label>
-             <Input type="password" label='Enter your Password' value={password} onChange={(e) => setPassword(e.target.value)} required className='' /><br />
-
-            <label htmlFor="Password">Conf. Password :- </label>
-            <Input type="password" label='Enter your Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className='' /><br />
- 
-            <label htmlFor="otp" className='md:mr-[75px]'>OTP :- </label>
+          
+          <Button className='sm:ml-[280px] ml-44'>Send Otp</Button>
+            <br />
+             <br />
+             <label htmlFor="otp" className='md:mr-[20px]'>OTP :- </label>
         {inputRefs.map((ref, index) => (
           <input
             key={index}
@@ -104,11 +114,24 @@ const handlesubmit = (e) =>{
             className="border-2 w-8 ml-2 rounded-lg bg-blue-gray-200 pl-2"
             onInput={(e) => handleInput(e, index)}
           />
-        ))}<br />
-            <Link to="/Forms/MultiStepForm">
-             <Button type='submit' className='w-48 h-10 md:ml-[128px] mt-5  border-2 rounded-md  text-white'>Sing Up</Button>
-             </Link>
+        ))}<br /><br />
+           
+           
+            <label htmlFor="Password"> Password :- </label>
+             <Input type="password" label='Enter your Password' value={password} onChange={(e) => setPassword(e.target.value)} required className='' /><br />
+
+            <label htmlFor="Password">Conf. Password :- </label>
+            <Input type="password" label='Enter your Password' value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required className='' /><br />
+ 
+            
+            
+              <Button type='submit' className='sm:w-[400px] w-[300px] h-10 md:ml-[5px] mt-5  border-2 rounded-md  text-white'>Sing Up</Button>
+             
         </form>
+
+        <div>
+        <p className="text-center">Already sign up? please <a href=""> sign in</a></p>
+        </div>
         </div>
       </div>
 

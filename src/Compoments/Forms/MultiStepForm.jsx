@@ -1,6 +1,6 @@
 import { Button, Radio, Input } from "@material-tailwind/react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { Select, Option, Textarea } from "@material-tailwind/react";
 
 export default function MultiStepForm() {
@@ -26,10 +26,13 @@ export default function MultiStepForm() {
   const [salary, setSalary] = React.useState("");
   const [gender, setGender] = React.useState("");
 
+  // Open and close forms
   const [step1, setStep1] = React.useState(true);
   const [step2, setStep2] = React.useState(false);
   const [step3, setStep3] = React.useState(false);
+  const navigate = useNavigate();
 
+  // Next button code
   const togglestep2 = () => {
     setStep2(!step2);
     setStep1(!step1);
@@ -40,8 +43,32 @@ export default function MultiStepForm() {
     setStep2(!step2);
   };
 
+  // Previous button code
+  const togglestep4 = () => {
+    setStep2(!step2);
+    setStep1(!step1);
+  }
+  const togglestep5 = () => {
+    setStep3(!step3);
+    setStep2(!step2);
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
+
+    // Validation code
+
+    if (name.length < 4) {
+      alert("First Name should at least four char");
+      return; 
+    }
+
+    if (number.length < 10 || number.length >= 11) {
+      alert(" Mobile Number only ten number ");
+      return; 
+    }
+
+
     // First card
     console.log("name :-  " + name);
     console.log("number :-  " + number);
@@ -64,6 +91,7 @@ export default function MultiStepForm() {
     console.log("salary :-  " + salary);
     console.log("gender :-  " + gender);
 
+    
     // Reset Value
     setName(" ");
     setNumber(" ");
@@ -83,6 +111,8 @@ export default function MultiStepForm() {
     setDiscribe(" ");
     setSalary(" ");
     setGender(" ");
+
+    navigate('/Forms/JobAssistment')
   }
 
   const handleSelectChange = (e) => {
@@ -184,22 +214,22 @@ export default function MultiStepForm() {
             </div>
 
             <div className="flex mt-5">
-              <p className="ml-20 text-Inter">Start Date</p>
-              <p className="ml-16 text-Inter">End Date</p>
+              <p className="ml-10 text-Inter">Start Date</p>
+              <p className="ml-28 text-Inter">End Date</p>
             </div>
 
             <div className="flex">
-              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-2">
+              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-2 mt-4">
                 <Input
-                  type="text"
+                  type="date"
                   value={startdate}
                   onChange={(e) => setStartdate(e.target.value)}
                   label="Eg.2020"
                 />
               </div>
-              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-12 mr-2">
+              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-12 mr-2 mt-4">
                 <Input
-                  type="text"
+                  type="date"
                   value={enddate}
                   onChange={(e) => setEnddate(e.target.value)}
                   label="Eg.2023"
@@ -295,17 +325,17 @@ export default function MultiStepForm() {
             </div>
 
             <div className="flex">
-              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-2">
+              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-2 mt-4">
                 <Input
-                  type="text"
+                  type="date"
                   value={startdate1}
                   onChange={(e) => setStartdate1(e.target.value)}
                   label="Eg.2020"
                 />
               </div>
-              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-12 mr-2">
+              <div className="w-[10rem] h-[2rem]  flex items-center justify-center ml-12 mr-2 mt-4">
                 <Input
-                  type="text"
+                  type="date"
                   value={enddate1}
                   onChange={(e) => setEnddate1(e.target.value)}
                   label="Eg.2023"
@@ -323,16 +353,16 @@ export default function MultiStepForm() {
                 <select
                   value={developer}
                   onChange={handleSelectChange1}
-                  className="appearance-none w-full bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
+                  className="appearance-none w-96 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
                 >
                   <option value="">Select Version</option>
                   <option value="Frontend">FrontEnd</option>
                   <option value="Backend">BackEnd</option>
                   <option value="Database">Database</option>
                 </select>
-                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                <div className=" absolute inset-y-0 right-[110px] flex items-center  text-gray-700">
                   <svg
-                    className="fill-current h-4 w-4"
+                    className=" h-4 w-4"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                   >
@@ -341,10 +371,17 @@ export default function MultiStepForm() {
                 </div>
               </div>
             </div>
-            <div className=" flex justify-end min-w-full md:mb-0 mb-5 mt-10">
+            <div className="flex">
+            <div className=" flex  md:mb-0 mb-5 mt-10">
               <Button className=" mt-5 " onClick={togglestep3}>
                 Next
               </Button>
+            </div>
+            <div className=" flex  md:mb-0 mb-5 mt-10 ml-64">
+              <Button className=" mt-5 " color="blue" onClick={togglestep4}>
+                Previous
+              </Button>
+            </div>
             </div>
           </div>
         )}
@@ -425,11 +462,19 @@ export default function MultiStepForm() {
             />
               <label className="ml-2 mr-2">Female</label>
 
-            <div className=" flex justify-end min-w-full">
+            <div className="flex">
+            <div className=" ">
               <Button className=" mt-5 " type="submit">
                 Submit
               </Button>
             </div>
+            <div className=" ml-48 ">
+              <Button className=" mt-5 " color="blue" onClick={togglestep5}>
+                Previous
+              </Button>
+            </div>
+            </div>
+
           </div>
         )}
 

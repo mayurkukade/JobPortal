@@ -18,7 +18,7 @@ function App() {
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/jobsection" element={<JobSection />} />
+          <Route path="/jobSection" element={<JobSection />} />
         
           <Route path="/counter" element={<Counter />} />
         </Route>
