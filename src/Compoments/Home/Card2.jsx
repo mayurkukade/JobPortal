@@ -35,8 +35,8 @@ const Card2 = () => {
   const [selectedTab,setSelectedTab] = useState(tabs[0])
   const navigate = useNavigate()
   return (
-    <div className="window container mx-auto">
-      <nav>
+    <div className="window container mx-auto ">
+      <nav className="">
         <ul className="flex">
           {tabs.map((item) => (
             <li
@@ -63,7 +63,7 @@ const Card2 = () => {
           >
         
           <div className="flex justify-around">
-          <Card color="gray" variant="gradient" className="w-full max-w-[20rem] p-8">
+          <Card color="gray" variant="gradient" className="w-full h-[600px] max-w-[20rem] p-8">
       <CardHeader
         floated={false}
         shadow={false}
@@ -93,13 +93,13 @@ const Card2 = () => {
             <span className="rounded-full border border-white/20 bg-white/20 p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal text-red-500">5 team members</Typography>
+            <Typography className="font-normal text-red-500">Apply for jobs</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full border border-white/20 bg-white/20 p-1">
               <CheckIcon />
             </span>
-            <Typography className="font-normal">200+ components</Typography>
+            <Typography className="font-normal">Profile with CV</Typography>
           </li>
           <li className="flex items-center gap-4">
             <span className="rounded-full border border-white/20 bg-white/20 p-1">
