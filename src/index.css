@@ -20,8 +20,8 @@
   }
   
   th {
-    border-bottom: 1px solid lightgray;
-    border-right: 1px solid lightgray;
+    border-bottom: 1px solid rgb(85, 32, 32);
+    border-right: 1px solid rgb(70, 11, 11);
     padding: 2px 4px;
   }
   

@@ -1,8 +1,9 @@
 // TableComponent.js
 
+import { calcLength } from 'framer-motion';
 import React from 'react';
 import { useTable, useSortBy, usePagination, useGlobalFilter } from 'react-table';
-
+import { Link } from 'react-router-dom';
 const TableComponent = ({ columns, data }) => {
   const {
     getTableProps,
@@ -57,9 +58,17 @@ const TableComponent = ({ columns, data }) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()} key={index}>
-                {row.cells.map((cell,index) => (
-                  <td key={index} {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                ))}
+              {row.cells.map((cell,i) => (
+                        <td key={i} {...cell.getCellProps()}>
+                          {" "}
+                       
+                            {cell.render("Cell")}
+                            
+                         
+                        </td>
+                      ))}
+                    
+                
               </tr>
             );
           })}

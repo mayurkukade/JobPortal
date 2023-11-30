@@ -1,10 +1,12 @@
 
+import { useNavigate } from 'react-router-dom';
 import { useGetAllStudentQuery } from '../../services/studentApi/studentApiSlice';
 import TableComponent from './TableComponent';
+import { Button } from '@material-tailwind/react';
 const StudentTable = () => {
 
 const {data:apiData,isLoading} = useGetAllStudentQuery()
-
+const navigate = useNavigate()
   const columns = [
     {
       Header: 'ID',
@@ -41,6 +43,9 @@ const {data:apiData,isLoading} = useGetAllStudentQuery()
     {
       Header: 'Info',
       accessor: '',
+      Cell: ({ row }) => (
+        <Button onClick={() => handleButtonClick(row.original.id)}>Details</Button>
+      ),
     },
     // Add more columns as needed
   ];
@@ -51,7 +56,11 @@ const {data:apiData,isLoading} = useGetAllStudentQuery()
   }else{
     studentApidata = apiData.list
   }
-
+  const handleButtonClick = (id) => {
+navigate(`/admin/studentlist/studentDetails/${id}`)
+    // Handle button click, e.g., perform an action based on the student ID
+    console.log(`Button clicked for student ID: ${id}`);
+  };
 
   return (
     <div>
