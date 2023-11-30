@@ -11,24 +11,4 @@
 
 
   
-  table {
-    border: 1px solid lightgray;
-  }
   
-  tbody {
-    border-bottom: 1px solid lightgray;
-  }
-  
-  th {
-    border-bottom: 1px solid rgb(85, 32, 32);
-    border-right: 1px solid rgb(70, 11, 11);
-    padding: 2px 4px;
-  }
-  
-  tfoot {
-    color: gray;
-  }
-  
-  tfoot th {
-    font-weight: normal;
-  }

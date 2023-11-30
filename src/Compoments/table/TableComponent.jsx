@@ -1,4 +1,5 @@
 // TableComponent.js
+import { Card, Typography,Button,Input } from "@material-tailwind/react";
 
 import { calcLength } from 'framer-motion';
 import React from 'react';
@@ -31,36 +32,41 @@ const TableComponent = ({ columns, data }) => {
 
   return (
     <div>
-      <div>
-        <input
+      <div className="mt-5 mb-5 w-20">
+        <Input
           value={globalFilter || ''}
           onChange={(e) => setGlobalFilter(e.target.value)}
           placeholder="Search..."
         />
       </div>
-      <table {...getTableProps()} className="table">
+      <Card className="h-full w-full ">
+      <table {...getTableProps()} className="w-full min-w-max table-auto text-left">
         <thead>
           {headerGroups.map((headerGroup,index) => (
             <tr key={index} {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column,index) => (
-                <th key={index}  {...column.getHeaderProps(column.getSortByToggleProps())}>
+                <th key={index}  {...column.getHeaderProps(column.getSortByToggleProps())} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
                   {column.render('Header')}
-                  <span>
+                  <Typography
+                   variant="small"
+                  color="blue-gray"
+                  className="font-normal leading-none opacity-70"
+                  >
                     {column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}
-                  </span>
+                  </Typography>
                 </th>
               ))}
             </tr>
           ))}
         </thead>
-        <tbody {...getTableBodyProps()}>
+        <tbody {...getTableBodyProps()} className="h-[30rem]">
           {page.map((row,index) => {
             prepareRow(row);
             return (
               <tr {...row.getRowProps()} key={index}>
               {row.cells.map((cell,i) => (
-                        <td key={i} {...cell.getCellProps()}>
-                          {" "}
+                        <td key={i} {...cell.getCellProps()} >
+                        
                        
                             {cell.render("Cell")}
                             
@@ -74,19 +80,20 @@ const TableComponent = ({ columns, data }) => {
           })}
         </tbody>
       </table>
-      <div>
-        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+      </Card>
+      <div className="mt-2">
+        <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous Page
-        </button>
+        </Button>
         <span>
           Page{' '}
           <strong>
             {pageIndex + 1} of {page.length}
           </strong>{' '}
         </span>
-        <button onClick={() => nextPage()} disabled={!canNextPage}>
+        <Button onClick={() => nextPage()} disabled={!canNextPage}>
           Next Page
-        </button>
+        </Button>
       </div>
     </div>
   );

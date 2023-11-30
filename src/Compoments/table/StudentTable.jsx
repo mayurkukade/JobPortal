@@ -20,10 +20,7 @@ const navigate = useNavigate()
       Header: 'Full Name',
       accessor: 'fullName',
     },
-    {
-      Header: 'Age',
-      accessor: 'age',
-    },
+ 
     {
       Header: 'Mobile Number',
       accessor: 'moNumber',
