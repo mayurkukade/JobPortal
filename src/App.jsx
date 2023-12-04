@@ -11,11 +11,12 @@ import StudentSignUpForm from "./Compoments/Forms/StudentSignUpForm";
 import TpoSignUpForm from "./Compoments/Forms/TpoSignUpForm";
 import RecruiterSignUpForm from "./Compoments/Forms/RecruiterSignUpForm";
 import Forms from "./Compoments/Forms/Forms";
+import Dashboard from "./Compoments/TPO/Dashboard/Dashboard";
 
 function App() {
   return (
     <>
-      <Routes>
+      {/* <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/jobSection" element={<JobSection />} />
@@ -28,7 +29,9 @@ function App() {
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/Forms/*" element={<Forms />} />
-      </Routes>
+      </Routes> */}
+
+      <Dashboard/>
 
       {/* <SingUp/> */}
       {/* <HomePage/> */}
