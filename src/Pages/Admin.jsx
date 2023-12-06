@@ -8,6 +8,9 @@ const Admin = () => {
     <Link to="/admin/studentlist">
     <Button>Add Student</Button>
     </Link>
+    <Link to='/admin/itTraining'>
+<Button>Add IT Training</Button>
+    </Link>
       
     </div>
   )

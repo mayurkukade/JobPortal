@@ -8,34 +8,40 @@ export const itTrainingSlice = apiSlice.injectEndpoints({
         method: "POST",
         body: data,
       }),
-      invalidatesTags: ["itTrainig"],
+      invalidatesTags:['itTrainig'],
     }),
     getitTrainingById: builder.query({
-      query: (id) => `ItTraining/byID?itTrainingId=4${id}`,
-      provideTags: ["itTrainig"],
+      query: (trainigId) =>({
+url:`/ItTraining/byID?itTrainingId=${trainigId}`,
+      }) ,
+     
+      providesTags: ['itTrainig'],
     }),
     getAllItTraining:builder.query({
         query:()=>({
             url:`/ItTraining/all`,
-            provideTags:['itTrainig']
-        })    
+           
+        })    ,
+        providesTags:['itTrainig'],
     }),
     updateItTraining:builder.mutation({
         query:(data)=>({
-            url:`/ItTraining/update?itTrainingId=${data}`,
-            Method:'PATCH',
+            url:`/ItTraining/update?itTrainingId=${data.id}`,
+        transformResponse:console.log(data),
+            method:'PATCH',
             body:data
 
         }),
-        invalidatesTags:['itTrainig']
+        invalidatesTags:['itTrainig'],
     }),
     deleteItTraining:builder.mutation({
         query:(id)=>({
-            url:`/itTrainig/update?itTrainingId=${id}`,
+            url:`/ItTraining/delete?itTrainingId=${id}`,
+            trandformResponse:console.log(id),
             method:'DELETE',
             body:id
         }),
-        invalidatesTags:['itTrainig']
+        invalidatesTags:['itTrainig','bootCamp'],
     })
 
   }),

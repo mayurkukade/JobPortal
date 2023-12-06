@@ -1,10 +1,15 @@
 // TableComponent.js
-import { Card, Typography,Button,Input } from "@material-tailwind/react";
+import { Card, Typography, Button, Input } from "@material-tailwind/react";
 
-import { calcLength } from 'framer-motion';
-import React from 'react';
-import { useTable, useSortBy, usePagination, useGlobalFilter } from 'react-table';
-import { Link } from 'react-router-dom';
+import { calcLength } from "framer-motion";
+import React from "react";
+import {
+  useTable,
+  useSortBy,
+  usePagination,
+  useGlobalFilter,
+} from "react-table";
+import { Link } from "react-router-dom";
 const TableComponent = ({ columns, data }) => {
   const {
     getTableProps,
@@ -34,62 +39,63 @@ const TableComponent = ({ columns, data }) => {
     <div>
       <div className="mt-5 mb-5 w-20">
         <Input
-          value={globalFilter || ''}
+          value={globalFilter || ""}
           onChange={(e) => setGlobalFilter(e.target.value)}
           placeholder="Search..."
         />
       </div>
-      <Card className="h-full w-full ">
-      <table {...getTableProps()} className="w-full min-w-max table-auto text-left">
-        <thead>
-          {headerGroups.map((headerGroup,index) => (
-            <tr key={index} {...headerGroup.getHeaderGroupProps()}>
-              {headerGroup.headers.map((column,index) => (
-                <th key={index}  {...column.getHeaderProps(column.getSortByToggleProps())} className="border-b border-blue-gray-100 bg-blue-gray-50 p-4">
-                  {column.render('Header')}
-                  <Typography
-                   variant="small"
-                  color="blue-gray"
-                  className="font-normal leading-none opacity-70"
+      <div className="h-full w-full ">
+        <table
+          {...getTableProps()}
+          className="w-full min-w-max table-auto text-left"
+        >
+          <thead>
+            {headerGroups.map((headerGroup, index) => (
+              <tr key={index} {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column, index) => (
+                  <th
+                    key={index}
+                    {...column.getHeaderProps(column.getSortByToggleProps())}
+                    className="border-b border-blue-gray-100 bg-blue-gray-50 p-4"
                   >
-                    {column.isSorted ? (column.isSortedDesc ? ' 🔽' : ' 🔼') : ''}
-                  </Typography>
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody {...getTableBodyProps()} className="h-[30rem]">
-          {page.map((row,index) => {
-            prepareRow(row);
-            return (
-              <tr {...row.getRowProps()} key={index}>
-              {row.cells.map((cell,i) => (
-                        <td key={i} {...cell.getCellProps()} >
-                        
-                       
-                            {cell.render("Cell")}
-                            
-                         
-                        </td>
-                      ))}
-                    
-                
+                    {column.render("Header")}
+                   
+                      {column.isSorted
+                        ? column.isSortedDesc
+                          ? " 🔽"
+                          : " 🔼"
+                        : ""}
+                  
+                  </th>
+                ))}
               </tr>
-            );
-          })}
-        </tbody>
-      </table>
-      </Card>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()} className="h-[30rem]">
+            {page.map((row, index) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()} key={index}>
+                  {row.cells.map((cell, i) => (
+                    <td key={i} {...cell.getCellProps()}>
+                      {cell.render("Cell")}
+                    </td>
+                  ))}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
       <div className="mt-2">
         <Button onClick={() => previousPage()} disabled={!canPreviousPage}>
           Previous Page
         </Button>
         <span>
-          Page{' '}
+          Page{" "}
           <strong>
             {pageIndex + 1} of {page.length}
-          </strong>{' '}
+          </strong>{" "}
         </span>
         <Button onClick={() => nextPage()} disabled={!canNextPage}>
           Next Page
@@ -100,4 +106,3 @@ const TableComponent = ({ columns, data }) => {
 };
 
 export default TableComponent;
-
