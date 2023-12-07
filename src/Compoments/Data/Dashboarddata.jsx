@@ -8,6 +8,7 @@ import { FaRegCopy } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { TiSocialFacebook,TiSocialTwitter,TiSocialLinkedin,TiSocialYoutube } from "react-icons/ti";
 import { FcBriefcase } from "react-icons/fc";
+import { AiOutlineDropbox } from "react-icons/ai";
 
 export const TABLE_HEAD = [
   "title",
@@ -221,3 +222,121 @@ export const Career = [
     </div>,
   },
 ];
+
+export const Interviews = [
+  {
+  lable2 : "Interviews",
+  value2 : "html",
+  desc2 : <div>
+           <div className="flex w-full justify-end">
+               <p><b>Slots Available :</b> </p>
+             <div className="flex divide-x-2 ml-5">
+                <p>Experinced : 0</p>
+                <p className="ml-2 pl-2">Expert : 0</p>
+             </div>
+           </div>
+
+           <div className="flex">
+             {/* First Card */}
+             <div className="mt-5 border border-gray-500 bg-blue-gray-100 px-2 h-[400px] pt-2 rounded-md shadow-lg shadow-blue-gray-400">
+               <div className="bg-red-200 w-[200px] text-center rounded-md ">
+                 <p className="text-yellow-200"><b>REQUESTED</b></p>
+               </div>
+               <div className="flex items-center min-h-full justify-center">
+                <p className="text-center "><AiOutlineDropbox className="w-[60px] h-[60px]" /></p>
+               </div>
+               
+             </div>
+             {/* Second Card */}
+             <div className="mt-5 border border-gray-500 bg-blue-gray-100 px-2 h-[400px] pt-2 rounded-md ml-10 shadow-lg shadow-blue-gray-400">
+               <div className="bg-blue-50 w-[200px] text-center rounded-md ">
+                 <p className="text-blue-200"><b>SCHEDULED</b></p>
+               </div>
+               <div className="flex items-center min-h-full justify-center">
+                <p className="text-center "><AiOutlineDropbox className="w-[60px] h-[60px]" /></p>
+               </div>
+               
+             </div>
+             {/* Third Card */}
+             <div className="mt-5 border border-gray-500 bg-blue-gray-100 px-2 h-[400px] pt-2 rounded-md ml-10 shadow-lg shadow-blue-gray-400">
+               <div className="bg-green-50 w-[200px] text-center rounded-md ">
+                 <p className="text-green-200"><b>COMPLETED</b></p>
+               </div>
+               <div className="flex items-center min-h-full justify-center">
+                <p className="text-center "><AiOutlineDropbox className="w-[60px] h-[60px]" /></p>
+               </div>
+               
+             </div>
+             {/* Fourth Card */}
+             <div className="mt-5 border border-gray-500 bg-blue-gray-100 px-2 h-[400px] pt-2 rounded-md ml-10 shadow-lg shadow-blue-gray-400">
+               <div className="bg-red-50 w-[200px] text-center rounded-md ">
+                 <p className="text-red-200"><b>CANCELLED</b></p>
+               </div>
+               <div className="flex items-center min-h-full justify-center">
+                <p className="text-center "><AiOutlineDropbox className="w-[60px] h-[60px]" /></p>
+               </div>
+               
+             </div>
+
+           </div>
+  </div>,
+},
+
+{
+  lable2 : "Repots",
+  value2 : "react",
+  desc2 : <div>
+
+  </div>,
+},
+   
+];
+
+
+export const TABLE_HEAD1 = ["Name", "Job", "Employed", ""];
+ 
+export const TABLE_ROWS1 = [
+  {
+    name1: "John Michael",
+    job1: "Manager",
+    date1: "23/04/18",
+  },
+  
+];
+
+export const Account = [
+  {
+    lable3 : "Users",
+    value3 : "html",
+    desc3 : <div className="">
+              <div className="px-5 py-5">
+                <div className="w-[900px] rounded-md shadow-lg shadow-blue-gray-300 py-5 px-10">
+                  <p className="font-bold text-xl">Group Name</p>
+                  <p className=" text-sm mt-5">Personal Group</p>
+                  <p className=" text-xs mt-5">* This is your personal workplace</p>
+                  <hr className="mt-5" />
+
+                  <div className="w-full mt-5 bg-blue-50 rounded-md px-2 py-4">
+                     <p className=" text-sm ">Using Experia is more fun with team</p>
+                     <p className=" text-sm mt-5 text-blue-300"><u>Invite people to collaborate</u> </p>
+                  </div>
+                </div>
+              </div>
+    </div>,
+  },
+  {
+    lable3 : "Subscriptions",
+    value3 : "react",
+    desc3 : '',
+  },
+  {
+    lable3 : "Interviews slots",
+    value3 : "slots",
+    desc3 : '',
+  },
+  {
+    lable3 : "GST Details",
+    value3 : "gst",
+    desc3 : '',
+  },
+]
