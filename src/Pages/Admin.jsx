@@ -1,19 +1,20 @@
-import { Button } from "@material-tailwind/react"
-import { Link } from "react-router-dom"
-
+import { Button } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 const Admin = () => {
   return (
     <div>
-    <Link to="/admin/studentlist">
-    <Button>Add Student</Button>
-    </Link>
-    <Link to='/admin/itTraining'>
-<Button>Add IT Training</Button>
-    </Link>
-      
+      <Link to="/admin/studentlist">
+        <Button>Add Student</Button>
+      </Link>
+      <Link to="/admin/itTraining">
+        <Button>Add IT Training</Button>
+      </Link>
+      <Link to="/admin/itTraining">
+        <Button>Add IT Training</Button>
+      </Link>
     </div>
-  )
-}
+  );
+};
 
-export default Admin
+export default Admin;
