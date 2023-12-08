@@ -5,23 +5,25 @@ export const bootCampSlice = apiSlice.injectEndpoints({
         bootCampPost : builder.mutation({
             query:(data)=>({
                 url:"/bootcamp/post",
-                method:"POSt",
-                body:data
+                method:"POST",
+                body:data,
+                transformRespons:console.log(data)
             }),
             invalidatesTags:["bootCamp"]
         }),
         bootCampGetById: builder.query({
             query:(id)=>({
-                url:`/getById?bootcampId=${id}`,
+                url:`/bootcamp/getById?bootcampId=${id}`,
+                transformRespons:console.log(id)
 
             }),
             providesTags:['bootCamp']
         }),
         bootCampGet:builder.query({
             query:()=>({
-                url:`bootcamp/getAllBootcampDetails`
+                url:`/bootcamp/getAllBootcampDetails`
             }),
-            providesTags:['itTrainig']
+            providesTags:['itTrainig','bootCamp']
         }),
         bootCampUpdate:builder.mutation({
             query:(data)=>({
@@ -29,15 +31,16 @@ export const bootCampSlice = apiSlice.injectEndpoints({
                 method:"PATCH",
                 body:data
             }),
-            invalidatesTags:['itTrainig']
+            invalidatesTags:['itTrainig','bootCamp']
         }),
         bootCampDelete:builder.mutation({
             query:(id)=>({
-                url:`bootcamp/delete?bannerId=${id}`,
+                url:`/bootcamp/delete?bootcampId=${id}`,
                 method:'DELETE',
-                body:id
+                body:id,
+                transformRespons:console.log(id)
             }),
-            invalidatesTags:['itTrainig']
+            invalidatesTags:['itTrainig','bootCamp']
         })
     })
 })

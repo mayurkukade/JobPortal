@@ -8,6 +8,7 @@ import { jobApiSlice } from '../../services/job/jobApiSlice'
 import authSlice from '../../features/authSlice/authSlice'
 import { studentApiSlice } from '../../services/studentApi/studentApiSlice'
 import {itTrainingSlice} from '../../services/itTraining/itTrainingSlice'
+import { bootCampSlice } from '../../services/bootcamp/bootCampSlice'
 export const store = configureStore({
     reducer:{
 
@@ -17,7 +18,8 @@ export const store = configureStore({
         [registrationSlice.reducerPath]:registrationSlice.reducer,
         [jobApiSlice.reducerPath]: jobApiSlice.reducer,
         [studentApiSlice.reducerPath] : studentApiSlice.reducer,
-        [itTrainingSlice.reducerPath]:itTrainingSlice.reducer
+        [itTrainingSlice.reducerPath]:itTrainingSlice.reducer,
+        [bootCampSlice.reducerPath]:bootCampSlice.reducer
       
        
     },

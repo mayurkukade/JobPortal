@@ -16,6 +16,9 @@ import ItTrainingByIdDetails from "./Compoments/admin/ItTrainingByIdDetails";
 import ItTrainingEdit from "./Compoments/admin/ItTrainingEdit";
 import AdminItTrainingTable from "./Compoments/table/AdminItTrainingTable";
 import MultiStepStudentForm from "./Compoments/studentProfile/MultiStepStudentForm";
+import AddJobs from "./Compoments/admin/AddJobs";
+import AddBootCamp from "./Compoments/admin/AddBootCamp";
+import BootCampDetails from "./Compoments/admin/BootCampDetails";
 function App() {
   return (
     <>
@@ -39,6 +42,12 @@ function App() {
           <Route
             path="/admin/itTraining/edit/:trainigId"
             element={<ItTrainingEdit />}
+          />
+          <Route path="/admin/bootcamp" element={<AddBootCamp />} />
+          <Route path="/admin/jobs" element={<AddJobs />} />
+          <Route
+            path="/admin/bootcamp/details/:id"
+            element={<BootCampDetails />}
           />
         </Route>
         <Route path="register" element={<RegistrationPage />} />

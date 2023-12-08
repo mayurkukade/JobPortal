@@ -5,10 +5,20 @@ export const jobApiSlice = apiSlice.injectEndpoints({
         getAllJob:builder.query({
             query:()=>`/job/all`,
             providesTags:["job"]
+        }),
+        addJobs:builder.mutation({
+            query:(data)=>({
+                url:"/job/add",
+                method:"POST",
+                body:data
+            }),
+            invalidatesTags:["Job"]
         })
     })
 })
 
 export const {
-useGetAllJobQuery
+useGetAllJobQuery,
+useAddJobsMutation
+
 } = jobApiSlice

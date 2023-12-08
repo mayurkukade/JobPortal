@@ -6,6 +6,7 @@ import { Button } from '@material-tailwind/react';
 const StudentTable = () => {
 
 const {data:apiData,isLoading} = useGetAllStudentQuery()
+console.log(apiData)
 const navigate = useNavigate()
   const columns = [
     {
