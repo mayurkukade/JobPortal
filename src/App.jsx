@@ -12,11 +12,12 @@ import TpoSignUpForm from "./Compoments/Forms/TpoSignUpForm";
 import RecruiterSignUpForm from "./Compoments/Forms/RecruiterSignUpForm";
 import Forms from "./Compoments/Forms/Forms";
 import Dashboard from "./Compoments/TPO/Dashboard/Dashboard";
+import PublishJob from "./Compoments/TPO/DashboardFeatures/PublishJob";
 
 function App() {
   return (
     <>
-      {/* <Routes>
+      <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/jobSection" element={<JobSection />} />
@@ -29,9 +30,11 @@ function App() {
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/Forms/*" element={<Forms />} />
-      </Routes> */}
+        <Route path="/Dashboard/*" element={<Dashboard/>} />
+        <Route path="/PublishJob" element={<PublishJob/>} />
+      </Routes>
 
-      <Dashboard/>
+      
 
       {/* <SingUp/> */}
       {/* <HomePage/> */}

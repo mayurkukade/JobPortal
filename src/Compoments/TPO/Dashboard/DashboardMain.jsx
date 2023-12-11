@@ -21,6 +21,8 @@ import Interview from "../Dashboard Compoment/Interview";
 import Pricing from "../Dashboard Compoment/Pricing";
 import Accountss from "../Dashboard Compoment/Accountss";
 import JobSection from "../Dashboard Compoment/JobSection";
+import { useNavigate } from 'react-router-dom';
+
 
 
 export default function () {
@@ -33,6 +35,7 @@ export default function () {
   const [open7, setOpen7] = React.useState(false);
   const [open8, setOpen8] = React.useState(false);
   const [open9, setOpen9] = React.useState(false);
+  const navigate = useNavigate()
 
   function Dashboard() {
    if(open1==true){
@@ -320,6 +323,10 @@ export default function () {
 
   }
 
+  function navigation () {
+    navigate("/PublishJob");
+  }
+
   return (
     <div className="flex justify-center">
       <div className="sm:grid sm:grid-cols-12 bg-gray-50">
@@ -497,7 +504,7 @@ export default function () {
               </div>
 
               {/* Published Job */}
-              <div className="sm:col-span-4 bg-blue-100 pb-6 rounded-md">
+              <motion.div className="sm:col-span-4 bg-blue-100 pb-6 rounded-md cursor-pointer" whileHover={{scale : 1.1}} onClick={navigation}>
                 <div className="flex ">
                   <h2 className="ml-6">
                     <BsBriefcase className="w-[30px] h-[40px] mt-4 " />
@@ -514,7 +521,7 @@ export default function () {
                     </h2>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Talent Pool */}
               <div className="sm:col-span-4 bg-blue-100 pb-6 rounded-md">

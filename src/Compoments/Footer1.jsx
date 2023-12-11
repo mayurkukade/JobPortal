@@ -6,8 +6,13 @@ import { DiGithubBadge } from "react-icons/di";
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
+import { motion } from 'framer-motion';
 
-
+const buttonhover = {
+   hover : {
+      scale : 1.1
+   }
+}
 export default function Footer1() {
   return (
     <div className='flex justify-center bg-darkBlueBackground'>
@@ -24,16 +29,16 @@ export default function Footer1() {
           <div className='flex flex-wrap'>
              {FooterData.map(({title,items})=>(
                 <ul key={title}>
-                  <div className='text-2xl text-white font-Inter ml-14 mt-8  pb-2'>
+                  <motion.div className='text-2xl text-white font-Inter ml-14 mt-8  pb-2 cursor-pointer' variants={buttonhover} whileHover="hover">
                     {title}
-                  </div>
+                  </motion.div>
                   {items.map((link) =>(
-                     <li>
+                     <motion.li variants={buttonhover} whileHover="hover" className='cursor-pointer' >
                         <div className='text-sm font-Inter ml-14 text-gray-400 pb-2' >
                         {link}
                         </div>
                         
-                     </li>
+                     </motion.li>
                   ))}
                 </ul>
              ))}
