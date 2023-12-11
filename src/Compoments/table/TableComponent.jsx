@@ -36,7 +36,7 @@ const TableComponent = ({ columns, data }) => {
   const { globalFilter, pageIndex } = state;
 
   return (
-    <div>
+    <>
       <div className="mt-5 mb-5 w-20">
         <Input
           value={globalFilter || ""}
@@ -47,7 +47,7 @@ const TableComponent = ({ columns, data }) => {
       <div className="h-full w-full ">
         <table
           {...getTableProps()}
-          className="w-full min-w-max table-auto text-left"
+          className="w-full   table-auto text-center"
         >
           <thead>
             {headerGroups.map((headerGroup, index) => (
@@ -101,7 +101,7 @@ const TableComponent = ({ columns, data }) => {
           Next Page
         </Button>
       </div>
-    </div>
+    </>
   );
 };
 

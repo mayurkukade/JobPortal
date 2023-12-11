@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   Button,
@@ -6,14 +7,16 @@ import {
   Card,
   CardBody,
 } from "@material-tailwind/react";
-import { useTabContext } from "@mui/lab";
-import { useAddJobsMutation } from "../../services/job/jobApiSlice";
-import { useBootCampPostMutation } from "../../services/bootcamp/bootCampSlice";
 
-const AddBootCampDialog = () => {
-  const [open, setOpen] = React.useState(false);
+import { useBootCampUpdateMutation } from "../../services/bootcamp/bootCampSlice";
+import { useBootCampGetByIdQuery } from "../../services/bootcamp/bootCampSlice";
+import { useParams } from "react-router-dom";
 
-  const [bootCampPost] = useBootCampPostMutation();
+const BootCampEdit = () => {
+    const {id} = useParams()
+    const {data,isLoading} = useBootCampGetByIdQuery(id)
+const [bootCampUpdate] = useBootCampUpdateMutation()
+  
 
   const [bootcamp, setBootcamp] = useState({
     bootcampTital: "",
@@ -27,6 +30,10 @@ const AddBootCampDialog = () => {
     photo: "",
     price: "",
   });
+  if(isLoading){
+    return <p>Loading...</p>
+}
+
   const handleChange = (field) => (event) => {
     setBootcamp({
       ...bootcamp,
@@ -35,9 +42,7 @@ const AddBootCampDialog = () => {
   };
   const submitHandler = async (e) => {
     e.target.value;
-console.log(bootcamp)
-    const res = await bootCampPost(
-      {
+    const BootCampUpdatedData =       {
         bootcampTital: bootcamp.bootcampTital,
         "bootcampDetails":bootcamp.bootcampDetails,
         "date":"2023-12-10",
@@ -49,39 +54,40 @@ console.log(bootcamp)
         "photo":bootcamp.photo,
         "price":bootcamp.price
     }
+console.log(bootcamp)
+    const res = await bootCampUpdate({
+        BootCampUpdatedData,id
+    }
+    
     
       
 );
     console.log(res);
   };
 
-  const handleOpen = () => setOpen((cur) => !cur);
+ 
 
   return (
     <>
-      <Button onClick={handleOpen}>Add Bootcamp</Button>
-      <Dialog
-        open={open}
-        handler={handleOpen}
-        size="xs"
-        className="bg-transparent shadow-none"
-      >
+   
+     
         <Card className="mx-auto ">
           <CardBody className="flex flex-col gap-4">
             <form>
-              <h1 className="text-center">Add Jobs</h1>
+              <h1 className="text-center">Edit Bootcamp</h1>
               <div className="mb-4 flex gap-5">
                 <Input
                   type="text"
                   label="Bootcamp Title"
-                  value={bootcamp.bootcampTital}
+              
                   onChange={handleChange("bootcampTital")}
+                  defaultValue={data.bootcamp.bootcampTital}
                 />
                 <Input
                   type="text"
                   label="Bootcamp Details"
                   name="bootcampDetails"
-                  value={bootcamp.bootcampDetails}
+                  defaultValue={data.bootcamp.bootcampDetails}
                   onChange={handleChange("bootcampDetails")}
                 />
               </div>
@@ -89,13 +95,13 @@ console.log(bootcamp)
                 <Input
                   type="date"
                   label="Bootcamp Date"
-                  value={bootcamp.date}
+                  defaultValue={data.bootcamp.bootcampDate}
                   onChange={handleChange("date")}
                 />
                 <Input
                   type="text"
                   label="Bootcamp Camp Date"
-                  value={bootcamp.bootcampDate}
+                  defaultValue={data.bootcamp.bootcampDate}
                   onChange={handleChange("bootcampDate")}
                 />
               </div>
@@ -103,13 +109,13 @@ console.log(bootcamp)
                 <Input
                   type="text"
                   label="Bootcamp Time"
-                  value={bootcamp.time}
+                  defaultValue={data.bootcamp.time}
                   onChange={handleChange("time")}
                 />
                 <Input
                   type="text"
                   label="Status"
-                  value={bootcamp.status}
+                  defaultValue={data.bootcamp.status}
                   onChange={handleChange("status")}
                 />
               </div>
@@ -117,13 +123,13 @@ console.log(bootcamp)
                 <Input
                   type="text"
                   label="Bootcamp Location"
-                  value={bootcamp.location}
+                  defaultValue={data.bootcamp.location}
                   onChange={handleChange("location")}
                 />
                 <Input
                   type="text"
                   label="Tag Line"
-                  value={bootcamp.tagLine}
+                  defaultValue={data.bootcamp.tagLine}
                   onChange={handleChange("tagLine")}
                 />
               </div>
@@ -131,13 +137,13 @@ console.log(bootcamp)
                 <Input
                   type="text"
                   label="Photo"
-                  value={bootcamp.photo}
+                  defaultValue={''}
                   onChange={handleChange("photo")}
                 />
                 <Input
                   type="text"
                   label="Price"
-                  value={bootcamp.price}
+                  defaultValue={data.bootcamp.price}
                   onChange={handleChange("price")}
                 />
               </div>
@@ -146,9 +152,9 @@ console.log(bootcamp)
             </form>
           </CardBody>
         </Card>
-      </Dialog>
+  
     </>
   );
 };
 
-export default AddBootCampDialog;
+export default BootCampEdit;

@@ -19,38 +19,59 @@ import MultiStepStudentForm from "./Compoments/studentProfile/MultiStepStudentFo
 import AddJobs from "./Compoments/admin/AddJobs";
 import AddBootCamp from "./Compoments/admin/AddBootCamp";
 import BootCampDetails from "./Compoments/admin/BootCampDetails";
+import BootCampEdit from "./Compoments/admin/BootCampEdit";
+import JobDetailsById from "./Compoments/Job details/JobDetailsById";
+import AdminRequire from "./features/AdminRequire/AdminRequire";
+import { ROLES } from "./Compoments/config/roles";
 function App() {
   return (
     <>
       <Routes>
         <Route element={<AppLayout />}>
+          {/* admin */}
+
+          <Route
+            element={<AdminRequire allowedRoles={[...Object.values(ROLES)]} />}
+          >
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/studentlist" element={<StudentList />} />
+            <Route
+              path="/admin/studentlist/studentDetails/:studentId"
+              element={<StudentDetails />}
+            />
+            <Route
+              path="/admin/itTraining"
+              element={<AdminItTrainingTable />}
+            />
+            <Route
+              path="/admin/itTraining/details/:trainigId"
+              element={<ItTrainingByIdDetails />}
+            />
+            <Route
+              path="/admin/itTraining/edit/:trainigId"
+              element={<ItTrainingEdit />}
+            />
+            <Route path="/admin/bootcamp" element={<AddBootCamp />} />
+            <Route path="/admin/jobs" element={<AddJobs />} />
+            <Route
+              path="/admin/bootcamp/details/:id"
+              element={<BootCampDetails />}
+            />
+            <Route
+              path="/admin/bootcamp/details/:id"
+              element={<BootCampDetails />}
+            />
+
+            <Route path="/admin/bootcamp/edit/:id" element={<BootCampEdit />} />
+          </Route>
+
           <Route path="/" element={<HomePage />} />
           <Route path="/jobsection" element={<JobSection />} />
+          <Route path="/jobdetails/:id" element={<JobDetailsById />} />
           <Route path="/profile" element={<MultiStepStudentForm />} />
           <Route path="/counter" element={<Counter />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/studentlist" element={<StudentList />} />
-          <Route
-            path="/admin/studentlist/studentDetails/:studentId"
-            element={<StudentDetails />}
-          />
-          <Route path="/admin/itTraining" element={<AdminItTrainingTable />} />
-          <Route
-            path="/admin/itTraining/details/:trainigId"
-            element={<ItTrainingByIdDetails />}
-          />
-          <Route
-            path="/admin/itTraining/edit/:trainigId"
-            element={<ItTrainingEdit />}
-          />
-          <Route path="/admin/bootcamp" element={<AddBootCamp />} />
-          <Route path="/admin/jobs" element={<AddJobs />} />
-          <Route
-            path="/admin/bootcamp/details/:id"
-            element={<BootCampDetails />}
-          />
         </Route>
-        <Route path="register" element={<RegistrationPage />} />
+        <Route path="/register" element={<RegistrationPage />} />
         <Route path="/studentSignUp" element={<StudentSignUpForm />} />
         <Route path="/tpo" element={<TpoSignUpForm />} />
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />

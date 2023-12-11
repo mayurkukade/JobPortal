@@ -47,7 +47,7 @@ export default function JobHeader() {
           Preferable helps you find the perfect job for you.
         </p>
 
-        <div className="flex flex-wrap mt-5 gap-5">
+        <div className="flex flex-wrap mt-5 gap-1">
           <div className="  rounded-md flex items-center ">
             <Input
               placeholder="Job Title,Keywords or Company Name"

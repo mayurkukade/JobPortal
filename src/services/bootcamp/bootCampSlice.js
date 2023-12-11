@@ -26,10 +26,11 @@ export const bootCampSlice = apiSlice.injectEndpoints({
             providesTags:['itTrainig','bootCamp']
         }),
         bootCampUpdate:builder.mutation({
-            query:(data)=>({
-                url:`/bootcamp/update?bootcampTital=s&bootcampDetails=sd&time&status&location=adad&photo&tagLine&photo=4444&price&bootCampId=1`,
+            query:({BootCampUpdatedData,id})=>({
+                url:`/bootcamp/update?bootcampTital=${BootCampUpdatedData.bootcampTital}&bootcampDetails=${BootCampUpdatedData.bootcampDetails}&time&status&location=adad&photo&tagLine&photo=4444&price&bootCampId=${id}`,
                 method:"PATCH",
-                body:data
+                body:BootCampUpdatedData,
+                transformRespons:console.log(BootCampUpdatedData,id)
             }),
             invalidatesTags:['itTrainig','bootCamp']
         }),

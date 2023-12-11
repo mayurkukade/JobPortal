@@ -89,19 +89,19 @@ const [bootCampDelete] = useBootCampDeleteMutation()
       navigate(`/admin/bootcamp/details/${id}`)
         };
     const handleButtonEditClick = (id) => {
-    console.log(id)
+      navigate(`/admin/bootcamp/edit/${id}`)
         };
 
         const handleButtonDeleteClick = (id)=>{
           bootCampDelete(id)
-          console.log(id)
+      
         }
       
   
   return (
-    <div>
+    <>
        <TableComponent columns={columns} data={allBootCamp} />
-    </div>
+    </>
   )
 }
 

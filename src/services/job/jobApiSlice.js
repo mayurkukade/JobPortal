@@ -13,12 +13,22 @@ export const jobApiSlice = apiSlice.injectEndpoints({
                 body:data
             }),
             invalidatesTags:["Job"]
+        }),
+        byIdJobs:builder.query({
+            query:(id)=>({
+                url:`/job/getJob?JobId=${id}`,
+               
+            }),
+            providesTags:["Job"]
+
         })
+
     })
 })
 
 export const {
 useGetAllJobQuery,
-useAddJobsMutation
+useAddJobsMutation,
+useByIdJobsQuery
 
 } = jobApiSlice
