@@ -21,7 +21,21 @@ export const jobApiSlice = apiSlice.injectEndpoints({
             }),
             providesTags:["Job"]
 
-        })
+        }),
+        jobFilter: builder.query({
+            query: (mainFilter) => {
+              const { jobSearch,city,experienceLevel } = mainFilter;
+              console.log(jobSearch)
+              console.log(city)
+              console.log(`/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=`) 
+              return `/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel`;
+            },
+            transformResponse: (response) => {
+              console.log(response);
+          
+              return response;
+            },
+          }),
 
     })
 })
@@ -29,6 +43,7 @@ export const jobApiSlice = apiSlice.injectEndpoints({
 export const {
 useGetAllJobQuery,
 useAddJobsMutation,
-useByIdJobsQuery
+useByIdJobsQuery,
+useJobFilterQuery
 
 } = jobApiSlice
