@@ -1,15 +1,9 @@
 
 import React from 'react'
-import { Card, Typography,Button,Input,
-  Dialog,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Checkbox,
-  Radio,
-  Textarea,Label, } from "@material-tailwind/react";
+import { Card, Typography,Button,Input,Dialog } from "@material-tailwind/react";
 import SpeedDials from './SpeedDials';
 import{motion} from 'framer-motion'
+import { IoIosSearch } from "react-icons/io";
   
 
 const TABLE_HEAD = ["id","Cost", "Domain", "Topic", "Mentor" , "Mode","Start Date", "End Date", "Duration" , "Info"];
@@ -98,18 +92,37 @@ export default function PublishJob() {
     Object.values(row).some(value => String(value).toLowerCase().includes(searchQuery.toLowerCase()))
   ));
 
-  function handleSubmit(){
-    console.log("company : -" ,company);
-    console.log("job : -" ,job);
-    console.log("skills : -" ,skills);
-    console.log("date : -" ,date);
-    console.log("dispriction : -" ,dispriction);
-    console.log("address : -" ,address);
-    console.log("salary : -" ,salary);
-    console.log("experince : -" ,experince);
-    console.log("type : -" ,type);
-    console.log("incentives : -" ,incentives);
-    console.log("requriments : -" ,requriments);
+  function handleSubmit(e){
+  
+    e.preventDefault();
+
+    const obj = {
+      Company : company,
+      Job : job,
+      Skills : skills,
+      Date : date,
+      Dispriction : dispriction,
+      Address : address ,
+      Salary : salary,
+      Experince : experince,
+      Type : type,
+      Incentives : incentives,
+      Requriments : requriments,
+    };
+
+    // console.log("company : -" ,company);
+    // console.log("job : -" ,job);
+    // console.log("skills : -" ,skills);
+    // console.log("date : -" ,date);
+    // console.log("dispriction : -" ,dispriction);
+    // console.log("address : -" ,address);
+    // console.log("salary : -" ,salary);
+    // console.log("experince : -" ,experince);
+    // console.log("type : -" ,type);
+    // console.log("incentives : -" ,incentives);
+    // console.log("requriments : -" ,requriments);
+
+    console.log(obj);
 
     setCompany("");
     setJob("");
@@ -124,7 +137,7 @@ export default function PublishJob() {
     setRequriments("");
   }
   return (
-    <div className='flex '>
+    <div className='flex bg-indigo-100 min-h-screen'>
       <div>
 
         <motion.div whileHover={{scale : 1.1 ,originX:0}}>
@@ -138,6 +151,7 @@ export default function PublishJob() {
             className=''
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
+            icon={<IoIosSearch />}
           />
         </div>
 
@@ -148,7 +162,7 @@ export default function PublishJob() {
 
         {/* Display table if there are results */}
         {filteredRows.length > 0 && (
-          <Card className="h-full w-full overflow-scroll mt-5 ml-20">
+          <Card className=" mt-5 ml-20">
             <table className="w-full min-w-max table-auto text-left">
               <thead>
                 <tr>
