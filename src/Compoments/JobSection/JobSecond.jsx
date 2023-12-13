@@ -51,7 +51,7 @@ export default function JobSecond({
           shadow-lg
           className="w-full max-w-[48rem] mb-5 hover:shadow-xl  "
         >
-          <Link to={`/jobdetails/${item.jobId}`}>
+          <Link to={`/jobdetails/${item.jobId}`} target="_blank">
             <CardHeader
               color="transparent"
               floated={false}
@@ -125,7 +125,7 @@ export default function JobSecond({
                 <div color="blue-gray" className="flex justify-between">
                   <div className="flex justify-start gap-3">
                     <Typography>{item.companyName}</Typography>
-                    <Typography>5-8 years</Typography>
+                    <Typography>{item.experienceLevel}</Typography>
                     <Typography>{item.jobLocation}</Typography>
                     <Typography>{item.postDate}</Typography>
                   </div>
@@ -151,7 +151,7 @@ export default function JobSecond({
   }
   return (
     <>
-      <div className="w-full  bg-blue-gray-50 h-[4rem] flex ">
+      {/* <div className="w-full  bg-blue-gray-50 h-[4rem] flex ">
         <div className="flex  gap-5 w-fit  items-center ml-9">
           <p className="">Filter:</p>
           <Select label="Any Exp.Level">
@@ -172,7 +172,7 @@ export default function JobSecond({
             <Option>Hydrabad</Option>
           </Select>
         </div>
-      </div>
+      </div> */}
       <div className="mx-auto container ">
         <div className=" ">{fetchedJob}</div>
       </div>

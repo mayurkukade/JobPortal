@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Button } from "@material-tailwind/react";
+import { Button,Select,Option } from "@material-tailwind/react";
 
 import { Input } from "@material-tailwind/react";
 import ReactTextTransition, { presets } from "react-text-transition";
@@ -18,7 +18,7 @@ export default function JobHeader({
   setJobName
 }) {
   const [textIndex, setTextIndex] = useState(0);
-
+console.log(experiance)
  console.log(jobSearch)
  const handleSubmit =  (e) => {
   e.preventDefault();
@@ -69,7 +69,7 @@ const handleReset = ()=>{
         </p>
 
         <div className="flex flex-wrap mt-5 gap-1">
-          <div className="  rounded-md flex items-center ">
+          {/* <div className="  rounded-md flex items-center ">
             <Input
               placeholder="Job Title"
               slotProps={{
@@ -83,7 +83,7 @@ const handleReset = ()=>{
               value={jobName}
               className="bg-white h-[52px] w-[23rem]"
             />
-          </div>
+          </div> */}
           <div className="  rounded-md flex items-center ">
             <Input
               placeholder="Company Name"
@@ -114,8 +114,8 @@ const handleReset = ()=>{
               className="bg-white h-[52px] w-[23rem]"
             />
           </div>
-          {/* <div className="  rounded-md flex items-center ">
-            <Input
+          <div className="  rounded-md flex items-center ">
+            {/* <Input
               placeholder="Experiance"
               slotProps={{
                 input: {
@@ -123,11 +123,32 @@ const handleReset = ()=>{
                     " bg-white text-sm font-sans font-normal leading-5 px-3 py-2 rounded-lg shadow-md shadow-slate-100 dark:shadow-slate-900 focus:shadow-outline-purple dark:focus:shadow-outline-purple focus:shadow-lg border border-solid border-slate-300 hover:border-purple-500 dark:hover:border-purple-500 focus:border-purple-500 dark:focus:border-purple-500 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-300 focus-visible:outline-0",
                 },
               }}
-              className="bg-white h-[52px] w-[23rem]"
+              name="experienceLevel"
               onChange={(e) => setExperiance(e.target.value)}
               value={experiance}
-            />
-          </div> */}
+              className="bg-white h-[52px] w-[23rem]"
+            /> */}
+
+            <select
+            id="experiance"
+            name="experiance"
+            value={experiance}
+            onChange={(e)=>setExperiance(e.target.value)}
+            className="h-10 border border-gray-300 rounded-md w-[10rem]"
+            placeholder="Experiance Level"
+            required
+          >
+            <option></option>
+            <option value={"0 years"}>Fresher</option>
+            <option value={"1 years"}>1 year</option>
+            <option value={"2 years"}>2 year</option>
+            <option value={"3 years"}>3 year</option>
+            <option value={"4 years"}>4 year</option>
+           
+          </select>
+     
+          </div>
+          
           <div className="flex items-center ml-2 mr-2">
             <Button variant="outlined" onClick={handleSubmit}>
               {" "}

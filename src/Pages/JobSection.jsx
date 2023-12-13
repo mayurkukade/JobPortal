@@ -16,6 +16,7 @@ export default function JobSection() {
   } = useJobFilterQuery(mainFilter);
   console.log(mainFilterIsError);
   console.log(jobName)
+  console.log(experiance)
   return (
     <div>
       <JobHeader

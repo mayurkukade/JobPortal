@@ -24,11 +24,13 @@ export const jobApiSlice = apiSlice.injectEndpoints({
         }),
         jobFilter: builder.query({
             query: (mainFilter) => {
-              const { jobSearch,city,experienceLevel } = mainFilter;
+                console.log(mainFilter)
+              const { jobSearch,city,experiance} = mainFilter;
               console.log(jobSearch)
               console.log(city)
-              console.log(`/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=`) 
-              return `/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel`;
+              console.log(experiance)
+              console.log(`/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=${experiance}`) 
+              return `/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=${experiance}`;
             },
             transformResponse: (response) => {
               console.log(response);
