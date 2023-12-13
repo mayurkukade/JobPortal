@@ -19,6 +19,6 @@ export const apiSlice = createApi({
       }
       return headers;
   },
-  tagTypes: ['registerPost','itTrainig','bootCamp','job'],
+  tagTypes: ['registerPost','mentor','itTrainig','bootCamp','job'],
   endpoints: (builder) => ({}),
 });

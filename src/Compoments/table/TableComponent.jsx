@@ -9,7 +9,7 @@ import {
   usePagination,
   useGlobalFilter,
 } from "react-table";
-import { Link } from "react-router-dom";
+
 const TableComponent = ({ columns, data }) => {
   const {
     getTableProps,
@@ -71,7 +71,7 @@ const TableComponent = ({ columns, data }) => {
               </tr>
             ))}
           </thead>
-          <tbody {...getTableBodyProps()} className="h-[30rem]">
+          <tbody {...getTableBodyProps()} >
             {page.map((row, index) => {
               prepareRow(row);
               return (

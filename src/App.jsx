@@ -23,6 +23,9 @@ import BootCampEdit from "./Compoments/admin/BootCampEdit";
 import JobDetailsById from "./Compoments/Job details/JobDetailsById";
 import AdminRequire from "./features/AdminRequire/AdminRequire";
 import { ROLES } from "./Compoments/config/roles";
+import Mentor from "./Compoments/admin/Mentor";
+import MentorDetails from "./Compoments/admin/MentorDetails";
+import MentorEdit from "./Compoments/admin/MentorEdit";
 function App() {
   return (
     <>
@@ -63,6 +66,9 @@ function App() {
             />
 
             <Route path="/admin/bootcamp/edit/:id" element={<BootCampEdit />} />
+            <Route path="/admin/mentor" element={<Mentor/>} />
+            <Route path="/admin/mentor/details/:id" element={<MentorDetails/>} />
+            <Route path="/admin/mentor/edit/:id" element={<MentorEdit/>} />
           </Route>
 
           <Route path="/" element={<HomePage />} />

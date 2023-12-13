@@ -16,6 +16,9 @@ const Admin = () => {
       <Link to="/admin/bootcamp">
         <Button>Add Bootcamp</Button>
       </Link>
+      <Link to="/admin/mentor">
+        <Button>Mentor</Button>
+      </Link>
     </div>
   );
 };
