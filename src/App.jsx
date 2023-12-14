@@ -13,6 +13,7 @@ import Dashboard from "./Compoments/TPO/Dashboard/Dashboard";
 import PublishJob from "./Compoments/TPO/DashboardFeatures/PublishJob";
 import JobDetail from "./Compoments/TPO/Dashboard Compoment/JobDetail";
 import EditCareerPage from "./Compoments/TPO/Dashboard Compoment/EditCareerPage";
+import StudentMultiStep from "./Compoments/Forms/StudentMultiStep";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="/PublishJob" element={<PublishJob/>} />
         <Route path="/JobDetail" element={<JobDetail/>} />
         <Route path="/Editcareerpage" element={<EditCareerPage/>} />
+        <Route path="/StudentMultistep" element={<StudentMultiStep/>} />
       </Routes>
 
       
