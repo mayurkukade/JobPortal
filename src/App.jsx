@@ -1,7 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import HomePage from "./Pages/HomePage";
-import SingUp from "./Compoments/Forms/SingUp";
-import Registration from "./Compoments/Forms/Registration";
 import JobSection from "./Pages/JobSection";
 import JobDetails from "./Compoments/Job details/JobDetails";
 import AppLayout from "./Compoments/layout/AppLayout";
@@ -14,6 +12,7 @@ import Forms from "./Compoments/Forms/Forms";
 import Dashboard from "./Compoments/TPO/Dashboard/Dashboard";
 import PublishJob from "./Compoments/TPO/DashboardFeatures/PublishJob";
 import JobDetail from "./Compoments/TPO/Dashboard Compoment/JobDetail";
+import EditCareerPage from "./Compoments/TPO/Dashboard Compoment/EditCareerPage";
 
 function App() {
   return (
@@ -34,6 +33,7 @@ function App() {
         <Route path="/Dashboard/*" element={<Dashboard/>} />
         <Route path="/PublishJob" element={<PublishJob/>} />
         <Route path="/JobDetail" element={<JobDetail/>} />
+        <Route path="/Editcareerpage" element={<EditCareerPage/>} />
       </Routes>
 
       

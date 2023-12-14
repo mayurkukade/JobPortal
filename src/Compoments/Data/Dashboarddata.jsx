@@ -1,14 +1,15 @@
+
 import React from "react";
 import { Button, Input, Switch } from "@material-tailwind/react";
 import { CiShare2 } from "react-icons/ci";
 import { IoIosSearch } from "react-icons/io";
 import Lens from '../Images/Lenskart.png'
-import Code from '../Images/Code.jpeg'
 import { FaRegCopy } from "react-icons/fa6";
 import { IoShareSocialOutline } from "react-icons/io5";
 import { TiSocialFacebook,TiSocialTwitter,TiSocialLinkedin,TiSocialYoutube } from "react-icons/ti";
 import { FcBriefcase } from "react-icons/fc";
 import { AiOutlineDropbox } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 export const TABLE_HEAD = [
   "title",
@@ -76,6 +77,24 @@ export const data = [
   },
 ];
 
+const CareerPage = () => {
+  const navigate = useNavigate();
+
+  const handleCareerPageClick = () => {
+    navigate("/Editcareerpage");
+  };
+
+  return (
+    <div>
+      <div>
+        <Button variant="outlined" className="text-blue-500" onClick={handleCareerPageClick}>
+          Edit Career Page
+        </Button>
+      </div>
+  
+    </div>
+  );
+};
 export const Career = [
   {
     label1: "Company Profile",
@@ -83,9 +102,7 @@ export const Career = [
     desc1: (
       <div>
         <div className="w-full justify-end flex">
-          <Button variant="outlined" className="text-blue-500">
-            Edit Career Page
-          </Button>
+        <CareerPage />
         </div>
             
             {/* div overlap code */}
@@ -98,7 +115,8 @@ export const Career = [
             </div>
           
         </div>
-         
+         {/* div overlap code end */}
+
          <div className="mt-10 ml-10">
            <p className="text-2xl text-black"><b>Company Name</b></p>
            <p className="text-xs text-gray-700 mt-2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat dolores dolore ut, beatae quisquam vero, cum officiis excepturi iste non <br />fugiat quibusdam quos qui, eius earum at facilis rerum reprehenderit quidem neque eaque. Aut non quae est, at inventore quis velit nisi <br /> placeat enim voluptate sunt magni magnam illum ullam?</p>
