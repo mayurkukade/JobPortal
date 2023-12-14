@@ -6,10 +6,7 @@ import { IoIosPeople, IoMdClipboard } from "react-icons/io";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { TfiBag } from "react-icons/tfi";
 import { IoChatbubblesOutline, IoPersonAddOutline } from "react-icons/io5";
-import {
-  FaIndianRupeeSign,
-  FaArrowRightFromBracket,
-} from "react-icons/fa6";
+import {FaArrowRightFromBracket} from "react-icons/fa6";
 import { VscAccount } from "react-icons/vsc";
 import { LuUserMinus2 } from "react-icons/lu";
 import {Input} from "@material-tailwind/react";
@@ -251,40 +248,40 @@ export default function () {
     document.getElementById('price').removeAttribute('style')
   }
 
-  function Price (){
-    if(open7==false){
-      setOpen7(!open7)
-    }
-    if(open6==true){
-      setOpen6(!open6)
-    }
-    if(open5==true){
-      setOpen5(!open5)
-     }
-     if(open4==true){
-      setOpen4(!open4)
-     }
-     if(open3==true){
-      setOpen3(!open3)
-    }
-    if(open2==true){
-      setOpen2(!open2)
-     }
-     if(open1==true){
-      setOpen1(!open1)
-    }
-    if(open9==true){
-      setOpen9(!open9)
-    }
-    document.getElementById('price').setAttribute("style","background : #bdbddb")
-    document.getElementById('dashboard').removeAttribute("style");
-  document.getElementById('account').removeAttribute("style");
-    document.getElementById('jobs').removeAttribute('style')
-    document.getElementById('talent').removeAttribute('style')
-    document.getElementById('career').removeAttribute('style')
-    document.getElementById('interview').removeAttribute('style')
-    document.getElementById('chat').removeAttribute('style')
-  }
+  // function Price (){
+  //   if(open7==false){
+  //     setOpen7(!open7)
+  //   }
+  //   if(open6==true){
+  //     setOpen6(!open6)
+  //   }
+  //   if(open5==true){
+  //     setOpen5(!open5)
+  //    }
+  //    if(open4==true){
+  //     setOpen4(!open4)
+  //    }
+  //    if(open3==true){
+  //     setOpen3(!open3)
+  //   }
+  //   if(open2==true){
+  //     setOpen2(!open2)
+  //    }
+  //    if(open1==true){
+  //     setOpen1(!open1)
+  //   }
+  //   if(open9==true){
+  //     setOpen9(!open9)
+  //   }
+  //   document.getElementById('price').setAttribute("style","background : #bdbddb")
+  //   document.getElementById('dashboard').removeAttribute("style");
+  // document.getElementById('account').removeAttribute("style");
+  //   document.getElementById('jobs').removeAttribute('style')
+  //   document.getElementById('talent').removeAttribute('style')
+  //   document.getElementById('career').removeAttribute('style')
+  //   document.getElementById('interview').removeAttribute('style')
+  //   document.getElementById('chat').removeAttribute('style')
+  // }
 
   function account (){
 
@@ -386,12 +383,12 @@ export default function () {
             </motion.div>
 
             {/* pricing */}
-            <motion.div  whileHover={{ scale : 1.1}} onClick={Price} id="price" className="mt-20 cursor-pointer rounded-md px-2">
+            {/* <motion.div  whileHover={{ scale : 1.1}} onClick={Price} id="price" className="mt-20 cursor-pointer rounded-md px-2">
               <h2 className="ml-7">
                 <FaIndianRupeeSign className="w-[20px] h-[30px] " />
               </h2>
               <p className="uppercase text-sm ml-3">pricing</p>
-            </motion.div>
+            </motion.div> */}
 
             {/* account*/}
             <motion.div  whileHover={{ scale : 1.1}} onClick={account} id="account" className="mt-5 cursor-pointer rounded-md px-2">

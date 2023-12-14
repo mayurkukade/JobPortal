@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { Card, Typography,Button,Input,Dialog } from "@material-tailwind/react";
+import { Card, Typography,Button,Input } from "@material-tailwind/react";
 import SpeedDials from './SpeedDials';
 import{motion} from 'framer-motion'
 import { IoIosSearch } from "react-icons/io";
@@ -73,75 +73,20 @@ const TABLE_ROWS = [
 
 export default function PublishJob() {
   const [searchQuery, setSearchQuery] = React.useState('');
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen((cur) => !cur);
 
-  const [company , setCompany] = React.useState("");
-  const [job , setJob] = React.useState("");
-  const [skills , setSkills] = React.useState("");
-  const [date , setDate] = React.useState("");
-  const [dispriction , setDispriction] = React.useState("");
-  const [address , setAddress] = React.useState("");
-  const [salary , setSalary] = React.useState("");
-  const [experince , setExperince] = React.useState("");
-  const [type , setType] = React.useState("");
-  const [incentives , setIncentives] = React.useState("");
-  const [requriments , setRequriments] = React.useState("");
+  
 
   const filteredRows = TABLE_ROWS.filter(row => (
     Object.values(row).some(value => String(value).toLowerCase().includes(searchQuery.toLowerCase()))
   ));
 
-  function handleSubmit(e){
-  
-    e.preventDefault();
-
-    const obj = {
-      Company : company,
-      Job : job,
-      Skills : skills,
-      Date : date,
-      Dispriction : dispriction,
-      Address : address ,
-      Salary : salary,
-      Experince : experince,
-      Type : type,
-      Incentives : incentives,
-      Requriments : requriments,
-    };
-
-    // console.log("company : -" ,company);
-    // console.log("job : -" ,job);
-    // console.log("skills : -" ,skills);
-    // console.log("date : -" ,date);
-    // console.log("dispriction : -" ,dispriction);
-    // console.log("address : -" ,address);
-    // console.log("salary : -" ,salary);
-    // console.log("experince : -" ,experince);
-    // console.log("type : -" ,type);
-    // console.log("incentives : -" ,incentives);
-    // console.log("requriments : -" ,requriments);
-
-    console.log(obj);
-
-    setCompany("");
-    setJob("");
-    setSkills("");
-    setDate("");
-    setDispriction("");
-    setAddress("");
-    setSalary("");
-    setExperince("");
-    setType("");
-    setIncentives("");
-    setRequriments("");
-  }
+ 
   return (
     <div className='flex bg-indigo-100 min-h-screen'>
       <div>
 
         <motion.div whileHover={{scale : 1.1 ,originX:0}}>
-          <Button className='mt-5 ml-20 bg-yellow-900' onClick={handleOpen}>Add Training</Button>
+          <Button className='mt-5 ml-20 bg-yellow-900'>Add Training</Button>
           
         </motion.div>
         <div className='w-72 ml-20 mt-5'>
@@ -302,83 +247,6 @@ export default function PublishJob() {
         )}
     {/* Table end */}
 
-
-         {/* Add Training start */}
-   
-         <Dialog
-        size='md'
-        open={open}
-        handler={handleOpen}
-        className="bg-transparent shadow-none"
-      >
-        <form onSubmit={handleSubmit} className='bg-white rounded-md px-5 py-5 flex justify-center'>
-          <div>
-            <div>
-              <p className='text-lg ml-3 font-bold'>Add Training</p>
-            </div>
-
-             <div className='mt-5 flex'>
-               <div>
-                 <Input type='text' label='Company Name' value={company} onChange={(e) => setCompany(e.target.value)} />
-                </div>
-                <div className='ml-1'>
-                 <Input type='text' label='Job Profile' value={job} onChange={(e) => setJob(e.target.value)} />
-                </div>
-             </div>
-
-            <div className='mt-5 flex'>
-              <div>
-                <Input type='text' label='Skills' value={skills} onChange={(e) => setSkills(e.target.value)} />
-              </div>
-              <div className='ml-1'>
-               <Input type='date' label='Post Date' value={date} onChange={(e) => setDate(e.target.value)} />
-              </div>
-                
-             </div>
-
-             <div className='mt-5 flex'>
-              <div>
-               <Input type='text' label='Job Dispriction' value={dispriction} onChange={(e) => setDispriction(e.target.value)} />
-              </div>
-                <div className='ml-1'>
-                 <Input label='Address' value={address} onChange={(e) => setAddress(e.target.value)} />
-                </div>
-             </div>
-
-            <div className='mt-5 flex'>
-              <div>
-                <Input type='number' label='Salary' value={salary} onChange={(e) => setSalary(e.target.value)} />
-              </div>
-              <div className='ml-1'>
-                <Input type='text' label='Experince' value={experince} onChange={(e) => setExperince(e.target.value)} />
-              </div>
-            </div>
-
-            <div className='mt-5 flex'>
-              <div>
-                <Input type='text' label='Job Type' value={type} onChange={(e) => setType(e.target.value)} />
-              </div>
-              <div className='ml-1'>
-                <Input type='text' label='Incentives' value={incentives} onChange={(e) => setIncentives(e.target.value)} />
-              </div>
-            </div>
-
-            <div className='mt-5 flex'>
-              <div>
-                <Input type='text' label='Requriments' value={requriments} onChange={(e) => setRequriments(e.target.value)} />
-              </div>
-              <div className='ml-5'>
-                <input type='file' placeholder='Select Logo' className='py-2'/>
-              </div>
-            </div>
-              <div className='mt-5 '>
-               <Button className='w-full' type='submit' color='green'>Submit</Button>
-              </div>
-            </div>    
-       </form>
-      </Dialog>
-
-         {/* Add Training end */}
       </div>
     </div>
   )

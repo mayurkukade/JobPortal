@@ -12,8 +12,13 @@ import {
     FaGripLines,
   } from "react-icons/fa6";
   import { TABLE_HEAD, TABLE_ROWS} from "../../Data/Dashboarddata";
+  import { useNavigate } from 'react-router-dom';
 
 export default function () {
+  const navigate = useNavigate()
+  function navigation () {
+    navigate("/JobDetail");
+  }
   return (
     <div>
         {/* Active jobs section */}
@@ -67,9 +72,9 @@ export default function () {
             </div>
 
             {/* Table */}
-            <div className="mt-10">
+            <div className="mt-10 cursor-pointer" >
               <Card className="h-full w-full overflow-scroll-x">
-                <table className="w-full min-w-max table-auto text-left">
+                <table className="w-full min-w-max table-auto text-left" onClick={navigation}>
                   <thead>
                     <tr>
                       {TABLE_HEAD.map((head) => (

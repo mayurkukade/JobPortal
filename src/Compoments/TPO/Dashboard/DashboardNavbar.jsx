@@ -1,29 +1,36 @@
 import React from 'react'
 import Lens from '../../Images/Lenskart.png'
-import {Button} from '@material-tailwind/react'
+import {Button,Dialog} from '@material-tailwind/react'
 import { RxDashboard } from "react-icons/rx";
 import { BsBriefcase } from "react-icons/bs";
-import { IoIosPeople,IoMdClipboard } from "react-icons/io";
+import { IoIosPeople } from "react-icons/io";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { TfiBag } from "react-icons/tfi";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import { FaIndianRupeeSign  } from "react-icons/fa6";
 import { VscAccount } from "react-icons/vsc";
 import {motion} from 'framer-motion'
+import PostJob from '../DashboardFeatures/PostJob';
+
 
 
 export default function DashboardNavbar() {
  // State to toggle the mobile menu
  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
+ // Post Job
+ const [open, setOpen] = React.useState(false);
+ const handleOpen = () => setOpen((cur) => !cur);
+
+
  // Function to toggle mobile menu
  const toggleMobileMenu = () => {
    setMobileMenuOpen(!mobileMenuOpen);
  };
 
- const handleMenuItemClick = () => {
-  setMobileMenuOpen(false);
-};
+//  const handleMenuItemClick = () => {
+//   setMobileMenuOpen(false);
+// };
 
   return (
     <div className='flex justify-center bg-blue-gray-300  rounded-md'>
@@ -51,7 +58,7 @@ export default function DashboardNavbar() {
         {/* Button */}
 
         <div className='sm:ml-[60rem] ml-10'>
-            <Button>Post Job</Button>
+            <Button onClick={handleOpen}>Post Job</Button>
         </div>
         
       </div>
@@ -113,6 +120,17 @@ export default function DashboardNavbar() {
             </div>
             </motion.div>
         )}
+
+        {/* Post Job */}
+
+        <Dialog
+        size='sm'
+        open={open}
+        handler={handleOpen}
+        className="bg-transparent shadow-none"
+      >
+       <PostJob/>
+      </Dialog>
         
     </div>
   )
