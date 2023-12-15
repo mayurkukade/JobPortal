@@ -12,6 +12,8 @@ import {
 import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
 import { calcLength } from "framer-motion";
 import { useState } from "react";
+import { Button } from "@material-tailwind/react";
+import { useGetSavedJobBYUserIdQuery } from "../../services/savedJob/savedJobsApiSlice";
 
 function StarIcon() {
   return (
@@ -35,15 +37,19 @@ export default function JobSecond({
   mainfilterLoading,
   mainFilterIsError,
   filterFlag,
+  data,
+  isSuccess,
+  isLoading
 }) {
   console.log(filterFlag);
-  const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
-  console.log(isSuccess);
-  console.log(data);
 
+  const { data: getSavedJob } = useGetSavedJobBYUserIdQuery();
+  console.log(getSavedJob?.list);
   const mainFilter = filterFlag ? mainFilterData : data;
   const jobData = mainFilter?.list?.map((item, index) => {
-    console.log(item);
+    console.log(item.jobId)
+
+
     return (
       <div key={item.jobId} className="mt-2">
         <Card
@@ -51,13 +57,13 @@ export default function JobSecond({
           shadow-lg
           className="w-full max-w-[48rem] mb-5 hover:shadow-xl  "
         >
-          <Link to={`/jobdetails/${item.jobId}`} target="_blank">
-            <CardHeader
-              color="transparent"
-              floated={false}
-              shadow={false}
-              className="mx-0 flex items-center gap-4 pt-0 pb-8"
-            >
+          <CardHeader
+            color="transparent"
+            floated={false}
+            shadow={false}
+            className="mx-0 flex items-center gap-4 pt-0 pb-8"
+          >
+            <Link to={`/jobdetails/${item.jobId}`} target="_blank">
               <Avatar
                 size="lg"
                 variant="square"
@@ -65,30 +71,35 @@ export default function JobSecond({
                 alt="tania andrew"
                 className="object-cover p-3 w-fit"
               />
-              <div className="flex w-full flex-col gap-0.5">
-                <div className="flex items-center justify-between">
+            </Link>
+
+            <div className="flex w-full flex-col gap-0.5">
+              <div className="flex items-center justify-between">
+                <Link to={`/jobdetails/${item.jobId}`} target="_blank">
                   <Typography variant="h5" color="blue-gray">
                     {item.postName}
                   </Typography>
-                  <div className="  flex items-center gap-6 ">
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="w-6 h-6 cursor-pointer"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
-                        />
-                      </svg>
-                    </div>
+                </Link>
+                <div className="  flex items-center gap-6 ">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.5}
+                      stroke="currentColor"
+                      className="w-6 h-6 cursor-pointer"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
+                      />
+                    </svg>
+                  </div>
 
-                    <div>
+                  <div>
+                    <Link to={`/jobdetails/${item.jobId}`} target="_blank">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -103,41 +114,50 @@ export default function JobSecond({
                           d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z"
                         />
                       </svg>
-                    </div>
-                    <div>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="1.5"
-                        stroke="currentColor"
-                        className="w-6 h-6 cursor-pointer mr-2"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
-                        />
-                      </svg>
-                    </div>
+                    </Link>
+                  </div>
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      className="w-6 h-6 cursor-pointer mr-2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+                      />
+                    </svg>
                   </div>
                 </div>
-                <div color="blue-gray" className="flex justify-between">
+              </div>
+
+              <div color="blue-gray" className="flex justify-between">
+                <Link to={`/jobdetails/${item.jobId}`} target="_blank">
                   <div className="flex justify-start gap-3">
                     <Typography>{item.companyName}</Typography>
                     <Typography>{item.experienceLevel}</Typography>
                     <Typography>{item.jobLocation}</Typography>
                     <Typography>{item.postDate}</Typography>
                   </div>
-                  <div className="flex justify-end gap-2 mr-2">
-                    <Typography>Premium</Typography>
-                    <Typography>Info</Typography>
-                    <Typography>Save</Typography>
-                  </div>
+                </Link>
+                <div className="flex justify-end gap-2 mr-2">
+                  <Typography>Premium</Typography>
+                  <Typography>Info</Typography>
+
+                  <Typography onClick={() => console.log("hello")}>
+                    Save
+                  </Typography>
                 </div>
+                
               </div>
-            </CardHeader>
-          </Link>
+              <Button color="blue" className="text-start w-fit  ">Apply</Button>
+            </div>
+          </CardHeader>
+         
         </Card>
       </div>
     );

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import JobHeader from "../Compoments/JobSection/JobHeader";
 import JobSecond from "../Compoments/JobSection/JobSecond";
+import { useGetAllJobQuery } from "../services/job/jobApiSlice";
 import { useJobFilterQuery } from "../services/job/jobApiSlice";
 export default function JobSection() {
   const [jobSearch, setSearch] = useState("");
@@ -14,6 +15,12 @@ export default function JobSection() {
     isLoading: mainfilterLoading,
     isError: mainFilterIsError,
   } = useJobFilterQuery(mainFilter);
+
+  const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
+
+  console.log(isSuccess);
+  
+
   console.log(mainFilterIsError);
   console.log(jobName)
   console.log(experiance)
@@ -36,6 +43,9 @@ export default function JobSection() {
         mainfilterLoading={mainfilterLoading}
         mainFilterIsError={mainFilterIsError}
         filterFlag ={filterFlag}
+        data ={data}
+        isSuccess={isSuccess}
+        isLoading = {isLoading}
       />
     </div>
   );

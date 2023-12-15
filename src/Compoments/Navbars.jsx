@@ -127,7 +127,7 @@ console.log(tokenSelector)
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <a href="#" className="flex items-center text-white">
+        <a href="/aboutus" className="flex items-center text-white">
           About
         </a>
       </Typography>

@@ -26,6 +26,8 @@ import { ROLES } from "./Compoments/config/roles";
 import Mentor from "./Compoments/admin/Mentor";
 import MentorDetails from "./Compoments/admin/MentorDetails";
 import MentorEdit from "./Compoments/admin/MentorEdit";
+import Dashboard from "./Compoments/TPO/Dashboard/Dashboard";
+import AboutUs from "./Pages/AboutUs";
 function App() {
   return (
     <>
@@ -66,17 +68,21 @@ function App() {
             />
 
             <Route path="/admin/bootcamp/edit/:id" element={<BootCampEdit />} />
-            <Route path="/admin/mentor" element={<Mentor/>} />
-            <Route path="/admin/mentor/details/:id" element={<MentorDetails/>} />
-            <Route path="/admin/mentor/edit/:id" element={<MentorEdit/>} />
+            <Route path="/admin/mentor" element={<Mentor />} />
+            <Route
+              path="/admin/mentor/details/:id"
+              element={<MentorDetails />}
+            />
+            <Route path="/admin/mentor/edit/:id" element={<MentorEdit />} />
           </Route>
-
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/jobsection" element={<JobSection />} />
           <Route path="/jobdetails/:id" element={<JobDetailsById />} />
           <Route path="/profile" element={<MultiStepStudentForm />} />
           <Route path="/counter" element={<Counter />} />
         </Route>
+        <Route path="/Dashboard/*" element={<Dashboard />} />
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/studentSignUp" element={<StudentSignUpForm />} />
         <Route path="/tpo" element={<TpoSignUpForm />} />

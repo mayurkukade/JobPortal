@@ -4,7 +4,7 @@ import { Button,Select,Option } from "@material-tailwind/react";
 import { Input } from "@material-tailwind/react";
 import ReactTextTransition, { presets } from "react-text-transition";
 import { useJobFilterQuery } from "../../services/job/jobApiSlice";
-
+import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
 export default function JobHeader({
   jobSearch,
   setSearch,
@@ -18,8 +18,12 @@ export default function JobHeader({
   setJobName
 }) {
   const [textIndex, setTextIndex] = useState(0);
-console.log(experiance)
- console.log(jobSearch)
+  const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
+  console.log(data)
+
+
+
+
  const handleSubmit =  (e) => {
   e.preventDefault();
   setFilterFlag(true)
@@ -45,6 +49,7 @@ const handleReset = ()=>{
       clearInterval(interval);
     };
   }, [texts.length]);
+  
   return (
     <div className="bg-darkBlueBackground md:h-[12rem]     ">
       <div className="container mx-auto p-5 w-fit">
