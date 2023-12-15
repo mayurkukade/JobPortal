@@ -13,7 +13,8 @@ import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
 import { calcLength } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@material-tailwind/react";
-import { useGetSavedJobBYUserIdQuery } from "../../services/savedJob/savedJobsApiSlice";
+import { useGetSavedJobBYUserIdQuery, usePostSaveJobMutation } from "../../services/savedJob/savedJobsApiSlice";
+import { CiLight } from "react-icons/ci";
 
 function StarIcon() {
   return (
@@ -41,26 +42,43 @@ export default function JobSecond({
   isSuccess,
   isLoading,
 }) {
-  console.log(filterFlag);
+  
 
   const { data: getSavedJob } = useGetSavedJobBYUserIdQuery();
+  const [postSaveJob] = usePostSaveJobMutation()
+
+
+  if(mainfilterLoading){
+    return <p>Loading...</p>
+  }
+
+  if(mainFilterIsError){
+    return <p>Error ...</p>
+  }
 
   const uniqueJobIdsSet = new Set();
 
   // Loop through the array and add unique jobIds to the Set
-  getSavedJob.list.forEach(item => {
+  getSavedJob?.list?.forEach((item) => {
     uniqueJobIdsSet.add(item.jobId); // Convert to string if needed
   });
   // Convert the Set back to an array if needed
   const uniqueJobIdsArray = Array.from(uniqueJobIdsSet).map(Number);
+
   
-  console.log(uniqueJobIdsArray);
 
   const mainFilter = filterFlag ? mainFilterData : data;
-  console.log(mainFilter);
 
-  const jobData = mainFilter?.map((item, index) => {
-   
+ const saveButtonClick = async()=>{
+  const res = await postSaveJob({
+    userId:1000,
+    jobId:6
+  })
+
+  console.log(res)
+ }
+
+  const jobData = mainFilter?.map((item) => {
     return (
       <div key={item.jobId} className="mt-2">
         <Card
@@ -129,16 +147,21 @@ export default function JobSecond({
                   </div>
                   <div>
                     <svg
+                    onClick={saveButtonClick}
                       xmlns="http://www.w3.org/2000/svg"
-                      fill={uniqueJobIdsArray.includes(item.jobId) ? "black" : "none"}
+                      fill={
+                        uniqueJobIdsArray.includes(item.jobId)
+                          ? "black"
+                          : "none"
+                      }
                       viewBox="0 0 24 24"
-                      stroke-width="1.5"
+                      strokeWidth="1.5"
                       stroke="currentColor"
                       className="w-6 h-6 cursor-pointer mr-2"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                         d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
                       />
                     </svg>
@@ -159,9 +182,9 @@ export default function JobSecond({
                   <Typography>Premium</Typography>
                   <Typography>Info</Typography>
 
-                  <Typography onClick={() => console.log("hello")}>
+                  <button  >
                     Save
-                  </Typography>
+                  </button>
                 </div>
               </div>
               <Button color="blue" className="text-start w-fit  ">
