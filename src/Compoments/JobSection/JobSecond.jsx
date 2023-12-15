@@ -39,17 +39,28 @@ export default function JobSecond({
   filterFlag,
   data,
   isSuccess,
-  isLoading
+  isLoading,
 }) {
   console.log(filterFlag);
 
   const { data: getSavedJob } = useGetSavedJobBYUserIdQuery();
-  console.log(getSavedJob?.list);
+
+  const uniqueJobIdsSet = new Set();
+
+  // Loop through the array and add unique jobIds to the Set
+  getSavedJob.list.forEach(item => {
+    uniqueJobIdsSet.add(item.jobId); // Convert to string if needed
+  });
+  // Convert the Set back to an array if needed
+  const uniqueJobIdsArray = Array.from(uniqueJobIdsSet).map(Number);
+  
+  console.log(uniqueJobIdsArray);
+
   const mainFilter = filterFlag ? mainFilterData : data;
-  const jobData = mainFilter?.list?.map((item, index) => {
-    console.log(item.jobId)
+  console.log(mainFilter);
 
-
+  const jobData = mainFilter?.map((item, index) => {
+   
     return (
       <div key={item.jobId} className="mt-2">
         <Card
@@ -119,7 +130,7 @@ export default function JobSecond({
                   <div>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
+                      fill={uniqueJobIdsArray.includes(item.jobId) ? "black" : "none"}
                       viewBox="0 0 24 24"
                       stroke-width="1.5"
                       stroke="currentColor"
@@ -152,12 +163,12 @@ export default function JobSecond({
                     Save
                   </Typography>
                 </div>
-                
               </div>
-              <Button color="blue" className="text-start w-fit  ">Apply</Button>
+              <Button color="blue" className="text-start w-fit  ">
+                Apply
+              </Button>
             </div>
           </CardHeader>
-         
         </Card>
       </div>
     );

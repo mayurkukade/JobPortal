@@ -19,8 +19,8 @@ export default function JobSection() {
   const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
 
   console.log(isSuccess);
-  
 
+console.log(data)
   console.log(mainFilterIsError);
   console.log(jobName)
   console.log(experiance)

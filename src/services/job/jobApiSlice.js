@@ -4,6 +4,12 @@ export const jobApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder)=>({
         getAllJob:builder.query({
             query:()=>`/job/all`,
+           
+            transformResponse:(data)=>{
+                
+             return   data?.list?.sort((a,b)=> b.jobId - a.jobId)
+            }
+            ,
             providesTags:["job"]
         }),
         addJobs:builder.mutation({
@@ -32,11 +38,7 @@ export const jobApiSlice = apiSlice.injectEndpoints({
               console.log(`/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=${experiance}`) 
               return `/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=${experiance}`;
             },
-            transformResponse: (response) => {
-              console.log(response);
-          
-              return response;
-            },
+            transformResponse:(data)=>(data?.list?.sort((a,b)=> b.jobId - a.jobId)),
           }),
 
     })
