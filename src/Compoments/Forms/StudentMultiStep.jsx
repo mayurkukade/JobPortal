@@ -20,7 +20,7 @@ export default function StudentMultiStep() {
         setStep3(false);
         setStep4(false);
 
-        document.getElementById('Personal').setAttribute("style","background : #fc7f03");
+        document.getElementById('Personal').setAttribute("style","background : #fc7f03 ; transition: background-color 1s ease-in-out;");
         document.getElementById('Education').removeAttribute("style");
         document.getElementById('Profesional').removeAttribute("style");
         document.getElementById('Resume').removeAttribute("style");
@@ -32,7 +32,7 @@ export default function StudentMultiStep() {
         setStep3(false);
         setStep4(false);
 
-        document.getElementById('Education').setAttribute("style","background : #fc7f03");
+        document.getElementById('Education').setAttribute("style","background : #fc7f03 ; transition: background-color 1s ease-in-out;");
         document.getElementById('Personal').removeAttribute("style");
         document.getElementById('Profesional').removeAttribute("style");
         document.getElementById('Resume').removeAttribute("style");
@@ -44,7 +44,7 @@ export default function StudentMultiStep() {
         setStep3(true);
         setStep4(false);
 
-        document.getElementById('Profesional').setAttribute("style","background : #fc7f03");
+        document.getElementById('Profesional').setAttribute("style","background : #fc7f03 ; transition: background-color 1s ease-in-out;");
         document.getElementById('Personal').removeAttribute("style");
         document.getElementById('Education').removeAttribute("style");
         document.getElementById('Resume').removeAttribute("style");
@@ -55,7 +55,7 @@ export default function StudentMultiStep() {
         setStep3(false);
         setStep4(true);
         
-        document.getElementById('Resume').setAttribute("style","background : #fc7f03");
+        document.getElementById('Resume').setAttribute("style","background : #fc7f03 ; transition: background-color 1s ease-in-out;");
         document.getElementById('Personal').removeAttribute("style");
         document.getElementById('Education').removeAttribute("style");
         document.getElementById('Profesional').removeAttribute("style");
