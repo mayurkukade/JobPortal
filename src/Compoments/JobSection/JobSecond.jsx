@@ -1,5 +1,5 @@
 import Lens from "../Images/Lenskart.png";
-
+import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import {
   Card,
@@ -13,8 +13,19 @@ import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
 import { calcLength } from "framer-motion";
 import { useState } from "react";
 import { Button } from "@material-tailwind/react";
-import { useGetSavedJobBYUserIdQuery, usePostSaveJobMutation } from "../../services/savedJob/savedJobsApiSlice";
-import { CiLight } from "react-icons/ci";
+import {
+  useGetSavedJobBYUserIdQuery,
+  usePostSaveJobMutation,
+  useDeleteSaveJobMutation,
+} from "../../services/savedJob/savedJobsApiSlice";
+
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
+import {
+  useGetApplicationByUserIdQuery,
+  useStudentApplyPostMutation,
+} from "../../services/studentApplication/studentApplicationApiSlice";
+import { Toaster } from "react-hot-toast";
 
 function StarIcon() {
   return (
@@ -42,45 +53,96 @@ export default function JobSecond({
   isSuccess,
   isLoading,
 }) {
-  
+  const [postSaveJob] = usePostSaveJobMutation();
+  const [deleteSaveJob] = useDeleteSaveJobMutation();
+  const [studentApplyPost] = useStudentApplyPostMutation();
+  const getCookie = Cookies.get("cookie");
 
-  const { data: getSavedJob } = useGetSavedJobBYUserIdQuery();
-  const [postSaveJob] = usePostSaveJobMutation()
+  const decodeCookie = jwtDecode(getCookie);
+  console.log(decodeCookie.userId);
+  const {
+    data: StudentAppliedList,
+    isLoading: studentAppliedListLoading,
+    isError: studentAppliedError,
+    isSuccess: studentAppliedSuccess,
+  } = useGetApplicationByUserIdQuery(decodeCookie?.userId);
+  console.log(StudentAppliedList);
+  const { data: getSavedJob } = useGetSavedJobBYUserIdQuery(
+    decodeCookie?.userId
+  );
+  console.log(data);
 
-
-  if(mainfilterLoading){
-    return <p>Loading...</p>
-  }
-
-  if(mainFilterIsError){
-    return <p>Error ...</p>
-  }
-
+  console.log(data);
   const uniqueJobIdsSet = new Set();
+  const uniqueStudentAppliedJob = new Set()
 
-  // Loop through the array and add unique jobIds to the Set
+  console.log(data);
   getSavedJob?.list?.forEach((item) => {
     uniqueJobIdsSet.add(item.jobId); // Convert to string if needed
   });
-  // Convert the Set back to an array if needed
-  const uniqueJobIdsArray = Array.from(uniqueJobIdsSet).map(Number);
+
+  StudentAppliedList?.response?.forEach((item)=>{
+    uniqueStudentAppliedJob.add(item.jobId)
+  })
+  console.log(uniqueStudentAppliedJob)
 
   
+  console.log(data);
+  const uniqueJobIdsArray = Array.from(uniqueJobIdsSet).map(Number);
+  console.log(data);
+  
+  const uniqueArrayStudentAppliedList = Array.from(uniqueStudentAppliedJob).map(Number)
+  console.log(uniqueArrayStudentAppliedList)
+ 
 
+  
+  
   const mainFilter = filterFlag ? mainFilterData : data;
 
- const saveButtonClick = async()=>{
-  const res = await postSaveJob({
-    userId:1000,
-    jobId:6
-  })
 
-  console.log(res)
- }
 
-  const jobData = mainFilter?.map((item) => {
+
+  const saveButtonClick = async (jobId) => {
+    if (uniqueJobIdsArray.includes(jobId)) {
+      await deleteSaveJob(jobId);
+    } else {
+      const res = await postSaveJob({
+        userId: decodeCookie.userId,
+        jobId,
+      });
+      console.log(res);
+    }
+  };
+
+  const applyButtonHandler = async (jobId) => {
+    console.log(jobId);
+
+    const res = await studentApplyPost({
+      date: "2023-12-14",
+      time: "12:30:00",
+      recruiterNote: "Excellent candidate",
+      jobId,
+      studentApplicationStatus: "Pending",
+    });
+    console.log(res);
+    toast.success("Applied Successfully");
+    if (res.error) {
+      toast.error(res.error.data.message);
+    } 
+  };
+
+  if (mainfilterLoading) {
+    <p>Loading...</p>;
+  }
+
+  if (mainFilterIsError) {
+    <p>Error ...</p>;
+  }
+  // Add other dependencies if needed
+  const jobData = mainFilter?.list?.map((item) => {
     return (
       <div key={item.jobId} className="mt-2">
+        <Toaster position="top-center" reverseOrder={false} />
         <Card
           color="white"
           shadow-lg
@@ -147,7 +209,8 @@ export default function JobSecond({
                   </div>
                   <div>
                     <svg
-                    onClick={saveButtonClick}
+                      onClick={() => saveButtonClick(item.jobId)}
+                      // onClick={()=>setToggle(!saveToggle)}
                       xmlns="http://www.w3.org/2000/svg"
                       fill={
                         uniqueJobIdsArray.includes(item.jobId)
@@ -182,13 +245,16 @@ export default function JobSecond({
                   <Typography>Premium</Typography>
                   <Typography>Info</Typography>
 
-                  <button  >
-                    Save
-                  </button>
+                  <button>Save</button>
                 </div>
               </div>
-              <Button color="blue" className="text-start w-fit  ">
-                Apply
+              <Button
+                color={uniqueArrayStudentAppliedList.includes(item.jobId)? 'grey' : 'blue'}
+                className="text-start w-fit  "
+                onClick={() => applyButtonHandler(item.jobId)}
+                disabled={uniqueArrayStudentAppliedList.includes(item.jobId)}
+              >
+                {uniqueArrayStudentAppliedList.includes(item.jobId) ? 'Applied' : 'Apply'}
               </Button>
             </div>
           </CardHeader>
@@ -202,7 +268,11 @@ export default function JobSecond({
     fetchedJob = jobData;
   } else if (isLoading) {
     <p>loading</p>;
+  } else {
+    console.log("error");
   }
+  // Dependency array with saveToggle as a dependency
+
   return (
     <>
       {/* <div className="w-full  bg-blue-gray-50 h-[4rem] flex ">

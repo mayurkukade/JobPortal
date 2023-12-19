@@ -15,12 +15,9 @@ export default function JobSection() {
     isLoading: mainfilterLoading,
     isError: mainFilterIsError,
   } = useJobFilterQuery(mainFilter);
-
+console.log(mainFilterData)
   const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
 
-  console.log(isSuccess);
-
-console.log(data)
   console.log(mainFilterIsError);
   console.log(jobName)
   console.log(experiance)

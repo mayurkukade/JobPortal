@@ -18,8 +18,7 @@ export default function JobHeader({
   setJobName
 }) {
   const [textIndex, setTextIndex] = useState(0);
-  const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
-  console.log(data)
+
 
 
 

@@ -3,12 +3,14 @@ import { apiSlice } from "../apiSlice";
 export const jobApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder)=>({
         getAllJob:builder.query({
-            query:()=>`/job/all`,
+            query:()=>({
+                url:`/job/all`,
+             })
            
-            transformResponse:(data)=>{
+            // transformResponse:(data)=>{
                 
-             return   data?.list?.sort((a,b)=> b.jobId - a.jobId)
-            }
+            //  return   data?.list?.sort((a,b)=> b.jobId - a.jobId)
+            // }
             ,
             providesTags:["job"]
         }),
@@ -37,8 +39,8 @@ export const jobApiSlice = apiSlice.injectEndpoints({
               console.log(experiance)
               console.log(`/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=${experiance}`) 
               return `/filter/mainFilter?companyName=${jobSearch}&jobLocation=${city}&salary=&experienceLevel=${experiance}`;
-            },
-            transformResponse:(data)=>(data?.list?.sort((a,b)=> b.jobId - a.jobId)),
+             },
+            // transformResponse:(data)=>(data?.list?.sort((a,b)=> b.jobId - a.jobId)),
           }),
 
     })

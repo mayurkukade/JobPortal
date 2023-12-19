@@ -48,7 +48,7 @@ const JobDetailsById = () => {
               </Typography>
             </div>
             <Typography className=" bg-white rounded-[0.7rem] w-fit p-0.5 text-sm ">
-              {content.skills}
+              {/* {content.skills} */}
             </Typography>
             <Typography className="text-white">
               Posted on : {content.postDate}

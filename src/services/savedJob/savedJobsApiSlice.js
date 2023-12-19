@@ -6,7 +6,7 @@ export const savedJobsAPiSlice = apiSlice.injectEndpoints({
             query:(data)=>({
                 url:`/save/saveJob?userId=${data.userId}&jobId=${data.jobId}`,
                 method:"POST",
-                transformResponse:console.log(data),
+                transformResponse:console.log(data.userId),
                 body:data
             }),
             invalidatesTags:["save"]
@@ -21,14 +21,14 @@ export const savedJobsAPiSlice = apiSlice.injectEndpoints({
         }),
         getSavedJobBYUserId:builder.query({
             query:(userId)=>({
-                url:`/save/getsavedjobByUserId?userId=1000`,
+                url:`/save/getsavedjobByUserId?userId=${userId}`,
                 
             }),
             providesTags:["save"]
         }),
         deleteSaveJob:builder.mutation({
             query:(id)=>({
-                url:`/save/delete?jobSaveId=${id}`,
+                url:`/save/delete?jobSaveId=${5}`,
                 method:"DELETE"
             }),
             invalidatesTags:["save"]

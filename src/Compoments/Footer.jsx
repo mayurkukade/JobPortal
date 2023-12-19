@@ -7,6 +7,7 @@ import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
 
 const buttonhover = {
    hover : {
@@ -17,25 +18,27 @@ export default function Footer() {
   return (
     <div className='flex justify-center bg-darkBlueBackground'>
       <div className=''>
-       <div className='flex flex-wrap'>
+       <div className='flex flex-wrap gap-6'>
           
           {/* Preferable Icon */}
-        <div className='sm:ml-10 ml-9 mt-14'>
+        <div className='sm:ml-10  mt-14'>
            <img src={Pref} className='w-10 ml-16 mb-2 ' alt="" />
            <p className='ml-5 text-4xl text-white '> Preferable</p>
            <p className='ml-5 text-sm text-white'>Crafting Careers</p>
         </div>
           {/* Other Services */}
-          <div className='flex flex-wrap'>
+          <div className='flex flex-wrap gap-5'>
              {FooterData.map(({title,items})=>(
                 <ul key={items}>
-                  <motion.div className='text-2xl text-white font-Inter ml-14 mt-8  pb-2 cursor-pointer' variants={buttonhover} whileHover="hover">
+                  <motion.div className='text-xl text-white font-Inter  mt-8  pb-2 cursor-pointer' variants={buttonhover} whileHover="hover">
                     {title}
                   </motion.div>
                   {items.map((link,index) =>(
                      <motion.li variants={buttonhover} whileHover="hover" className='cursor-pointer' key={index} >
-                        <div className='text-sm font-Inter ml-14 text-gray-400 pb-2'  >
+                        <div className='text-sm font-Inter  text-gray-400 pb-2'  >
+                       
                         {link}
+                      
                         </div>
                         
                      </motion.li>

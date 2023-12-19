@@ -28,7 +28,12 @@ import MentorDetails from "./Compoments/admin/MentorDetails";
 import MentorEdit from "./Compoments/admin/MentorEdit";
 import Dashboard from "./Compoments/TPO/Dashboard/Dashboard";
 import AboutUs from "./Pages/AboutUs";
+import PrivacyPolicy from "./Pages/PrivacyPolicy";
+import TermsAndConditions from "./Pages/TermsAndConditions";
+import CookiePolicy from "./Pages/CookiePolicy";
+import SecurityGuidelines from "./Pages/SecurityGuidelines";
 function App() {
+  
   return (
     <>
       <Routes>
@@ -81,14 +86,19 @@ function App() {
           <Route path="/jobdetails/:id" element={<JobDetailsById />} />
           <Route path="/profile" element={<MultiStepStudentForm />} />
           <Route path="/counter" element={<Counter />} />
+          <Route path="/Dashboard/*" element={<Dashboard />} />
         </Route>
-        <Route path="/Dashboard/*" element={<Dashboard />} />
+        
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/studentSignUp" element={<StudentSignUpForm />} />
         <Route path="/tpo" element={<TpoSignUpForm />} />
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
+        <Route path="/termsandcondition" element={<TermsAndConditions/>} />
+        <Route path="/cookiepolicy" element={<CookiePolicy/>} />
+        <Route path="/securityguidelines" element={<SecurityGuidelines/>} />
       </Routes>
     </>
   );
