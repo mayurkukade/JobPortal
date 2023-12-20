@@ -146,7 +146,7 @@ export default function JobSecond({
         <Card
           color="white"
           shadow-lg
-          className="w-full max-w-[48rem] mb-5 hover:shadow-xl  "
+          className="w-full max-w-[48rem] mb-5 hover:shadow-xl z-12 "
         >
           <CardHeader
             color="transparent"

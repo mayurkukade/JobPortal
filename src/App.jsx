@@ -26,12 +26,14 @@ import { ROLES } from "./Compoments/config/roles";
 import Mentor from "./Compoments/admin/Mentor";
 import MentorDetails from "./Compoments/admin/MentorDetails";
 import MentorEdit from "./Compoments/admin/MentorEdit";
-import Dashboard from "./Compoments/TPO/Dashboard/Dashboard";
+import Dashboard from "./Compoments/Hr/Dashboard/Dashboard";
 import AboutUs from "./Pages/AboutUs";
 import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsAndConditions from "./Pages/TermsAndConditions";
 import CookiePolicy from "./Pages/CookiePolicy";
 import SecurityGuidelines from "./Pages/SecurityGuidelines";
+import PublishJob from './Compoments/Hr/DashboardFeatures/PublishJob'
+
 function App() {
   
   return (
@@ -87,6 +89,7 @@ function App() {
           <Route path="/profile" element={<MultiStepStudentForm />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/Dashboard/*" element={<Dashboard />} />
+          <Route path="/PublishJob" element={<PublishJob/>} />
         </Route>
         
         <Route path="/register" element={<RegistrationPage />} />

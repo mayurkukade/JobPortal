@@ -18,7 +18,8 @@ export const jobApiSlice = apiSlice.injectEndpoints({
             query:(data)=>({
                 url:"/job/add",
                 method:"POST",
-                body:data
+                body:data,
+                tranforResponse:console.log(data)
             }),
             invalidatesTags:["Job"]
         }),

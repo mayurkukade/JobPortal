@@ -8,7 +8,7 @@ export default withMT({
       colors: {
         'text': '#0e0106',
         'background': '#FFFFFF',
-        'primary': '#3526a6',
+        'primary': '#184ca8',
         'secondary': '#647ed3',
         'accent': '#ff311f',
         'faintBackgroundBlue':'#DCE1F6',

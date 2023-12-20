@@ -15,14 +15,20 @@ export default function JobSection() {
     isLoading: mainfilterLoading,
     isError: mainFilterIsError,
   } = useJobFilterQuery(mainFilter);
-console.log(mainFilterData)
   const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
+console.log(mainFilterData)
+const recomdatedJobs = data?.list?.filter(job =>
+  job.companyName.toLowerCase().includes(jobSearch.toLowerCase()) &&
+  job.jobLocation.toLowerCase().includes(city.toLowerCase()) &&
+  job.experienceLevel.toLowerCase().includes(experiance.toLowerCase())
+);
+console.log(recomdatedJobs);
 
-  console.log(mainFilterIsError);
-  console.log(jobName)
-  console.log(experiance)
+
+  
   return (
-    <div>
+    <>
+    
       <JobHeader
         jobSearch={jobSearch}
         setSearch={setSearch}
@@ -34,6 +40,7 @@ console.log(mainFilterData)
         setFilterFlag={setFilterFlag}
         setJobName = {setJobName}
         jobName = {jobName}
+        recomdatedJobs = {recomdatedJobs}
       />
       <JobSecond
         mainFilterData={mainFilterData}
@@ -44,6 +51,6 @@ console.log(mainFilterData)
         isSuccess={isSuccess}
         isLoading = {isLoading}
       />
-    </div>
+    </>
   );
 }
