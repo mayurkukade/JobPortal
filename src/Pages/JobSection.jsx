@@ -23,7 +23,7 @@ const recomdatedJobs = data?.list?.filter(job =>
   job.experienceLevel.toLowerCase().includes(experiance.toLowerCase())
 );
 console.log(recomdatedJobs);
-
+console.log(mainFilterData)
 
   
   return (

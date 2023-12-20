@@ -1,11 +1,12 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Button, Select, Option } from "@material-tailwind/react";
 
 import { Input } from "@material-tailwind/react";
 import ReactTextTransition, { presets } from "react-text-transition";
-import { useJobFilterQuery } from "../../services/job/jobApiSlice";
-import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
-import { CiLight } from "react-icons/ci";
+// import { useJobFilterQuery } from "../../services/job/jobApiSlice";
+// import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
+// import { CiLight } from "react-icons/ci";
 export default function JobHeader({
   jobSearch,
   setSearch,
@@ -33,6 +34,8 @@ console.log(recomdatedJobs)
   const cityRecomadated = recomdatedJobs?.map((item, index) => (
     <div key={index}>{item.jobLocation}</div>
   ));
+console.log(cityRecomadated)
+  
 
  
 
@@ -49,27 +52,33 @@ console.log(recomdatedJobs)
   };
   const texts = ["ACCESS", "CONNECTIONS", "JOBS", "OPPORTUNITYS"];
 
-  const getRandomInt = (min, max) => {
-    min = Math.ceil(min);
-    max = Math.floor(max);
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  };
+  // const getRandomInt = (min, max) => {
+  //   min = Math.ceil(min);
+  //   max = Math.floor(max);
+  //   return Math.floor(Math.random() * (max - min + 1)) + min;
+  // };
   const handleSelectJob = (job) => {
     console.log(job);
     setSearch(job);
     setJobFocus(false)
 
   };
-  console.log(jobSearch);
+  const handleSelectCity = (city) => {
+    
+    setCity(city);
+    setCityFocus(false)
 
-  useEffect(() => {
-    let interval = setInterval(() => {
-      setTextIndex(getRandomInt(0, texts.length));
-    }, 2000);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [texts.length]);
+  };
+  
+console.log('hello')
+  // useEffect(() => {
+  //   let interval = setInterval(() => {
+  //     setTextIndex(getRandomInt(0, texts.length));
+  //   }, 2000);
+  //   return () => {
+  //     clearInterval(interval);
+  //   };
+  // }, [texts.length]);
 
   return (
     <div className="bg-darkBlueBackground md:h-[12rem]     ">
@@ -128,6 +137,7 @@ console.log(recomdatedJobs)
               onChange={(e) => setCity(e.target.value)}
               value={city}
               className="bg-white h-[52px] w-[23rem]"
+              onFocus={() => setCityFocus(true)}
             />
           </div>
           <div className="  rounded-md flex items-center ">
@@ -176,8 +186,10 @@ console.log(recomdatedJobs)
             </Button>
           </div>
         </div>
+        <div className=" flex w-[13rem]    justify-between  ">
+        <div>
         { !jobSearch.length ==0 && jobFocus && (
-          <ul className="bg-gray-300 absolute z-[1000] w-[12.5rem] space-y-2  h-40 overflow-y-auto text-left p-2">
+          <ul className="bg-gray-300 absolute   z-[1000] w-[12.5rem] space-y-2  h-40 overflow-y-auto text-left p-2">
             {jobRecomadated.map((item, index) => {
               console.log(item.props.children.length)
               return (
@@ -194,6 +206,31 @@ console.log(recomdatedJobs)
             })}
           </ul>
         )}
+        </div>
+        <div className="">
+        { !city.length ==0 && cityFocus && cityRecomadated && (
+          <ul className="bg-gray-300 absolute   z-[1000] w-[12.5rem] space-y-2  h-40 overflow-y-auto text-left p-2">
+            {cityRecomadated.map((item, index) => {
+              console.log(item.props.children)
+              return (
+                <>
+                  <div
+                    key={index}
+                    className="cursor-pointer hover:bg-gray-100 p-2 rounded"
+                    onClick={(e)=>handleSelectCity(item.props.children)}
+                    
+                  >
+                    { item}
+                  </div>
+                </>
+              );
+            })}
+          </ul>
+        )}
+        </div>
+        
+</div>
+        
       </div>
     </div>
   );
