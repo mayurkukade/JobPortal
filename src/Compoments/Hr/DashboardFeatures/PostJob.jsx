@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import { Button, Input, Textarea } from "@material-tailwind/react";
 import { useAddJobsMutation } from "../../../services/job/jobApiSlice";
 
@@ -19,6 +19,8 @@ export default function PostJob() {
   const [inputArrayName, setInputArrayName] = React.useState("");
 
   const [skillsArray, setSkillsArray] = React.useState([]);
+
+  const [formattedDate, setFormattedDate] = useState('');
   
   const [addJobs] = useAddJobsMutation();
 
@@ -31,7 +33,7 @@ export default function PostJob() {
       address: address,
       skills: skillsArray,
       jobDescription: dispriction,
-      postDate: "2023-11-10",
+      postDate: formattedDate,
       salary: salary,
       noOfPost: 3,
       logo: "https://example.com/logo.png",
@@ -51,7 +53,15 @@ export default function PostJob() {
   };
   
 
-  console.log(skillsArray)
+  useEffect(() => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(currentDate.getDate()).padStart(2, '0');
+   
+    const formattedDateStr = `${year}-${month}-${day}`;
+    setFormattedDate(formattedDateStr);
+  }, []);
   return (
     <div className="flex ">
       <div>

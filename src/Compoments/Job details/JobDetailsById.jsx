@@ -1,13 +1,56 @@
-import React from "react";
+import React,{useState,useEffect} from "react";
 import { Avatar, Card, CardHeader, Typography } from "@material-tailwind/react";
 import Lens from "../Images/Lenskart.png";
 import { Button } from "@material-tailwind/react";
 import { useParams } from "react-router-dom";
+import toast from "react-hot-toast";
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
+import { Toaster } from "react-hot-toast";
+import { useGetApplicationByUserIdQuery } from "../../services/studentApplication/studentApplicationApiSlice";
 import { useByIdJobsQuery } from "../../services/job/jobApiSlice";
+import { useStudentApplyPostMutation } from "../../services/studentApplication/studentApplicationApiSlice";
 const JobDetailsById = () => {
+  const [formattedDate, setFormattedDate] = useState('');
+  const [formattedTime, setFormattedTime] = useState('');
   const { id } = useParams();
   const { data, isLoading, isError, isSuccess } = useByIdJobsQuery(id);
   console.log(data);
+  const [studentApplyPost] = useStudentApplyPostMutation();
+  const getCookie = Cookies.get("cookie");
+  const decodeCookie = jwtDecode(getCookie);
+  console.log(decodeCookie.userId);
+  const {
+    data: StudentAppliedList,
+    isLoading: studentAppliedListLoading,
+    isError: studentAppliedError,
+    isSuccess: studentAppliedSuccess,
+  } = useGetApplicationByUserIdQuery(decodeCookie?.userId);
+  console.log(StudentAppliedList);
+
+  const uniqueStudentAppliedJob = new Set();
+  StudentAppliedList?.response?.forEach((item) => {
+    uniqueStudentAppliedJob.add(item.jobId);
+  });
+  const uniqueArrayStudentAppliedList = Array.from(uniqueStudentAppliedJob).map(
+    Number
+  );
+  console.log(uniqueArrayStudentAppliedList);
+  const applyButtonHandler = async () => {
+    const res = await studentApplyPost({
+      date: formattedDate,
+      time: formattedTime,
+      userId: decodeCookie.userId,
+      recruiterNote: "Excellent candidate",
+      jobId: id,
+      studentApplicationStatus: "Pending",
+    });
+    console.log(res);
+    toast.success("Applied Successfully");
+    if (res.error) {
+      toast.error(res.error.data.message);
+    }
+  };
   let content;
   if (isLoading) {
     content = <p>loading</p>;
@@ -16,9 +59,26 @@ const JobDetailsById = () => {
   } else {
     content = <p>error</p>;
   }
+  useEffect(() => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    const hours = String(currentDate.getHours()).padStart(2, '0');
+    const minutes = String(currentDate.getMinutes()).padStart(2, '0');
+    const seconds = String(currentDate.getSeconds()).padStart(2, '0');
+    const formattedTimeStr = `${hours}:${minutes}:${seconds}`;
+    setFormattedTime(formattedTimeStr);
+    const formattedDateStr = `${year}-${month}-${day}`;
+    setFormattedDate(formattedDateStr);
+  }, []);
+
+  console.log(formattedDate)
+  console.log(formattedTime)
   return (
     <>
       <div className="bg-darkBlueBackground md:h-[12rem] ">
+      <Toaster position="top-center" reverseOrder={false} />
         <div className="container mx-auto flex gap-12 ">
           <div>
             <Avatar
@@ -47,9 +107,21 @@ const JobDetailsById = () => {
                 {content.experienceLevel}
               </Typography>
             </div>
-            <Typography className=" bg-white rounded-[0.7rem] w-fit p-0.5 text-sm ">
-              {/* {content.skills} */}
-            </Typography>
+
+            <div className="flex gap-2">
+              {content?.skills?.map((item, index) => {
+                console.log(item);
+                return (
+                  <Typography
+                    className="bg-white rounded-[0.7rem] w-fit p-0.5 text-sm "
+                    key={index}
+                  >
+                    <p className="p-1 ml-2 mr-2">{item}</p>
+                  </Typography>
+                );
+              })}
+            </div>
+
             <Typography className="text-white">
               Posted on : {content.postDate}
             </Typography>
@@ -96,7 +168,19 @@ const JobDetailsById = () => {
             our dynamic team and make an impact in the industry!
           </Typography>
           <div className="flex gap-5 mt-4">
-            <Button>Apply</Button>
+            <button
+              className={` w-[5rem] rounded p-1 text-center  ${
+                uniqueArrayStudentAppliedList.includes(content.jobId)
+                  ? "bg-gray-500  "
+                  : "bg-primary  text-white"
+              } `}
+              onClick={() => applyButtonHandler(content.jobId)}
+              disabled={uniqueArrayStudentAppliedList.includes(content.jobId)}
+            >
+              {uniqueArrayStudentAppliedList.includes(content.jobId)
+                ? "Applied"
+                : "Apply"}
+            </button>
           </div>
         </Card>
         <Card className=" w-[30%] h-fit p-7 mt-10 ">

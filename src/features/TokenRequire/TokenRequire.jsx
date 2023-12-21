@@ -6,7 +6,7 @@ import { Navigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 
-const AdminRequire = ({ allowedRoles }) => {
+const TokenRequire = ({ allowedRoles }) => {
   console.log(allowedRoles);
   const cookiesJwt = Cookies.get("cookie");
   let userAuthRoles = [];
@@ -19,7 +19,7 @@ const AdminRequire = ({ allowedRoles }) => {
   } catch (error) {
    
   
-    toast.error('please login first')
+    // toast.error('please login first')
   }
 
   const location = useLocation();
@@ -36,5 +36,5 @@ const AdminRequire = ({ allowedRoles }) => {
   {content}</div>;
 };
 
-export default AdminRequire;
+export default TokenRequire;
 

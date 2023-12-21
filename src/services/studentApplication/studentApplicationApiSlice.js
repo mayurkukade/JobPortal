@@ -4,17 +4,18 @@ export const studentApplicationApiSlice = apiSlice.injectEndpoints({
     endpoints:(builder) =>({
        studentApplyPost : builder.mutation({
         query:(data)=>({
-            url:`/studentApplication/AddApplication?userId=1173`,
+            url:`/studentApplication/AddApplication?userId=${data.userId}`,
             method:"POST",
+            transferREsponse:console.log(data),
             body:data
         }),
-        invalidatesTags:["application"]
+        invalidatesTags:['application']
        }),
        getApplicationByUserId:builder.query({
         query:(data)=>({
            url: `/studentApplication/getById?userId=${data}` 
         }),
-        providesTags:["application"]
+        providesTags:['application']
        }),
        updateApplication:builder.mutation({
         query:(data)=>({
@@ -22,13 +23,13 @@ export const studentApplicationApiSlice = apiSlice.injectEndpoints({
             method:"PATCH",
             body:data
         }),
-        invalidatesTags:["application"]
+        invalidatesTags:['application']
        }),
        getApplicationByJobId:builder.query({
         query:(data)=>({
             url: `/studentApplication/getByJobId?jobId=1` 
          }),
-         providesTags:["application"]
+         providesTags:['application']
         
 
        }),

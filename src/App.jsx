@@ -33,6 +33,8 @@ import TermsAndConditions from "./Pages/TermsAndConditions";
 import CookiePolicy from "./Pages/CookiePolicy";
 import SecurityGuidelines from "./Pages/SecurityGuidelines";
 import PublishJob from './Compoments/Hr/DashboardFeatures/PublishJob'
+import TokenRequire from "./features/TokenRequire/TokenRequire";
+import Myprofile from "./Pages/Myprofile";
 
 function App() {
   
@@ -82,10 +84,27 @@ function App() {
             />
             <Route path="/admin/mentor/edit/:id" element={<MentorEdit />} />
           </Route>
+
+          <Route>
+          <Route
+            element={<TokenRequire allowedRoles={[...Object.values(ROLES)]} />}
+          >
+           <Route path="/jobsection" element={<JobSection />} />
+          <Route path="/jobdetails/:id" element={<JobDetailsById />} />
+          <Route path="/edit/profile" element={<MultiStepStudentForm/>} />
+          <Route path="/profile" element={<Myprofile/>} />
+
+          </Route>
+          
+
+          </Route>
+
+
+
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
-          <Route path="/jobsection" element={<JobSection />} />
-          <Route path="/jobdetails/:id" element={<JobDetailsById />} />
+          {/* <Route path="/jobsection" element={<JobSection />} />
+          <Route path="/jobdetails/:id" element={<JobDetailsById />} /> */}
           <Route path="/profile" element={<MultiStepStudentForm />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/Dashboard/*" element={<Dashboard />} />

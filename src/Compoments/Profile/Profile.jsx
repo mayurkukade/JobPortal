@@ -12,15 +12,16 @@ import {
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logoutSuccess } from "../../features/authSlice/authSlice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 const Profile = () => {
 const dispatch = useDispatch()
+const navigate = useNavigate()
  
       const logOutSelector = useSelector((state)=>state.authSlice.isAuthenticated)
-console.log(logOutSelector)
+
 const logOutDispatch = ()=>{
   dispatch(logoutSuccess())
-  window.location.reload(false); 
+ navigate('/')
 }
 
 
@@ -137,6 +138,7 @@ const logOutDispatch = ()=>{
           Blogs
         </Typography>
       </MenuItem>
+      <Link to={'/edit/profile'}>
       <MenuItem className="flex items-center gap-2">
         <svg
           width="16"
@@ -157,6 +159,7 @@ const logOutDispatch = ()=>{
           Edit Profile
         </Typography>
       </MenuItem>
+      </Link>
       <MenuItem className="flex items-center gap-2">
         <svg
           width="14"

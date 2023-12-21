@@ -70,7 +70,7 @@ console.log(cityRecomadated)
 
   };
   
-console.log('hello')
+
   // useEffect(() => {
   //   let interval = setInterval(() => {
   //     setTextIndex(getRandomInt(0, texts.length));
@@ -81,7 +81,7 @@ console.log('hello')
   // }, [texts.length]);
 
   return (
-    <div className="bg-darkBlueBackground md:h-[12rem]     ">
+    <div className="bg-primary md:h-[12rem]     ">
       <div className="container mx-auto p-5 w-fit">
         <p className=" md:text-[2rem] text-[20px] font-Inter text-[#FFF] text  ">
           Find Better

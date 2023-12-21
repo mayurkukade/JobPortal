@@ -56,7 +56,7 @@ export default function JobSecond({
   const [postSaveJob] = usePostSaveJobMutation();
   const [deleteSaveJob] = useDeleteSaveJobMutation();
   const [studentApplyPost] = useStudentApplyPostMutation();
-  const getCookie = Cookies.get("cookie");
+  const getCookie = Cookies.get("cookie") ;
 
   const decodeCookie = jwtDecode(getCookie);
   console.log(decodeCookie.userId);
@@ -74,33 +74,28 @@ export default function JobSecond({
 
   console.log(data);
   const uniqueJobIdsSet = new Set();
-  const uniqueStudentAppliedJob = new Set()
+  const uniqueStudentAppliedJob = new Set();
 
   console.log(data);
   getSavedJob?.list?.forEach((item) => {
     uniqueJobIdsSet.add(item.jobId); // Convert to string if needed
   });
 
-  StudentAppliedList?.response?.forEach((item)=>{
-    uniqueStudentAppliedJob.add(item.jobId)
-  })
-  console.log(uniqueStudentAppliedJob)
+  StudentAppliedList?.response?.forEach((item) => {
+    uniqueStudentAppliedJob.add(item.jobId);
+  });
+  console.log(uniqueStudentAppliedJob);
 
-  
   console.log(data);
   const uniqueJobIdsArray = Array.from(uniqueJobIdsSet).map(Number);
   console.log(data);
-  
-  const uniqueArrayStudentAppliedList = Array.from(uniqueStudentAppliedJob).map(Number)
-  console.log(uniqueArrayStudentAppliedList)
- 
 
-  
-  
+  const uniqueArrayStudentAppliedList = Array.from(uniqueStudentAppliedJob).map(
+    Number
+  );
+  console.log(uniqueArrayStudentAppliedList);
+
   const mainFilter = filterFlag ? mainFilterData : data;
-
-
-
 
   const saveButtonClick = async (jobId) => {
     if (uniqueJobIdsArray.includes(jobId)) {
@@ -120,6 +115,7 @@ export default function JobSecond({
     const res = await studentApplyPost({
       date: "2023-12-14",
       time: "12:30:00",
+      userId: decodeCookie.userId,
       recruiterNote: "Excellent candidate",
       jobId,
       studentApplicationStatus: "Pending",
@@ -128,7 +124,7 @@ export default function JobSecond({
     toast.success("Applied Successfully");
     if (res.error) {
       toast.error(res.error.data.message);
-    } 
+    }
   };
 
   if (mainfilterLoading) {
@@ -144,9 +140,8 @@ export default function JobSecond({
       <div key={item.jobId} className="mt-2">
         <Toaster position="top-center" reverseOrder={false} />
         <Card
-          color="white"
           shadow-lg
-          className="w-full max-w-[48rem] mb-5 hover:shadow-xl z-12 "
+          className=" bg-[#e6f4f1] w-full max-w-[48rem] mb-5 hover:shadow-xl z-12 "
         >
           <CardHeader
             color="transparent"
@@ -167,7 +162,7 @@ export default function JobSecond({
             <div className="flex w-full flex-col gap-0.5">
               <div className="flex items-center justify-between">
                 <Link to={`/jobdetails/${item.jobId}`} target="_blank">
-                  <Typography variant="h5" color="blue-gray">
+                  <Typography variant="h5" className="text-primary">
                     {item.postName}
                   </Typography>
                 </Link>
@@ -190,7 +185,7 @@ export default function JobSecond({
                   </div>
 
                   <div>
-                    <Link to={`/jobdetails/${item.jobId}`} target="_blank">
+                    <Link to={`/jobdetails/${item.jobId}`} >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -214,7 +209,7 @@ export default function JobSecond({
                       xmlns="http://www.w3.org/2000/svg"
                       fill={
                         uniqueJobIdsArray.includes(item.jobId)
-                          ? "black"
+                          ? "#184ca8"
                           : "none"
                       }
                       viewBox="0 0 24 24"
@@ -248,14 +243,19 @@ export default function JobSecond({
                   <button>Save</button>
                 </div>
               </div>
-              <Button
-                color={uniqueArrayStudentAppliedList.includes(item.jobId)? 'grey' : 'blue'}
-                className="text-start w-fit  "
+              <button
+                className={` w-[5rem] rounded p-1 text-center  ${
+                  uniqueArrayStudentAppliedList.includes(item.jobId)
+                    ? "bg-gray-500  "
+                    : "bg-primary  text-white"
+                } `}
                 onClick={() => applyButtonHandler(item.jobId)}
                 disabled={uniqueArrayStudentAppliedList.includes(item.jobId)}
               >
-                {uniqueArrayStudentAppliedList.includes(item.jobId) ? 'Applied' : 'Apply'}
-              </Button>
+                {uniqueArrayStudentAppliedList.includes(item.jobId)
+                  ? "Applied"
+                  : "Apply"}
+              </button>
             </div>
           </CardHeader>
         </Card>

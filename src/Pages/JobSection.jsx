@@ -16,6 +16,7 @@ export default function JobSection() {
     isError: mainFilterIsError,
   } = useJobFilterQuery(mainFilter);
   const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
+  console.log(data)
 console.log(mainFilterData)
 const recomdatedJobs = data?.list?.filter(job =>
   job.companyName.toLowerCase().includes(jobSearch.toLowerCase()) &&

@@ -12,7 +12,7 @@ export const jobApiSlice = apiSlice.injectEndpoints({
             //  return   data?.list?.sort((a,b)=> b.jobId - a.jobId)
             // }
             ,
-            providesTags:["job"]
+            providesTags:["job","application"]
         }),
         addJobs:builder.mutation({
             query:(data)=>({
@@ -28,7 +28,7 @@ export const jobApiSlice = apiSlice.injectEndpoints({
                 url:`/job/getJob?JobId=${id}`,
                
             }),
-            providesTags:["Job"]
+            providesTags:["Job","application"]
 
         }),
         jobFilter: builder.query({
