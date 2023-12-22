@@ -23,7 +23,8 @@ export default function PostJob() {
   const [formattedDate, setFormattedDate] = useState('');
   
   const [addJobs] = useAddJobsMutation();
-
+console.log(formattedDate)
+console.log(date)
   const handleSubmit = async (e) => {
     
     const obj = {
@@ -33,7 +34,7 @@ export default function PostJob() {
       address: address,
       skills: skillsArray,
       jobDescription: dispriction,
-      postDate: formattedDate,
+      postDate: date,
       salary: salary,
       noOfPost: 3,
       logo: "https://example.com/logo.png",

@@ -35,6 +35,7 @@ import SecurityGuidelines from "./Pages/SecurityGuidelines";
 import PublishJob from './Compoments/Hr/DashboardFeatures/PublishJob'
 import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
+import Savejobs from "./Pages/Savejobs";
 
 function App() {
   
@@ -92,7 +93,8 @@ function App() {
            <Route path="/jobsection" element={<JobSection />} />
           <Route path="/jobdetails/:id" element={<JobDetailsById />} />
           <Route path="/edit/profile" element={<MultiStepStudentForm/>} />
-          <Route path="/profile" element={<Myprofile/>} />
+          <Route path="/profile/:id" element={<Myprofile/>} />
+          <Route path="/savejob/:id" element={<Savejobs/>} />
 
           </Route>
           
