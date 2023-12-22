@@ -6,12 +6,12 @@ export const registrationSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: "/account/register",
         method: "POST",
-       
+
         body: data,
       }),
       invalidatesTags: ["registerPost"],
     }),
-    
+
     UpdateRegisterDetails: builder.mutation({
       query: (data) => ({
         url: "/user/updateUserDetails",
@@ -20,13 +20,13 @@ export const registrationSlice = apiSlice.injectEndpoints({
       }),
       invalidatesTags: ["registerPost"],
     }),
-    loginApi:builder.mutation({
-      query:(data) =>({
-        url:"/jwt/login",
-        method:'POST',
-        body:data
-      })
-    })
+    loginApi: builder.mutation({
+      query: (data) => ({
+        url: "/jwt/login",
+        method: "POST",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -35,5 +35,5 @@ export const {
   useGetAllStudentQuery,
   useStudentRegisterPostMutation,
   useUpdateRegisterDetailsMutation,
-  useLoginApiMutation
+  useLoginApiMutation,
 } = registrationSlice;

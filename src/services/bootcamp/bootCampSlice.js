@@ -5,39 +5,43 @@ export const bootCampSlice = apiSlice.injectEndpoints({
         bootCampPost : builder.mutation({
             query:(data)=>({
                 url:"/bootcamp/post",
-                method:"POSt",
-                body:data
+                method:"POST",
+                body:data,
+                transformRespons:console.log(data)
             }),
             invalidatesTags:["bootCamp"]
         }),
         bootCampGetById: builder.query({
             query:(id)=>({
-                url:`/getById?bootcampId=${id}`,
+                url:`/bootcamp/getById?bootcampId=${id}`,
+                transformRespons:console.log(id)
 
             }),
             providesTags:['bootCamp']
         }),
         bootCampGet:builder.query({
             query:()=>({
-                url:`bootcamp/getAllBootcampDetails`
+                url:`/bootcamp/getAllBootcampDetails`
             }),
-            providesTags:['itTrainig']
+            providesTags:['itTrainig','bootCamp']
         }),
         bootCampUpdate:builder.mutation({
-            query:(data)=>({
-                url:`/bootcamp/update?bootcampTital=s&bootcampDetails=sd&time&status&location=adad&photo&tagLine&photo=4444&price&bootCampId=1`,
+            query:({BootCampUpdatedData,id})=>({
+                url:`/bootcamp/update?bootcampTital=${BootCampUpdatedData.bootcampTital}&bootcampDetails=${BootCampUpdatedData.bootcampDetails}&time&status&location=adad&photo&tagLine&photo=4444&price&bootCampId=${id}`,
                 method:"PATCH",
-                body:data
+                body:BootCampUpdatedData,
+                transformRespons:console.log(BootCampUpdatedData,id)
             }),
-            invalidatesTags:['itTrainig']
+            invalidatesTags:['itTrainig','bootCamp']
         }),
         bootCampDelete:builder.mutation({
             query:(id)=>({
-                url:`bootcamp/delete?bannerId=${id}`,
+                url:`/bootcamp/delete?bootcampId=${id}`,
                 method:'DELETE',
-                body:id
+                body:id,
+                transformRespons:console.log(id)
             }),
-            invalidatesTags:['itTrainig']
+            invalidatesTags:['itTrainig','bootCamp']
         })
     })
 })

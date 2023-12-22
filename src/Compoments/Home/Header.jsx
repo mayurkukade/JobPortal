@@ -12,7 +12,7 @@ export default function Header() {
             <span className="text-accent    ">You</span>  To Carft
           </div>
           <div className="pt-3">
-           Your  <span className="text-accent ">Carrier</span>
+           Your  <span className="text-accent ">Career</span>
           </div>
         </p>
 
