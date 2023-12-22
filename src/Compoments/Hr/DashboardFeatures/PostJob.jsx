@@ -1,7 +1,8 @@
 import React,{useEffect,useState} from "react";
 import { Button, Input, Textarea } from "@material-tailwind/react";
 import { useAddJobsMutation } from "../../../services/job/jobApiSlice";
-
+import Cookies from "js-cookie";
+import { jwtDecode } from "jwt-decode";
 export default function PostJob() {
   const [company, setCompany] = React.useState("");
   const [job, setJob] = React.useState("");
@@ -25,6 +26,14 @@ export default function PostJob() {
   const [addJobs] = useAddJobsMutation();
 console.log(formattedDate)
 console.log(date)
+
+const cookiesJwt = Cookies.get("cookie");
+console.log(cookiesJwt);
+
+const decodejwt = jwtDecode(cookiesJwt);
+console.log(decodejwt);
+const userId = decodejwt?.userId
+console.log(userId)
   const handleSubmit = async (e) => {
     
     const obj = {
@@ -44,7 +53,7 @@ console.log(date)
       incentives: incentives,
       essentialRequirements: requriments,
       seatNo: "A123",
-      User_Id: 1173,
+      User_Id: userId,
     };
     const res = await addJobs(obj);
 
