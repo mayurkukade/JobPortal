@@ -124,10 +124,10 @@ export default function DashboardNavbar() {
         {/* Post Job */}
 
         <Dialog
-        size='sm'
+        
         open={open}
         handler={handleOpen}
-        className="bg-transparent shadow-none"
+        className="bg-transparent shadow-none "
       >
        <PostJob/>
       </Dialog>

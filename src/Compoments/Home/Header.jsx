@@ -40,7 +40,7 @@ export default function Header() {
 
       {/* Right side of container */}
 
-      <div className="  ">
+      <div className="hidden md:block  ">
         <img
           className="md:h-[32.5rem]  md:w-[41.875rem] md:right-0   xl:w-[60rem] xl:h-[46.375rem] absolute  "
           src={preferable}
