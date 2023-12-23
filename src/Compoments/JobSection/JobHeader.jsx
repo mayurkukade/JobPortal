@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { Button, Select, Option } from "@material-tailwind/react";
-
+import jobOffer from '../../asset/job_offer.svg'
 import { Input } from "@material-tailwind/react";
 import ReactTextTransition, { presets } from "react-text-transition";
 // import { useJobFilterQuery } from "../../services/job/jobApiSlice";
@@ -81,9 +81,10 @@ console.log(cityRecomadated)
   // }, [texts.length]);
 
   return (
-    <div className="bg-primary md:h-[12rem]     ">
-      <div className="container mx-auto p-5 w-fit">
-        <p className=" md:text-[2rem] text-[20px] font-Inter text-[#FFF] text  ">
+    <div className="bg-primary md:h-[13rem]   flex  ">
+     <div className="container mx-auto flex justify-between ">
+      <div >
+        <div className=" md:text-[2rem] text-[20px] font-Inter text-[#FFF] p-2 ">
           Find Better
           <section className="inline">
             <ReactTextTransition
@@ -98,7 +99,7 @@ console.log(cityRecomadated)
               </span>
             </ReactTextTransition>
           </section>
-        </p>
+        </div>
         <p className=" md:text-[1.25rem] text-[15px] text-[#a5b4fc] font-Inter  mt-2">
           Preferable helps you find the perfect job for you.
         </p>
@@ -231,6 +232,8 @@ console.log(cityRecomadated)
         
 </div>
         
+      </div>
+      <img src={jobOffer}  className="mt-5 w-[20rem] "/>
       </div>
     </div>
   );

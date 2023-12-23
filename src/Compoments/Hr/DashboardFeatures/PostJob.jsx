@@ -1,8 +1,9 @@
-import React,{useEffect,useState} from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Input, Textarea } from "@material-tailwind/react";
 import { useAddJobsMutation } from "../../../services/job/jobApiSlice";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
+import { Select } from "@material-tailwind/react";
 export default function PostJob() {
   const [company, setCompany] = React.useState("");
   const [job, setJob] = React.useState("");
@@ -16,26 +17,25 @@ export default function PostJob() {
   const [type, setType] = React.useState("");
   const [incentives, setIncentives] = React.useState("");
   const [requriments, setRequriments] = React.useState("");
-  
+
   const [inputArrayName, setInputArrayName] = React.useState("");
 
   const [skillsArray, setSkillsArray] = React.useState([]);
 
-  const [formattedDate, setFormattedDate] = useState('');
-  
+  const [formattedDate, setFormattedDate] = useState("");
+
   const [addJobs] = useAddJobsMutation();
-console.log(formattedDate)
-console.log(date)
+  console.log(formattedDate);
+  console.log(date);
 
-const cookiesJwt = Cookies.get("cookie");
-console.log(cookiesJwt);
+  const cookiesJwt = Cookies.get("cookie");
+  console.log(cookiesJwt);
 
-const decodejwt = jwtDecode(cookiesJwt);
-console.log(decodejwt);
-const userId = decodejwt?.userId
-console.log(userId)
+  const decodejwt = jwtDecode(cookiesJwt);
+  console.log(decodejwt);
+  const userId = decodejwt?.userId;
+  console.log(userId);
   const handleSubmit = async (e) => {
-    
     const obj = {
       companyName: company,
       postName: job,
@@ -58,27 +58,22 @@ console.log(userId)
     const res = await addJobs(obj);
 
     console.log(res);
-
-    
   };
-  
+  console.log(skillsArray)
 
   useEffect(() => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based
-    const day = String(currentDate.getDate()).padStart(2, '0');
-   
+    const month = String(currentDate.getMonth() + 1).padStart(2, "0"); // Months are zero-based
+    const day = String(currentDate.getDate()).padStart(2, "0");
+
     const formattedDateStr = `${year}-${month}-${day}`;
     setFormattedDate(formattedDateStr);
   }, []);
   return (
-    <div className="flex ">
+    <div className="flex w-25 justify-center ">
       <div>
-        <form
-        
-          className="bg-white rounded-md px-5 py-5 flex justify-center"
-        >
+        <form className="bg-white rounded-md px-5 py-5 flex justify-center">
           <div>
             <div>
               <p className="text-lg ml-3 font-bold">Post Job</p>
@@ -104,37 +99,45 @@ console.log(userId)
             </div>
 
             <div className="mt-3 flex">
-              <div>
+              <div className="flex">
                 <Input
                   type="text"
                   label="Skills"
                   value={inputArrayName}
                   onChange={(e) => setInputArrayName(e.target.value)}
                 />
-                <button
+                <Button
                   onClick={(e) => {
-                    e.preventDefault()
-                    setSkillsArray([
-                      ...skillsArray,
-                      inputArrayName ,
-                   
-                    ]);
-                    setInputArrayName('')
+                    e.preventDefault();
+                    setSkillsArray([...skillsArray, inputArrayName]);
+                    setInputArrayName("");
                   }}
+                  className="ml-3"
                 >
                   Add
-                </button>
-                <ul>
-        {
-          skillsArray.map((item,index)=>(
-            <>
-              <li key={index}>{item}</li>
-            </>
-          ))
-        }
-      </ul>
+                </Button>
+
+              
               </div>
-              <div className="ml-1">
+             
+            </div>
+            {skillsArray.map((item, index) => (
+              <>
+              <div
+                    className="mt-1 ml-1  bg-gray-300 rounded-[0.7rem] inline-flex  w-fit p-0.5 text-sm "
+                    key={index}
+                  >
+                    <p className="p-1 ml-2 mr-2 ">{item}</p>
+                  </div>
+                  </>
+                ))}
+            <div className="mt-3 flex">
+              <Input
+                label="Address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+               <div className="ml-1">
                 <Input
                   type="date"
                   label="Post Date"
@@ -142,14 +145,6 @@ console.log(userId)
                   onChange={(e) => setDate(e.target.value)}
                 />
               </div>
-            </div>
-
-            <div className="mt-3 flex">
-              <Input
-                label="Address"
-                value={address}
-                onChange={(e) => setAddress(e.target.value)}
-              />
             </div>
 
             <div className="mt-3 flex">
@@ -163,7 +158,7 @@ console.log(userId)
               </div>
               <div className="ml-1">
                 <Input
-                  type="text"
+                  type="number"
                   label="Experince"
                   value={experince}
                   onChange={(e) => setExperince(e.target.value)}
@@ -171,15 +166,23 @@ console.log(userId)
               </div>
             </div>
 
-            <div className="mt-3 flex">
-              <div>
-                <Input
+            <div className="mt-3 flex justify-between">
+            
+                {/* <Input
                   type="text"
                   label="Job Type"
                   value={type}
                   onChange={(e) => setType(e.target.value)}
-                />
-              </div>
+                /> */}
+
+                <select className="w-full border rounded-lg border-gray-500"  onChange={(e) => setType(e.target.value)}>
+  <option></option>
+  <option value={"Full Time"}>Full Time</option>
+  <option value={"Part Time"}>Part Time</option>
+  <option value={"Contract"}>Contract</option>
+</select>
+
+              
               <div className="ml-1">
                 <Input
                   type="text"
@@ -220,7 +223,12 @@ console.log(userId)
               <input type="file" placeholder="Select Logo" className="py-2" />
             </div>
             <div className="mt-2 ">
-              <Button className="w-full" type="submit" color="green" onClick={handleSubmit}>
+              <Button
+                className="w-fit"
+                type="submit"
+                color="green"
+                onClick={handleSubmit}
+              >
                 Submit
               </Button>
             </div>
