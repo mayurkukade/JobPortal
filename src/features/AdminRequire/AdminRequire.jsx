@@ -19,7 +19,7 @@ const AdminRequire = ({ allowedRoles }) => {
   } catch (error) {
    
   
-    toast.error('please login first')
+    // toast.error('please login first')
   }
 
   const location = useLocation();
@@ -32,7 +32,7 @@ const AdminRequire = ({ allowedRoles }) => {
   );
 
   return <div>
-  <Toaster position="top-center"  />
+  {/* <Toaster position="top-center"  /> */}
   {content}</div>;
 };
 
