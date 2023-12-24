@@ -32,13 +32,12 @@ import PrivacyPolicy from "./Pages/PrivacyPolicy";
 import TermsAndConditions from "./Pages/TermsAndConditions";
 import CookiePolicy from "./Pages/CookiePolicy";
 import SecurityGuidelines from "./Pages/SecurityGuidelines";
-import PublishJob from './Compoments/Hr/DashboardFeatures/PublishJob'
+import PublishJob from "./Compoments/Hr/DashboardFeatures/PublishJob";
 import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
 import Savejobs from "./Pages/Savejobs";
 
 function App() {
-  
   return (
     <>
       <Routes>
@@ -87,21 +86,18 @@ function App() {
           </Route>
 
           <Route>
-          <Route
-            element={<TokenRequire allowedRoles={[...Object.values(ROLES)]} />}
-          >
-           <Route path="/jobsection" element={<JobSection />} />
-          <Route path="/jobdetails/:id" element={<JobDetailsById />} />
-          <Route path="/edit/profile" element={<MultiStepStudentForm/>} />
-          <Route path="/profile/:id" element={<Myprofile/>} />
-          <Route path="/savejob/:id" element={<Savejobs/>} />
-
+            <Route
+              element={
+                <TokenRequire allowedRoles={[...Object.values(ROLES)]} />
+              }
+            >
+              <Route path="/jobsection" element={<JobSection />} />
+              <Route path="/jobdetails/:id" element={<JobDetailsById />} />
+              <Route path="/edit/profile" element={<MultiStepStudentForm />} />
+              <Route path="/profile/:id" element={<Myprofile />} />
+              <Route path="/savejob/:id" element={<Savejobs />} />
+            </Route>
           </Route>
-          
-
-          </Route>
-
-
 
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
@@ -110,19 +106,19 @@ function App() {
           <Route path="/profile" element={<MultiStepStudentForm />} />
           <Route path="/counter" element={<Counter />} />
           <Route path="/Dashboard/*" element={<Dashboard />} />
-          <Route path="/PublishJob" element={<PublishJob/>} />
+          <Route path="/PublishJob" element={<PublishJob />} />
         </Route>
-        
+
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/studentSignUp" element={<StudentSignUpForm />} />
         <Route path="/tpo" element={<TpoSignUpForm />} />
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
-        <Route path="/termsandcondition" element={<TermsAndConditions/>} />
-        <Route path="/cookiepolicy" element={<CookiePolicy/>} />
-        <Route path="/securityguidelines" element={<SecurityGuidelines/>} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/termsandcondition" element={<TermsAndConditions />} />
+        <Route path="/cookiepolicy" element={<CookiePolicy />} />
+        <Route path="/securityguidelines" element={<SecurityGuidelines />} />
       </Routes>
     </>
   );

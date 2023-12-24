@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   Navbar,
   MobileNav,
@@ -11,7 +12,7 @@ import Pref from "./Images/preferable-icon 1.png";
 import { useState } from "react";
 import { useEffect } from "react";
 import { BiSun, BiMoon } from "react-icons/bi";
-import { jwtDecode } from "jwt-decode";
+
 import {
   Dialog,
   DialogHeader,
@@ -121,17 +122,18 @@ console.log(tokenSelector)
           Jobs
         </a>
       </Typography>
+      <Link to='/aboutus'>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <a href="/aboutus" className="flex items-center text-white">
+        <a  className="flex items-center text-white">
           About
         </a>
       </Typography>
-
+</Link>
       <Typography
         as="li"
         variant="small"
@@ -176,7 +178,7 @@ console.log(tokenSelector)
             fill="#90A4AE"
           />
         </svg> */}
-        <a href="/admin" className="flex items-center text-white">
+        <a  className="flex items-center text-white">
           admin
         </a>
       </Typography>

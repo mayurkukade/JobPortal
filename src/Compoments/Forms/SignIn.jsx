@@ -53,7 +53,7 @@ const SignIn = () => {
         },500)
        
       } else {
-        toast.error(res.error.data.message);
+        toast.error('sign in unsuccessfull');
       }
     } catch (error) {
       console.error("Error during form submission:", error);
@@ -70,7 +70,7 @@ const SignIn = () => {
             className="bg-white p-5 space-y-3 w-[25rem]"
             onSubmit={onSubmitHandler}
           >
-            <h1 className="text-center text-lg">Recruiter Register</h1>
+            <h1 className="text-center text-lg">Sign In</h1>
 
             <Input
               type="text"
@@ -94,7 +94,7 @@ const SignIn = () => {
               Sign In
             </Button>
             <p className="text-center">
-              if you Already sing up ? please sign in
+              Don't have a account? Sign Up
             </p>
           </form>
         </div>
