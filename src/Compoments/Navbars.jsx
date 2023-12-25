@@ -23,7 +23,6 @@ import Cookies from "js-cookie";
 import Profile from "./Profile/Profile";
 import { useSelector } from "react-redux";
 
-
 export default function Navbars() {
   const [openNav, setOpenNav] = React.useState(false);
   const [theme, setTheme] = useState("light");
@@ -46,13 +45,12 @@ export default function Navbars() {
 
   // const token = Cookies.get("jwtToken");
   // console.log(token)
-  
-  
-  const isAuthenticatedSelector = Cookies.get("cookie")
-  console.log(isAuthenticatedSelector)
-  
- const tokenSelector = useSelector((state)=>state.authSlice.token)
-console.log(tokenSelector)
+
+  const isAuthenticatedSelector = Cookies.get("cookie");
+  console.log(isAuthenticatedSelector);
+
+  const tokenSelector = useSelector((state) => state.authSlice.token);
+  console.log(tokenSelector);
 
   React.useEffect(() => {
     window.addEventListener(
@@ -71,8 +69,6 @@ console.log(tokenSelector)
     }
   }, [theme]);
 
-
-
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center  ">
       <Typography
@@ -81,37 +77,30 @@ console.log(tokenSelector)
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-       
-
         <a href="/" className="flex items-center text-white">
           Home
         </a>
       </Typography>
-      <Link to='/jobsection'> 
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-       
-        <a  className="flex items-center text-white">
-          Jobs
-        </a>
-      </Typography>
+      <Link to="/jobsection">
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="flex items-center gap-x-2 p-1 font-medium"
+        >
+          <a className="flex items-center text-white">Jobs</a>
+        </Typography>
       </Link>
-      <Link to='/aboutus'>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-        <a  className="flex items-center text-white">
-          About Us
-        </a>
-      </Typography>
-</Link>
+      <Link to="/aboutus">
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="flex items-center gap-x-2 p-1 font-medium"
+        >
+          <a className="flex items-center text-white">About Us</a>
+        </Typography>
+      </Link>
       <Typography
         as="li"
         variant="small"
@@ -156,9 +145,7 @@ console.log(tokenSelector)
             fill="#90A4AE"
           />
         </svg> */}
-        <a  className="flex items-center text-white">
-          admin
-        </a>
+        <a className="flex items-center text-white">admin</a>
       </Typography>
       <Typography
         as="li"
@@ -196,7 +183,7 @@ console.log(tokenSelector)
 
         <div className="flex items-center gap-x-1">
           {isAuthenticatedSelector ? (
-            <Profile  />
+            <Profile />
           ) : (
             <>
               <Button
@@ -204,15 +191,10 @@ console.log(tokenSelector)
                 size="sm"
                 className="hidden lg:inline-block"
                 onClick={() => {
-                    navigate("/signin");
-                  }}
+                  navigate("/signin");
+                }}
               >
-                <span
-                  className="text-white"
-                  
-                >
-                  Log In
-                </span>
+                <span className="text-white">Sign In</span>
               </Button>
               <Button
                 variant="gradient"
@@ -267,11 +249,14 @@ console.log(tokenSelector)
         <div className="container mx-auto">
           {navList}
           <div className="flex items-center gap-x-1">
-            <Button fullWidth variant="text" size="sm" className="">
-              <span>Log In</span>
-            </Button>
+            <Link to={"/signin"}>
+              <Button fullWidth variant="text" size="sm" className="">
+                <span>Sign In</span>
+              </Button>
+            </Link>
+            
             <Button fullWidth onClick={handleOpen} variant="gradient" size="sm">
-              <span>Sign in</span>
+              <span>Sign Up</span>
             </Button>
 
             <Dialog open={open} handler={handleOpen}>
