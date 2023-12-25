@@ -141,6 +141,7 @@ console.log(cityRecomadated)
               onFocus={() => setCityFocus(true)}
             />
           </div>
+          
           <div className="  rounded-md flex items-center ">
           
             <select
@@ -148,7 +149,7 @@ console.log(cityRecomadated)
               name="experiance"
               value={experiance}
               onChange={(e) => setExperiance(e.target.value)}
-              className="h-10 border border-gray-300 rounded-md w-[10rem]"
+              className="h-10 border border-gray-300 rounded-md w-[12rem]"
               placeholder="Experiance Level"
               required
             >
@@ -182,7 +183,7 @@ console.log(cityRecomadated)
                 />
               </svg>
             </Button>
-            <Button variant="outlined" onClick={handleReset} className="ml-2">
+            <Button variant="outlined" onClick={handleReset} className="ml-2 text-white">
               reset
             </Button>
           </div>
@@ -233,7 +234,7 @@ console.log(cityRecomadated)
 </div>
         
       </div>
-      <img src={jobOffer}  className="mt-5 w-[20rem] "/>
+      <img src={jobOffer}  className="mt-5 w-[20rem] xxs:hidden xs:hidden ss:block "/>
       </div>
     </div>
   );

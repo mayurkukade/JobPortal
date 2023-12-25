@@ -65,7 +65,7 @@ export default function JobSecond({
     isLoading: studentAppliedListLoading,
     isError: studentAppliedError,
     isSuccess: studentAppliedSuccess,
-  } = useGetApplicationByUserIdQuery(decodeCookie?.userId);
+  } = useGetApplicationByUserIdQuery(decodeCookie?.userId,  { refetchOnMountOrArgChange: true });
   console.log(StudentAppliedList);
   const { data: getSavedJob } = useGetSavedJobBYUserIdQuery(
     decodeCookie?.userId
@@ -133,6 +133,12 @@ export default function JobSecond({
 
   if (mainFilterIsError) {
     <p>Error ...</p>;
+  }
+  if(studentAppliedListLoading){
+    <p>Loading...</p>
+  }
+  if(studentAppliedError){
+    <p>Error</p>
   }
   // Add other dependencies if needed
   const jobData = mainFilter?.list?.map((item) => {

@@ -15,7 +15,7 @@ export default function JobSection() {
     isLoading: mainfilterLoading,
     isError: mainFilterIsError,
   } = useJobFilterQuery(mainFilter);
-  const { data, isLoading, error, isSuccess } = useGetAllJobQuery();
+  const { data, isLoading, error, isSuccess } = useGetAllJobQuery(  { refetchOnMountOrArgChange: true });
   console.log(data)
 console.log(mainFilterData)
 const recomdatedJobs = data?.list?.filter(job =>
