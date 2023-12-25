@@ -21,13 +21,13 @@ export default function Footer() {
        <div className='flex flex-wrap gap-6'>
           
           {/* Preferable Icon */}
-        <div className='sm:ml-10  mt-14'>
+        <div className='sm:ml-10   mt-14'>
            <img src={Pref} className='w-10 ml-16 mb-2 ' alt="" />
            <p className='ml-5 text-4xl text-white '> Preferable</p>
            <p className='ml-5 text-sm text-white'>Crafting Careers</p>
         </div>
           {/* Other Services */}
-          <div className='flex flex-wrap gap-5'>
+          <div className='flex flex-wrap gap-5 justify-center'>
              {FooterData.map(({title,items})=>(
                 <ul key={items}>
                   <motion.div className='text-xl text-white font-Inter  mt-8  pb-2 cursor-pointer' variants={buttonhover} whileHover="hover">

@@ -1,4 +1,5 @@
 
+import { Button } from "@material-tailwind/react";
 import preferable from "../Images/preferable2.png";
 import { motion } from "framer-motion";
 export default function Header() {
@@ -20,21 +21,19 @@ export default function Header() {
           Join us and take your career to the <br /> next level.
         </p>
 
-        <div className="flex md:mt-10 ">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.85 }}
-            className=" font-[Poppins] md:w-44 md:h-12 xl:w-[12rem]  md:mt-3 md:text-lg xl:text-xl  font-bold bg-secondary rounded-md"
+        <div className="flex md:mt-[3rem] gap-4 ">
+          <Button
+            className="bg-white text-primary"
+            size="lg"
           >
             How does it work?
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.85 }}
-            whileHover={{ scale: 1.1 }}
-            className="bg-primary text-white md:ml-10 ml-5 content-center xl:text-xl font-bold w-44 h-12 rounded-md mt-3"
+          </Button>
+          <Button
+           className="bg-primary text-white"
+            size="lg"
           >
             Get Started
-          </motion.button>
+          </Button>
         </div>
       </div>
 

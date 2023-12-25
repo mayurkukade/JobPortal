@@ -250,12 +250,12 @@ export default function Navbars() {
           {navList}
           <div className="flex items-center gap-x-1">
             <Link to={"/signin"}>
-              <Button fullWidth variant="text" size="sm" className="">
+              <Button fullWidth variant="text" size="sm" >
                 <span>Sign In</span>
               </Button>
             </Link>
             
-            <Button fullWidth onClick={handleOpen} variant="gradient" size="sm">
+            <Button fullWidth onClick={handleOpen} variant="gradient" className="w-fit" size="sm">
               <span>Sign Up</span>
             </Button>
 
