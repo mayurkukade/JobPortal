@@ -37,7 +37,7 @@ const AboutUs = () => {
             <p className="mt-12 text-black text-xl font-serif text-center">Join thousands of students in hundreds of communities
                 across the country. See something you love? Clap for it. <br /> Whistle at it. Need friends?
                 Start a conversation. Or just lurk, if you’re feeling shy. No big deal.</p>
-            <p className="mt-12 text-black text-xl font-serif text-center">Blackbuck is your canvas. Something interesting in
+            <p className="mt-12 text-black text-xl font-serif text-center">Preferable is your canvas. Something interesting in
                 your campus? Go LIVE. Post text, photos, GIFs, videos, live videos, <br /> audio, anything. Make your
                 own GIFs. Cover them in stickers and text, if you like.</p>
 
