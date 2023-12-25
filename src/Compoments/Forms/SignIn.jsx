@@ -1,7 +1,7 @@
 import { Button, Input } from "@material-tailwind/react";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useLoginApiMutation } from "../../services/Registration/registrationSlice";
 import { Toaster } from "react-hot-toast";
@@ -107,9 +107,10 @@ const SignIn = () => {
             </Button>
             <Typography variant="small" className="mt-4 flex justify-center">
               Don&apos;t have an account?
+              <Link to={'/studentSignUp'}>
               <Typography
                 as="a"
-                href="#signup"
+              
                 variant="small"
                 color="blue-gray"
                 className="ml-1 font-bold"
@@ -117,6 +118,7 @@ const SignIn = () => {
               >
                 Sign up
               </Typography>
+              </Link>
             </Typography>
           </CardFooter>
         </Card>

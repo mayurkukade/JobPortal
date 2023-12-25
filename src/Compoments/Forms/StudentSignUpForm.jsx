@@ -1,5 +1,14 @@
 import { Button, Input } from "@material-tailwind/react";
-
+import { Link } from "react-router-dom";
+import {
+  Dialog,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Checkbox,
+} from "@material-tailwind/react";
 import { useState } from "react";
 import { useStudentRegisterPostMutation } from "../../services/Registration/registrationSlice";
 import { useNavigate } from "react-router-dom";
@@ -52,15 +61,18 @@ const StudentSignUpForm = () => {
         ref: referenceState,
         gender: genderState,
       });
-      console.log(res)
-      if (res && res.error && res.error.data && res.error.data.code === "Unsuccessful") {
+      console.log(res);
+      if (
+        res &&
+        res.error &&
+        res.error.data &&
+        res.error.data.code === "Unsuccessful"
+      ) {
         toast.error("Unsuccessful registration");
       } else {
-       
-        
-        toast.success('Successful registration');
+        toast.success("Successful registration");
         setTimeout(() => {
-          navigate('/');
+          navigate("/");
         }, 500);
       }
     } catch (error) {
@@ -70,82 +82,103 @@ const StudentSignUpForm = () => {
 
   return (
     <>
-      <Navbars/>
+      <Navbars />
       <section className="bg-blue-gray-900 h-[100vh]">
-      <Toaster position="top-center" reverseOrder={false} />
-      <div className="flex justify-center items-center  h-full">
-        <form
-          className="bg-white p-5 space-y-3 w-[25rem] "
-          onSubmit={onSubmitHandler}
-        >
-          <h1 className="text-center text-lg">Student Register</h1>
+        <Toaster position="top-center" reverseOrder={false} />
+        <div className="flex justify-center items-center   h-full">
+          <Card className="mx-auto w-full max-w-[24rem]">
+            <CardBody className="flex flex-col gap-4">
+              <Typography variant="h4" color="blue-gray">
+                Student Register
+              </Typography>
 
-          <Input
-            type="text"
-            label="Full Name"
-            name="fullName"
-            value={fullNameState}
-            onChange={onChangeFullName}
-            required
-          />
+              <Input
+                type="text"
+                label="Full Name"
+                name="fullName"
+                value={fullNameState}
+                onChange={onChangeFullName}
+                required
+              />
 
-          <Input
-            type="text"
-            label="email"
-            name="emailState"
-            value={emailState}
-            onChange={onChangeEmail}
-            required
-          />
+              <Input
+                type="text"
+                label="email"
+                name="emailState"
+                value={emailState}
+                onChange={onChangeEmail}
+                required
+              />
 
-          <Input
-            type="number"
-            label="mobile number"
-            name="mobileNumber"
-            value={mobileNumberState}
-            onChange={onChangeMobileNumber}
-            required
-          />
+              <Input
+                type="number"
+                label="mobile number"
+                name="mobileNumber"
+                value={mobileNumberState}
+                onChange={onChangeMobileNumber}
+                required
+              />
 
-          <Input
-            type="text"
-            label="password"
-            name="password"
-            value={passwordState}
-            onChange={onChangePassword}
-            required
-          />
+              <Input
+                type="text"
+                label="password"
+                name="password"
+                value={passwordState}
+                onChange={onChangePassword}
+                required
+              />
 
-          <Input
-            type="text"
-            label="reference"
-            name="reference"
-            value={referenceState}
-            onChange={onchangeReference}
-            required
-          />
+              <Input
+                type="text"
+                label="reference"
+                name="reference"
+                value={referenceState}
+                onChange={onchangeReference}
+                required
+              />
 
-          <select
-            id="gender"
-            name="gender"
-            value={genderState}
-            onChange={onChangeGender}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
-            placeholder="Gender"
-            required
-          >
-            <option></option>
-            <option value={"male"}>Male</option>
-            <option value="female">Female</option>
-          </select>
-
-          <Button type="onSubmit"className="block m-auto" >Sign Up</Button>
-          <p className="text-center">Already sign up? please  sign in</p>
-        </form>
-      </div>
-    </section>
+              <select
+                id="gender"
+                name="gender"
+                value={genderState}
+                onChange={onChangeGender}
+                className="h-10 border border-gray-300 rounded-md w-full"
+                placeholder="Gender"
+                required
+              >
+                <option></option>
+                <option value={"male"}>Male</option>
+                <option value="female">Female</option>
+              </select>
+            </CardBody>
+            <CardFooter className="pt-0">
+              <Button
+                type="onSubmit"
+                className="block m-auto mb-2"
+                onClick={onSubmitHandler}
+              >
+                Sign Up
+              </Button>
+              <Typography variant="small" className="mt-4 flex justify-center">
+              Already have an account?
+              <Link to={'/signin'}>
+              <Typography
+                as="a"
+              
+                variant="small"
+                color="blue-gray"
+                className="ml-1 font-bold"
+               
+              >
+                Sign In
+              </Typography>
+              </Link>
+            </Typography>
+            </CardFooter>
+          </Card>
+        </div>
+      </section>
     </>
-   
   );
 };
 
