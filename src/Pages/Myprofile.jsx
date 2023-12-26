@@ -41,8 +41,8 @@ const Myprofile = () => {
             className="p-0.5"
             size="xxl"
           />
-          <h3 className="mt-5">{basicDetails.fullName}</h3>
-          <h5>{basicDetails.email}</h5>
+          <h3 className="mt-5 capitalize">{basicDetails.fullName}</h3>
+          <h5 className="lowercase">{basicDetails.email}</h5>
           <h5>{basicDetails.moNumber}</h5>
           <div className="flex gap-8">
             <p className="flex">

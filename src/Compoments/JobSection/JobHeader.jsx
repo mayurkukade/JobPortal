@@ -74,7 +74,7 @@ export default function JobHeader({
 
   return (
     <div className="bg-primary md:h-[13rem]   flex   ">
-      <div className="container mx-auto flex justify-between ">
+      <div className="container mx-auto flex  ">
         <div className="xxs:flex xxs:flex-col xxs:items-center xxs:w-full ss:flex ss:flex-col ss:items-start">
           <div className=" md:text-[2rem] text-[20px] font-Inter text-[#FFF] p-2 xxs:text-center ss:text-start ">
             Find Better

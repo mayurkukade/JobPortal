@@ -31,6 +31,7 @@ import {
   useStudentApplyPostMutation,
 } from "../../services/studentApplication/studentApplicationApiSlice";
 import { Toaster } from "react-hot-toast";
+import BootCampCard from "../../UI/BootCampCard";
 
 function StarIcon() {
   return (
@@ -160,7 +161,7 @@ return  <p>error</p>
         <Toaster position="top-center" reverseOrder={false} />
         <Card
           shadow-lg
-          className=" bg-[#e6f4f1]  w-full max-w-[45rem] mb-5 hover:shadow-xl z-12 "
+          className="bg-[#e6f4f1] xs:w-full sm:w-full ss:w-[48rem] lg:w-[58rem] xl:w-[72rem] mb-5 hover:shadow-xl z-12"
         >
           <CardHeader
             color="transparent"
@@ -336,8 +337,11 @@ return  <p>error</p>
           </Select>
         </div>
       </div> */}
-      <div className="mx-auto container ">
-        <div className=" ">{fetchedJob}</div>
+      <div className="mx-auto container flex gap-12">
+        <div >{fetchedJob}</div>
+        <div className="hidden md:block">
+        <BootCampCard/>
+        </div>
       </div>
     </>
   );

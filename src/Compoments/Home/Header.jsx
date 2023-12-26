@@ -10,7 +10,7 @@ export default function Header() {
         <p className=" md:text-6xl font-[Poppins] font-semibold dark:text-white text-text xl:text-8xl ">
           We Help
           <div className="pt-3">
-            <span className="text-accent    ">You</span>  To Carft
+            <span className="text-accent    ">You</span>  To Craft
           </div>
           <div className="pt-3">
            Your  <span className="text-accent ">Career</span>
