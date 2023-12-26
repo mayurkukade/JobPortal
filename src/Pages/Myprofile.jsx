@@ -109,7 +109,7 @@ const Myprofile = () => {
         </div>
       </div>
       <div className="bg-[#fffefe] col-span-2 p-5">
-        <h3 className="text-2xl p-1">Profile</h3>
+        <h3 className="text-2xl p-1 font-poppins">Profile</h3>
 
         <div className=" flex items-center gap-5 mb-5 mt-5">
           <div className="rounded-full bg-blue-gray-300 p-1 m-1">

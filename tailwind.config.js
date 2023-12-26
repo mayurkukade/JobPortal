@@ -18,8 +18,8 @@ export default withMT({
         'textColor':'#a5b4fc'
       },
       fontFamily: {
-        Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma
-        Inter: ["Inter", "sans-serif"], // Removed the trailing comma
+        poppins: ["Poppins", "sans-serif"], // Removed the trailing comma
+    
       },
       screens: {
         xxs: "280px",
