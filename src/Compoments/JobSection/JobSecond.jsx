@@ -57,6 +57,7 @@ export default function JobSecond({
   data,
   isSuccess,
   isLoading,
+  error
 }) {
   const [postSaveJob] = usePostSaveJobMutation();
   const [deleteSaveJob] = useDeleteSaveJobMutation();
@@ -148,6 +149,10 @@ export default function JobSecond({
     <p>Error</p>;
   }
 
+if(error){
+return  <p>error</p>
+  
+}
   // Add other dependencies if needed
   const jobData = mainFilter?.list?.map((item) => {
     return (

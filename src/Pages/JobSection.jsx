@@ -19,6 +19,9 @@ export default function JobSection() {
   const { data, isLoading, error, isSuccess,isFetching } = useGetAllJobQuery(  { refetchOnMountOrArgChange: true });
   console.log(data)
   console.log(isFetching)
+  console.log(isSuccess)
+  console.log(isLoading)
+  console.log(error)
 console.log(mainFilterData)
 const recomdatedJobs = data?.list?.filter(job =>
   job.companyName.toLowerCase().includes(jobSearch.toLowerCase()) &&
@@ -54,6 +57,7 @@ console.log(mainFilterData)
         isSuccess={isSuccess}
         isLoading = {isLoading}
         isFetching = {isFetching}
+        error = {error}
       />
     </>
   );

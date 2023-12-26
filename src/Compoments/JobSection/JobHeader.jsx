@@ -18,10 +18,9 @@ export default function JobHeader({
   setJobName,
   recomdatedJobs,
 }) {
-
+  const [textIndex, setTextIndex] = useState(0);
   const [jobFocus, setJobFocus] = useState(false);
   const [cityFocus, setCityFocus] = useState(false);
-  
 
   console.log(recomdatedJobs);
   const jobRecomadated = recomdatedJobs?.map((item, index) => (
