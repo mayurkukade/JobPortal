@@ -15,7 +15,40 @@ export default function StudentMultiStep() {
   const [step2, setStep2] = React.useState(false);
   const [step3, setStep3] = React.useState(false);
   const [step4, setStep4] = React.useState(false);
+
+  // First step
+  const [name , setName] = React.useState("");
+  const [gender , setGender] = React.useState("");
+  const [dob , setDob] = React.useState("");
+  const [curloct , setCurloct] = React.useState("");
+  const [prefloct , setPrefloct] = React.useState("");
+  const [phone , setPhone] = React.useState("");
+  const [area , setArea] = React.useState("");
+  const [peroid , setPeroid] = React.useState("");
+  const [exp , setExp] = React.useState("");
+  const [salary , setSalary] = React.useState("");
+  const [expsalary , setExpsalary] = React.useState("");
+  const [industries , setIndustries] = React.useState("");
  
+  // second step
+const [institute , setInstitute] = React.useState("");
+const [batch1 , setBatch1] = React.useState("");
+const [batch2 , setBatch2] = React.useState("");
+const [course , setCourse] = React.useState("");
+const [degree , setDegree] = React.useState("");
+
+//Third step
+const [designation , setDesignation] = React.useState("");
+const [orgn , setOrgn] = React.useState("");
+const [salary2 , setSalary2] = React.useState("");
+const [timeMonth , setTimeMonth] = React.useState("");
+const [timeYear , setTimeYear] = React.useState("");
+const [timeMonth1 , setTimeMonth1] = React.useState("");
+const [timeYear1 , setTimeYear1] = React.useState("");
+
+// Fourth step
+
+const [letter , setLetter] = React.useState("");
 
   const togglestep2 = () => {
     setStep1(true);
@@ -89,65 +122,157 @@ export default function StudentMultiStep() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    // Validation code
-
-    // if (name.length < 4) {
-    //   alert("First Name should at least four char");
-    //   return;
-    // }
-
-    // if (number.length < 10 || number.length >= 11) {
-    //   alert(" Mobile Number only ten number ");
-    //   return;
-    // }
-
-    // First card
-    // console.log("name :-  " + name);
-    // console.log("number :-  " + number);
-    // console.log("email :-  " + email);
-    // console.log("company :-  " + company);
-    // console.log("freshorexpradio :-  " + freshorexpradio);
-    // console.log("startdate :-  " + startdate);
-    // console.log("enddate :-  " + enddate);
-
-    // Second Card
-    // console.log("qualification :-  " + qualification);
-    // console.log("specialization :-  " + specialization);
-    // console.log("courseradio :-  " + courseradio);
-    // console.log("startdate1 :-  " + startdate1);
-    // console.log("enddate1 :-  " + enddate1);
-    // console.log("developer :-  " + developer);
-
-    // //Third Card
-    // console.log("discribe :-  " + discribe);
-    // console.log("salary :-  " + salary);
-    // console.log("gender :-  " + gender);
-
-    // Reset Value
-    // setName(" ");
-    // setNumber(" ");
-    // setEmail(" ");
-    // setCompany(" ");
-    // setFreshorexpradio(" ");
-    // setStartdate(" ");
-    // setEnddate(" ");
-
-    // setQualification(" ");
-    // setSpecialization(" ");
-    // setCourseradio(" ");
-    // setStartdate1(" ");
-    // setEnddate1(" ");
-    // setDeveloper(" ");
-
-    // setDiscribe(" ");
-    // setSalary(" ");
-    // setGender(" ");
+    const obj = {
+      Name : name,
+      Gender : gender,
+      DOB : dob,
+      CurrentLocation : curloct,
+      PrefferedLocation : prefloct,
+      Phone : phone,
+      Industries :  industries,
+      FunctionalArea : area,
+      NoticePeriod : peroid,
+      Experience : exp,
+      Anualsalary : salary,
+      ExpectedSalary : expsalary,
+      Institute :  institute, 
+      Batch : batch1,
+      Batch : batch2,
+      Coursetype : course,
+      Degrees : degree,
+      Designation : designation,
+      Organization : orgn,
+      Salary : salary2,
+      TimePeriod : timeMonth, 
+      TimePeriod1 : timeMonth1 ,
+      TimePeriod2 : timeYear, 
+      TimePeriod3 : timeYear1,
+      Letter :  letter
+    };
+    console.log(obj);
+    
+    setName(" ");
+    setGender(" ");
+    setDob(" ");
+    setCurloct(" ");
+    setPrefloct(" ");
+    setPhone(" ");
+    setArea(" ");
+    setPeroid(" ");
+    setExp(" ");
+    setSalary(" ");
+    setExpsalary(" ");
+    setIndustries(" ");
+    setInstitute(" ");
+    setBatch1(" ");
+    setBatch2(" ");
+    setCourse(" ");
+    setDegree(" ");
+    setDesignation(" ");
+    setOrgn(" ");
+    setSalary2(" ");
+    setTimeMonth(" ");
+    setTimeYear(" ");
+    setTimeMonth1(" ");
+    setTimeYear1(" ");
+    setLetter(" ");
   }
+  // First step
+  const handleSelectChange1 = (e) => {
+    if (e.target && e.target.value) {
+      setGender(e.target.value);
+    }
+  };
+
+  const currentlocation = (e) => {
+    if (e.target && e.target.value) {
+      setCurloct(e.target.value);
+    }
+  };
+
+  const functionalArea = (e) => {
+    if (e.target && e.target.value) {
+      setArea(e.target.value);
+    }
+  };
+
+  const Peroid = (e) => {
+    if (e.target && e.target.value) {
+      setPeroid(e.target.value);
+    }
+  };
+
+  const Experince = (e) => {
+    if (e.target && e.target.value) {
+      setExp(e.target.value);
+    }
+  };
+
+  const AnualSalary = (e) => {
+    if (e.target && e.target.value) {
+      setSalary(e.target.value);
+    }
+  };
+
+  const ExpSalary = (e) => {
+    if (e.target && e.target.value) {
+      setExpsalary(e.target.value);
+    }
+  };
+
+  // Second step
+  const Batch1 = (e) => {
+    if (e.target && e.target.value) {
+      setBatch1(e.target.value);
+    }
+  };
+  const Batch2 = (e) => {
+    if (e.target && e.target.value) {
+      setBatch2(e.target.value);
+    }
+  };
+  const Course = (e) => {
+    if (e.target && e.target.value) {
+      setCourse(e.target.value);
+    }
+  };
+  const Degree = (e) => {
+    if (e.target && e.target.value) {
+      setDegree(e.target.value);
+    }
+  };
+// Third step
+const Timemoth= (e) => {
+  if (e.target && e.target.value) {
+    setTimeMonth(e.target.value);
+  }
+};
+const Salary2 = (e) => {
+  if (e.target && e.target.value) {
+    setSalary2(e.target.value);
+  }
+};
+
+const Timeyear= (e) => {
+  if (e.target && e.target.value) {
+    setTimeYear(e.target.value);
+  }
+};
+const Timeyear1= (e) => {
+  if (e.target && e.target.value) {
+    setTimeYear1(e.target.value);
+  }
+};
+const Timemoth1= (e) => {
+  if (e.target && e.target.value) {
+    setTimeMonth1(e.target.value);
+  }
+};
 
   return (
     <div className="flex justify-center">
       <div className="mt-10 ml-2">
-        <div className="sm:flex hidden">
+        <div className="sm:flex hidden justify-center">
           <motion.div
             id="Personal"
             whileHover={{ scale: 1.1 }}
@@ -196,7 +321,7 @@ export default function StudentMultiStep() {
             <p className="text-black text-md">Resume </p>
           </motion.div>
 
-          <div className="w-[3.125rem]  md:block hidden">
+          {/* <div className="w-[3.125rem]  md:block hidden">
             <hr className="border border-gray-500 mt-4" />
           </div>
 
@@ -233,7 +358,7 @@ export default function StudentMultiStep() {
             className="bg-gray-100 border border-gray-50 rounded-xl px-2 py-1 cursor-pointer  md:block hidden"
           >
             <p className="text-black text-md">Additional Information</p>
-          </motion.div>
+          </motion.div> */}
         </div>
         {/* Form start */}
         <div className="border-gray-100 border mt-5">
@@ -272,7 +397,7 @@ export default function StudentMultiStep() {
                     <div className="flex mt-5">
                     <p>Name : - </p>
                     <div className="sm:w-72 sm:ml-28 ml-20">
-                      <Input type="text" label="Enter Name" />
+                      <Input type="text" label="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
                     </div>
                   </div>
 
@@ -280,10 +405,11 @@ export default function StudentMultiStep() {
                   <div className="flex mt-5">
                   <p>Gender : - </p>
                     <div className="sm:w-72 sm:ml-[6.38rem] ml-[4.30rem]">
-                      <Select label="Select">
-                        <Option>Male</Option>
-                        <Option>Female</Option>
-                      </Select>
+                      <select label="Select" onChange={handleSelectChange1} value={gender} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <option value=" ">Select</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                      </select>
                     </div>
                     </div>
 
@@ -292,7 +418,7 @@ export default function StudentMultiStep() {
                     <div className="flex mt-5">
                     <p>D.O.B.</p>
                     <div className="sm:w-72 sm:ml-[7.80rem] ml-[6rem]">
-                      <Input type="date" />
+                      <Input type="date" value={dob} onChange={(e) => setDob(e.target.value)}/>
                     </div>
                     </div>
 
@@ -300,14 +426,15 @@ export default function StudentMultiStep() {
                      <div className="flex mt-5">
                     <p>Current Location :- </p>
                     <div className="sm:w-72 ml-[0.9rem] sm:ml-[2.5rem] ">
-                      <Select label="Select">
-                        <Option>Delhi</Option>
-                        <Option>Mumbai</Option>
-                        <Option>Chennai</Option>
-                        <Option>Pune</Option>
-                        <Option>Nagpur</Option>
-                        <Option>Amravati</Option>
-                      </Select>
+                      <select label="Select" value={curloct} onChange={currentlocation} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <option value="">Select</option>
+                        <option value="Delhi">Delhi</option>
+                        <option value="Mumbai">Mumbai</option>
+                        <option value="Chennai">Chennai</option>
+                        <option value="Pune">Pune</option>
+                        <option value="Nagpur">Nagpur</option>
+                        <option value="Amravati">Amravati</option>
+                      </select>
                     </div>
                     </div>
 
@@ -315,7 +442,7 @@ export default function StudentMultiStep() {
                     <div className="flex mt-5">
                       <p>Preffered Location :- </p>
                       <div className="sm:w-72 sm:ml-7 ml-[0.2rem] ">
-                        <Input type="text" label="Location" />
+                        <Input type="text" label="Location" value={prefloct} onChange={(e) => setPrefloct(e.target.value)} />
                       </div>
                     </div>
                   </div>
@@ -330,7 +457,7 @@ export default function StudentMultiStep() {
                         <label className="mt-2">Phone :-</label>
 
                         <div className="sm:w-72 sm:ml-[5.313rem] ml-[5.3rem]">
-                          <Input type="number" label="Enter Mobile Number" />
+                          <Input type="number" label="Enter Mobile Number" value={phone} onChange={(e) => setPhone(e.target.value)} />
                         </div>
                       </div>
                       <div>
@@ -338,7 +465,7 @@ export default function StudentMultiStep() {
                           <label className="mt-2">Industries :-</label>
 
                           <div className="sm:w-72 ml-16">
-                            <Input type="number" label="Industries" />
+                            <Input type="text" label="Industries" value={industries} onChange={(e) => setIndustries(e.target.value)} />
                           </div>
                         </div>
                       </div>
@@ -348,11 +475,12 @@ export default function StudentMultiStep() {
                  <div className="flex mt-5">
                       <p>Functional Area :- </p>
                       <div className="sm:ml-6 ml-[1.5rem] sm:w-72">
-                        <Select label="Functional Area">
-                          <Option>A</Option>
-                          <Option>B</Option>
-                          <Option>c</Option>
-                        </Select>
+                        <select label="Functional Area" value={area} onChange={functionalArea} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none " >
+                          <option value="">Select</option>
+                          <option value="A">A</option>
+                          <option value="B">B</option>
+                          <option value="C">c</option>
+                        </select>
                       </div>
                     </div>
 
@@ -362,11 +490,12 @@ export default function StudentMultiStep() {
                     <div className="flex">
                       <p>Notice Period :- </p>
                       <div className="sm:ml-10 ml-[2.5rem] sm:w-72">
-                        <Select label="Notice Period">
-                          <Option>1 month</Option>
-                          <Option>2 months</Option>
-                          <Option>3 months</Option>
-                        </Select>
+                        <select label="Notice Period" value={peroid} onChange={Peroid} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                          <option value="">Select</option>
+                          <option value="1 month">1 month </option>
+                          <option value="2 months">2 months</option>
+                          <option value="3 months">3 months</option>
+                        </select>
                       </div>
                     </div>
                     </div>
@@ -376,12 +505,13 @@ export default function StudentMultiStep() {
                      <div className="flex mt-5">
                    <div className="flex">
                       <p>Experience :- </p>
-                      <div className="sm:ml-[3.70rem] ml-[3.6rem] sm:w-72">
-                        <Select label="Experience">
-                          <Option>1 month</Option>
-                          <Option>2 months</Option>
-                          <Option>3 months</Option>
-                        </Select>
+                      <div className="sm:ml-[3.5rem] ml-[3.6rem] sm:w-72">
+                        <select label="Experience" value={exp} onChange={Experince} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <option value="">Select</option>
+                          <option value="1 month">1 month </option>
+                          <option value="2 months">2 months</option>
+                          <option value="3 months">3 months</option>
+                        </select>
                       </div>
                     </div>
                      </div>
@@ -390,12 +520,13 @@ export default function StudentMultiStep() {
                        <div className="flex mt-5">
                     <div className="flex">
                       <p>Anual Salary :- </p>
-                      <div className="sm:ml-[3.2rem] ml-[3rem] sm:w-72">
-                        <Select label="Anual Salary">
-                          <Option>1 LPA</Option>
-                          <Option>2 LPA</Option>
-                          <Option>3 LPA</Option>
-                        </Select>
+                      <div className="sm:ml-[3rem] ml-[3rem] sm:w-72">
+                        <select label="Anual Salary" value={salary} onChange={AnualSalary} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                          <option value="">Select</option>
+                          <option value="1 LPA">1 LPA</option>
+                          <option value="2 LPA">2 LPA</option>
+                          <option value="3 LPA">3 LPA</option>
+                        </select>
                       </div>
                     </div>
                        </div>
@@ -403,12 +534,13 @@ export default function StudentMultiStep() {
                        {/* sixth part */}
                        <div className="flex mt-5">
                       <p>Expected Salary :- </p>
-                      <div className="sm:ml-[1.7rem] ml-[1.5rem] sm:w-72">
-                        <Select label="Anual Salary">
-                          <Option>1 LPA</Option>
-                          <Option>2 LPA</Option>
-                          <Option>3 LPA</Option>
-                        </Select>
+                      <div className="sm:ml-[1.4rem] ml-[1.5rem] sm:w-72">
+                        <select label="Expexted Salary" value={expsalary} onChange={ExpSalary} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <option value="">Select</option>
+                          <option value="1 LPA">1 LPA</option>
+                          <option value="2 LPA">2 LPA</option>
+                          <option value="3 LPA">3 LPA</option>
+                        </select>
                       </div>
                     </div>
 
@@ -447,7 +579,7 @@ export default function StudentMultiStep() {
                       Institute : -
                     </label>
                     <div className="sm:ml-48 ml-10 sm:w-72 mt-5">
-                      <Input className="" type="text" label="Institute" />
+                      <Input className="" type="text" label="Institute" value={institute} onChange={(e) => setInstitute(e.target.value)} />
                     </div>
                     </div>
                   </div>
@@ -463,45 +595,47 @@ export default function StudentMultiStep() {
                 <div className="flex flex-wrap mt-5">
                   <p>Batch : - </p>
                   <div className="sm:ml-52 ml-16 sm:w-72">
-                    <Select label="YYYY">
-                      <Option>2020</Option>
-                      <Option>2021</Option>
-                      <Option>2022</Option>
-                      <Option>2023</Option>
-                    </Select>
+                    <select label="YYYY" value={batch1} onChange={Batch1} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                      <option value="">Select</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                    </select>
                   </div>
                   <p className="ml-5 mt-2">To</p>
-                  <div className="sm:ml-14 ml-[7.9rem] mt-2 sm:w-72">
-                    <Select label="YYYY">
-                      <Option>2020</Option>
-                      <Option>2021</Option>
-                      <Option>2022</Option>
-                      <Option>2023</Option>
-                    </Select>
+                  <div className="sm:ml-14 ml-[7.9rem] mt-2  sm:w-72">
+                    <select label="YYYY" value={batch2} onChange={Batch2} className="appearance-none sm:w-full w-44  bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none  ">
+                    <option value="">Select</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                    </select>
                   </div>
                 </div>
 
                 <div className="flex mt-5">
                   <p>Course type : - </p>
-                  <div className="sm:ml-[10.313rem] ml-[1.45rem] sm:w-72">
-                    <Select label="Select">
-                      <Option>A</Option>
-                      <Option>B</Option>
-                      <Option>C</Option>
-                      <Option>D</Option>
-                    </Select>
+                  <div className="sm:ml-[10.2rem] ml-[1.45rem] sm:w-72">
+                    <select label="Select" value={course} onChange={Course} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                    <option value="">Select</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">c</option>
+                    </select>
                   </div>
                 </div>
 
                 <div className="flex mt-5">
                   <p>Degree : - </p>
-                  <div className="sm:ml-[12.5rem] ml-[3.5rem] sm:w-72">
-                    <Select label="Select">
-                      <Option>A</Option>
-                      <Option>B</Option>
-                      <Option>C</Option>
-                      <Option>D</Option>
-                    </Select>
+                  <div className="sm:ml-[12.3rem] ml-[3.5rem] sm:w-72">
+                    <select label="Select" value={degree} onChange={Degree} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                    <option value="">Select</option>
+                    <option value="A">A</option>
+                    <option value="B">B</option>
+                    <option value="C">c</option>
+                    </select>
                   </div>
                 </div>
 
@@ -545,7 +679,7 @@ export default function StudentMultiStep() {
                       Designation : -
                     </label>
                     <div className="sm:ml-[10.6rem] ml-10 sm:w-72 mt-5">
-                      <Input className="" type="text" label="Enter Value" />
+                      <Input className="" type="text" label="Enter Value" value={designation} onChange={(e) =>setDesignation(e.target.value)} />
                     </div>
                   </div>
 
@@ -558,7 +692,7 @@ export default function StudentMultiStep() {
                 <div className="flex mt-5">
                   <p>Organization : - </p>
                   <div className="sm:ml-[10.2rem] ml-10 sm:w-72">
-                    <Input type="text" label="Organization" />
+                    <Input type="text" label="Organization" value={orgn} onChange={(e) => setOrgn(e.target.value)}/>
                   </div>
                   <p className="ml-3 text-orange-800 text-sm mt-2">Edit</p>
                 </div>
@@ -566,12 +700,12 @@ export default function StudentMultiStep() {
                 <div className="flex mt-5">
                   <p>Salary : - </p>
                   <div className="sm:ml-[13rem] ml-[5.4rem] sm:w-72">
-                    <Select label="Select">
-                      <Option>1 LPA</Option>
-                      <Option>2 LPA</Option>
-                      <Option>3 LPA</Option>
-                      <Option>4 LPA</Option>
-                    </Select>
+                    <select label="Select" value={salary2} onChange={Salary2} className="sm:w-72 h-10 border border-gray-400 rounded-md w-44">
+                    <option value="">Select</option>
+                    <option value="1 LPA">1 LPA</option>
+                    <option value="2 LPA">2 LPA</option>
+                    <option value="3 LPA">3 LPA</option>
+                    </select>
                   </div>
                 </div>
 
@@ -580,20 +714,30 @@ export default function StudentMultiStep() {
                   <div className="sm:ml-[10.5rem] ml-[6.5rem] flex flex-wrap sm:w-72">
                     <div className="flex flex-wrap">
                       <div>
-                    <Select label="MM" className="sm:w-72">
-                      <Option>2020</Option>
-                      <Option>2021</Option>
-                      <Option>2022</Option>
-                      <Option>2023</Option>
-                    </Select>
+                    <select label="MM" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeMonth} onChange={Timemoth}>
+                    <option value="">Select</option>
+                      <option value="Jan">Jan</option>
+                      <option value="Feb">Feb</option>
+                      <option value="Mar">Mar</option>
+                      <option value="Apr">Apr</option>
+                      <option value="May">May</option>
+                      <option value="Jun">Jun</option>
+                      <option value="Jul">Jul</option>
+                      <option value="Aug">Aug</option>
+                      <option value="Sept">Sept</option>
+                      <option value="Oct">Oct</option>
+                      <option value="Nov">Nov</option>
+                      <option value="Dec">Dec</option>
+                    </select>
                     </div>
                      <div className="mt-5">
-                    <Select label="YYYY" className="sm:w-72">
-                      <Option>2020</Option>
-                      <Option>2021</Option>
-                      <Option>2022</Option>
-                      <Option>2023</Option>
-                    </Select>
+                    <select label="YYYY" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeYear} onChange={Timeyear}>
+                    <option value="">Select</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                    </select>
                     </div>
                     </div>
 
@@ -601,20 +745,30 @@ export default function StudentMultiStep() {
 
                   <div className="flex flex-wrap">
                     <div>
-                    <Select label="MM" className="sm:w-72">
-                      <Option>2020</Option>
-                      <Option>2021</Option>
-                      <Option>2022</Option>
-                      <Option>2023</Option>
-                    </Select>
+                    <select label="MM" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeMonth1} onChange={Timemoth1}>
+                    <option value="">Select</option>
+                      <option value="Jan">Jan</option>
+                      <option value="Feb">Feb</option>
+                      <option value="Mar">Mar</option>
+                      <option value="Apr">Apr</option>
+                      <option value="May">May</option>
+                      <option value="Jun">Jun</option>
+                      <option value="Jul">Jul</option>
+                      <option value="Aug">Aug</option>
+                      <option value="Sept">Sept</option>
+                      <option value="Oct">Oct</option>
+                      <option value="Nov">Nov</option>
+                      <option value="Dec">Dec</option>
+                    </select>
                     </div>
                     <div className="mt-5">
-                    <Select label="YYYY" className="sm:w-72">
-                      <Option>2020</Option>
-                      <Option>2021</Option>
-                      <Option>2022</Option>
-                      <Option>2023</Option>
-                    </Select>
+                    <select label="YYYY" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeYear1} onChange={Timeyear1}>
+                    <option value="">Select</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>
+                      <option value="2023">2023</option>
+                    </select>
                     </div>
                     </div>
                   </div>
@@ -685,6 +839,8 @@ export default function StudentMultiStep() {
                     <Textarea
                       type="text"
                       label="A thought and well written cover letter helps you exhibite information."
+                     value={letter}
+                      onChange={(e) => setLetter(e.target.value)}
                     />
                   </div>
                 </div>
@@ -700,7 +856,7 @@ export default function StudentMultiStep() {
                     </Button>
                   </div>
                   <div className="ml-3">
-                    <Button className="bg-orange-800">Save & Next </Button>
+                    <Button className="bg-orange-800" type="submit">Submit </Button>
                   </div>
                 </div>
               </motion.div>
