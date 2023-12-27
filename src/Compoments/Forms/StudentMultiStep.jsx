@@ -1,8 +1,6 @@
 import React from "react";
 import {
   Input,
-  Select,
-  Option,
   Button,
   Checkbox,
   Textarea,
@@ -47,8 +45,34 @@ const [timeMonth1 , setTimeMonth1] = React.useState("");
 const [timeYear1 , setTimeYear1] = React.useState("");
 
 // Fourth step
-
 const [letter , setLetter] = React.useState("");
+
+//Error  Step
+const [errormsgname , setErrormsgname] = React.useState(false);
+const [errormsgen , setErrormsgen] = React.useState(false);
+const [errormsgdate , setErrormsgdate] = React.useState(false);
+const [errormsgloct , setErrormsgloct] = React.useState(false);
+const [errormsgpreffloct , setErrormsgpreffloct] = React.useState(false);
+const [errormsgnum , setErrormsgnum] = React.useState(false);
+const [errormsgarea , setErrormsgarea] = React.useState(false);
+const [errormsgnotic , setErrormsgnotic] = React.useState(false);
+const [errormsgexp , setErrormsgexp] = React.useState(false);
+const [errormsgAnual , setErrormsgAnual] = React.useState(false);
+const [errormsgexpsalary , setErrormsgexpsalary] = React.useState(false);
+
+const [errormsginstit , setErrormsginstit] = React.useState(false);
+const [errormsgbatch1 , setErrormsgbatch1] = React.useState(false);
+const [errormsgbatch2 , setErrormsgbatch2] = React.useState(false);
+const [errormsgbcourse , setErrormsgbcourse] = React.useState(false);
+const [errormsgdegree , setErrormsgdegree] = React.useState(false);
+
+const [errormsgdestion , setErrormsgdestion] = React.useState(false);
+const [errormsgorg , setErrormsgorg] = React.useState(false);
+const [errormsgslalary2 , setErrormsgslalary2] = React.useState(false);
+const [errormsgthismonth , setErrormsgthismonth] = React.useState(false);
+const [errormsgtimeyear , setErrormsgtimeyear] = React.useState(false);
+const [errormsgtimemonth1 , setErrormsgtimemonth1] = React.useState(false);
+const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
 
   const togglestep2 = () => {
     setStep1(true);
@@ -68,22 +92,63 @@ const [letter , setLetter] = React.useState("");
   };
 
   const togglestep3 = () => {
+    const validations = [
+        { condition: name.length < 4, setError: setErrormsgname },
+        { condition: gender === "", setError: setErrormsgen },
+        { condition: dob === "", setError: setErrormsgdate },
+        { condition: curloct === "", setError: setErrormsgloct },
+        { condition: prefloct === "", setError: setErrormsgpreffloct },
+        { condition: phone.length !== 10, setError: setErrormsgnum },
+        { condition: area ==="" , setError: setErrormsgarea },
+        { condition: peroid ==="" , setError: setErrormsgnotic },
+        { condition: exp ==="" , setError: setErrormsgexp },
+        { condition: salary ==="" , setError: setErrormsgAnual },
+        { condition: expsalary ==="" , setError: setErrormsgexpsalary },
+    ];
+
+    for (const { condition, setError } of validations) {
+        if (condition) {
+            setError(true);
+            return; // Exit the function if any condition fails
+        } else {
+            setError(false);
+        }
+    }
+
+    // If all validations pass, proceed with the rest of the code
     setStep1(false);
     setStep2(true);
     setStep3(false);
     setStep4(false);
 
-    document
-      .getElementById("Education")
-      .setAttribute(
+    document.getElementById("Education").setAttribute(
         "style",
         "background : #fc7f03 ; transition: background-color 1s ease-in-out;"
-      );
+    );
     document.getElementById("Personal").removeAttribute("style");
     document.getElementById("Profesional").removeAttribute("style");
     document.getElementById("Resume").removeAttribute("style");
-  };
+};
+
+
   const togglestep4 = () => {
+
+    const validation = [
+      {condition1 : institute.length < 4 , setError1:setErrormsginstit },
+      {condition1 : batch1 === "", setError1:setErrormsgbatch1 },
+      {condition1 : batch2 === "", setError1:setErrormsgbatch2 },
+      {condition1 : course === "", setError1:setErrormsgbcourse },
+      {condition1 : degree === "", setError1:setErrormsgdegree },
+    ];
+
+    for (const { condition1, setError1 } of validation) {
+      if (condition1) {
+        setError1(true);
+          return; // Exit the function if any condition fails
+      } else {
+        setError1(false);
+      }
+  }
     setStep1(false);
     setStep2(false);
     setStep3(true);
@@ -100,6 +165,25 @@ const [letter , setLetter] = React.useState("");
     document.getElementById("Resume").removeAttribute("style");
   };
   const togglestep5 = () => {
+
+    const validation = [
+      {condition : designation.length < 4 , setError2:setErrormsgdestion },
+      {condition : orgn.length < 4 , setError2:setErrormsgorg },
+      {condition : salary2==="", setError2:setErrormsgslalary2 },
+      {condition : timeMonth==="", setError2:setErrormsgthismonth },
+      {condition : timeYear==="", setError2:setErrormsgtimeyear },
+      {condition : timeMonth1==="", setError2:setErrormsgtimemonth1 },
+      {condition : timeYear1==="", setError2:setErrormsgtiyear1 },
+    ];
+
+    for (const { condition, setError2 } of validation) {
+      if (condition) {
+        setError2(true);
+          return; // Exit the function if any condition fails
+      } else {
+        setError2(false);
+      }
+  }
     setStep1(false);
     setStep2(false);
     setStep3(false);
@@ -177,97 +261,6 @@ const [letter , setLetter] = React.useState("");
     setTimeYear1(" ");
     setLetter(" ");
   }
-  // First step
-  const handleSelectChange1 = (e) => {
-    if (e.target && e.target.value) {
-      setGender(e.target.value);
-    }
-  };
-
-  const currentlocation = (e) => {
-    if (e.target && e.target.value) {
-      setCurloct(e.target.value);
-    }
-  };
-
-  const functionalArea = (e) => {
-    if (e.target && e.target.value) {
-      setArea(e.target.value);
-    }
-  };
-
-  const Peroid = (e) => {
-    if (e.target && e.target.value) {
-      setPeroid(e.target.value);
-    }
-  };
-
-  const Experince = (e) => {
-    if (e.target && e.target.value) {
-      setExp(e.target.value);
-    }
-  };
-
-  const AnualSalary = (e) => {
-    if (e.target && e.target.value) {
-      setSalary(e.target.value);
-    }
-  };
-
-  const ExpSalary = (e) => {
-    if (e.target && e.target.value) {
-      setExpsalary(e.target.value);
-    }
-  };
-
-  // Second step
-  const Batch1 = (e) => {
-    if (e.target && e.target.value) {
-      setBatch1(e.target.value);
-    }
-  };
-  const Batch2 = (e) => {
-    if (e.target && e.target.value) {
-      setBatch2(e.target.value);
-    }
-  };
-  const Course = (e) => {
-    if (e.target && e.target.value) {
-      setCourse(e.target.value);
-    }
-  };
-  const Degree = (e) => {
-    if (e.target && e.target.value) {
-      setDegree(e.target.value);
-    }
-  };
-// Third step
-const Timemoth= (e) => {
-  if (e.target && e.target.value) {
-    setTimeMonth(e.target.value);
-  }
-};
-const Salary2 = (e) => {
-  if (e.target && e.target.value) {
-    setSalary2(e.target.value);
-  }
-};
-
-const Timeyear= (e) => {
-  if (e.target && e.target.value) {
-    setTimeYear(e.target.value);
-  }
-};
-const Timeyear1= (e) => {
-  if (e.target && e.target.value) {
-    setTimeYear1(e.target.value);
-  }
-};
-const Timemoth1= (e) => {
-  if (e.target && e.target.value) {
-    setTimeMonth1(e.target.value);
-  }
-};
 
   return (
     <div className="flex justify-center">
@@ -278,6 +271,7 @@ const Timemoth1= (e) => {
             whileHover={{ scale: 1.1 }}
             onClick={togglestep2}
             className="bg-gray-100 border border-gray-50 rounded-xl px-2 py-1 cursor-pointer"
+            style={{ background: '#fc7f03' }}
           >
             <p className="text-black text-md">Personal Details</p>
           </motion.div>
@@ -321,7 +315,7 @@ const Timemoth1= (e) => {
             <p className="text-black text-md">Resume </p>
           </motion.div>
 
-          {/* <div className="w-[3.125rem]  md:block hidden">
+          <div className="w-[3.125rem]  md:block hidden">
             <hr className="border border-gray-500 mt-4" />
           </div>
 
@@ -358,7 +352,7 @@ const Timemoth1= (e) => {
             className="bg-gray-100 border border-gray-50 rounded-xl px-2 py-1 cursor-pointer  md:block hidden"
           >
             <p className="text-black text-md">Additional Information</p>
-          </motion.div> */}
+          </motion.div>
         </div>
         {/* Form start */}
         <div className="border-gray-100 border mt-5">
@@ -398,6 +392,7 @@ const Timemoth1= (e) => {
                     <p>Name : - </p>
                     <div className="sm:w-72 sm:ml-28 ml-20">
                       <Input type="text" label="Enter Name" value={name} onChange={(e) => setName(e.target.value)} />
+                      {errormsgname &&(<p className="text-red-500 text-xs">Name should be min 4 char. </p>)}
                     </div>
                   </div>
 
@@ -405,11 +400,12 @@ const Timemoth1= (e) => {
                   <div className="flex mt-5">
                   <p>Gender : - </p>
                     <div className="sm:w-72 sm:ml-[6.38rem] ml-[4.30rem]">
-                      <select label="Select" onChange={handleSelectChange1} value={gender} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                      <select label="Select" onChange={(e) =>{if (e.target && e.target.value) {setGender(e.target.value);}}} value={gender} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                         <option value=" ">Select</option>
                         <option value="Male">Male</option>
                         <option value="Female">Female</option>
                       </select>
+                      {errormsgen &&(<p className="text-red-500 text-xs">Select atleast one </p>)}
                     </div>
                     </div>
 
@@ -419,6 +415,7 @@ const Timemoth1= (e) => {
                     <p>D.O.B.</p>
                     <div className="sm:w-72 sm:ml-[7.80rem] ml-[6rem]">
                       <Input type="date" value={dob} onChange={(e) => setDob(e.target.value)}/>
+                      {errormsgdate &&(<p className="text-red-500 text-xs">Select Date </p>)}
                     </div>
                     </div>
 
@@ -426,7 +423,7 @@ const Timemoth1= (e) => {
                      <div className="flex mt-5">
                     <p>Current Location :- </p>
                     <div className="sm:w-72 ml-[0.9rem] sm:ml-[2.5rem] ">
-                      <select label="Select" value={curloct} onChange={currentlocation} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                      <select label="Select" value={curloct} onChange={(e) => {if (e.target && e.target.value) {setCurloct(e.target.value);}}} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                         <option value="">Select</option>
                         <option value="Delhi">Delhi</option>
                         <option value="Mumbai">Mumbai</option>
@@ -436,13 +433,15 @@ const Timemoth1= (e) => {
                         <option value="Amravati">Amravati</option>
                       </select>
                     </div>
-                    </div>
+                     
+                    </div>{errormsgloct &&(<p className="text-red-500 text-xs ml-44">Select Proper Location </p>)}
 
                     {/* sixth part */}
                     <div className="flex mt-5">
                       <p>Preffered Location :- </p>
                       <div className="sm:w-72 sm:ml-7 ml-[0.2rem] ">
                         <Input type="text" label="Location" value={prefloct} onChange={(e) => setPrefloct(e.target.value)} />
+                        {errormsgpreffloct &&(<p className="text-red-500 text-xs">Select Proper Location </p>)}
                       </div>
                     </div>
                   </div>
@@ -458,6 +457,7 @@ const Timemoth1= (e) => {
 
                         <div className="sm:w-72 sm:ml-[5.313rem] ml-[5.3rem]">
                           <Input type="number" label="Enter Mobile Number" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                          {errormsgnum &&(<p className="text-red-500 text-xs">Number must be 10 number </p>)}
                         </div>
                       </div>
                       <div>
@@ -475,7 +475,7 @@ const Timemoth1= (e) => {
                  <div className="flex mt-5">
                       <p>Functional Area :- </p>
                       <div className="sm:ml-6 ml-[1.5rem] sm:w-72">
-                        <select label="Functional Area" value={area} onChange={functionalArea} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none " >
+                        <select label="Functional Area" value={area} onChange={(e) => { if (e.target && e.target.value) {setArea(e.target.value); }}} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none " >
                           <option value="">Select</option>
                           <option value="A">A</option>
                           <option value="B">B</option>
@@ -483,14 +483,14 @@ const Timemoth1= (e) => {
                         </select>
                       </div>
                     </div>
-
+                    {errormsgarea &&(<p className="text-red-500 text-xs sm:ml-[9.5rem]">Select one </p>)}
                     {/* Third part */}
 
                     <div className="flex mt-5">
                     <div className="flex">
                       <p>Notice Period :- </p>
                       <div className="sm:ml-10 ml-[2.5rem] sm:w-72">
-                        <select label="Notice Period" value={peroid} onChange={Peroid} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <select label="Notice Period" value={peroid} onChange={(e) => {  if (e.target && e.target.value) {setPeroid(e.target.value);}}} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                           <option value="">Select</option>
                           <option value="1 month">1 month </option>
                           <option value="2 months">2 months</option>
@@ -499,14 +499,14 @@ const Timemoth1= (e) => {
                       </div>
                     </div>
                     </div>
-
+                    {errormsgnotic &&(<p className="text-red-500 text-xs sm:ml-[9.5rem]">Select one </p>)}
                      {/* Fourth part */}
 
                      <div className="flex mt-5">
                    <div className="flex">
                       <p>Experience :- </p>
                       <div className="sm:ml-[3.5rem] ml-[3.6rem] sm:w-72">
-                        <select label="Experience" value={exp} onChange={Experince} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <select label="Experience" value={exp} onChange={(e) => {  if (e.target && e.target.value) {setExp(e.target.value);}}} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                         <option value="">Select</option>
                           <option value="1 month">1 month </option>
                           <option value="2 months">2 months</option>
@@ -515,13 +515,13 @@ const Timemoth1= (e) => {
                       </div>
                     </div>
                      </div>
-
+                     {errormsgexp &&(<p className="text-red-500 text-xs sm:ml-[9.5rem]">Select one </p>)}
                      {/* Fifth part */}
                        <div className="flex mt-5">
                     <div className="flex">
                       <p>Anual Salary :- </p>
                       <div className="sm:ml-[3rem] ml-[3rem] sm:w-72">
-                        <select label="Anual Salary" value={salary} onChange={AnualSalary} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <select label="Anual Salary" value={salary} onChange={(e) => { if (e.target && e.target.value) {setSalary(e.target.value);}}} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                           <option value="">Select</option>
                           <option value="1 LPA">1 LPA</option>
                           <option value="2 LPA">2 LPA</option>
@@ -530,12 +530,12 @@ const Timemoth1= (e) => {
                       </div>
                     </div>
                        </div>
-
+                       {errormsgAnual &&(<p className="text-red-500 text-xs sm:ml-[9.5rem]">Select one </p>)}
                        {/* sixth part */}
                        <div className="flex mt-5">
                       <p>Expected Salary :- </p>
                       <div className="sm:ml-[1.4rem] ml-[1.5rem] sm:w-72">
-                        <select label="Expexted Salary" value={expsalary} onChange={ExpSalary} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                        <select label="Expexted Salary" value={expsalary} onChange={(e) => {if (e.target && e.target.value) {setExpsalary(e.target.value);}}} className="appearance-none w-full h bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                         <option value="">Select</option>
                           <option value="1 LPA">1 LPA</option>
                           <option value="2 LPA">2 LPA</option>
@@ -543,14 +543,16 @@ const Timemoth1= (e) => {
                         </select>
                       </div>
                     </div>
-
+                    {errormsgexpsalary &&(<p className="text-red-500 text-xs sm:ml-[9.5rem]">Select one </p>)}
                   </div>
                  {/* right part end */}
 
-                 <div className="mt-10 flex w-full justify-center  ">
+                 <div className="mt-10 flex w-full justify-center " >
+                  <motion.div whileHover={{scale : 1.1}}>
                     <Button className="bg-orange-900 " onClick={togglestep3}>
-                      Save & Next{" "}
+                      Next{" "}
                     </Button>
+                    </motion.div>
                   </div>
                 </div>
               </motion.div>
@@ -580,6 +582,7 @@ const Timemoth1= (e) => {
                     </label>
                     <div className="sm:ml-48 ml-10 sm:w-72 mt-5">
                       <Input className="" type="text" label="Institute" value={institute} onChange={(e) => setInstitute(e.target.value)} />
+                      {errormsginstit &&(<p className="text-red-500 text-xs">Name should be min 4 char. </p>)}
                     </div>
                     </div>
                   </div>
@@ -595,7 +598,7 @@ const Timemoth1= (e) => {
                 <div className="flex flex-wrap mt-5">
                   <p>Batch : - </p>
                   <div className="sm:ml-52 ml-16 sm:w-72">
-                    <select label="YYYY" value={batch1} onChange={Batch1} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                    <select label="YYYY" value={batch1} onChange={(e) => { if (e.target && e.target.value) {setBatch1(e.target.value); }}} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                       <option value="">Select</option>
                       <option value="2020">2020</option>
                       <option value="2021">2021</option>
@@ -603,9 +606,11 @@ const Timemoth1= (e) => {
                       <option value="2023">2023</option>
                     </select>
                   </div>
+                  {errormsgbatch1 &&(<p className="text-red-500 text-xs mt-3">Select one </p>)}
+
                   <p className="ml-5 mt-2">To</p>
-                  <div className="sm:ml-14 ml-[7.9rem] mt-2  sm:w-72">
-                    <select label="YYYY" value={batch2} onChange={Batch2} className="appearance-none sm:w-full w-44  bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none  ">
+                  <div className="sm:ml-14 ml-[7.9rem] sm:w-72">
+                    <select label="YYYY" value={batch2} onChange={(e) => { if (e.target && e.target.value) {setBatch2(e.target.value); }}} className="appearance-none sm:w-full w-44  bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none  ">
                     <option value="">Select</option>
                       <option value="2020">2020</option>
                       <option value="2021">2021</option>
@@ -613,12 +618,14 @@ const Timemoth1= (e) => {
                       <option value="2023">2023</option>
                     </select>
                   </div>
+                  {errormsgbatch2 &&(<p className="text-red-500 text-xs mt-3">Select one </p>)}
                 </div>
+                
 
                 <div className="flex mt-5">
                   <p>Course type : - </p>
                   <div className="sm:ml-[10.2rem] ml-[1.45rem] sm:w-72">
-                    <select label="Select" value={course} onChange={Course} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                    <select label="Select" value={course} onChange={(e) => {if (e.target && e.target.value) {setCourse(e.target.value);}}} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                     <option value="">Select</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -626,11 +633,12 @@ const Timemoth1= (e) => {
                     </select>
                   </div>
                 </div>
+                {errormsgbcourse &&(<p className="text-red-500 text-xs sm:ml-[16.8rem] mt-1">Select one </p>)}
 
                 <div className="flex mt-5">
                   <p>Degree : - </p>
                   <div className="sm:ml-[12.3rem] ml-[3.5rem] sm:w-72">
-                    <select label="Select" value={degree} onChange={Degree} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+                    <select label="Select" value={degree} onChange={(e) => { if (e.target && e.target.value) { setDegree(e.target.value);}}} className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
                     <option value="">Select</option>
                     <option value="A">A</option>
                     <option value="B">B</option>
@@ -638,6 +646,7 @@ const Timemoth1= (e) => {
                     </select>
                   </div>
                 </div>
+                {errormsgdegree &&(<p className="text-red-500 text-xs sm:ml-[16.8rem] mt-1">Select one </p>)}
 
                 <div className="mt-5 sm:ml-[16.875rem] ml-[8rem]">
                   <Button>+ Add Degree</Button>
@@ -680,6 +689,7 @@ const Timemoth1= (e) => {
                     </label>
                     <div className="sm:ml-[10.6rem] ml-10 sm:w-72 mt-5">
                       <Input className="" type="text" label="Enter Value" value={designation} onChange={(e) =>setDesignation(e.target.value)} />
+                      {errormsgdestion &&(<p className="text-red-500 text-xs">Name should be min 4 char. </p>)}
                     </div>
                   </div>
 
@@ -693,6 +703,7 @@ const Timemoth1= (e) => {
                   <p>Organization : - </p>
                   <div className="sm:ml-[10.2rem] ml-10 sm:w-72">
                     <Input type="text" label="Organization" value={orgn} onChange={(e) => setOrgn(e.target.value)}/>
+                    {errormsgorg &&(<p className="text-red-500 text-xs">Name should be min 4 char. </p>)}
                   </div>
                   <p className="ml-3 text-orange-800 text-sm mt-2">Edit</p>
                 </div>
@@ -700,13 +711,14 @@ const Timemoth1= (e) => {
                 <div className="flex mt-5">
                   <p>Salary : - </p>
                   <div className="sm:ml-[13rem] ml-[5.4rem] sm:w-72">
-                    <select label="Select" value={salary2} onChange={Salary2} className="sm:w-72 h-10 border border-gray-400 rounded-md w-44">
+                    <select label="Select" value={salary2} onChange={(e) => { if (e.target && e.target.value) {setSalary2(e.target.value);}}} className="sm:w-72 h-10 border border-gray-400 rounded-md w-44">
                     <option value="">Select</option>
                     <option value="1 LPA">1 LPA</option>
                     <option value="2 LPA">2 LPA</option>
                     <option value="3 LPA">3 LPA</option>
                     </select>
                   </div>
+                  {errormsgslalary2 &&(<p className="text-red-500 text-xs ml-2 mt-3">Select one </p>)}
                 </div>
 
                 <div className="flex   mt-5">
@@ -714,7 +726,7 @@ const Timemoth1= (e) => {
                   <div className="sm:ml-[10.5rem] ml-[6.5rem] flex flex-wrap sm:w-72">
                     <div className="flex flex-wrap">
                       <div>
-                    <select label="MM" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeMonth} onChange={Timemoth}>
+                    <select label="MM" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeMonth} onChange={(e) => { if (e.target && e.target.value) {setTimeMonth(e.target.value); }}}>
                     <option value="">Select</option>
                       <option value="Jan">Jan</option>
                       <option value="Feb">Feb</option>
@@ -730,8 +742,9 @@ const Timemoth1= (e) => {
                       <option value="Dec">Dec</option>
                     </select>
                     </div>
+                    {errormsgthismonth &&(<p className="text-red-500 text-xs ml-2 mt-3">Select one </p>)}
                      <div className="mt-5">
-                    <select label="YYYY" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeYear} onChange={Timeyear}>
+                    <select label="YYYY" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeYear} onChange={(e) => { if (e.target && e.target.value) {setTimeYear(e.target.value);}}}>
                     <option value="">Select</option>
                       <option value="2020">2020</option>
                       <option value="2021">2021</option>
@@ -739,13 +752,14 @@ const Timemoth1= (e) => {
                       <option value="2023">2023</option>
                     </select>
                     </div>
+                    {errormsgtimeyear &&(<p className="text-red-500 text-xs ml-2 mt-3">Select one </p>)}
                     </div>
 
                     <p className="ml-5 mt-2 mr-2">To</p>
 
                   <div className="flex flex-wrap">
                     <div>
-                    <select label="MM" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeMonth1} onChange={Timemoth1}>
+                    <select label="MM" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeMonth1} onChange={(e) => {if (e.target && e.target.value) {setTimeMonth1(e.target.value);}}}>
                     <option value="">Select</option>
                       <option value="Jan">Jan</option>
                       <option value="Feb">Feb</option>
@@ -761,8 +775,9 @@ const Timemoth1= (e) => {
                       <option value="Dec">Dec</option>
                     </select>
                     </div>
+                    {errormsgtimemonth1 &&(<p className="text-red-500 text-xs ml-2 mt-3">Select one </p>)}
                     <div className="mt-5">
-                    <select label="YYYY" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeYear1} onChange={Timeyear1}>
+                    <select label="YYYY" className="sm:w-72 h-10 border border-gray-400 rounded-md w-44" value={timeYear1} onChange={(e) => {  if (e.target && e.target.value) {setTimeYear1(e.target.value);}}}>
                     <option value="">Select</option>
                       <option value="2020">2020</option>
                       <option value="2021">2021</option>
@@ -770,6 +785,7 @@ const Timemoth1= (e) => {
                       <option value="2023">2023</option>
                     </select>
                     </div>
+                    {errormsgtiyear1 &&(<p className="text-red-500 text-xs ml-2 mt-3">Select one </p>)}
                     </div>
                   </div>
                 </div>
