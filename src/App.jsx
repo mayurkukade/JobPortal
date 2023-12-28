@@ -14,6 +14,11 @@ import PublishJob from "./Compoments/TPO/DashboardFeatures/PublishJob";
 import JobDetail from "./Compoments/TPO/Dashboard Compoment/JobDetail";
 import EditCareerPage from "./Compoments/TPO/Dashboard Compoment/EditCareerPage";
 import StudentMultiStep from "./Compoments/Forms/StudentMultiStep";
+import JobSection1 from "./Compoments/TPO/Dashboard Compoment/JobSection1";
+import TalentPool from "./Compoments/TPO/Dashboard Compoment/TalentPool";
+import { Career } from "./Compoments/Data/Dashboarddata";
+import Interview from "./Compoments/TPO/Dashboard Compoment/Interview";
+import Accountss from "./Compoments/TPO/Dashboard Compoment/Accountss";
 
 function App() {
   return (
@@ -36,6 +41,11 @@ function App() {
         <Route path="/JobDetail" element={<JobDetail/>} />
         <Route path="/Editcareerpage" element={<EditCareerPage/>} />
         <Route path="/StudentMultistep" element={<StudentMultiStep/>} />
+        <Route path="/Jobs" element={<JobSection1/>} />
+        <Route path="/TalentPool" element={<TalentPool/>} />
+        <Route path="/career" element={<Career/>} />
+        <Route path="/interview" element={<Interview/>} />
+        <Route path="/account" element={<Accountss/>} />
       </Routes>
 
       

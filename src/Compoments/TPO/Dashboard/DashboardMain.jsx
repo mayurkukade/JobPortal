@@ -17,8 +17,8 @@ import CareerPage from "../Dashboard Compoment/CareerPage";
 import Interview from "../Dashboard Compoment/Interview";
 import Pricing from "../Dashboard Compoment/Pricing";
 import Accountss from "../Dashboard Compoment/Accountss";
-import JobSection from "../Dashboard Compoment/JobSection";
 import { useNavigate } from 'react-router-dom';
+import JobSection1 from "../Dashboard Compoment/JobSection1";
 
 
 
@@ -33,6 +33,11 @@ export default function () {
   const [open8, setOpen8] = React.useState(false);
   const [open9, setOpen9] = React.useState(false);
   const navigate = useNavigate()
+  const navigate1 = useNavigate()
+  const navigate2 = useNavigate()
+  const navigate3 = useNavigate()
+  const navigate4 = useNavigate()
+  const navigate5 = useNavigate()
 
   function Dashboard() {
    if(open1==true){
@@ -74,6 +79,7 @@ export default function () {
   }
 
   function Jobs() {
+    navigate1("/Dashboard/Jobs");
      if(open2==false){
       setOpen2(!open2)
      }
@@ -109,6 +115,7 @@ export default function () {
   }
 
   function Talent_Pool() {
+    navigate2("/Dashboard/TalentPool");
     if(open3==false){
       setOpen3(!open3)
     }
@@ -144,6 +151,7 @@ export default function () {
   }
 
   function career (){
+    navigate3("/Dashboard/career");
    if(open4==false){
     setOpen4(!open4)
    }
@@ -179,6 +187,7 @@ export default function () {
   }
 
   function interview (){
+    navigate4("/Dashboard/interview");
    if(open5==false){
     setOpen5(!open5)
    }
@@ -284,7 +293,7 @@ export default function () {
   // }
 
   function account (){
-
+    navigate5("/Dashboard/account");
     if(open9==false){
       setOpen9(!open9)
     }
@@ -605,7 +614,7 @@ export default function () {
 
         {open2 && (
           <div className="sm:col-span-10 mt-20 bg-gray-50">
-            <JobSection/>
+            <JobSection1/>
           </div>
         )}
 
