@@ -7,6 +7,7 @@ import PlacementCompany from '../Compoments/Home/PlacementCompany'
 import HomeTabs from '../Compoments/Home/HomeTabs'
 import Cards from '../Compoments/Home/Cards'
 import Reviews from '../Compoments/Home/Reviews'
+import HomeSteps from '../Compoments/Home/HomeSteps'
 
 
 
@@ -18,6 +19,7 @@ export default function HomePage() {
         
         <HeaderLower/>
         <Reviews/>
+        <HomeSteps/>
         <Cards/>
         <Testimonals/>
      
