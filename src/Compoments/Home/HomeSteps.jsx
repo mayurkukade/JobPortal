@@ -1,11 +1,16 @@
-import { Button, Typography } from "@material-tailwind/react";
+import { Button, Card, CardHeader, Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import applyjobsvg from "../Images/homeImages/Group 39647.png";
+import { FaArrowTrendUp } from "react-icons/fa6";
+import { GiReturnArrow } from "react-icons/gi";
+import { PiStudentBold } from "react-icons/pi";
+
 import arrowline from "../Images/homeImages/vector-section-1 (1).svg";
 import step from "../Images/homeImages/Group 39648.png";
 import step4 from "../Images/homeImages/Group 39656.png";
 import step3 from "../Images/homeImages/vector-section-2.svg";
 import graduate2 from "../Images/homeImages/graduate2.png";
+import step5 from "../Images/homeImages/vector-section-5.svg";
 import { PiSuitcaseSimpleDuotone } from "react-icons/pi";
 import { IoStatsChartOutline } from "react-icons/io5";
 import { FaGraduationCap } from "react-icons/fa6";
@@ -147,7 +152,11 @@ const HomeSteps = () => {
         />
         {/* section two */}
         <div className="flex justify-between items-start bg-[#ede9fb] rounded-3xl p-5 pt-10 ">
-          <img alt="img" src={step} className="xxs:hidden mt-[6rem] ss:block w-[25rem] lg:w-[35rem] " />
+          <img
+            alt="img"
+            src={step}
+            className="xxs:hidden mt-[6rem] ss:block w-[25rem] ss:w-[25rem] lg:w-[35rem] "
+          />
           <div>
             <div className="ml-[5rem]   border rounded-2xl  p-5">
               <Typography
@@ -244,7 +253,7 @@ const HomeSteps = () => {
                 and stay ahead in a competitive job market. Explore, learn, and
                 grow at your own pace with [Your Website Name]. */}
               </Typography>
-            
+
               <Link to={"/jobsection"}>
                 <Button className="ml-11 mt-3 bg-primary flex gap-2 items-center">
                   Get Started Now <FaArrowRight />
@@ -279,7 +288,7 @@ const HomeSteps = () => {
                 </div>
               </div>
 
-              <Typography className="text-justify mt-3 font-poppins font-extralight ml-12 max-w-[55rem]">
+              <Typography className=" text-justify mt-3 font-poppins font-extralight ml-12 max-w-[55rem]">
                 Delve into the world of advanced education with our MS/MBA
                 research offerings. Our programs are designed for those seeking
                 a deeper understanding of their field, providing opportunities
@@ -367,7 +376,11 @@ const HomeSteps = () => {
               </Link>
             </div>
           </div>
-          <img alt="img" src={graduate2} className="xxs:hidden mt-[6rem] ss:block w-[25rem] lg:w-[35rem]" />
+          <img
+            alt="img"
+            src={graduate2}
+            className="xxs:hidden mt-[7rem] ss:block w-[35rem] ss:w-[28rem] "
+          />
         </div>
         <img alt="img" src={step4} className="flex flex-col  md:ml-[20rem] " />
 
@@ -398,7 +411,7 @@ const HomeSteps = () => {
                 </div>
               </div>
 
-              <Typography className="text-justify mt-3 font-poppins font-extralight ml-12 max-w-[55rem]">
+              <Typography className="  text-justify mt-3 font-poppins font-extralight ml-12 max-w-[55rem]">
                 Experience a seamless hiring process with our end-to-end
                 services. We take care of everything, from crafting compelling
                 job listings to conducting interviews and facilitating the
@@ -476,6 +489,68 @@ const HomeSteps = () => {
               </Link>
             </div>
           </div>
+        </div>
+        <img alt="img" src={step5} className="flex flex-col sm:ml-[18rem]" />
+        <div className=" flex flex-col items-center pb-[6rem]">
+          <p className="text-center text-3xl font-semibold font-poppins text-primary mt-2">
+            The Result
+          </p>
+          <p className="text-primary mb-10 bg-[#e6f4f1] leading-8 p-5 rounded-3xl flex justify-center max-w-3xl text-justify font-poppins font-medium text-xl">
+            At Preferable, we're not just a platform, we're architects of
+            success. Students, TPOs, and HR professionals converge on our
+            platform to orchestrate transformative journeys. From interactive
+            bootcamps and skill-enhancing assignments to exclusive MS/MBA
+            opportunities, we're the nexus for career growth. Elevate careers,
+            discover top talent, and watch your business thrive. Join us in
+            shaping futures and fostering success, because when students
+            succeed, businesses flourish.
+          </p>
+          <div className="flex flex-wrap gap-5">
+  <Card className="w-full sm:w-fit shadow-lg">
+    <div className="flex flex-col sm:flex-row justify-between p-5 gap-5 items-center">
+      <div className="px-2 bg-primary rounded-full py-2">
+        <FaArrowTrendUp color="white" size={"45"} />
+      </div>
+      <div>
+        <p className="text-3xl font-semibold text-primary font-poppins">
+          11 LPA
+        </p>
+        <p className="text-lg font-poppins font-medium">Average CTC</p>
+      </div>
+    </div>
+  </Card>
+
+  <Card className="w-full sm:w-fit shadow-lg">
+    <div className="flex flex-col sm:flex-row justify-between p-5 gap-5 items-center">
+      <div className="px-2 bg-primary rounded-full py-2">
+        <GiReturnArrow color="white" size={"45"} />
+      </div>
+      <div>
+        <p className="text-3xl font-semibold text-primary font-poppins">
+          40%
+        </p>
+        <p className="text-lg font-poppins font-medium">Return</p>
+        <p className="text-lg font-poppins font-medium">on investment</p>
+      </div>
+    </div>
+  </Card>
+
+  <Card className="w-full sm:w-fit shadow-lg">
+    <div className="flex flex-col sm:flex-row justify-between p-5 gap-5 items-center">
+      <div className="px-2 bg-primary rounded-full py-2">
+        <PiStudentBold color="white" size={"45"} />
+      </div>
+      <div>
+        <p className="text-3xl font-semibold text-primary font-poppins">
+          95%
+        </p>
+        <p className="text-lg font-poppins font-medium">Students</p>
+        <p className="text-lg font-poppins font-medium">bag dream</p>
+      </div>
+    </div>
+  </Card>
+</div>
+
         </div>
       </div>
     </section>
