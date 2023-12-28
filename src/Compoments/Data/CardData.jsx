@@ -22,7 +22,7 @@ export const data = [
       label: "Student",
       value: "html",
       desc: <div className="flex flex-wrap">
-        <Card  variant="gradient" className="w-full max-w-[20rem] p-8 h-[590px]" color="gray">
+        <Card   className=" w-full max-w-[20rem] p-8 h-[590px]" color="red">
       <CardHeader
         floated={false}
         shadow={false}
