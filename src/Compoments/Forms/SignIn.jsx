@@ -1,7 +1,7 @@
 import { Button, Input } from "@material-tailwind/react";
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useLoginApiMutation } from "../../services/Registration/registrationSlice";
 import { Toaster } from "react-hot-toast";
@@ -9,7 +9,17 @@ import Navbars from "../Navbars";
 import Cookies from "js-cookie";
 import { useDispatch } from "react-redux";
 import { loginSuccess } from "../../features/authSlice/authSlice";
-
+import {
+  
+  Dialog,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  
+  Checkbox,
+} from "@material-tailwind/react";
 const SignIn = () => {
   const [emailState, setEmail] = useState("");
 
@@ -32,6 +42,7 @@ const SignIn = () => {
   const dispatch = useDispatch()
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    console.log(emailState,passwordState)
     try {
       const res = await loginApi({
         username: emailState,
@@ -63,10 +74,55 @@ const SignIn = () => {
   return (
     <>
       <Navbars />
-      <section className="bg-blue-gray-900 h-[100vh]">
+      <section className="bg-blue-gray-900 h-[100vh] sm:h-[86.5vh] xs:h-[90.5vh]">
         <Toaster position="top-center" reverseOrder={false} />
-        <div className="flex justify-center items-center h-full">
-          <form
+        <div className="flex justify-center items-center h-full ">
+        <Card className="mx-auto w-full max-w-[24rem]">
+          <CardBody className="flex flex-col gap-4">
+            <Typography variant="h4" color="blue-gray">
+              Sign In
+            </Typography>
+            <Typography
+              className="mb-3 font-normal"
+              variant="paragraph"
+              color="gray"
+            >
+              Enter your email and password to Sign In.
+            </Typography>
+            <Typography className="-mb-2" variant="h6" >
+              Your Email
+            </Typography>
+            <Input label="Email" size="lg" onChange={onChangeEmail} value={emailState} />
+            <Typography className="-mb-2" variant="h6" >
+              Your Password
+            </Typography>
+            <Input label="Password" size="lg" type="password" onChange={onChangePassword} value={passwordState}/>
+            <div className="-ml-2.5 -mt-3">
+              <Checkbox label="Remember Me" />
+            </div>
+          </CardBody>
+          <CardFooter className="pt-0">
+            <Button variant="gradient" onClick={onSubmitHandler} fullWidth>
+              Sign In
+            </Button>
+            <Typography variant="small" className="mt-4 flex justify-center">
+              Don&apos;t have an account?
+              <Link to={'/studentSignUp'}>
+              <Typography
+                as="a"
+              
+                variant="small"
+                color="blue-gray"
+                className="ml-1 font-bold"
+               
+              >
+                Sign up
+              </Typography>
+              </Link>
+            </Typography>
+          </CardFooter>
+        </Card>
+          {/* <form
             className="bg-white p-5 space-y-3 w-[25rem]"
             onSubmit={onSubmitHandler}
           >
@@ -96,7 +152,7 @@ const SignIn = () => {
             <p className="text-center">
               Don't have a account? Sign Up
             </p>
-          </form>
+          </form> */}
         </div>
       </section>
     </>

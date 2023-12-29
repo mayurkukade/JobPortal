@@ -1,5 +1,5 @@
-
-import preferable from "../Images/preferable2.png";
+import { Button } from "@material-tailwind/react";
+import preferable from "../Images/homeImages/folding_hands-removebg-preview.png";
 import { motion } from "framer-motion";
 export default function Header() {
   return (
@@ -9,10 +9,10 @@ export default function Header() {
         <p className=" md:text-6xl font-[Poppins] font-semibold dark:text-white text-text xl:text-8xl ">
           We Help
           <div className="pt-3">
-            <span className="text-accent    ">You</span>  To Carft
+            <span className="text-accent    ">You</span> To Craft
           </div>
           <div className="pt-3">
-           Your  <span className="text-accent ">Career</span>
+            Your <span className="text-accent ">Career</span>
           </div>
         </p>
 
@@ -20,21 +20,13 @@ export default function Header() {
           Join us and take your career to the <br /> next level.
         </p>
 
-        <div className="flex md:mt-10 ">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.85 }}
-            className=" font-[Poppins] md:w-44 md:h-12 xl:w-[12rem]  md:mt-3 md:text-lg xl:text-xl  font-bold bg-secondary rounded-md"
-          >
+        <div className="flex md:mt-[3rem] gap-4 ">
+          <Button className="bg-white text-primary" size="lg">
             How does it work?
-          </motion.button>
-          <motion.button
-            whileTap={{ scale: 0.85 }}
-            whileHover={{ scale: 1.1 }}
-            className="bg-primary text-white md:ml-10 ml-5 content-center xl:text-xl font-bold w-44 h-12 rounded-md mt-3"
-          >
+          </Button>
+          <Button className="bg-primary text-white" size="lg">
             Get Started
-          </motion.button>
+          </Button>
         </div>
       </div>
 
@@ -42,7 +34,7 @@ export default function Header() {
 
       <div className="hidden md:block  ">
         <img
-          className="md:h-[32.5rem]  md:w-[41.875rem] md:right-0   xl:w-[60rem] xl:h-[46.375rem] absolute  "
+          className=" md:h-[32.5rem] w-auto md:w-[50rem] md:right-0   xl:w-[60rem] xl:h-[46.375rem] absolute  "
           src={preferable}
           alt="image"
         />

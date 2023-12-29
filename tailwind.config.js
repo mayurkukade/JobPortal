@@ -15,11 +15,13 @@ export default withMT({
         'darkBlueBackground':'#3F3D56',
         'dark':'#000000',
         'white':'white',
-        'textColor':'#a5b4fc'
+        'textColor':'#a5b4fc',
+        'snowWhite':'#F5FEFD',
+        'faintgreen':'#aee6b9'
       },
       fontFamily: {
-        Lexend: ["Lexend", "sans-serif"], // Removed the trailing comma
-        Inter: ["Inter", "sans-serif"], // Removed the trailing comma
+        poppins: ["Poppins", "sans-serif"], // Removed the trailing comma
+    
       },
       screens: {
         xxs: "280px",

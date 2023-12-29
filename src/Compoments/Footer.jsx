@@ -28,24 +28,27 @@ export default function Footer() {
         </div>
           {/* Other Services */}
           <div className='flex flex-wrap gap-5'>
-             {FooterData.map(({title,items})=>(
-                <ul key={items}>
-                  <motion.div className='text-xl text-white font-Inter  mt-8  pb-2 cursor-pointer' variants={buttonhover} whileHover="hover">
-                    {title}
-                  </motion.div>
-                  {items.map((link,index) =>(
-                     <motion.li variants={buttonhover} whileHover="hover" className='cursor-pointer' key={index} >
-                        <div className='text-sm font-Inter  text-gray-400 pb-2'  >
-                       
-                        {link}
-                      
-                        </div>
-                        
-                     </motion.li>
-                  ))}
-                </ul>
-             ))}
+  {FooterData.map(({ title, items, links }) => (
+    <ul key={title}>
+      <motion.div className='text-xl text-white font-Inter mt-8 pb-2 cursor-pointer' variants={buttonhover} whileHover="hover">
+        {title}
+      </motion.div>
+      {items.map((item, index) => (
+        <motion.li variants={buttonhover} whileHover="hover" className='cursor-pointer' key={index}>
+          <div className='text-sm font-Inter text-gray-400 pb-2'>
+            {/* Check if a link is available for the current item */}
+            {links && links[index] ? (
+              <Link to={links[index]}>{item}</Link>
+            ) : (
+              // If no link is available, just display the item text
+              item
+            )}
           </div>
+        </motion.li>
+      ))}
+    </ul>
+  ))}
+</div>
            
            <div>
               <p className='text-2xl font-Inter ml-14 mt-8  pb-2 text-white'>Suscribe to our newsletter</p>

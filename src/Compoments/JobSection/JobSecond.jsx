@@ -1,6 +1,11 @@
 import Lens from "../Images/Lenskart.png";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { PiSuitcaseSimpleDuotone } from "react-icons/pi";
+import { CiLocationOn } from "react-icons/ci";
+import { MdCurrencyRupee } from "react-icons/md";
+import { CiCalendarDate } from "react-icons/ci";
+
 import {
   Card,
   CardHeader,
@@ -26,6 +31,7 @@ import {
   useStudentApplyPostMutation,
 } from "../../services/studentApplication/studentApplicationApiSlice";
 import { Toaster } from "react-hot-toast";
+import BootCampCard from "../../UI/BootCampCard";
 
 function StarIcon() {
   return (
@@ -52,11 +58,12 @@ export default function JobSecond({
   data,
   isSuccess,
   isLoading,
+  error
 }) {
   const [postSaveJob] = usePostSaveJobMutation();
   const [deleteSaveJob] = useDeleteSaveJobMutation();
   const [studentApplyPost] = useStudentApplyPostMutation();
-  const getCookie = Cookies.get("cookie") ;
+  const getCookie = Cookies.get("cookie");
 
   const decodeCookie = jwtDecode(getCookie);
   console.log(decodeCookie.userId);
@@ -65,7 +72,9 @@ export default function JobSecond({
     isLoading: studentAppliedListLoading,
     isError: studentAppliedError,
     isSuccess: studentAppliedSuccess,
-  } = useGetApplicationByUserIdQuery(decodeCookie?.userId);
+  } = useGetApplicationByUserIdQuery(decodeCookie?.userId, {
+    refetchOnMountOrArgChange: true,
+  });
   console.log(StudentAppliedList);
   const { data: getSavedJob } = useGetSavedJobBYUserIdQuery(
     decodeCookie?.userId
@@ -134,20 +143,31 @@ export default function JobSecond({
   if (mainFilterIsError) {
     <p>Error ...</p>;
   }
+  if (studentAppliedListLoading) {
+    <p>Loading...</p>;
+  }
+  if (studentAppliedError) {
+    <p>Error</p>;
+  }
+
+if(error){
+return  <p>error</p>
+  
+}
   // Add other dependencies if needed
   const jobData = mainFilter?.list?.map((item) => {
     return (
-      <div key={item.jobId} className="mt-2">
+      <div key={item.jobId} className="mt-2 pl-1 pr-1">
         <Toaster position="top-center" reverseOrder={false} />
         <Card
           shadow-lg
-          className=" bg-[#e6f4f1] w-full max-w-[48rem] mb-5 hover:shadow-xl z-12 "
+          className="bg-[#e6f4f1] xs:w-full sm:w-full ss:w-[48rem] lg:w-[58rem] xl:w-[72rem] mb-5 hover:shadow-xl z-12"
         >
           <CardHeader
             color="transparent"
             floated={false}
             shadow={false}
-            className="mx-0 flex items-center gap-4 pt-0 pb-8"
+            className="mx-0 flex items-center gap-3 pt-0 pb-3"
           >
             <Link to={`/jobdetails/${item.jobId}`} target="_blank">
               <Avatar
@@ -155,14 +175,14 @@ export default function JobSecond({
                 variant="square"
                 src={Lens}
                 alt="tania andrew"
-                className="object-cover p-3 w-fit"
+                className="object-cover p-3 w-fit "
               />
             </Link>
 
-            <div className="flex w-full flex-col gap-0.5">
-              <div className="flex items-center justify-between">
+            <div className="flex w-full flex-col gap-0.5 ">
+              <div className="flex items-center justify-between ">
                 <Link to={`/jobdetails/${item.jobId}`} target="_blank">
-                  <Typography variant="h5" className="text-primary">
+                  <Typography className="text-primary font-semibold ss:text-lg xxs:text-sm">
                     {item.postName}
                   </Typography>
                 </Link>
@@ -185,7 +205,7 @@ export default function JobSecond({
                   </div>
 
                   <div>
-                    <Link to={`/jobdetails/${item.jobId}`} >
+                    <Link to={`/jobdetails/${item.jobId}`}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -229,18 +249,38 @@ export default function JobSecond({
 
               <div color="blue-gray" className="flex justify-between">
                 <Link to={`/jobdetails/${item.jobId}`} target="_blank">
-                  <div className="flex justify-start gap-3">
+                  <div className=" flex justify-start gap-3 xs:text-xs ">
                     <Typography>{item.companyName}</Typography>
-                    <Typography>{item.experienceLevel}</Typography>
-                    <Typography>{item.jobLocation}</Typography>
+                  </div>
+                  <div className="flex gap-3">
+                    <div className="flex justify-center items-center ">
+                      <PiSuitcaseSimpleDuotone />
+                      <Typography>{item.experienceLevel} years</Typography>
+                    </div>
+                    <div className="flex justify-center items-center">
+                      <MdCurrencyRupee />
+                      <p>Not Disclosed</p>
+                    </div>
+
+                    <div className="flex justify-center items-center">
+                      <CiLocationOn />
+                      <Typography>{item.jobLocation}</Typography>
+                    </div>
+                    <div className="xxs:hidden xs:hidden ss:block ss:flex ss:items-center ">
+                      <CiCalendarDate />
+                      <Typography>{item.postDate}</Typography>
+                    </div>
+                  </div>
+                  <div className="ss:hidden xxs:flex xxs:items-center">
+                    <CiCalendarDate />
                     <Typography>{item.postDate}</Typography>
                   </div>
                 </Link>
-                <div className="flex justify-end gap-2 mr-2">
+                <div className="flex  justify-end gap-2 mr-2 xxs:hidden">
                   <Typography>Premium</Typography>
                   <Typography>Info</Typography>
 
-                  <button>Save</button>
+                  <Typography>Save</Typography>
                 </div>
               </div>
               <button
@@ -297,8 +337,11 @@ export default function JobSecond({
           </Select>
         </div>
       </div> */}
-      <div className="mx-auto container ">
-        <div className=" ">{fetchedJob}</div>
+      <div className="mx-auto container flex gap-12">
+        <div >{fetchedJob}</div>
+        <div className="hidden md:block">
+        <BootCampCard/>
+        </div>
       </div>
     </>
   );
