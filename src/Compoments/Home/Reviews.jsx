@@ -4,7 +4,7 @@ import styled from "styled-components";
 import times from "lodash/times";
 import { withSize } from "react-sizeme";
 import { nanoid } from "nanoid";
-
+import { Typography } from "@material-tailwind/react";
 import FullWidth from "./FullWidth";
 
 const Height = styled.div`
@@ -82,11 +82,18 @@ const Reviews = ({ size, onStartPerformance, onEndPerformance }) => {
   }
 
   return (
+    <>
+<Typography
+          variant="h1"
+          className="text-center pt-[3rem] text-primary mb-10 "
+        >
+          Our Success Stories
+        </Typography>
     <FullWidth>
       <Height height={350}>
         <Marquee
           key={key}
-          velocity={25}
+          velocity={5}
           scatterRandomly
           minScale={0.7}
           onInit={onStartPerformance}
@@ -110,6 +117,7 @@ const Reviews = ({ size, onStartPerformance, onEndPerformance }) => {
         </Marquee>
       </Height>
     </FullWidth>
+    </>
   );
 };
 
