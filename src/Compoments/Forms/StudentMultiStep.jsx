@@ -7,6 +7,9 @@ import {
 } from "@material-tailwind/react";
 import { CiCamera } from "react-icons/ci";
 import { motion } from "framer-motion";
+import {useDispatch} from 'react-redux'
+import addDegree from '../../features/AddDegree'
+import AddDegree from "./AddDegree";
 
 export default function StudentMultiStep() {
   const [step1, setStep1] = React.useState(true);
@@ -203,6 +206,11 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
   const togglestep7 = () => {};
   const togglestep8 = () => {};
 
+  function addDegreeHandler (e) {
+    e.preventDefault();
+    dispatch(addDegree());
+  }
+
   function handleSubmit(e) {
     e.preventDefault();
 
@@ -210,28 +218,28 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
       Name : name,
       Gender : gender,
       DOB : dob,
-      CurrentLocation : curloct,
+      currentLocation : curloct,
       PrefferedLocation : prefloct,
       Phone : phone,
       Industries :  industries,
       FunctionalArea : area,
-      NoticePeriod : peroid,
-      Experience : exp,
-      Anualsalary : salary,
-      ExpectedSalary : expsalary,
+      availableToJoin : peroid,
+      workExperience : exp,
+      lastSalary : salary,
+      preferredSalary : expsalary,
       Institute :  institute, 
       Batch : batch1,
       Batch : batch2,
-      Coursetype : course,
-      Degrees : degree,
-      Designation : designation,
-      Organization : orgn,
+      specialization : course,
+      highestLevelOfEud : degree,
+      previousDesignation : designation,
+      lastCompany : orgn,
       Salary : salary2,
       TimePeriod : timeMonth, 
       TimePeriod1 : timeMonth1 ,
       TimePeriod2 : timeYear, 
       TimePeriod3 : timeYear1,
-      Letter :  letter
+      shortAboutYourself :  letter
     };
     console.log(obj);
     
@@ -649,7 +657,7 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
                 {errormsgdegree &&(<p className="text-red-500 text-xs sm:ml-[16.8rem] mt-1">Select one </p>)}
 
                 <div className="mt-5 sm:ml-[16.875rem] ml-[8rem]">
-                  <Button>+ Add Degree</Button>
+                  <Button onClick={addDegreeHandler}>+ Add Degree</Button>
                 </div>
 
                 <div className="mt-5  justify-center flex">
@@ -664,6 +672,7 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
                     </Button>
                   </div>
                 </div>
+                {/* <AddDegree/> */}
               </motion.div>
             )}
 
