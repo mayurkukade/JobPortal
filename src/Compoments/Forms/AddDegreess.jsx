@@ -1,16 +1,18 @@
+
 import React from 'react'
 import { useSelector ,useDispatch } from 'react-redux'
-import  removeDegree  from '../../features/AddDegree';
+import { removeDegree } from '../../features/AddDegreeslice'; 
 
 export default function AddDegree() {
     
-const degree = useSelector(state => state.degree)
+  const degree = useSelector(state => state.degree);
+
 const dispatch = useDispatch()
 
   return (
     <div className='flex'>
 
-        {degree.map((Adddegree) => (
+         {degree.map((Adddegree) => (
            <motion.div
            key={Adddegree.id}
            className="ml-2"
@@ -100,13 +102,13 @@ const dispatch = useDispatch()
              <Button>+ Add Degree</Button>
            </div>
            <div className="sm:ml-5">
-              <Button className='mt-5  w-20 h-8 ml-5 rounded-md bg-blue-500' onClick={() => dispatch(removeDegree(Adddegree.id))}>
+              <Button className='mt-5  w-20 h-8 ml-5 rounded-md bg-blue-500' onClick={() => dispatch(removeDegree({ id: Adddegree.id }))}>
                 Delete
               </Button>
           </div>
           </div>
          </motion.div>
-        ))}
+       ))}
         
     </div>
   )

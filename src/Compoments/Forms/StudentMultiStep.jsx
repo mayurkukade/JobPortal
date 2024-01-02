@@ -4,18 +4,22 @@ import {
   Button,
   Checkbox,
   Textarea,
+  Radio,
 } from "@material-tailwind/react";
 import { CiCamera } from "react-icons/ci";
 import { motion } from "framer-motion";
 import {useDispatch} from 'react-redux'
-import addDegree from '../../features/AddDegree'
-import AddDegree from "./AddDegree";
+import addDegree from '../../features/AddDegreeslice'
+import AddDegreess from "./AddDegreess";
 
 export default function StudentMultiStep() {
-  const [step1, setStep1] = React.useState(true);
+  const [step1, setStep1] = React.useState(false);
   const [step2, setStep2] = React.useState(false);
   const [step3, setStep3] = React.useState(false);
   const [step4, setStep4] = React.useState(false);
+  const [step5, setStep5] = React.useState(true);
+  const [step6, setStep6] = React.useState(false);
+  const [step7, setStep7] = React.useState(false);
 
   // First step
   const [name , setName] = React.useState("");
@@ -50,6 +54,23 @@ const [timeYear1 , setTimeYear1] = React.useState("");
 // Fourth step
 const [letter , setLetter] = React.useState("");
 
+// Fifth step
+const [certificate , setCertificate] = React.useState(" ");
+const [univercity , setUnivercity] = React.useState(" ");
+const [timespan , setTimespan] = React.useState(" ");
+const [timespan1 , setTimespan1] = React.useState(" ");
+const [category , setCategory] = React.useState(" ");
+const [workable , setWorkable] = React.useState(" ");
+
+// seventh step
+const [responses, setResponses] = React.useState({
+  veteran: '',
+  differentlyAbled: '',
+  handledTeam: '',
+  willingToRelocate: '',
+  willingnessToTravel: '',
+});
+
 //Error  Step
 const [errormsgname , setErrormsgname] = React.useState(false);
 const [errormsgen , setErrormsgen] = React.useState(false);
@@ -77,11 +98,23 @@ const [errormsgtimeyear , setErrormsgtimeyear] = React.useState(false);
 const [errormsgtimemonth1 , setErrormsgtimemonth1] = React.useState(false);
 const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
 
+const [errormsgletter , setErrormsgletter] = React.useState(false);
+
+const [errormsgcertificate , setErrormsgcertificate] = React.useState(false);
+const [errormsgunivercity , setErrormsgunivercity] = React.useState(false);
+const [errormsgtimespan , setErrormsgtimespan] = React.useState(false);
+const [errormsgtimespan1 , setErrormsgtimespan1] = React.useState(false);
+const [errormsgcategory , setErrormsgcategory] = React.useState(false);
+const [errormsgworkable , setErrormsgworkable] = React.useState(false);
+
   const togglestep2 = () => {
     setStep1(true);
     setStep2(false);
     setStep3(false);
     setStep4(false);
+    setStep5(false);
+    setStep6(false);
+    setStep7(false);
 
     document
       .getElementById("Personal")
@@ -123,6 +156,9 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
     setStep2(true);
     setStep3(false);
     setStep4(false);
+    setStep5(false);
+    setStep6(false);
+    setStep7(false);
 
     document.getElementById("Education").setAttribute(
         "style",
@@ -152,10 +188,13 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
         setError1(false);
       }
   }
-    setStep1(false);
-    setStep2(false);
-    setStep3(true);
-    setStep4(false);
+  setStep1(false);
+  setStep2(false);
+  setStep3(true);
+  setStep4(false);
+  setStep5(false);
+  setStep6(false);
+  setStep7(false);
 
     document
       .getElementById("Profesional")
@@ -187,10 +226,13 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
         setError2(false);
       }
   }
-    setStep1(false);
-    setStep2(false);
-    setStep3(false);
-    setStep4(true);
+  setStep1(false);
+  setStep2(false);
+  setStep3(false);
+  setStep4(true);
+  setStep5(false);
+  setStep6(false);
+  setStep7(false);
 
     document
       .getElementById("Resume")
@@ -202,9 +244,102 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
     document.getElementById("Education").removeAttribute("style");
     document.getElementById("Profesional").removeAttribute("style");
   };
-  const togglestep6 = () => {};
-  const togglestep7 = () => {};
-  const togglestep8 = () => {};
+  const togglestep6 = () => {
+
+    const validation = [
+      {condition : letter.length<10 , setError : setErrormsgletter},
+    ];
+
+    for (const { condition, setError } of validation) {
+      if (condition) {
+        setError(true);
+          return; // Exit the function if any condition fails
+      } else {
+        setError(false);
+      }
+  }
+    setStep1(false);
+    setStep2(false);
+    setStep3(false);
+    setStep4(false);
+    setStep5(true);
+    setStep6(false);
+    setStep7(false);
+    document
+    .getElementById("Certifications")
+    .setAttribute(
+      "style",
+      "background : #fc7f03 ; transition: background-color 1s ease-in-out;"
+    );
+  document.getElementById("Education").removeAttribute("style");
+  document.getElementById("Profesional").removeAttribute("style");
+  document.getElementById("Resume").removeAttribute("style");
+  document.getElementById("Skill").removeAttribute("style");
+  document.getElementById("Information").removeAttribute("style");
+  document.getElementById("Personal").removeAttribute("style");
+  };
+  const togglestep7 = () => {
+
+    const validation = [
+      {condition1 : certificate.length < 4 , setError1:setErrormsgcertificate },
+      {condition1 : univercity.length < 4 , setError1:setErrormsgunivercity },
+      {condition1 : timespan === " ", setError1:setErrormsgtimespan },
+      {condition1 : timespan1 === " ", setError1:setErrormsgtimespan1 },
+      {condition1 : category === " ", setError1:setErrormsgcategory },
+      {condition1 : workable === " ", setError1:setErrormsgworkable },
+    ];
+
+    for (const { condition1, setError1 } of validation) {
+      if (condition1) {
+        setError1(true);
+          return; // Exit the function if any condition fails
+      } else {
+        setError1(false);
+      }
+  }    
+    setStep1(false);
+    setStep2(false);
+    setStep3(false);
+    setStep4(false);
+    setStep5(false);
+    setStep6(true);
+    setStep7(false);
+
+    document
+    .getElementById("Skill")
+    .setAttribute(
+      "style",
+      "background : #fc7f03 ; transition: background-color 1s ease-in-out;"
+    );
+  document.getElementById("Education").removeAttribute("style");
+  document.getElementById("Profesional").removeAttribute("style");
+  document.getElementById("Resume").removeAttribute("style");
+  document.getElementById("Certifications").removeAttribute("style");
+  document.getElementById("Information").removeAttribute("style");
+  document.getElementById("Personal").removeAttribute("style");
+  };
+  const togglestep8 = () => {
+    setStep1(false);
+    setStep2(false);
+    setStep3(false);
+    setStep4(false);
+    setStep5(false);
+    setStep6(false);
+    setStep7(true);
+
+    document
+    .getElementById("Information")
+    .setAttribute(
+      "style",
+      "background : #fc7f03 ; transition: background-color 1s ease-in-out;"
+    );
+  document.getElementById("Education").removeAttribute("style");
+  document.getElementById("Profesional").removeAttribute("style");
+  document.getElementById("Resume").removeAttribute("style");
+  document.getElementById("Certifications").removeAttribute("style");
+  document.getElementById("Skill").removeAttribute("style");
+  document.getElementById("Personal").removeAttribute("style");
+  };
 
   function addDegreeHandler (e) {
     e.preventDefault();
@@ -242,7 +377,9 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
       shortAboutYourself :  letter
     };
     console.log(obj);
-    
+    console.log('Form submitted with responses:', responses);
+
+    setResponses(" ");
     setName(" ");
     setGender(" ");
     setDob(" ");
@@ -269,6 +406,10 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
     setTimeYear1(" ");
     setLetter(" ");
   }
+
+  const handleRadioChange = (question, value) => {
+    setResponses((prevResponses) => ({ ...prevResponses, [question]: value }));
+  };
 
   return (
     <div className="flex justify-center">
@@ -617,7 +758,7 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
                   {errormsgbatch1 &&(<p className="text-red-500 text-xs mt-3">Select one </p>)}
 
                   <p className="ml-5 mt-2">To</p>
-                  <div className="sm:ml-14 ml-[7.9rem] sm:w-72">
+                  <div className="sm:ml-14 ml-[7.9rem] md:mt-0 mt-2 sm:w-72">
                     <select label="YYYY" value={batch2} onChange={(e) => { if (e.target && e.target.value) {setBatch2(e.target.value); }}} className="appearance-none sm:w-full w-44  bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none  ">
                     <option value="">Select</option>
                       <option value="2020">2020</option>
@@ -672,7 +813,7 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
                     </Button>
                   </div>
                 </div>
-                {/* <AddDegree/> */}
+                {/* <AddDegreess/> */}
               </motion.div>
             )}
 
@@ -869,6 +1010,7 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
                     />
                   </div>
                 </div>
+                {errormsgletter &&(<p className="text-red-500 text-xs md:ml-[25rem]">Name should be min 10 char. </p>)}
 
                 <div className="sm:ml-[25rem] ml-16 ">
                   <Checkbox label="Include cover latter while applying" />
@@ -881,7 +1023,7 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
                     </Button>
                   </div>
                   <div className="ml-3">
-                    <Button className="bg-orange-800" type="submit">Submit </Button>
+                    <Button className="bg-orange-800" onClick={togglestep6}>Save and Next </Button>
                   </div>
                 </div>
               </motion.div>
@@ -889,6 +1031,285 @@ const [errormsgtiyear1 , setErrormsgtiyear1] = React.useState(false);
 
             {/* Fourth part end */}
 
+            {/* fifth part start */}
+            { step5 && (
+              <motion.div  className=""
+              initial={{ x: "-100vw" }}
+              animate={{ x: 0 }}
+              transition={{ delay: 0.2, stiffness: 30, type: "spring" }}>
+
+                 <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full">
+                  <p className="pl-2">Certifications</p>
+                </div>
+                
+                {/* main part start */}
+
+                <div className="mt-5">
+
+              <div className="flex">
+                   <label className="mt-2"> Certification :- </label>
+                 <div className="md:ml-[10rem] ml-[4rem] sm:w-72">
+                    <Input label="Certification" value={certificate} onChange={(e) => setCertificate(e.target.value)} />
+                 </div>    
+              </div>
+              {errormsgcertificate &&(<p className="text-red-500 text-xs md:ml-[25rem]">select atleast one </p>)}
+
+              <div className="flex mt-5">
+                   <label className="mt-2"> Institute :- </label>
+                 <div className="md:ml-[11.8rem] sm:w-72 ml-[5.8rem]">
+                    <Input label="Institute" value={univercity} onChange={(e) => setUnivercity(e.target.value)}/>
+                    
+                 </div>
+              </div>
+              {errormsgunivercity &&(<p className="text-red-500 text-xs md:ml-[25rem]">select atleast one </p>)}
+
+              <div className="flex mt-5">
+                   <label className="mt-2"> Duration :- </label>
+                   <div className="flex flex-wrap">
+                     <div className="md:ml-[11.5rem] sm:w-72 ml-[6.5rem]">
+                       <Input label="From" type="date" value={timespan} onChange={(e) => setTimespan(e.target.value)}/>
+                      
+                    </div>
+                    {errormsgtimespan &&(<p className="text-red-500 text-xs mt-3">Name should be min 10 char. </p>)}
+                     <div className="md:ml-[3rem] sm:w-72 ml-[6.5rem] md:mt-0 mt-5">
+                       <Input label="To" type="date" value={timespan1} onChange={(e) => setTimespan1(e.target.value)}/>
+                       
+                    </div>
+                   </div>
+                   {errormsgtimespan1 &&(<p className="text-red-500 text-xs mt-3">Name should be min 10 char. </p>)}
+              </div>
+
+              <div className="flex mt-5">
+                   <label className="mt-2"> Type :- </label>
+                 <div className="md:ml-[11.8rem] md:w-72 w-[12.5rem] ml-[6rem] ">
+                    <select className="border border-gray-400 px-2 py-[.6rem] ml-5 w-full rounded-md" onChange={(e) =>{if (e.target && e.target.value) {setCategory(e.target.value);}}} value={category}>
+                      <option value=" ">Select</option>
+                      <option value="Online self paced">Online self paced</option>
+                      <option value="Online instruction led">Online instruction led</option>
+                      <option value="Blended (Online + Classroom)">Blended (Online + Classroom)</option>
+                      <option value="Classroom">Classroom</option>
+                    </select>
+                    
+                 </div>
+               
+              </div>
+              {errormsgcategory &&(<p className="text-red-500 text-xs md:ml-[28rem]">select atleast one</p>)}
+
+              <div className="flex mt-5">
+                   <label className="mt-2"> Valid :- </label>
+                    <div className="md:ml-[13.1rem] sm:w-72 ml-[7.4rem]">
+                       <Input label="Valid till" type="date" value={workable} onChange={(e) => setWorkable(e.target.value)}/>
+                       
+                    </div>
+               </div>
+               {errormsgworkable &&(<p className="text-red-500 text-xs md:ml-[28rem]">select atleast one </p>)}
+              
+               <div className="ml-3 mt-5 flex justify-center">
+                    <Button className="bg-orange-800" onClick={togglestep7}>
+                      Save & Next{" "}
+                    </Button>
+
+                    <div>
+                    <Button variant="outlined" className="ml-2" onClick={togglestep5}>
+                      Back
+                    </Button>
+                  </div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+            {/* fifth part end */}
+
+           {/* sixth part start */}
+           { step6 && (
+            <motion.div className=""
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.2, stiffness: 30, type: "spring" }}>
+               
+               <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full">
+                  <p className="pl-2">Recommendations</p>
+               </div>
+               <div className="flex mt-5 justify-center">
+                 <label className="mt-2">Email :- </label>
+                 <div className="md:ml-[6rem] ml-[2rem] sm:w-72">
+                    <Input label="Email" type="email"/>
+                 </div>
+                 <div className="ml-3  flex justify-center">
+                    <Button className="bg-orange-800">
+                      Send{" "}
+                    </Button>
+                  </div>
+               </div>
+               <div className=" mt-5 flex justify-center">
+                    <Button className="bg-orange-800" onClick={togglestep8}>
+                      Next{" "}
+                    </Button>
+                  </div>
+            </motion.div>
+           )}
+           {/* sixth part end */}
+
+           {/* seventh part start */}
+           { step7 && (
+            <motion.div className=""
+            initial={{ x: "-100vw" }}
+            animate={{ x: 0 }}
+            transition={{ delay: 0.2, stiffness: 30, type: "spring" }}>
+
+               <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full">
+                  <p className="pl-2">Additional Information</p>
+               </div>
+
+               <div className="flex mt-5">
+                   <label className="mt-2"> IIT Rank :- </label>
+                 <div className="md:ml-[10rem] ml-[7.3rem] sm:w-72">
+                    <Input label="IIT Rank" type="number"/>
+                 </div>
+              </div>
+
+               <div className="flex mt-5">
+                   <label className="mt-2"> CAT Percentile :- </label>
+                 <div className="md:ml-[7.1rem] ml-[4.5rem] sm:w-72">
+                    <Input label="CAT Percentile" type="number"/>
+                 </div>
+              </div>
+
+              <div className="flex mt-5">
+                   <label className="mt-2"> Marital Status :- </label>
+                 <div className="md:ml-[6.42rem] md:w-72 w-[12.5rem] ml-[4rem] ">
+                    <select className="border border-gray-400 px-2 py-[.6rem] ml-5 w-full rounded-md">
+                      <option value=" ">Select</option>
+                      <option value="Single/Unmarried<">Single/Unmarried</option>
+                      <option value="Married">Married</option>
+                      <option value="Widowed">Widowed</option>
+                      <option value="Divorced">Divorced</option>
+                      <option value="Separated">Separated</option>
+                      <option value="Others">Others</option>
+                    </select>
+                 </div>
+              </div>
+
+             <div className="flex mt-8">
+              <label htmlFor="">Are you a veteran or ex-military?</label>
+
+              <div className="flex ml-[2rem]">
+                <div className="flex">
+                <input type="radio" name="veteran" value="Yes" 
+              onChange={() => handleRadioChange('veteran', 'Yes')} />
+                  <label className="ml-2">Yes</label>
+                </div>
+                <div className="flex ml-[1rem]">
+                <input type="radio" name="veteran" value="No"
+              onChange={() => handleRadioChange('veteran', 'No')} />
+                  <label className="ml-2">No</label>
+                </div>
+                
+              </div>
+                
+             </div>
+
+             <div className="flex mt-8">
+              <label htmlFor="">Are you differently abled?</label>
+
+              <div className="flex ml-[5.2rem]">
+                <div className="flex">
+                <input type="radio" name="differentlyAbled" value="Yes"
+              onChange={() => handleRadioChange('differentlyAbled', 'Yes')} />
+                  <label className="ml-2">Yes</label>
+                </div>
+                <div className="flex ml-[1rem]">
+                <input type="radio" name="differentlyAbled" value="No"
+              onChange={() => handleRadioChange('differentlyAbled', 'No')} />
+                  <label className="ml-2">No</label>
+                </div>
+                
+              </div>
+                
+             </div>
+
+             <div className="flex mt-8">
+              <label htmlFor="">Have you handled a team?</label>
+
+              <div className="flex ml-[4.55rem]">
+                <div className="flex">
+                <input type="radio" name="handledTeam" label="Yes" value="Yes"
+              onChange={() => handleRadioChange('handledTeam', 'Yes')} />
+                  <label className="ml-2">Yes</label>
+                </div>
+                <div className="flex ml-[1rem]">
+                <input type="radio" name="handledTeam" label="Yes" value="No"
+              onChange={() => handleRadioChange('handledTeam', 'No')}/>
+                  <label className="ml-2">No</label>
+                </div>
+                
+              </div>
+                
+             </div>
+
+             <div className="flex mt-8">
+              <label htmlFor="">Are you willing to relocate?</label>
+
+              <div className="flex ml-[4.6rem]">
+                <div className="flex">
+                <input type="radio" name="willingToRelocate"  value="Yes"
+              onChange={() => handleRadioChange('willingToRelocate', 'Yes')} />
+                  <label className="ml-2">Yes</label>
+                </div>
+                <div className="flex ml-[1rem]">
+                <input type="radio" name="willingToRelocate" value="No"
+              onChange={() => handleRadioChange('willingToRelocate', 'No')}/>
+                  <label className="ml-2">No</label>
+                </div>
+                
+              </div>
+                
+             </div>
+
+             <div className="flex mt-8">
+              <label htmlFor="">Willingness to Travel?</label>
+
+              <div className="flex ml-[6.9rem]  flex-wrap">
+                <div className="flex">
+                <input type="radio" name="willingnessToTravel" value="No"
+              onChange={() => handleRadioChange('willingnessToTravel', 'No')} />
+                  <label className="ml-2">No</label>
+                </div>
+                <div className="flex ml-[1rem]">
+                <input type="radio" name="willingnessToTravel" value="Occasional"
+              onChange={() => handleRadioChange('willingnessToTravel', 'Occasional')} />
+                  <label className="ml-2"> Occasional</label>
+                </div>
+                <div className="flex md:ml-[1rem] ">
+                <input type="radio" name="willingnessToTravel" value="Extensive"
+              onChange={() => handleRadioChange('willingnessToTravel', 'Extensive')} />
+                  <label className="ml-2"> Extensive</label>
+                </div>
+                
+              </div>
+             </div>
+
+             <div className="flex mt-5 mb-5">
+                   <label className="mt-2"> Work Permit for USA :- </label>
+                 <div className="md:ml-[5rem] md:w-72 w-[12rem] ml-[1.5rem] ">
+                    <select className="border border-gray-400 px-2 py-[.6rem] ml-5 w-full rounded-md">
+                      <option value=" ">Select</option>
+                      <option value="No<">No</option>
+                      <option value="Have a h1 Visa">Have a h1 Visa</option>
+                      <option value="TN permit holder">TN permit holder</option>
+                      <option value="Green card holder">Green card holder</option>
+                      <option value="US citizen">US citizen</option>
+                      <option value="Authorized to work in US">Authorized to work in US</option>
+                    </select>
+                 </div>
+              </div>
+
+              <div className="md:ml-44">
+                 <Button className="bg-orange-800" type="submit" onClick={togglestep6}>Submit </Button>
+              </div>
+            </motion.div>
+           )}
+           {/* seventh part end */}
           </form>
         </div>
         {/* Form end */}

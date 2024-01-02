@@ -1,7 +1,9 @@
 
 import { configureStore } from "@reduxjs/toolkit";
-import { AddDegreereducer } from "../features/AddDegree";
+import  AddDegreesliceReducer from "../features/AddDegreeslice";
 
-export const Store = configureStore({
-    reducer: AddDegreereducer
+export const Store1 = configureStore({
+    reducer: {
+        degree: AddDegreesliceReducer,
+      },
 })
