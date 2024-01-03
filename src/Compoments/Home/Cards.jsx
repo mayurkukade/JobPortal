@@ -13,7 +13,7 @@ export default function Cards() {
   const [activeTab, setActiveTab] = React.useState("html");
   return (
     <div className="mt-20">
-      <Typography variant="h1" className="text-center text-primary font-poppins mb-10">Choose the plan that works for you</Typography>
+      <p  className="text-center text-primary font-poppins font-semibold text-4xl mb-10">Choose the plan that works for you</p>
 
       <div className="flex justify-center">
         <Tabs value={activeTab} className="sm:w-[1200px]">

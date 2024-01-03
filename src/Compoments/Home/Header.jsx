@@ -1,6 +1,6 @@
 import { Button } from "@material-tailwind/react";
 import preferable from "../Images/homeImages/folding_hands-removebg-preview.png";
-import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 export default function Header() {
   return (
     <div className="flex bg-background dark:bg-dark container mx-auto ">
@@ -24,9 +24,11 @@ export default function Header() {
           <Button className="bg-white text-primary" size="lg">
             How does it work?
           </Button>
+          <Link to = '/getstarted'>
           <Button className="bg-primary text-white" size="lg">
             Get Started
           </Button>
+          </Link>
         </div>
       </div>
 

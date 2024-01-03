@@ -59,24 +59,24 @@ export function Faq() {
         Our platform offers a variety of courses covering a wide range of skills, from technical subjects to soft skills. Explore our course catalog to find the perfect fit for your goals.
         </AccordionBody>
       </Accordion>
-      <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(3)}>
+      <Accordion open={open === 4} icon={<Icon id={4} open={open} />}>
+        <AccordionHeader onClick={() => handleOpen(4)}>
         What is the benefit of AI-based assessments for job seekers?
         </AccordionHeader>
         <AccordionBody>
         AI-based assessments provide job seekers with a fair and objective evaluation of their skills, helping employers make informed decisions. It enhances the hiring process for both candidates and companies.
         </AccordionBody>
       </Accordion>
-      <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(3)}>
+      <Accordion open={open === 5} icon={<Icon id={5} open={open} />}>
+        <AccordionHeader onClick={() => handleOpen(5)}>
         How do AI-based assessments impact the hiring process for employers?
         </AccordionHeader>
         <AccordionBody>
         Employers can identify top talent efficiently using AI-based assessments. It streamlines the screening process and ensures a more accurate match between candidates and job requirements.
         </AccordionBody>
       </Accordion>
-      <Accordion open={open === 3} icon={<Icon id={3} open={open} />}>
-        <AccordionHeader onClick={() => handleOpen(3)}>
+      <Accordion open={open === 6} icon={<Icon id={6} open={open} />}>
+        <AccordionHeader onClick={() => handleOpen(6)}>
         Is there personalized career guidance available?
         </AccordionHeader>
         <AccordionBody>
