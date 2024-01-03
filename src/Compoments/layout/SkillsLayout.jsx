@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import Sidebar from '../skills/SIdebar'
+import Sidebar from '../skills/Sidebar'
 
 const SkillsLayout = () => {
   return (

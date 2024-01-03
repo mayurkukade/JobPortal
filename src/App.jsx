@@ -36,8 +36,8 @@ import PublishJob from "./Compoments/Hr/DashboardFeatures/PublishJob";
 import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
 import Savejobs from "./Pages/Savejobs";
-import GetStartedPage from "./Pages/GetSTartedPage";
-import SkillsPage from "./Pages/SkillsPage";
+import GetStartedPage from './Pages/GetStartedPage'
+
 import SkillsLayout from "./Compoments/layout/SkillsLayout";
 import Skillsweb from "./Compoments/skills/Skillsweb";
 import SkillsAI from "./Compoments/skills/SkillsAI";
