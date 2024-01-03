@@ -17,11 +17,13 @@ export default withMT({
         'white':'white',
         'textColor':'#a5b4fc',
         'snowWhite':'#F5FEFD',
-        'faintgreen':'#aee6b9'
+        'faintgreen':'#aee6b9',
+        'navyblue':'#00002e',
+        'textnavyblue':'#d292ff'
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"], // Removed the trailing comma
-    
+        Montserrat:["Montserrat","sans-serif"]
       },
       screens: {
         xxs: "280px",

@@ -1,7 +1,7 @@
 import Header from "../Compoments/Home/Header";
 import HeaderLower from "../Compoments/Home/HeaderLower";
 
-import Testimonals from "../Compoments/Home/Testimonals";
+// import Testimonals from "../Compoments/Home/Testimonals";
 
 import Cards from "../Compoments/Home/Cards";
 import Reviews from "../Compoments/Home/Reviews";

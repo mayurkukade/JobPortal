@@ -36,7 +36,12 @@ import PublishJob from "./Compoments/Hr/DashboardFeatures/PublishJob";
 import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
 import Savejobs from "./Pages/Savejobs";
-
+import GetStartedPage from "./Pages/GetSTartedPage";
+import SkillsPage from "./Pages/SkillsPage";
+import SkillsLayout from "./Compoments/layout/SkillsLayout";
+import Skillsweb from "./Compoments/skills/Skillsweb";
+import SkillsAI from "./Compoments/skills/SkillsAI";
+import CourseDetails from "./Compoments/skills/CourseDetails";
 function App() {
   return (
     <>
@@ -104,9 +109,19 @@ function App() {
           {/* <Route path="/jobsection" element={<JobSection />} />
           <Route path="/jobdetails/:id" element={<JobDetailsById />} /> */}
           <Route path="/profile" element={<MultiStepStudentForm />} />
+
+          
+            <Route path="/skills" element={<SkillsLayout />}>
+              <Route index  element={<Skillsweb />} />
+              <Route path="Ai" element={<SkillsAI/>} />
+              
+            </Route>
+            <Route path="/skills/details" element={<CourseDetails/>} />
+
           <Route path="/counter" element={<Counter />} />
           <Route path="/Dashboard/*" element={<Dashboard />} />
           <Route path="/PublishJob" element={<PublishJob />} />
+          <Route path="/getstarted" element={<GetStartedPage />} />
         </Route>
 
         <Route path="/register" element={<RegistrationPage />} />
