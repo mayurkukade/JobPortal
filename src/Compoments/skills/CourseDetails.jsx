@@ -29,8 +29,7 @@ const CourseDetails = () => {
       label: "Modules",
       value: "profile",
       // icon: UserCircleIcon,
-      desc: `Because it's about motivating the doers. Because I'm here
-      to follow my dreams and inspire other people to follow their dreams, too.`,
+      desc: `video section`,
     },
     {
       label: "Instructor",
