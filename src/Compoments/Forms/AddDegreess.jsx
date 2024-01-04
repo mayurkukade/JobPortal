@@ -1,9 +1,16 @@
 
 import React from 'react'
+import {
+  Input,
+  Button,
+  Checkbox,
+} from "@material-tailwind/react";
 import { useSelector ,useDispatch } from 'react-redux'
 import { removeDegree } from '../../features/AddDegreeslice'; 
+import { motion } from "framer-motion";
+import StudentMultiStep from './StudentMultiStep';
 
-export default function AddDegree() {
+export default function AddDegree({ deleteDegreeHandler }) {
     
   const degree = useSelector(state => state.degree);
 
@@ -12,16 +19,10 @@ const dispatch = useDispatch()
   return (
     <div className='flex'>
 
-         {degree.map((Adddegree) => (
-           <motion.div
-           key={Adddegree.id}
-           className="ml-2"
-           initial={{ x: "-100vw" }}
-           animate={{ x: 0 }}
-           transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
-         >
-           <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full ">
-             <p className="pl-2">Education</p>
+         
+           <div>
+           <div className="bg-gray-100 py-4 sm:w-[81.25rem] w-full ">
+             
            </div>
 
            <div className="flex flex-wrap ">
@@ -101,14 +102,15 @@ const dispatch = useDispatch()
            <div>
              <Button>+ Add Degree</Button>
            </div>
-           <div className="sm:ml-5">
-              <Button className='mt-5  w-20 h-8 ml-5 rounded-md bg-blue-500' onClick={() => dispatch(removeDegree({ id: Adddegree.id }))}>
-                Delete
-              </Button>
+           <Button
+             className="mt-5 bg-blue-500"
+             onClick={deleteDegreeHandler}
+               >
+               Delete
+            </Button>
           </div>
-          </div>
-         </motion.div>
-       ))}
+         </div>
+     
         
     </div>
   )
