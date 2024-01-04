@@ -46,7 +46,7 @@ const CoursePlayList = () => {
       <Link to={`/courseplaylist/list/${items.title}`}>
         <ListItem>
           <ListItemPrefix>
-          {/* <FaFire /> */}
+          {/* <FaFire />*/}
           </ListItemPrefix>
           {items?.title}
         </ListItem>
