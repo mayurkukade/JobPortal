@@ -13,8 +13,8 @@ import AddDegreess from "./AddDegreess";
 import Select from "react-select";
 
 export default function StudentMultiStep() {
-  const [step1, setStep1] = React.useState(false);
-  const [step2, setStep2] = React.useState(true);
+  const [step1, setStep1] = React.useState(true);
+  const [step2, setStep2] = React.useState(false);
   const [step3, setStep3] = React.useState(false);
   const [step4, setStep4] = React.useState(false);
   const [step5, setStep5] = React.useState(false);
@@ -42,6 +42,13 @@ export default function StudentMultiStep() {
   const [batch2, setBatch2] = React.useState("");
   const [course, setCourse] = React.useState("");
   const [degree, setDegree] = React.useState("");
+
+  // second sub step
+  const [institute1, setInstitute1] = React.useState("");
+  const [batch11, setBatch11] = React.useState("");
+  const [batch21, setBatch21] = React.useState("");
+  const [course1, setCourse1] = React.useState("");
+  const [degree1, setDegree1] = React.useState("");
 
   //Third step
   const [designation, setDesignation] = React.useState("");
@@ -381,11 +388,7 @@ export default function StudentMultiStep() {
       workExperience: exp,
       lastSalary: salary,
       preferredSalary: expsalary,
-      Institute: institute,
-      Batch: batch1,
-      Batch: batch2,
-      specialization: course,
-      highestLevelOfEud: degree,
+      Degree : [institute,institute1,batch1,batch2,batch11,batch21,course,course1,degree,degree1],
       previousDesignation: designation,
       lastCompany: orgn,
       Salary: salary2,
@@ -401,7 +404,7 @@ export default function StudentMultiStep() {
       TimeSpan1: timespan1,
       Category: category,
       Workable: workable,
-      Skills: [selectedSkills],
+      Skills: selectedSkills,
     };
     console.log(obj);
 
@@ -1026,7 +1029,13 @@ export default function StudentMultiStep() {
                 <div className="mt-5 sm:ml-[16.875rem] ml-[8rem]">
                   <Button onClick={addDegreeHandler}>+ Add Degree</Button>
                 </div>
-
+                {substep && (
+                  <div className="mt-10">
+                    <AddDegreess deleteDegreeHandler={deleteDegreeHandler}  institute1 = {institute1} setinstitute = {setInstitute1} batch11={batch11} batch21={batch21}  course1={course1} degree1 ={degree1} setBatch11 ={setBatch11} setBatch21 ={setBatch21} setCourse1={setCourse1} setDegree1={setDegree1}/>
+                    <div className="sm:ml-[16.875rem] ml-[8rem]">
+                    </div>
+                  </div>
+                )}
                 <div className="mt-5  justify-center flex">
                   <div>
                     <Button variant="outlined" onClick={togglestep2}>
@@ -1039,19 +1048,7 @@ export default function StudentMultiStep() {
                     </Button>
                   </div>
                 </div>
-                {substep && (
-                  <div>
-                    <AddDegreess deleteDegreeHandler={deleteDegreeHandler} />
-                    <div className="sm:ml-[16.875rem] ml-[8rem]">
-                      {/* <Button
-                        className="mt-5 bg-blue-500"
-                        onClick={deleteDegreeHandler}
-                      >
-                        Delete
-                      </Button> */}
-                    </div>
-                  </div>
-                )}
+                
               </motion.div>
             )}
 

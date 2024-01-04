@@ -10,11 +10,11 @@ import { removeDegree } from '../../features/AddDegreeslice';
 import { motion } from "framer-motion";
 import StudentMultiStep from './StudentMultiStep';
 
-export default function AddDegree({ deleteDegreeHandler }) {
+export default function AddDegree({ deleteDegreeHandler,institute1,setinstitute,batch11,batch21,course1,degree1,setBatch11,setBatch21,setCourse1,setDegree1 }) {
     
-  const degree = useSelector(state => state.degree);
+//   const degree = useSelector(state => state.degree);
 
-const dispatch = useDispatch()
+// const dispatch = useDispatch()
 
   return (
     <div className='flex'>
@@ -32,7 +32,7 @@ const dispatch = useDispatch()
                  Institute : -
                </label>
                <div className="sm:ml-48 ml-10 sm:w-72 mt-5">
-                 <Input className="" type="text" label="Institute"  />
+                 <Input className="" type="text" label="Institute" value={institute1} onChange={(e) => {setinstitute(e.target.value)}}  />
                  
                </div>
                </div>
@@ -49,7 +49,11 @@ const dispatch = useDispatch()
            <div className="flex flex-wrap mt-5">
              <p>Batch : - </p>
              <div className="sm:ml-52 ml-16 sm:w-72">
-               <select label="YYYY" className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+               <select label="YYYY" className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none " value={batch11} onChange={(e) => {
+                        if (e.target && e.target.value) {
+                          setBatch11(e.target.value);
+                        }
+                      }}>
                  <option value="">Select</option>
                  <option value="2020">2020</option>
                  <option value="2021">2021</option>
@@ -61,7 +65,11 @@ const dispatch = useDispatch()
 
              <p className="ml-5 mt-2">To</p>
              <div className="sm:ml-14 ml-[7.9rem] sm:w-72">
-               <select label="YYYY" className="appearance-none sm:w-full w-44  bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none  ">
+               <select label="YYYY" className="appearance-none sm:w-full w-44  bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none  " value={batch21} onChange={(e) => {
+                        if (e.target && e.target.value) {
+                          setBatch21(e.target.value);
+                        }
+                      }}>
                <option value="">Select</option>
                  <option value="2020">2020</option>
                  <option value="2021">2021</option>
@@ -76,7 +84,12 @@ const dispatch = useDispatch()
            <div className="flex mt-5">
              <p>Course type : - </p>
              <div className="sm:ml-[10.2rem] ml-[1.45rem] sm:w-72">
-               <select label="Select" className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+               <select label="Select" className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none " value={course1}
+                      onChange={(e) => {
+                        if (e.target && e.target.value) {
+                          setCourse1(e.target.value);
+                        }
+                      }}>
                <option value="">Select</option>
                <option value="A">A</option>
                <option value="B">B</option>
@@ -89,7 +102,12 @@ const dispatch = useDispatch()
            <div className="flex mt-5">
              <p>Degree : - </p>
              <div className="sm:ml-[12.3rem] ml-[3.5rem] sm:w-72">
-               <select label="Select"  className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none ">
+               <select label="Select"  className="appearance-none sm:w-full w-44 bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none " value={degree1}
+                      onChange={(e) => {
+                        if (e.target && e.target.value) {
+                          setDegree1(e.target.value);
+                        }
+                      }}>
                <option value="">Select</option>
                <option value="A">A</option>
                <option value="B">B</option>
