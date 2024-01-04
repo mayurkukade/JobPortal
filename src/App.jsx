@@ -42,6 +42,10 @@ import SkillsLayout from "./Compoments/layout/SkillsLayout";
 import Skillsweb from "./Compoments/skills/Skillsweb";
 import SkillsAI from "./Compoments/skills/SkillsAI";
 import CourseDetails from "./Compoments/skills/CourseDetails";
+import CoursePlayList from "./Compoments/skills/CoursePlayList";
+import NotFound from "./Pages/NotFound";
+import CourseplaylistLayOut from "./Compoments/layout/CourseplaylistLayOut.jsx";
+import Courseplay from "./Compoments/skills/Courseplay.jsx";
 function App() {
   return (
     <>
@@ -116,8 +120,11 @@ function App() {
               <Route path="Ai" element={<SkillsAI/>} />
               
             </Route>
+            <Route path="/courseplaylist" element={<CourseplaylistLayOut />}>
+            <Route  path = "list/:id" element={<Courseplay/>} />
+            </Route>
             <Route path="/skills/details" element={<CourseDetails/>} />
-
+            
           <Route path="/counter" element={<Counter />} />
           <Route path="/Dashboard/*" element={<Dashboard />} />
           <Route path="/PublishJob" element={<PublishJob />} />
@@ -134,6 +141,7 @@ function App() {
         <Route path="/termsandcondition" element={<TermsAndConditions />} />
         <Route path="/cookiepolicy" element={<CookiePolicy />} />
         <Route path="/securityguidelines" element={<SecurityGuidelines />} />
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </>
   );
