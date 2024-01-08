@@ -5,16 +5,10 @@ import {
   Button,
   Checkbox,
 } from "@material-tailwind/react";
-import { useSelector ,useDispatch } from 'react-redux'
-import { removeDegree } from '../../features/AddDegreeslice'; 
-import { motion } from "framer-motion";
-import StudentMultiStep from './StudentMultiStep';
+
 
 export default function AddDegree({ deleteDegreeHandler,institute1,setinstitute,batch11,batch21,course1,degree1,setBatch11,setBatch21,setCourse1,setDegree1 }) {
     
-//   const degree = useSelector(state => state.degree);
-
-// const dispatch = useDispatch()
 
   return (
     <div className='flex'>
@@ -64,7 +58,7 @@ export default function AddDegree({ deleteDegreeHandler,institute1,setinstitute,
              
 
              <p className="ml-5 mt-2">To</p>
-             <div className="sm:ml-14 ml-[7.9rem] sm:w-72">
+             <div className="sm:ml-14 ml-[7.62rem] sm:w-72 md:mt-0 mt-3">
                <select label="YYYY" className="appearance-none sm:w-full w-44  bg-white border border-gray-300 hover:border-gray-500 px-4 py-2 rounded-md text-sm   leading-tight focus:outline-none  " value={batch21} onChange={(e) => {
                         if (e.target && e.target.value) {
                           setBatch21(e.target.value);

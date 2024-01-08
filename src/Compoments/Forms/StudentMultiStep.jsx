@@ -4,13 +4,14 @@ import {
   Button,
   Checkbox,
   Textarea,
+  Avatar,
+  input,
 } from "@material-tailwind/react";
 import { CiCamera } from "react-icons/ci";
 import { motion } from "framer-motion";
-import { useDispatch } from "react-redux";
-import addDegree from "../../features/AddDegreeslice";
 import AddDegreess from "./AddDegreess";
 import Select from "react-select";
+import prof from "../Images/professional.avif";
 
 export default function StudentMultiStep() {
   const [step1, setStep1] = React.useState(true);
@@ -81,6 +82,10 @@ export default function StudentMultiStep() {
     willingToRelocate: "",
     willingnessToTravel: "",
   });
+
+  const [imgicon, setImgicon] = React.useState(true);
+  const [image1, setImgage1] = React.useState(false);
+  const [imageinput, setImgageinput] = React.useState(false);
 
   //Error  Step
   const [errormsgname, setErrormsgname] = React.useState(false);
@@ -388,7 +393,9 @@ export default function StudentMultiStep() {
       workExperience: exp,
       lastSalary: salary,
       preferredSalary: expsalary,
-      Degree : [institute,institute1,batch1,batch2,batch11,batch21,course,course1,degree,degree1],
+      Degree: degreeData
+        .map((e) => ({ value: e.value.trim() }))
+        .filter((obj) => obj.value !== ""),
       previousDesignation: designation,
       lastCompany: orgn,
       Salary: salary2,
@@ -407,8 +414,6 @@ export default function StudentMultiStep() {
       Skills: selectedSkills,
     };
     console.log(obj);
-
-    // console.log('Form submitted with responses:', responses);
 
     setSelectedSkills([]);
     setResponses(" ");
@@ -448,13 +453,38 @@ export default function StudentMultiStep() {
     { value: "react", label: "React" },
     { value: "node", label: "Node.js" },
     { value: "Angular", label: "Angular.js" },
-    // Add more skills as needed
+  ];
+
+  const degreeData = [
+    { value: institute },
+    { value: batch1 },
+    { value: batch2 },
+    { value: course },
+    { value: degree },
+    { value: institute1 },
+    { value: batch11 },
+    { value: batch21 },
+    { value: course1 },
+    { value: degree1 },
   ];
 
   const handleSkillChange = (selectedOptions) => {
     setSelectedSkills(selectedOptions);
-    // console.log(selectedOptions.map((option) => option.value));
   };
+
+  const [image, setImage] = React.useState('');
+  async function readImage(e) {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      let binaryData = e.target.result;
+      let base64String = window.btoa(binaryData);
+      setImage(base64String); 
+    };
+
+    reader.readAsBinaryString(file);
+  }
 
   return (
     <div className="flex justify-center">
@@ -572,16 +602,43 @@ export default function StudentMultiStep() {
                       <label htmlFor="" className="mt-5">
                         Profile Picture :-
                       </label>
-                      <div className="w-20 h-20 rounded-full border-gray-100 border sm:ml-[6.25rem] ml-10">
-                        <CiCamera className="w-10 h-10 mt-4 ml-4" />
-                        <div className="pl-2 py-1 rounded-md bg-orange-600">
-                          <button className="text-xs">Add Picture</button>
+                      <div className="w-20 h-20 rounded-full relative border-gray-100 border sm:ml-[6.25rem] ml-10">
+                        {imgicon && (
+                          <div>
+                            <input
+                            type="file"
+                            className="mt-5"
+                            accept="image/*"
+                            onChange={event => {
+                              readImage(event, setImage);
+                            }}
+                          />
+                           
+                          </div>
+                        
+                        )}
+                        {image1 && (
+                          <div>
+                             <Avatar src={`data:image/jpeg;base64,${image}`} className="w-16 h-16 mt-2 ml-2" />
+                          </div>
+                        )}
+
+                        <div className="bg-white mt-2 pb-4">
+                          <button
+                            className="text-xs bg-orange-600 px-1 py-2 rounded-md"
+                            onClick={() => {
+                              setImgicon(false);
+                              setImgage1(true);
+                            }}
+                          >
+                            Add Picture
+                          </button>
                         </div>
                       </div>
                     </div>
 
                     {/* Second part */}
-                    <div className="flex mt-5">
+                    <div className="flex mt-10">
                       <p>Name : - </p>
                       <div className="sm:w-72 sm:ml-28 ml-20">
                         <Input
@@ -601,7 +658,7 @@ export default function StudentMultiStep() {
                     {/* Third Part */}
                     <div className="flex mt-5">
                       <p>Gender : - </p>
-                      <div className="sm:w-72 sm:ml-[6.38rem] ml-[4.30rem]">
+                      <div className="sm:w-72 sm:ml-[6.38rem] ml-[4.30rem] w-[13.8rem]">
                         <select
                           label="Select"
                           onChange={(e) => {
@@ -628,8 +685,9 @@ export default function StudentMultiStep() {
 
                     <div className="flex mt-5">
                       <p>D.O.B.</p>
-                      <div className="sm:w-72 sm:ml-[7.80rem] ml-[6rem]">
+                      <div className="sm:w-72 sm:ml-[7.80rem] ml-[6rem] w-[13.5rem]">
                         <Input
+                          className="w-full"
                           type="date"
                           value={dob}
                           onChange={(e) => setDob(e.target.value)}
@@ -643,7 +701,7 @@ export default function StudentMultiStep() {
                     {/* Fifth part */}
                     <div className="flex mt-5">
                       <p>Current Location :- </p>
-                      <div className="sm:w-72 ml-[0.9rem] sm:ml-[2.5rem] ">
+                      <div className="sm:w-72 ml-[0.9rem] sm:ml-[2.5rem] w-[13.3rem]">
                         <select
                           label="Select"
                           value={curloct}
@@ -673,8 +731,9 @@ export default function StudentMultiStep() {
                     {/* sixth part */}
                     <div className="flex mt-5">
                       <p>Preffered Location :- </p>
-                      <div className="sm:w-72 sm:ml-7 ml-[0.2rem] ">
+                      <div className="sm:w-72 sm:ml-7 ml-[0.2rem] w-[13.3rem] ">
                         <Input
+                          className="w-full"
                           type="text"
                           label="Location"
                           value={prefloct}
@@ -697,7 +756,7 @@ export default function StudentMultiStep() {
                       <div className="flex mt-5">
                         <label className="mt-2">Phone :-</label>
 
-                        <div className="sm:w-72 sm:ml-[5.313rem] ml-[5.3rem]">
+                        <div className="sm:w-72 sm:ml-[5.313rem] ml-[5.6rem]">
                           <Input
                             type="number"
                             label="Enter Mobile Number"
@@ -730,7 +789,7 @@ export default function StudentMultiStep() {
 
                     <div className="flex mt-5">
                       <p>Functional Area :- </p>
-                      <div className="sm:ml-6 ml-[1.5rem] sm:w-72">
+                      <div className="sm:ml-6 ml-[1.5rem] sm:w-72 w-[13.5rem]">
                         <select
                           label="Functional Area"
                           value={area}
@@ -758,7 +817,7 @@ export default function StudentMultiStep() {
                     <div className="flex mt-5">
                       <div className="flex">
                         <p>Notice Period :- </p>
-                        <div className="sm:ml-10 ml-[2.5rem] sm:w-72">
+                        <div className="sm:ml-10 ml-[2.5rem] sm:w-72 w-[13.5rem]">
                           <select
                             label="Notice Period"
                             value={peroid}
@@ -787,7 +846,7 @@ export default function StudentMultiStep() {
                     <div className="flex mt-5">
                       <div className="flex">
                         <p>Experience :- </p>
-                        <div className="sm:ml-[3.5rem] ml-[3.6rem] sm:w-72">
+                        <div className="sm:ml-[3.5rem] ml-[3.6rem] sm:w-72 w-[13.5rem]">
                           <select
                             label="Experience"
                             value={exp}
@@ -815,7 +874,7 @@ export default function StudentMultiStep() {
                     <div className="flex mt-5">
                       <div className="flex">
                         <p>Anual Salary :- </p>
-                        <div className="sm:ml-[3rem] ml-[3rem] sm:w-72">
+                        <div className="sm:ml-[3rem] ml-[3rem] sm:w-72 w-[13.5rem]">
                           <select
                             label="Anual Salary"
                             value={salary}
@@ -842,7 +901,7 @@ export default function StudentMultiStep() {
                     {/* sixth part */}
                     <div className="flex mt-5">
                       <p>Expected Salary :- </p>
-                      <div className="sm:ml-[1.4rem] ml-[1.5rem] sm:w-72">
+                      <div className="sm:ml-[1.4rem] ml-[1.5rem] sm:w-72 w-[13.5rem]">
                         <select
                           label="Expexted Salary"
                           value={expsalary}
@@ -951,7 +1010,7 @@ export default function StudentMultiStep() {
                   )}
 
                   <p className="ml-5 mt-2">To</p>
-                  <div className="sm:ml-14 ml-[7.9rem] md:mt-0 mt-2 sm:w-72">
+                  <div className="sm:ml-14 ml-[7.62rem] md:mt-0 mt-2 sm:w-72">
                     <select
                       label="YYYY"
                       value={batch2}
@@ -1002,7 +1061,7 @@ export default function StudentMultiStep() {
 
                 <div className="flex mt-5">
                   <p>Degree : - </p>
-                  <div className="sm:ml-[12.3rem] ml-[3.5rem] sm:w-72">
+                  <div className="sm:ml-[12.3rem] ml-[3.6rem] sm:w-72">
                     <select
                       label="Select"
                       value={degree}
@@ -1031,9 +1090,20 @@ export default function StudentMultiStep() {
                 </div>
                 {substep && (
                   <div className="mt-10">
-                    <AddDegreess deleteDegreeHandler={deleteDegreeHandler}  institute1 = {institute1} setinstitute = {setInstitute1} batch11={batch11} batch21={batch21}  course1={course1} degree1 ={degree1} setBatch11 ={setBatch11} setBatch21 ={setBatch21} setCourse1={setCourse1} setDegree1={setDegree1}/>
-                    <div className="sm:ml-[16.875rem] ml-[8rem]">
-                    </div>
+                    <AddDegreess
+                      deleteDegreeHandler={deleteDegreeHandler}
+                      institute1={institute1}
+                      setinstitute={setInstitute1}
+                      batch11={batch11}
+                      batch21={batch21}
+                      course1={course1}
+                      degree1={degree1}
+                      setBatch11={setBatch11}
+                      setBatch21={setBatch21}
+                      setCourse1={setCourse1}
+                      setDegree1={setDegree1}
+                    />
+                    <div className="sm:ml-[16.875rem] ml-[8rem]"></div>
                   </div>
                 )}
                 <div className="mt-5  justify-center flex">
@@ -1048,7 +1118,6 @@ export default function StudentMultiStep() {
                     </Button>
                   </div>
                 </div>
-                
               </motion.div>
             )}
 
@@ -1142,7 +1211,7 @@ export default function StudentMultiStep() {
 
                 <div className="flex   mt-5">
                   <p>Time Period : - </p>
-                  <div className="sm:ml-[10.5rem] ml-[6.5rem] flex flex-wrap sm:w-72">
+                  <div className="sm:ml-[10.5rem] ml-[6.2rem] flex flex-wrap sm:w-72">
                     <div className="flex flex-wrap">
                       <div>
                         <select
@@ -1381,7 +1450,7 @@ export default function StudentMultiStep() {
                 <div className="mt-5">
                   <div className="flex">
                     <label className="mt-2"> Certification :- </label>
-                    <div className="md:ml-[10rem] ml-[4rem] sm:w-72">
+                    <div className="md:ml-[10rem] ml-[4rem] sm:w-72 w-[12rem]">
                       <Input
                         label="Certification"
                         value={certificate}
@@ -1397,7 +1466,7 @@ export default function StudentMultiStep() {
 
                   <div className="flex mt-5">
                     <label className="mt-2"> Institute :- </label>
-                    <div className="md:ml-[11.8rem] sm:w-72 ml-[5.8rem]">
+                    <div className="md:ml-[11.8rem] sm:w-72 ml-[5.8rem] w-[12rem]">
                       <Input
                         label="Institute"
                         value={univercity}
@@ -1477,7 +1546,7 @@ export default function StudentMultiStep() {
 
                   <div className="flex mt-5">
                     <label className="mt-2"> Valid :- </label>
-                    <div className="md:ml-[13.1rem] sm:w-72 ml-[7.4rem]">
+                    <div className="md:ml-[13.1rem] sm:w-72 ml-[7.2rem]">
                       <Input
                         label="Valid till"
                         type="date"
@@ -1528,16 +1597,11 @@ export default function StudentMultiStep() {
                   <div className="md:ml-[6rem] ml-[2rem] sm:w-72">
                     <Input label="Email" type="email" />
                   </div>
-                  {/* <div className="ml-3  flex justify-center">
-                    <Button className="bg-orange-800">
-                      Send{" "}
-                    </Button>
-                  </div> */}
                 </div>
 
                 <div className="flex justify-center mt-5">
                   <label className="mt-2">Skills :- </label>
-                  <div className="md:ml-[6rem] ml-[2rem] sm:w-72">
+                  <div className="md:ml-[6rem] ml-[2rem] sm:w-72 w-[13.7rem]">
                     <Select
                       isMulti
                       options={skillOptions}
@@ -1548,7 +1612,8 @@ export default function StudentMultiStep() {
                   {errormsgskills && (
                     <p className="text-red-500 text-xs md:ml-[0.5rem] mt-3">
                       select atleast one
-                    </p>)}
+                    </p>
+                  )}
                 </div>
                 <div className=" mt-5 flex justify-center">
                   <Button variant="outlined" onClick={togglestep6}>
@@ -1590,7 +1655,7 @@ export default function StudentMultiStep() {
 
                 <div className="flex mt-5">
                   <label className="mt-2"> Marital Status :- </label>
-                  <div className="md:ml-[6.42rem] md:w-72 w-[12.5rem] ml-[4rem] ">
+                  <div className="md:ml-[6.42rem] md:w-72 w-[12.5rem] ml-[3.2rem] ">
                     <select className="border border-gray-400 px-2 py-[.6rem] ml-5 w-full rounded-md">
                       <option value=" ">Select</option>
                       <option value="Single/Unmarried<">
@@ -1608,7 +1673,7 @@ export default function StudentMultiStep() {
                 <div className="flex mt-8">
                   <label htmlFor="">Are you a veteran or ex-military?</label>
 
-                  <div className="flex ml-[2rem]">
+                  <div className="flex sm:ml-[2rem] ml-[2.1rem]">
                     <div className="flex">
                       <input
                         type="radio"
@@ -1633,7 +1698,7 @@ export default function StudentMultiStep() {
                 <div className="flex mt-8">
                   <label htmlFor="">Are you differently abled?</label>
 
-                  <div className="flex ml-[5.2rem]">
+                  <div className="flex md:ml-[5.2rem] ml-[5rem]">
                     <div className="flex">
                       <input
                         type="radio"
@@ -1662,7 +1727,7 @@ export default function StudentMultiStep() {
                 <div className="flex mt-8">
                   <label htmlFor="">Have you handled a team?</label>
 
-                  <div className="flex ml-[4.55rem]">
+                  <div className="flex sm:ml-[4.55rem] ml-[4.8rem]">
                     <div className="flex">
                       <input
                         type="radio"
@@ -1757,7 +1822,7 @@ export default function StudentMultiStep() {
 
                 <div className="flex mt-5 mb-5">
                   <label className="mt-2"> Work Permit for USA :- </label>
-                  <div className="md:ml-[5rem] md:w-72 w-[12rem] ml-[1.5rem] ">
+                  <div className="md:ml-[5rem] md:w-72 w-[12rem] ml-[.5rem] ">
                     <select className="border border-gray-400 px-2 py-[.6rem] ml-5 w-full rounded-md">
                       <option value=" ">Select</option>
                       <option value="No<">No</option>
@@ -1786,7 +1851,7 @@ export default function StudentMultiStep() {
                     className="ml-3"
                     onClick={togglestep7}
                     variant="outlined"
-                   >
+                  >
                     Back
                   </Button>
                 </div>
@@ -1800,3 +1865,46 @@ export default function StudentMultiStep() {
     </div>
   );
 }
+// import React from 'react';
+// import { Avatar } from 'some-avatar-library'; // Import the Avatar component
+
+// const YourComponent = () => {
+//   const [image, setImage] = React.useState('');
+
+//   async function readImage(e) {
+//     const file = e.target.files[0];
+//     const reader = new FileReader();
+
+//     reader.onload = function (e) {
+//       let binaryData = e.target.result;
+//       let base64String = window.btoa(binaryData);
+//       setImage(base64String); // Set the state after reading the image
+//     };
+
+//     reader.readAsBinaryString(file);
+//   }
+
+//   return (
+//     <div className="w-20 h-20 rounded-full relative border-gray-100 border sm:ml-[6.25rem] ml-10">
+//       {true && (
+//         <div>
+//           <input
+//             type="file"
+//             className="mt-5"
+//             accept="image/*"
+//             onChange={(event) => {
+//               readImage(event);
+//             }}
+//           />
+//         </div>
+//       )}
+//       {image && (
+//         <div>
+//           <Avatar src={`data:image/jpeg;base64,${image}`} className="w-12 h-12 mt-4 ml-4" />
+//         </div>
+//       )}
+//     </div>
+//   );
+// };
+
+// export default YourComponent;
