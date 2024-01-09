@@ -5,13 +5,11 @@ import {
   Checkbox,
   Textarea,
   Avatar,
-  input,
 } from "@material-tailwind/react";
-import { CiCamera } from "react-icons/ci";
 import { motion } from "framer-motion";
 import AddDegreess from "./AddDegreess";
 import Select from "react-select";
-import prof from "../Images/professional.avif";
+import Certificates from "./Certificates";
 
 export default function StudentMultiStep() {
   const [step1, setStep1] = React.useState(true);
@@ -22,6 +20,7 @@ export default function StudentMultiStep() {
   const [step6, setStep6] = React.useState(false);
   const [step7, setStep7] = React.useState(false);
   const [substep, setSubstep] = React.useState(false);
+  const [addcertificate, setAddcertificate] = React.useState(false);
 
   // First step
   const [name, setName] = React.useState("");
@@ -71,12 +70,20 @@ export default function StudentMultiStep() {
   const [category, setCategory] = React.useState(" ");
   const [workable, setWorkable] = React.useState(" ");
 
+  //Fifth sub step
+  const [certificate1, setCertificate1] = React.useState(" ");
+  const [univercity1, setUnivercity1] = React.useState(" ");
+  const [timespan12, setTimespan12] = React.useState(" ");
+  const [timespan11, setTimespan11] = React.useState(" ");
+  const [category1, setCategory1] = React.useState(" ");
+  const [workable1, setWorkable1] = React.useState(" ");
+
   //sixth step
   const [selectedSkills, setSelectedSkills] = React.useState([]);
 
   // seventh step
   const [responses, setResponses] = React.useState({
-    veteran: "",
+    EXmilitary: "",
     differentlyAbled: "",
     handledTeam: "",
     willingToRelocate: "",
@@ -85,7 +92,6 @@ export default function StudentMultiStep() {
 
   const [imgicon, setImgicon] = React.useState(true);
   const [image1, setImgage1] = React.useState(false);
-  const [imageinput, setImgageinput] = React.useState(false);
 
   //Error  Step
   const [errormsgname, setErrormsgname] = React.useState(false);
@@ -370,11 +376,17 @@ export default function StudentMultiStep() {
     document.getElementById("Personal").removeAttribute("style");
   };
 
-  function addDegreeHandler(e) {
+  function addDegreeHandler() {
     setSubstep(true);
   }
-  function deleteDegreeHandler(e) {
+  function deleteDegreeHandler() {
     setSubstep(false);
+  }
+  function addCertificate() {
+    setAddcertificate(true);
+  }
+  function deletecertificate() {
+    setAddcertificate(false);
   }
 
   function handleSubmit(e) {
@@ -394,8 +406,16 @@ export default function StudentMultiStep() {
       lastSalary: salary,
       preferredSalary: expsalary,
       Degree: degreeData
-        .map((e) => ({ value: e.value.trim() }))
-        .filter((obj) => obj.value !== ""),
+        .map((e) => ({
+          Institute: e.Institute.trim(),
+          Batchfrom: e.Batchfrom.trim(),
+          BatchTo: e.BatchTo.trim(),
+          Course: e.Course.trim(),
+          Degree: e.Degree.trim(),
+        }))
+        .filter((degreeObj) =>
+          Object.values(degreeObj).some((value) => value !== "")
+        ),
       previousDesignation: designation,
       lastCompany: orgn,
       Salary: salary2,
@@ -405,7 +425,18 @@ export default function StudentMultiStep() {
       TimePeriod3: timeYear1,
       shortAboutYourself: letter,
       radioInput: responses,
-      Certificate: certificate,
+      Certificate: certificateData
+        .map((e) => ({
+          Certificate: e.Certificate.trim(),
+          Institute: e.Institute.trim(),
+          Durationfrom: e.Durationfrom.trim(),
+          DurationTo: e.DurationTo.trim(),
+          Type: e.Type.trim(),
+          ValidUpto: e.ValidUpto.trim(),
+        }))
+        .filter((degreeObj) =>
+          Object.values(degreeObj).some((value) => value !== "")
+        ),
       Univercity: univercity,
       TimeSpan: timespan,
       TimeSpan1: timespan1,
@@ -456,34 +487,64 @@ export default function StudentMultiStep() {
   ];
 
   const degreeData = [
-    { value: institute },
-    { value: batch1 },
-    { value: batch2 },
-    { value: course },
-    { value: degree },
-    { value: institute1 },
-    { value: batch11 },
-    { value: batch21 },
-    { value: course1 },
-    { value: degree1 },
+    {
+      Institute: institute,
+      Batchfrom: batch1,
+      BatchTo: batch2,
+      Course: course,
+      Degree: degree,
+    },
+
+    {
+      Institute: institute1,
+      Batchfrom: batch11,
+      BatchTo: batch21,
+      Course: course1,
+      Degree: degree1,
+    },
+  ];
+
+  const certificateData = [
+    {
+      Certificate: certificate,
+      Institute: univercity,
+      Durationfrom: timespan,
+      DurationTo: timespan1,
+      Type: category,
+      ValidUpto: workable,
+    },
+
+    {
+      Certificate: certificate1,
+      Institute: univercity1,
+      Durationfrom: timespan12,
+      DurationTo: timespan11,
+      Type: category1,
+      ValidUpto: workable1,
+    },
   ];
 
   const handleSkillChange = (selectedOptions) => {
     setSelectedSkills(selectedOptions);
   };
 
-  const [image, setImage] = React.useState('');
+  const [image, setImage] = React.useState("");
+
   async function readImage(e) {
+    setImgicon(false);
     const file = e.target.files[0];
     const reader = new FileReader();
 
     reader.onload = function (e) {
       let binaryData = e.target.result;
       let base64String = window.btoa(binaryData);
-      setImage(base64String); 
+      setImage(base64String);
     };
 
     reader.readAsBinaryString(file);
+    if (image !== " ") {
+      setImgage1(true);
+    }
   }
 
   return (
@@ -602,38 +663,41 @@ export default function StudentMultiStep() {
                       <label htmlFor="" className="mt-5">
                         Profile Picture :-
                       </label>
-                      <div className="w-20 h-20 rounded-full relative border-gray-100 border sm:ml-[6.25rem] ml-10">
+                      <div className="w-20 h-20 relative  sm:ml-[6.25rem] ml-10">
                         {imgicon && (
                           <div>
                             <input
-                            type="file"
-                            className="mt-5"
-                            accept="image/*"
-                            onChange={event => {
-                              readImage(event, setImage);
-                            }}
-                          />
-                           
+                              type="file"
+                              className="mt-5"
+                              accept="image/*"
+                              onChange={(event) => {
+                                readImage(event, setImage);
+                              }}
+                            />
                           </div>
-                        
                         )}
                         {image1 && (
                           <div>
-                             <Avatar src={`data:image/jpeg;base64,${image}`} className="w-16 h-16 mt-2 ml-2" />
+                            <div>
+                              <Avatar
+                                src={`data:image/jpeg;base64,${image}`}
+                                className="w-16 h-16 mt-2 ml-2"
+                              />
+                            </div>
+
+                            <div className="bg-white mt-2 pb-4">
+                              <button
+                                className="text-[0.7rem] bg-orange-600 px-1 w-24 py-2 rounded-md"
+                                onClick={() => {
+                                  setImgicon(true);
+                                  setImgage1(false);
+                                }}
+                              >
+                                Remove Image
+                              </button>
+                            </div>
                           </div>
                         )}
-
-                        <div className="bg-white mt-2 pb-4">
-                          <button
-                            className="text-xs bg-orange-600 px-1 py-2 rounded-md"
-                            onClick={() => {
-                              setImgicon(false);
-                              setImgage1(true);
-                            }}
-                          >
-                            Add Picture
-                          </button>
-                        </div>
                       </div>
                     </div>
 
@@ -1560,19 +1624,42 @@ export default function StudentMultiStep() {
                       select atleast one{" "}
                     </p>
                   )}
-
-                  <div className="ml-3 mt-5 flex justify-center">
-                    <Button className="bg-orange-800" onClick={togglestep7}>
-                      Save & Next{" "}
-                    </Button>
-
+                  <div className="mt-5 sm:ml-[16.875rem] ml-[8rem]">
+                    <Button onClick={addCertificate}>+ Add Certificate</Button>
+                  </div>
+                  {addcertificate && (
                     <div>
+                      <Certificates
+                        deletecertificate={deletecertificate}
+                        certificate1={certificate1}
+                        timespan11={timespan11}
+                        univercity1={univercity1}
+                        timespan12={timespan12}
+                        category1={category1}
+                        workable1={workable1}
+                        setcertificate1={setCertificate1}
+                        settimespan11={setTimespan11}
+                        setunivercity1={setUnivercity1}
+                        settimespan12={setTimespan12}
+                        setcategory1={setCategory1}
+                        setworkable1={setWorkable1}
+                      />
+                    </div>
+                  )}
+                  <div className="mt-5 flex justify-center">
+                    <div className="ml-3 ">
                       <Button
                         variant="outlined"
                         className="ml-2"
                         onClick={togglestep5}
                       >
                         Back
+                      </Button>
+                    </div>
+
+                    <div className="ml-3 ">
+                      <Button className="bg-orange-800" onClick={togglestep7}>
+                        Save & Next{" "}
                       </Button>
                     </div>
                   </div>
@@ -1677,9 +1764,9 @@ export default function StudentMultiStep() {
                     <div className="flex">
                       <input
                         type="radio"
-                        name="veteran"
+                        name="EXmilitary"
                         value="Yes"
-                        onChange={() => handleRadioChange("veteran", "Yes")}
+                        onChange={() => handleRadioChange("EXmilitary", "Yes")}
                       />
                       <label className="ml-2">Yes</label>
                     </div>
@@ -1865,46 +1952,3 @@ export default function StudentMultiStep() {
     </div>
   );
 }
-// import React from 'react';
-// import { Avatar } from 'some-avatar-library'; // Import the Avatar component
-
-// const YourComponent = () => {
-//   const [image, setImage] = React.useState('');
-
-//   async function readImage(e) {
-//     const file = e.target.files[0];
-//     const reader = new FileReader();
-
-//     reader.onload = function (e) {
-//       let binaryData = e.target.result;
-//       let base64String = window.btoa(binaryData);
-//       setImage(base64String); // Set the state after reading the image
-//     };
-
-//     reader.readAsBinaryString(file);
-//   }
-
-//   return (
-//     <div className="w-20 h-20 rounded-full relative border-gray-100 border sm:ml-[6.25rem] ml-10">
-//       {true && (
-//         <div>
-//           <input
-//             type="file"
-//             className="mt-5"
-//             accept="image/*"
-//             onChange={(event) => {
-//               readImage(event);
-//             }}
-//           />
-//         </div>
-//       )}
-//       {image && (
-//         <div>
-//           <Avatar src={`data:image/jpeg;base64,${image}`} className="w-12 h-12 mt-4 ml-4" />
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default YourComponent;
