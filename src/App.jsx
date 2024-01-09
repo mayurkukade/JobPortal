@@ -36,7 +36,7 @@ import PublishJob from "./Compoments/Hr/DashboardFeatures/PublishJob";
 import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
 import Savejobs from "./Pages/Savejobs";
-import GetStartedPage from './Pages/GetStartedPage'
+import GetStartedPage from "./Pages/GetStartedPage";
 
 import SkillsLayout from "./Compoments/layout/SkillsLayout";
 import Skillsweb from "./Compoments/skills/Skillsweb";
@@ -46,6 +46,8 @@ import CoursePlayList from "./Compoments/skills/CoursePlayList";
 import NotFound from "./Pages/NotFound";
 import CourseplaylistLayOut from "./Compoments/layout/CourseplaylistLayOut.jsx";
 import Courseplay from "./Compoments/skills/Courseplay.jsx";
+import MentorPage from "./Pages/MentorPage.jsx";
+import StudyABroad from "./Pages/StudyABroad.jsx";
 function App() {
   return (
     <>
@@ -114,21 +116,28 @@ function App() {
           <Route path="/jobdetails/:id" element={<JobDetailsById />} /> */}
           <Route path="/profile" element={<MultiStepStudentForm />} />
 
-          
-            <Route path="/skills" element={<SkillsLayout />}>
-              <Route index  element={<Skillsweb />} />
-              <Route path="Ai" element={<SkillsAI/>} />
-              
-            </Route>
-            <Route path="/courseplaylist" element={<CourseplaylistLayOut />}>
-            <Route  path = "list/:id" element={<Courseplay/>} />
-            </Route>
-            <Route path="/skills/details" element={<CourseDetails/>} />
-            
+          <Route path="/skills" element={<SkillsLayout />}>
+            <Route index element={<Skillsweb />} />
+            <Route path="Ai" element={<SkillsAI />} />
+          </Route>
+          <Route path="/courseplaylist/:id" element={<CourseplaylistLayOut />}>
+            <Route path="list/:id" element={<Courseplay />} />
+          </Route>
+          <Route path="/skills/details" element={<CourseDetails />} />
+
           <Route path="/counter" element={<Counter />} />
           <Route path="/Dashboard/*" element={<Dashboard />} />
           <Route path="/PublishJob" element={<PublishJob />} />
           <Route path="/getstarted" element={<GetStartedPage />} />
+          <Route path="mentor" element={<MentorPage/>} />
+
+          <Route path="/studyabroad" element={<StudyABroad/>} />
+
+
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+        <Route path="/termsandcondition" element={<TermsAndConditions />} />
+        <Route path="/cookiepolicy" element={<CookiePolicy />} />
+        <Route path="/securityguidelines" element={<SecurityGuidelines />} />
         </Route>
 
         <Route path="/register" element={<RegistrationPage />} />
@@ -137,11 +146,8 @@ function App() {
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/termsandcondition" element={<TermsAndConditions />} />
-        <Route path="/cookiepolicy" element={<CookiePolicy />} />
-        <Route path="/securityguidelines" element={<SecurityGuidelines />} />
-        <Route path="*" element={<NotFound/>} />
+       
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

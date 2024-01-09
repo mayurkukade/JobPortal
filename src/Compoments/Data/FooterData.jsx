@@ -21,7 +21,7 @@ export const FooterData = [
     {
         title: "Useful Links",
         items: ["Terms and Conditions", "Privacy Policy", "Cookie Policy", "Security Guidelines"],
-        links:['/cookiepolicy']
+        links:['/termsandcondition','/privacypolicy','/cookiepolicy','/securityguidelines']
     },
     
 ]

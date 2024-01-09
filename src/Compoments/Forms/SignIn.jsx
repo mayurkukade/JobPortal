@@ -1,5 +1,5 @@
 import { Button, Input } from "@material-tailwind/react";
-
+import React from "react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
@@ -20,16 +20,35 @@ import {
   
   Checkbox,
 } from "@material-tailwind/react";
+import {
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
 const SignIn = () => {
   const [emailState, setEmail] = useState("");
-
+  const [open, setOpen] = React.useState(false);
   const [passwordState, setPasswordState] = useState("");
 
   const [loginApi] = useLoginApiMutation();
 
-  const navigate = useNavigate();
+ 
 
-  
+  const handleOpen = () => setOpen(!open);
+  const navigate = useNavigate();
+  const studentFormNavigate = () => {
+    navigate("/studentSignUp");
+    handleOpen();
+  };
+  const tpoFormNavigate = () => {
+    navigate("/tpo");
+    handleOpen();
+  };
+  const RecruiterFormNavigate = () => {
+    navigate("/recruitersignup");
+    handleOpen();
+  };
 
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
@@ -107,52 +126,42 @@ const SignIn = () => {
             </Button>
             <Typography variant="small" className="mt-4 flex justify-center">
               Don&apos;t have an account?
-              <Link to={'/studentSignUp'}>
+              
               <Typography
                 as="a"
               
                 variant="small"
                 color="blue-gray"
-                className="ml-1 font-bold"
-               
+                className="ml-1 font-bold cursor-pointer"
+                onClick={handleOpen}
               >
                 Sign up
               </Typography>
-              </Link>
+             
             </Typography>
+            <Dialog open={open} handler={handleOpen}>
+              <DialogHeader className="flex justify-center">
+                Choose your signup profile
+              </DialogHeader>
+              <DialogBody className="flex gap-10 justify-center">
+                <Button onClick={studentFormNavigate}>STUDENT</Button>
+                <Button onClick={tpoFormNavigate}>TPO</Button>
+                <Button onClick={RecruiterFormNavigate}>RECEUITER</Button>
+              </DialogBody>
+              <DialogFooter>
+                <Button
+                  variant="text"
+                  color="red"
+                  onClick={handleOpen}
+                  className="mr-1"
+                >
+                  <span>Cancel</span>
+                </Button>
+              </DialogFooter>
+            </Dialog>
           </CardFooter>
         </Card>
-          {/* <form
-            className="bg-white p-5 space-y-3 w-[25rem]"
-            onSubmit={onSubmitHandler}
-          >
-            <h1 className="text-center text-lg">Sign In</h1>
-
-            <Input
-              type="text"
-              label="email"
-              name="emailState"
-              value={emailState}
-              onChange={onChangeEmail}
-              required
-            />
-
-            <Input
-              type="text"
-              label="password"
-              name="password"
-              value={passwordState}
-              onChange={onChangePassword}
-              required
-            />
-
-            <Button type="onSubmit" className="block m-auto">
-              Sign In
-            </Button>
-            <p className="text-center">
-              Don't have a account? Sign Up
-            </p>
-          </form> */}
+         \
         </div>
       </section>
     </>

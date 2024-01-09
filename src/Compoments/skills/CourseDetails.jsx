@@ -3,6 +3,7 @@ import { Button, Rating, Typography } from "@material-tailwind/react";
 import { Avatar } from "@material-tailwind/react";
 import { Chip } from "@material-tailwind/react";
 import { CardHeader } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 import {
   Tabs,
   TabsHeader,
@@ -85,12 +86,14 @@ const CourseDetails = () => {
             </Typography>
           </div>
           <p className="mt-2 text-textnavyblue ">23,000 Learners</p>
+          <Link to={`/courseplaylist/1`}>
           <Button className="bg-textnavyblue flex items-center gap-1 text-black mt-4">Get Started
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3" />
 </svg>
 
           </Button>
+          </Link>
         </div>
         <CardHeader
           color="blue-gray"
