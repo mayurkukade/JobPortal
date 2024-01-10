@@ -8,7 +8,8 @@ const FullWidth = styled.div`
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-  background:#F5FEFD
+  background:#F5FEFD;
+  
 `;
 
 export default FullWidth;

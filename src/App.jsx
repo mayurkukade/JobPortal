@@ -48,6 +48,9 @@ import CourseplaylistLayOut from "./Compoments/layout/CourseplaylistLayOut.jsx";
 import Courseplay from "./Compoments/skills/Courseplay.jsx";
 import MentorPage from "./Pages/MentorPage.jsx";
 import StudyABroad from "./Pages/StudyABroad.jsx";
+import RecruiterLayout from "./Compoments/layout/RecruiterLayout.jsx";
+import Recruiter from "./Pages/Recruiter.jsx";
+import RecruiterJobs from "./Compoments/recruiter/RecruiterJobs.jsx";
 function App() {
   return (
     <>
@@ -129,15 +132,19 @@ function App() {
           <Route path="/Dashboard/*" element={<Dashboard />} />
           <Route path="/PublishJob" element={<PublishJob />} />
           <Route path="/getstarted" element={<GetStartedPage />} />
-          <Route path="mentor" element={<MentorPage/>} />
+          <Route path="mentor" element={<MentorPage />} />
 
-          <Route path="/studyabroad" element={<StudyABroad/>} />
+          <Route path="/recruiter" element={<RecruiterLayout/>}>
+          <Route index element={<Recruiter/>} />
+          <Route path="/recruiter/jobs" element={<RecruiterJobs/>} />
+          </Route>
 
+          <Route path="/studyabroad" element={<StudyABroad />} />
 
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/termsandcondition" element={<TermsAndConditions />} />
-        <Route path="/cookiepolicy" element={<CookiePolicy />} />
-        <Route path="/securityguidelines" element={<SecurityGuidelines />} />
+          <Route path="/termsandcondition" element={<TermsAndConditions />} />
+          <Route path="/cookiepolicy" element={<CookiePolicy />} />
+          <Route path="/securityguidelines" element={<SecurityGuidelines />} />
         </Route>
 
         <Route path="/register" element={<RegistrationPage />} />
@@ -146,7 +153,7 @@ function App() {
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/signin" element={<SignIn />} />
-       
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

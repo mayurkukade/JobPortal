@@ -27,12 +27,12 @@ const CourseDetails = () => {
       // icon: Square3Stack3DIcon,
       desc: <AboutSection/>,
     },
-    {
-      label: "Modules",
-      value: "profile",
-      // icon: UserCircleIcon,
-      desc: <CoursesModules/>,
-    },
+    // {
+    //   label: "Modules",
+    //   value: "profile",
+    //   // icon: UserCircleIcon,
+    //   desc: <CoursesModules/>,
+    // },
     {
       label: "Instructor",
       value: "settings",

@@ -12,7 +12,7 @@ import {
 export default function Cards() {
   const [activeTab, setActiveTab] = React.useState("html");
   return (
-    <div className="mt-20">
+    <>
       <p  className="text-center text-primary font-poppins font-semibold text-4xl mb-10">Choose the plan that works for you</p>
 
       <div className="flex justify-center">
@@ -44,6 +44,6 @@ export default function Cards() {
           </TabsBody>
         </Tabs>
       </div>
-    </div>
+    </>
   );
 }

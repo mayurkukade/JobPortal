@@ -19,8 +19,10 @@ export default function HomePage() {
       <HomeSteps />
       <Reviews />
     <Companies/>
-
-      <Cards />
+<div className="mt-20">
+<Cards />
+</div>
+      
       <StillHaveDout/>
       <Faq/>
       {/* <Testimonals /> */}
