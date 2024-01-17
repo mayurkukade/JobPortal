@@ -10,6 +10,7 @@ import { studentApiSlice } from '../../services/studentApi/studentApiSlice'
 import {itTrainingSlice} from '../../services/itTraining/itTrainingSlice'
 import { bootCampSlice } from '../../services/bootcamp/bootCampSlice'
 import { studentApplicationApiSlice } from '../../services/studentApplication/studentApplicationApiSlice'
+import { plansApiSlice } from '../../services/plans/plansApiSlice'
 export const store = configureStore({
     reducer:{
 
@@ -21,7 +22,8 @@ export const store = configureStore({
         [studentApiSlice.reducerPath] : studentApiSlice.reducer,
         [itTrainingSlice.reducerPath]:itTrainingSlice.reducer,
         [bootCampSlice.reducerPath]:bootCampSlice.reducer,
-        [studentApplicationApiSlice.reducerPath]:studentApplicationApiSlice.reducer
+        [studentApplicationApiSlice.reducerPath]:studentApplicationApiSlice.reducer,
+        [plansApiSlice.reducerPath] : plansApiSlice.reducer
       
        
     },

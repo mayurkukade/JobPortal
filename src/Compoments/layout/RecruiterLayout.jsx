@@ -6,7 +6,7 @@ const RecruiterLayout = () => {
     <>
       <div className="flex gap-5">
         <RecruiterSidebar />
-        <div className=" text-white w-full flex-1 mx-auto py-4 bg-blue-gray-900">
+        <div className=" text-white w-full flex-1 mx-auto py-4 ">
           <Outlet/>
         </div>
       </div>

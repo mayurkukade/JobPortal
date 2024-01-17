@@ -19,6 +19,9 @@ const Admin = () => {
       <Link to="/admin/mentor">
         <Button>Mentor</Button>
       </Link>
+      <Link to="/admin/plans">
+        <Button>Plans</Button>
+      </Link>
     </div>
   );
 };

@@ -3,7 +3,7 @@ import React from 'react'
 const RecruiterDashboard = () => {
   return (
     <div>
-      <p>Dashboard</p>
+      <p className='text-black'>Dashboard</p>
     </div>
   )
 }

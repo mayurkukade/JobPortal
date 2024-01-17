@@ -3,32 +3,23 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
 import { RxDashboard } from "react-icons/rx";
-import { BsBriefcase, BsFillPeopleFill } from "react-icons/bs";
-import { IoIosPeople, IoMdClipboard } from "react-icons/io";
+import { BsBriefcase } from "react-icons/bs";
+import { IoIosPeople } from "react-icons/io";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { TfiBag } from "react-icons/tfi";
-import { IoChatbubblesOutline, IoPersonAddOutline } from "react-icons/io5";
-import { FaArrowRightFromBracket } from "react-icons/fa6";
+import { IoChatbubblesOutline } from "react-icons/io5";
+import opticalraclogo from "../Images/Opticalarclogo.png";
 import { VscAccount } from "react-icons/vsc";
-import { LuUserMinus2 } from "react-icons/lu";
+
 import {
+  Avatar,
   Card,
-  Typography,
   List,
   ListItem,
   ListItemPrefix,
   ListItemSuffix,
-  Chip,
 } from "@material-tailwind/react";
-import {
-  PresentationChartBarIcon,
-  ShoppingBagIcon,
-  UserCircleIcon,
-  Cog6ToothIcon,
-  InboxIcon,
-  PowerIcon,
-} from "@heroicons/react/24/solid";
-import { Hidden } from "@mui/material";
+
 const RecruiterSidebar = () => {
   const Sidebar_animation = {
     open: {
@@ -38,7 +29,7 @@ const RecruiterSidebar = () => {
       },
     },
     closed: {
-      width: "4.5rem",
+      width: "4.6rem",
       transition: {
         damping: 40,
       },
@@ -64,7 +55,7 @@ const RecruiterSidebar = () => {
                   rotate: 0,
                 }
               : {
-                  x: 10,
+                  x: 0,
 
                   rotate: 180,
                 }
@@ -77,7 +68,17 @@ const RecruiterSidebar = () => {
         >
           <IoIosArrowBack size={25} />
         </motion.div>
-        <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
+        <Card className="  shadow-xl shadow-blue-gray-900/5">
+          <List>
+            <ListItem>
+              <ListItemPrefix>
+                <Avatar src={opticalraclogo} size="lg" className="p-1" />
+              </ListItemPrefix>
+              Optical Arc
+            </ListItem>
+          </List>
+        </Card>
+        <Card className="h-[calc(100vh-2rem)] w-full  max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">
           {/* <div className="mb-2 p-4">
             <Typography variant="h5" color="blue-gray" className={isOpen ? 'display' : 'hidden'}>
               Sidebar
@@ -85,55 +86,50 @@ const RecruiterSidebar = () => {
           </div> */}
           <List>
             <Link to={"/recruiter"}>
-              <ListItem>
+              <ListItem  className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
                 <ListItemPrefix>
-                  <RxDashboard className="h-5 w-5" />
+                  <RxDashboard className="h-6 w-6" />
                 </ListItemPrefix>
                 Dashboard
               </ListItem>
             </Link>
 
-            <Link to={'/recruiter/jobs'}>
-
-            
-
-            <ListItem>
-              <ListItemPrefix>
-                <BsBriefcase className="h-5 w-5" />
-              </ListItemPrefix>
-              jobs
-            </ListItem>
+            <Link to={"/recruiter/jobs"}>
+              <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
+                <ListItemPrefix>
+                  <BsBriefcase className="h-6 w-6" />
+                </ListItemPrefix>
+                jobs
+              </ListItem>
             </Link>
-            <ListItem>
+            <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
               <ListItemPrefix>
-                <IoIosPeople className="h-5 w-5" />
+                <IoIosPeople className="h-6 w-6" />
               </ListItemPrefix>
               Talent Pool
-              <ListItemSuffix>
-               
-              </ListItemSuffix>
+              <ListItemSuffix></ListItemSuffix>
             </ListItem>
-            <ListItem>
+            <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
               <ListItemPrefix>
-                <MdOutlineSpaceDashboard className="h-5 w-5" />
+                <MdOutlineSpaceDashboard className="h-6 w-6" />
               </ListItemPrefix>
               Career Page
             </ListItem>
-            <ListItem>
+            <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
               <ListItemPrefix>
-                <TfiBag className="h-5 w-5" />
+                <TfiBag className="h-6 w-6" />
               </ListItemPrefix>
               Interviews
             </ListItem>
-            <ListItem>
+            <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
               <ListItemPrefix>
-                <IoChatbubblesOutline className="h-5 w-5" />
+                <IoChatbubblesOutline className="h-6 w-6" />
               </ListItemPrefix>
               Chats
             </ListItem>
-            <ListItem>
+            <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
               <ListItemPrefix>
-                <VscAccount className="h-5 w-5" />
+                <VscAccount className="h-6 w-6" />
               </ListItemPrefix>
               Accounts
             </ListItem>

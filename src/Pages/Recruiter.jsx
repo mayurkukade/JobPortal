@@ -1,9 +1,10 @@
 import React from 'react'
+import DashbordCard from '../Compoments/recruiter/DashbordCard'
 
 const Recruiter = () => {
   return (
     <div>
-      <p>Recruiter</p>
+      <DashbordCard/>
     </div>
   )
 }

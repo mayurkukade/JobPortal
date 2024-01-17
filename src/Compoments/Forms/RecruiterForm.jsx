@@ -1,53 +1,42 @@
-import { Button, Input } from "@material-tailwind/react";
-import OtpInput from "react-otp-input";
-import { useEffect} from "react";
-import { Link } from "react-router-dom";
+import {useState} from 'react'
 import { Spinner } from "@material-tailwind/react";
-import {
-  Card,
-  CardBody,
-  CardFooter,
-  Typography,
-} from "@material-tailwind/react";
-import { useState } from "react";
-import {
-  useEmailVerifyMutation,
-  useStudentRegisterPostMutation,
-  useOtpVerifyMutation,
-} from "../../services/Registration/registrationSlice";
-import { useNavigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { Toaster } from "react-hot-toast";
-import Navbars from "../Navbars";
+import { Typography } from "@mui/material";
+import { Link ,useNavigate} from 'react-router-dom';
 
-const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-const StudentSignUpForm = () => {
-  const [fullNameState, setFullName] = useState("");
+  import toast from "react-hot-toast";
+  import OtpInput from "react-otp-input";
+  
+  import { Button, Input } from "@material-tailwind/react";
+  import {
+    useEmailVerifyMutation,
+    useStudentRegisterPostMutation,
+    useOtpVerifyMutation,
+  } from "../../services/Registration/registrationSlice";
+  const RecruiterForm = () => {
+    const [fullNameState, setFullName] = useState("");
   const [emailState, setEmail] = useState("");
   const [mobileNumberState, setMobileNumber] = useState();
   const [passwordState, setPasswordState] = useState("");
   const [referenceState, setReferenceState] = useState("");
   const [genderState, setGender] = useState("");
+  const [refCompanyState, setRefCompany] = useState("");
+
   const [isVerifyOpen, setVerifyOpen] = useState(false);
   const [OTP, setOTP] = useState("");
   const [loader, setLoader] = useState(false);
 
-  const [validEmail, setVaidEmail] = useState();
   const [emailVerify] = useEmailVerifyMutation();
   const [otpVerify] = useOtpVerifyMutation();
-
-  console.log(emailState);
 
   const navigate = useNavigate();
 
   const [studentRegisterPost] = useStudentRegisterPostMutation();
+
   const onChangeFullName = (e) => {
     setFullName(e.target.value);
   };
   const onChangeEmail = (e) => {
     setEmail(e.target.value);
-    console.log(e.target.value);
   };
   const onChangeMobileNumber = (e) => {
     setMobileNumber(e.target.value);
@@ -64,6 +53,9 @@ const StudentSignUpForm = () => {
     setGender(e.target.value);
   };
 
+  const onChangeCompanyRef = (e) => {
+    setRefCompany(e.target.value);
+  };
   const sendEmailHandler = async (e) => {
     e.preventDefault();
     setLoader(true);
@@ -99,15 +91,6 @@ const StudentSignUpForm = () => {
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    if (
-      !fullNameState ||
-      !emailState ||
-      !mobileNumberState ||
-      !passwordState ||
-      !genderState
-    ) {
-      return toast.error("please fill all fields");
-    }
     try {
       const res = await studentRegisterPost({
         fullName: fullNameState,
@@ -115,12 +98,16 @@ const StudentSignUpForm = () => {
         moNumber: mobileNumberState,
         password: passwordState,
         status: "active",
-        roles: "STUDENT",
+        roles: "HR",
         date: new Date(),
         ref: referenceState,
         gender: genderState,
+        designation: "Hr",
+        hrstatus: "Active",
+        refNoOfCompany: "ootD7N2o",
       });
       console.log(res);
+
       if (
         res &&
         res.error &&
@@ -138,26 +125,8 @@ const StudentSignUpForm = () => {
       console.error("Error during form submission:", error);
     }
   };
-
-  console.log(validEmail);
-
-  useEffect(() => {
-    setVaidEmail(emailRegex.test(emailState));
-  }, []);
-
-  console.log(validEmail);
   return (
-    <>
-      <Navbars />
-      <section className="bg-blue-gray-900 h-[100vh]">
-        <Toaster position="top-center" reverseOrder={false} />
-        <div className="flex justify-center items-center   h-full">
-          <Card className="mx-auto w-full max-w-[24rem]">
-            <CardBody className="flex flex-col gap-4">
-              <Typography variant="h4" color="blue-gray">
-                Student Register
-              </Typography>
-
+    <form className=" space-y-3 " onSubmit={onSubmitHandler}>
               <Input
                 type="text"
                 label="Full Name"
@@ -166,6 +135,7 @@ const StudentSignUpForm = () => {
                 onChange={onChangeFullName}
                 required
               />
+
               <div className="flex gap-5">
                 <Input
                   type="text"
@@ -189,9 +159,8 @@ const StudentSignUpForm = () => {
                   )}
                 </Button>
               </div>
-
               {isVerifyOpen && (
-                <div className="flex gap-5">
+                <div className="flex justify-between">
                   <OtpInput
                     value={OTP}
                     onChange={setOTP}
@@ -245,21 +214,25 @@ const StudentSignUpForm = () => {
                 name="gender"
                 value={genderState}
                 onChange={onChangeGender}
-                className="h-10 border border-gray-300 rounded-md w-full"
+                className="mt-1 p-2 border  border-gray-300 rounded-md w-full"
                 placeholder="Gender"
                 required
               >
-                <option>Gender</option>
+                <option> Select Gender</option>
                 <option value={"male"}>Male</option>
                 <option value="female">Female</option>
               </select>
-            </CardBody>
-            <CardFooter className="pt-0">
-              <Button
-                type="onSubmit"
-                className="block m-auto mb-2"
-                onClick={onSubmitHandler}
-              >
+
+              <Input
+                type="text"
+                label="reference company"
+                name="referenceCompany"
+                value={refCompanyState}
+                onChange={onChangeCompanyRef}
+                required
+              />
+
+              <Button type="onSubmit" className="block m-auto">
                 Sign Up
               </Button>
               <Typography variant="small" className="mt-4 flex justify-center">
@@ -275,12 +248,8 @@ const StudentSignUpForm = () => {
                   </Typography>
                 </Link>
               </Typography>
-            </CardFooter>
-          </Card>
-        </div>
-      </section>
-    </>
-  );
-};
+            </form>
+  )
+}
 
-export default StudentSignUpForm;
+export default RecruiterForm

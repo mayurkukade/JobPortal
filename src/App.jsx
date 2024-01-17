@@ -37,6 +37,7 @@ import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
 import Savejobs from "./Pages/Savejobs";
 import GetStartedPage from "./Pages/GetStartedPage";
+import Pricing from "./Compoments/Hr/Dashboard Compoment/Pricing.jsx";
 
 import SkillsLayout from "./Compoments/layout/SkillsLayout";
 import Skillsweb from "./Compoments/skills/Skillsweb";
@@ -51,17 +52,21 @@ import StudyABroad from "./Pages/StudyABroad.jsx";
 import RecruiterLayout from "./Compoments/layout/RecruiterLayout.jsx";
 import Recruiter from "./Pages/Recruiter.jsx";
 import RecruiterJobs from "./Compoments/recruiter/RecruiterJobs.jsx";
+import RecruiterJobPublish from "./Compoments/recruiter/RecruiterJobPublish.jsx";
+import PlansAdminPage from "./Compoments/admin/PlansAdminPage.jsx";
+import PricingPage from "./Pages/PricingPage.jsx";
+
 function App() {
   return (
     <>
       <Routes>
         <Route element={<AppLayout />}>
-          {/* admin */}
-
           <Route
             element={<AdminRequire allowedRoles={[...Object.values(ROLES)]} />}
           >
             <Route path="/admin" element={<Admin />} />
+            {/* admin */}
+
             <Route path="/admin/studentlist" element={<StudentList />} />
             <Route
               path="/admin/studentlist/studentDetails/:studentId"
@@ -97,6 +102,7 @@ function App() {
               element={<MentorDetails />}
             />
             <Route path="/admin/mentor/edit/:id" element={<MentorEdit />} />
+            <Route path="/admin/plans" element={<PlansAdminPage />} />
           </Route>
 
           <Route>
@@ -110,7 +116,9 @@ function App() {
               <Route path="/edit/profile" element={<MultiStepStudentForm />} />
               <Route path="/profile/:id" element={<Myprofile />} />
               <Route path="/savejob/:id" element={<Savejobs />} />
+              
             </Route>
+            <Route path="/pricingpage" element={<PricingPage />} />
           </Route>
 
           <Route path="/aboutus" element={<AboutUs />} />
@@ -134,9 +142,13 @@ function App() {
           <Route path="/getstarted" element={<GetStartedPage />} />
           <Route path="mentor" element={<MentorPage />} />
 
-          <Route path="/recruiter" element={<RecruiterLayout/>}>
-          <Route index element={<Recruiter/>} />
-          <Route path="/recruiter/jobs" element={<RecruiterJobs/>} />
+          <Route path="/recruiter" element={<RecruiterLayout />}>
+            <Route index element={<Recruiter />} />
+            <Route path="/recruiter/jobs" element={<RecruiterJobs />} />
+            <Route
+              path="/recruiter/publishedjob"
+              element={<RecruiterJobPublish />}
+            />
           </Route>
 
           <Route path="/studyabroad" element={<StudyABroad />} />

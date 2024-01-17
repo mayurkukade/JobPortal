@@ -27,6 +27,23 @@ export const registrationSlice = apiSlice.injectEndpoints({
         body: data,
       }),
     }),
+    emailVerify:builder.mutation({
+      query:(data)=>({
+        url:`/verification/sendEmail?email=${data.email}`,
+        method:"POST",
+        body:data,
+        transferResponse:console.log(data)
+      })
+    }),
+    otpVerify:builder.mutation({
+      query:(data) =>({
+        url:`/verification/verifyOpt?otp=${data.otp}&email=${data.email}`,
+        method:"POST",
+        body:data,
+        transferResponse:console.log(data)
+      })
+   
+    })
   }),
 });
 
@@ -36,4 +53,6 @@ export const {
   useStudentRegisterPostMutation,
   useUpdateRegisterDetailsMutation,
   useLoginApiMutation,
+  useEmailVerifyMutation,
+  useOtpVerifyMutation
 } = registrationSlice;

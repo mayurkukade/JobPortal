@@ -82,7 +82,7 @@ export default function PublishJob() {
 
  
   return (
-    <div className='flex bg-indigo-100 min-h-screen'>
+    <div className='flex bg-indigo-100 w-auto'>
       <div>
 
         <motion.div whileHover={{scale : 1.1 ,originX:0}}>

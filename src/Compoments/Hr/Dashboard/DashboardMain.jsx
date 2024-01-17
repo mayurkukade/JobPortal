@@ -564,7 +564,7 @@ export default function () {
               <div className="sm:col-span-4 bg-blue-100 pb-6 rounded-md">
                 <div className="flex">
                   <h2 className="ml-6 mt-4">
-                    <TfiBag className="w-[40px] h-[40px] " />
+                    <IoChatbubblesOutline className="w-[40px] h-[40px] " />
                   </h2>
                   <div className="ml-5 mt-4">
                     <p className="text-lg">
@@ -584,7 +584,7 @@ export default function () {
               <div className="sm:col-span-4 bg-blue-100 pb-6 rounded-md">
                 <div className="flex">
                   <h2 className="ml-6 mt-4">
-                    <IoMdClipboard className="w-[40px] h-[40px] " />
+                    <IoChatbubblesOutline className="w-[40px] h-[40px] " />
                   </h2>
                   <div className="ml-5 mt-4">
                     <p className="text-lg">

@@ -1,9 +1,9 @@
-import React from 'react'
+
 
 const RecruiterJobs = () => {
   return (
     <>
-     <p>recruiter jobs</p> 
+     <p className='text-black'>recruiter jobs</p> 
     </>
   )
 }

@@ -2,16 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   Navbar,
-  MobileNav,
+  
   Typography,
   Button,
   IconButton,
+  Collapse,
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import Pref from "./Images/preferable-icon 1.png";
 import { useState } from "react";
 import { useEffect } from "react";
-import { BiSun, BiMoon } from "react-icons/bi";
+
 
 import {
   Dialog,
@@ -58,9 +59,9 @@ export default function Navbars() {
       () => window.innerWidth >= 960 && setOpenNav(false)
     );
   }, []);
-  const handleThemeSwitch = () => {
-    setTheme(theme === "dark" ? "light" : "dark");
-  };
+  // const handleThemeSwitch = () => {
+  //   setTheme(theme === "dark" ? "light" : "dark");
+  // };
   useEffect(() => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
@@ -77,9 +78,9 @@ export default function Navbars() {
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-        <a href="/" className="flex items-center text-white">
+        <p className="flex items-center text-white">
           Home
-        </a>
+        </p>
       </Typography>
       <Link to="/jobsection">
         <Typography
@@ -88,7 +89,7 @@ export default function Navbars() {
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <a className="flex items-center text-white">Jobs</a>
+          <p className="flex items-center text-white">Jobs</p>
         </Typography>
       </Link>
       <Link to="/skills">
@@ -98,47 +99,38 @@ export default function Navbars() {
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <a className="flex items-center text-white">Courses</a>
+          <p className="flex items-center text-white">Courses</p>
         </Typography>
       </Link>
-   
+<Link to={'/pricingpage'}>
       <Typography
         as="li"
         variant="small"
         color="blue-gray"
         className="flex items-center gap-x-2 p-1 font-medium"
       >
-       
-        <a className="flex items-center text-white">
-          Pricing
-        </a>
+        <p className="flex items-center text-white">Pricing</p>
       </Typography>
-
-      <Link to={'/mentor'}>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-       
-        <a className="flex items-center text-white">
-          Mentor
-        </a>
-      </Typography>
+</Link>
+      <Link to={"/mentor"}>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="flex items-center gap-x-2 p-1 font-medium"
+        >
+          <p className="flex items-center text-white">Mentor</p>
+        </Typography>
       </Link>
-      <Link to={'/studyabroad'}>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-       
-        <a className="flex items-center text-white">
-          Study Abroad
-        </a>
-      </Typography>
+      <Link to={"/studyabroad"}>
+        <Typography
+          as="li"
+          variant="small"
+          color="blue-gray"
+          className="flex items-center gap-x-2 p-1 font-medium"
+        >
+          <p className="flex items-center text-white">Study Abroad</p>
+        </Typography>
       </Link>
       <Link to="/aboutus">
         <Typography
@@ -147,7 +139,7 @@ export default function Navbars() {
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <a className="flex items-center text-white">About Us</a>
+          <p className="flex items-center text-white">About Us</p>
         </Typography>
       </Link>
       {/* <Typography
@@ -167,14 +159,16 @@ export default function Navbars() {
   return (
     <Navbar className="  sticky top-0 z-30 h-max max-w-full rounded-none px-4 py-2 lg:px-8   bg-primary">
       <div className=" flex items-center justify-between text-blue-gray-900 xl:ml-[4.2rem]">
+       <Link to={'/'}>
         <Typography
           as="a"
-          href="/"
+          
           className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl xl:text-4xl xl:ml "
         >
           <img src={Pref} className="w-10 ml-10 lg:block hidden" alt="" />
           <div className="ml-2 text-white">Preferable</div>
         </Typography>
+        </Link>
         {/* <Typography className="lg:block hidden">
           <input
             type="search"
@@ -248,17 +242,23 @@ export default function Navbars() {
           )}
         </IconButton>
       </div>
-      <MobileNav open={openNav}>
+      <Collapse open={openNav}>
         <div className="container mx-auto">
           {navList}
           <div className="flex items-center gap-x-1">
             <Link to={"/signin"}>
-              <Button fullWidth variant="text" size="sm" >
+              <Button fullWidth variant="text" size="sm">
                 <span>Sign In</span>
               </Button>
             </Link>
-            
-            <Button fullWidth onClick={handleOpen} variant="gradient" className="w-fit" size="sm">
+
+            <Button
+              fullWidth
+              onClick={handleOpen}
+              variant="gradient"
+              className="w-fit"
+              size="sm"
+            >
               <span>Sign Up</span>
             </Button>
 
@@ -268,8 +268,11 @@ export default function Navbars() {
               </DialogHeader>
               <DialogBody className="flex gap-10 justify-center">
                 <Button onClick={studentFormNavigate}>STUDENT</Button>
-                <Button onClick={tpoFormNavigate}>TPO</Button>
-                <Button onClick={RecruiterFormNavigate}>RECEUITER</Button>
+
+                <Button onClick={RecruiterFormNavigate}>RECRUITER</Button>
+                <Button onClick={tpoFormNavigate}>
+                  TRAINING PLACEMENT OFFICER
+                </Button>
               </DialogBody>
               <DialogFooter>
                 <Button
@@ -284,7 +287,7 @@ export default function Navbars() {
             </Dialog>
           </div>
         </div>
-      </MobileNav>
+      </Collapse>
     </Navbar>
   );
 }
