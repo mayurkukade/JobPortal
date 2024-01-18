@@ -37,13 +37,13 @@ import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
 import Savejobs from "./Pages/Savejobs";
 import GetStartedPage from "./Pages/GetStartedPage";
-import Pricing from "./Compoments/Hr/Dashboard Compoment/Pricing.jsx";
+
 
 import SkillsLayout from "./Compoments/layout/SkillsLayout";
 import Skillsweb from "./Compoments/skills/Skillsweb";
 import SkillsAI from "./Compoments/skills/SkillsAI";
 import CourseDetails from "./Compoments/skills/CourseDetails";
-import CoursePlayList from "./Compoments/skills/CoursePlayList";
+
 import NotFound from "./Pages/NotFound";
 import CourseplaylistLayOut from "./Compoments/layout/CourseplaylistLayOut.jsx";
 import Courseplay from "./Compoments/skills/Courseplay.jsx";

@@ -1,15 +1,40 @@
-import React, { useState } from "react";
-import { ButtonGroup, Input } from "@material-tailwind/react";
+import { useState } from "react";
+import { Input } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
 import toast from "react-hot-toast";
 import OtpInput from "react-otp-input";
 import { Button } from "@material-tailwind/react";
-
+import { useNavigate } from "react-router";
 import {
   useEmailVerifyMutation,
   useOtpVerifyMutation,
+  useStudentRegisterPostMutation
 } from "../../services/Registration/registrationSlice";
 const CompanyForm = () => {
+  const [inputField, setInputField] = useState({
+    fullName: "",
+    companyName: "",
+    gstNumber: "",
+    companyServices: "",
+    companyType: "",
+    companyLevel: "",
+    officeAddress: "",
+    companyLocation: "",
+    mobileNumber: "",
+    password:""
+  });
+  const navigate = useNavigate()
+  const [studentRegisterPost] = useStudentRegisterPostMutation();
+
+  const onChangeHandle = (e) => {
+    const { name, value } = e.target;
+
+    setInputField((prevInputField) => ({
+      ...prevInputField,
+      [name]: value,
+    }));
+  };
+
   const [emailState, setEmail] = useState("");
   const [isVerifyOpen, setVerifyOpen] = useState(false);
   const [OTP, setOTP] = useState("");
@@ -40,10 +65,57 @@ const CompanyForm = () => {
       email: emailState,
       otp: OTP,
     });
+    console.log(res)
     if (res.data && res.data.status) {
-      toast.success("Sended OTP to your email");
+      toast.success("Email is verified");
     }
   };
+
+  const submitHandle = async(e) => {
+    e.preventDefault();
+   try {
+    const res = await studentRegisterPost({
+      fullName: inputField.fullName, 
+    email:emailState,
+    moNumber:inputField.mobileNumber,
+    password: inputField.password,
+    status: "active",
+    roles : "COMPANY",
+    date:"2023-12-10",
+    ref:"shjshj",
+    gender:"Male",
+     companyStatus:"ACTIVE",
+    companyName: inputField.companyName,
+    gestnNo: inputField.gstNumber,
+    companyServices: inputField.companyServices,
+    companyType: inputField.companyType,
+    companyLevel: inputField.companyLevel,
+    logo: "Company Logo URL",
+    officeAddress: inputField.officeAddress,
+    companyLocations: inputField.companyLocation,
+    oneCompanyDoc: "Document URL",
+   
+    })
+    console.log(res)
+    if (
+      res &&
+      res.error &&
+      res.error.data &&
+      res.error.data.code === "Unsuccessful"
+    ) {
+      toast.error("Unsuccessful registration");
+    } else {
+      toast.success("Successful registration");
+      setTimeout(() => {
+        navigate("/");
+      }, 500);
+    }
+   } catch (error) {
+    console.error("Error during form submission:", error);
+
+   }
+  };
+
   const inputStyle = {
     width: "1.8rem", // Set your desired width
     height: "2rem", // Set your desired height
@@ -56,10 +128,23 @@ const CompanyForm = () => {
   };
   return (
     <>
-      <form className=" space-y-3 flex justify-center flex-col ">
+      <form
+        className=" space-y-3 flex justify-center flex-col "
+        onSubmit={submitHandle}
+      >
         <div className="flex gap-2">
-          <Input label="your fullname" />
-          <Input label="comapny name" />
+          <Input
+            label="your fullname"
+            name="fullName"
+            onChange={onChangeHandle}
+            value={inputField.fullName}
+          />
+          <Input
+            label="comapny name"
+            name="companyName"
+            onChange={onChangeHandle}
+            value={inputField.companyName}
+          />
         </div>
         <div className="flex gap-5">
           <Input
@@ -107,28 +192,72 @@ const CompanyForm = () => {
           </div>
         )}
         <div className="flex gap-2">
-          <Input label="GST Number" />
-          <Input label="Company Services" />
+          <Input
+            label="GST Number"
+            name="gstNumber"
+            value={inputField.gstNumber}
+            onChange={onChangeHandle}
+          />
+          <Input
+            label="Company Services"
+            name="companyServices"
+            value={inputField.companyServices}
+            onChange={onChangeHandle}
+          />
         </div>
         <div className="flex gap-2">
-          <Input label="Company Type" />
-          <Input label="Company Level" />
+          <Input
+            label="Company Type"
+            name="companyType"
+            value={inputField.companyType}
+            onChange={onChangeHandle}
+          />
+          <Input
+            label="Company Level"
+            name="companyLevel"
+            value={inputField.companyLevel}
+            onChange={onChangeHandle}
+          />
         </div>
         <div className="flex gap-2">
-          <Input label="Office Address" />
-          <Input label="Company Location" />
+          <Input
+            label="Office Address"
+            name="officeAddress"
+            value={inputField.officeAddress}
+            onChange={onChangeHandle}
+          />
+          <Input
+            label="Company Location"
+            name="companyLocation"
+            value={inputField.comnpanyLocation}
+            onChange={onChangeHandle}
+          />
         </div>
         <div className="flex gap-2">
-     
-          <Input label="mobile number" />
-     
-      
-
+          <Input
+            label="mobile number"
+            name="mobileNumber"
+            value={inputField.mobileNumber}
+            onChange={onChangeHandle}
+          />
+          <Input
+            label="password"
+            name="password"
+            value={inputField.password}
+            onChange={onChangeHandle}
+          />
         </div>
-        <div className="flex justify-center">
-        <Button className=" w-fit">Sign Up</Button>
-        </div>
+        <input
+        type="file"
+        id="fileInput"
+        accept=".pdf"
         
+      />
+        <div className="flex justify-center">
+          <Button className=" w-fit" type="submit">
+            Sign Up
+          </Button>
+        </div>
       </form>
     </>
   );
