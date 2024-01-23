@@ -33,7 +33,7 @@ const RecruiterSignUpForm = () => {
 
         <div className="flex justify-center items-center h-full">
           <div className="bg-white p-5 w-[30rem] rounded-xl shadow-xl">
-            <h1 className="text-center text-lg">Recruiter Register</h1>
+            <h1 className="text-center text-lg"> Sign Up</h1>
             <Tabs value="html">
               <TabsHeader>
                 {data.map(({ label, value }) => (

@@ -63,9 +63,13 @@ import { Link ,useNavigate} from 'react-router-dom';
       email: emailState,
     });
     setLoader(false);
-    console.log(res);
+    if(res?.error?.data?.message){
+      return  toast.error(res?.error?.data?.message)
+      }
+      
+    
     if (res.data && res.data.status) {
-      toast.success("Sended OTP to your email");
+      toast.success("Send OTP");
       setVerifyOpen(true);
     }
   };
@@ -91,6 +95,19 @@ import { Link ,useNavigate} from 'react-router-dom';
   };
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString().slice(0, 10);
+    console.log(formattedDate)
+    console.log(
+      fullNameState,
+      emailState,
+      mobileNumberState,
+      passwordState,
+      formattedDate,
+      referenceState,
+      genderState,
+      refCompanyState
+    )
     try {
       const res = await studentRegisterPost({
         fullName: fullNameState,
@@ -99,23 +116,25 @@ import { Link ,useNavigate} from 'react-router-dom';
         password: passwordState,
         status: "active",
         roles: "HR",
-        date: new Date(),
+        date: formattedDate,
         ref: referenceState,
         gender: genderState,
         designation: "Hr",
         hrstatus: "Active",
-        refNoOfCompany: "ootD7N2o",
+        refNoOfCompany: refCompanyState,
       });
-      console.log(res);
+     
 
       if (
         res &&
-        res.error &&
-        res.error.data &&
-        res.error.data.code === "Unsuccessful"
+        res?.error &&
+        res?.error?.data &&
+        res?.error?.data?.code
       ) {
-        toast.error("Unsuccessful registration");
-      } else {
+      return  toast.error(res?.error?.data?.message);
+      } 
+      if(res?.data?.code)
+      {
         toast.success("Successful registration");
         setTimeout(() => {
           navigate("/");
@@ -192,7 +211,7 @@ import { Link ,useNavigate} from 'react-router-dom';
               />
 
               <Input
-                type="text"
+                type="password"
                 label="password"
                 name="password"
                 value={passwordState}
@@ -200,14 +219,14 @@ import { Link ,useNavigate} from 'react-router-dom';
                 required
               />
 
-              <Input
+              {/* <Input
                 type="text"
                 label="reference"
                 name="reference"
                 value={referenceState}
                 onChange={onchangeReference}
                 required
-              />
+              /> */}
 
               <select
                 id="gender"

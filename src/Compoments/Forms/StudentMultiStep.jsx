@@ -7,24 +7,18 @@ import {
   Avatar,
 } from "@material-tailwind/react";
 import { motion } from "framer-motion";
-import AddDegreess from "./AddDegreess";
+import AddDegreess from "../studentProfile/AddDegreess";
 import Select from "react-select";
-import Certificates from "./Certificates";
-
-import {
-
-  useStudentRegisterPostMutation,
-
-} from "../../services/Registration/registrationSlice";
+import Certificates from "../studentProfile/Certificates";
 
 export default function StudentMultiStep() {
-  const [step1, setStep1] = React.useState(false);
+  const [step1, setStep1] = React.useState(true);
   const [step2, setStep2] = React.useState(false);
   const [step3, setStep3] = React.useState(false);
   const [step4, setStep4] = React.useState(false);
   const [step5, setStep5] = React.useState(false);
   const [step6, setStep6] = React.useState(false);
-  const [step7, setStep7] = React.useState(true);
+  const [step7, setStep7] = React.useState(false);
   const [substep, setSubstep] = React.useState(false);
   const [addcertificate, setAddcertificate] = React.useState(false);
 
@@ -552,68 +546,9 @@ export default function StudentMultiStep() {
       setImgage1(true);
     }
   }
-  const [studentRegisterPost] = useStudentRegisterPostMutation();
-
-  const submitHandler = async(e)=>{
-    e.preventDefault()
-    const res = await studentRegisterPost({
-      userId: 1,
-      experienceType: "Some Experience",
-      workExperience: "1 year",
-      lastWorkDuration: "Full Time",
-      lastCompany: "ABC Corp",
-      lastSalary: "50,000",
-      previousDesignation: "Software Developer",
-      careerBreak: "No",
-      highestLevelOfEud: "Master's Degree",
-      currentLocation: "City",
-      availableToJoin: "1 month",
-      specialization: "Computer Science",
-      course: "MCA",
-      courseDuration: "3 years",
-      skills: ["Java", "Spring", "Hibernate"],
-      degrees: [
-        {
-          "institute": "XYZ University",
-          "batchFrom": "2017",
-          "batchTo": "2020",
-          "course": "B.Sc",
-          "degree": "Bachelor's"
-        },
-        {
-          "institute": "ABC Institute",
-          "batchFrom": "2020",
-          "batchTo": "2022",
-          "course": "M.Sc",
-          "degree": "Master's"
-        }
-      ],
-      certificates: [
-        {
-          "certificate": "Java Certification",
-          "institute": "Tech Academy",
-          "durationFrom": "2023-01-01",
-          "durationTo": "2023-01-31",
-          "type": "Online",
-          "validUpto": "2023-02-28"
-        },
-        {
-          "certificate": "Spring Certification",
-          "institute": "Code Institute",
-          "durationFrom": "2023-02-01",
-          "durationTo": "2023-02-28",
-          "type": "Classroom",
-          "validUpto": "2023-03-31"
-        }
-      ],
-      shortAboutYourself: "Passionate software developer with a strong background in Java development."
-    })
-
-    console.log(res)
-  }
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center">
       <div className="mt-10 ml-2">
         <div className="sm:flex hidden justify-center">
           <motion.div
@@ -715,7 +650,7 @@ export default function StudentMultiStep() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
               >
-                <div className="bg-gray-100 py-2  w-full  ">
+                <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full  ">
                   <p className="pl-2">Personal Details</p>
                 </div>
 
@@ -1995,7 +1930,7 @@ export default function StudentMultiStep() {
                   <Button
                     className="bg-orange-800"
                     type="submit"
-                    onClick={submitHandler}
+                    onClick={handleSubmit}
                   >
                     Submit
                   </Button>

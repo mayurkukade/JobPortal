@@ -54,7 +54,10 @@ const CompanyForm = () => {
       email: emailState,
     });
     setLoader(false);
-    console.log(res);
+    if(res?.error?.data?.message){
+    return  toast.error(res?.error?.data?.message)
+    }
+    
     if (res.data && res.data.status) {
       toast.success("Sended OTP to your email");
       setVerifyOpen(true);
@@ -66,6 +69,9 @@ const CompanyForm = () => {
       otp: OTP,
     });
     console.log(res)
+    if(res?.error?.status == '400'){
+      toast.error(res.error.data.message);
+    }
     if (res.data && res.data.status) {
       toast.success("Email is verified");
     }
@@ -73,6 +79,9 @@ const CompanyForm = () => {
 
   const submitHandle = async(e) => {
     e.preventDefault();
+    const currentDate = new Date();
+    const formattedDate = currentDate.toISOString().slice(0, 10);
+    console.log(formattedDate)
    try {
     const res = await studentRegisterPost({
       fullName: inputField.fullName, 
@@ -81,7 +90,7 @@ const CompanyForm = () => {
     password: inputField.password,
     status: "active",
     roles : "COMPANY",
-    date:"2023-12-10",
+    date:formattedDate,
     ref:"shjshj",
     gender:"Male",
      companyStatus:"ACTIVE",
@@ -241,6 +250,7 @@ const CompanyForm = () => {
             onChange={onChangeHandle}
           />
           <Input
+          type="password"
             label="password"
             name="password"
             value={inputField.password}
