@@ -3,7 +3,7 @@ import HomePage from "./Pages/HomePage";
 import JobSection from "./Pages/JobSection";
 import JobDetails from "./Compoments/Job details/JobDetails";
 import AppLayout from "./Compoments/layout/AppLayout";
-import { Counter } from "./features/counter/Counter";
+
 import RegistrationPage from "./Pages/RegistrationPage";
 import StudentSignUpForm from "./Compoments/Forms/StudentSignUpForm";
 import TpoSignUpForm from "./Compoments/Forms/TpoSignUpForm";
@@ -129,16 +129,16 @@ function App() {
           <Route path="/" element={<HomePage />} />
          
 
-          <Route path="/skills" element={<SkillsLayout />}>
+          {/* <Route path="/skills" element={<SkillsLayout />}>
             <Route index element={<Skillsweb />} />
             <Route path="Ai" element={<SkillsAI />} />
           </Route>
           <Route path="/courseplaylist/:id" element={<CourseplaylistLayOut />}>
             <Route path="list/:id" element={<Courseplay />} />
           </Route>
-          <Route path="/skills/details" element={<CourseDetails />} />
+          <Route path="/skills/details" element={<CourseDetails />} /> */}
 
-          <Route path="/counter" element={<Counter />} />
+         
           <Route path="/Dashboard/*" element={<Dashboard />} />
           <Route path="/PublishJob" element={<PublishJob />} />
           <Route path="/getstarted" element={<GetStartedPage />} />

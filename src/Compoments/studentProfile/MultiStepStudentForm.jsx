@@ -24,7 +24,7 @@ export default function StudentMultiStep() {
   const [step4, setStep4] = React.useState(false);
   const [step5, setStep5] = React.useState(false);
   const [step6, setStep6] = React.useState(false);
-  const [step7, setStep7] = React.useState(true);
+  const [step7, setStep7] = React.useState(false);
   const [substep, setSubstep] = React.useState(false);
   const [addcertificate, setAddcertificate] = React.useState(false);
 
@@ -557,7 +557,7 @@ export default function StudentMultiStep() {
   const submitHandler = async(e)=>{
     e.preventDefault()
     const res = await studentRegisterPost({
-      userId: 1,
+      userId: 1000,
       experienceType: "Some Experience",
       workExperience: "1 year",
       lastWorkDuration: "Full Time",
@@ -1078,7 +1078,7 @@ export default function StudentMultiStep() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
               >
-                <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full ">
+                <div className="bg-gray-100 py-2 w-full ">
                   <p className="pl-2">Education</p>
                 </div>
 
@@ -1261,7 +1261,7 @@ export default function StudentMultiStep() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
               >
-                <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full">
+                <div className="bg-gray-100 py-2  w-full">
                   <p className="pl-2">Professional Details</p>
                 </div>
 
@@ -1489,7 +1489,7 @@ export default function StudentMultiStep() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
               >
-                <div className="bg-gray-100 py-2 sm:w-[81.25rem] ">
+                <div className="bg-gray-100 py-2  ">
                   <p className="pl-2">Please upload your resume here</p>
                 </div>
 
@@ -1570,7 +1570,7 @@ export default function StudentMultiStep() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
               >
-                <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full">
+                <div className="bg-gray-100 py-2  w-full">
                   <p className="pl-2">Certifications</p>
                 </div>
 
@@ -1741,7 +1741,7 @@ export default function StudentMultiStep() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
               >
-                <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full">
+                <div className="bg-gray-100 py-2  w-full">
                   <p className="pl-2">Skill & Recommendations</p>
                 </div>
                 <div className="flex mt-5 justify-center">
@@ -1787,7 +1787,7 @@ export default function StudentMultiStep() {
                 animate={{ x: 0 }}
                 transition={{ delay: 0.2, stiffness: 30, type: "spring" }}
               >
-                <div className="bg-gray-100 py-2 sm:w-[81.25rem] w-full">
+                <div className="bg-gray-100 py-2  w-full">
                   <p className="pl-2">Additional Information</p>
                 </div>
 

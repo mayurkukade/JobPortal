@@ -92,7 +92,7 @@ export default function Navbars() {
           <p className="flex items-center text-white">Jobs</p>
         </Typography>
       </Link>
-      <Link to="/skills">
+      {/* <Link to="/skills">
         <Typography
           as="li"
           variant="small"
@@ -101,7 +101,7 @@ export default function Navbars() {
         >
           <p className="flex items-center text-white">Courses</p>
         </Typography>
-      </Link>
+      </Link> */}
 <Link to={'/pricingpage'}>
       <Typography
         as="li"

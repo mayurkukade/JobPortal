@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import counterReducer from '../../features/counter/counterSlice'
+
 
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { registrationSlice } from '../../services/Registration/registrationSlice'
@@ -14,7 +14,7 @@ import { plansApiSlice } from '../../services/plans/plansApiSlice'
 export const store = configureStore({
     reducer:{
 
-        counter:counterReducer,
+        
         authSlice:authSlice,
        [apiSlice.reducerPath]:apiSlice.reducer,
         [registrationSlice.reducerPath]:registrationSlice.reducer,

@@ -12,7 +12,7 @@ export const studentApiSlice = apiSlice.injectEndpoints({
     }),
     addStudentProfile: builder.mutation({
       query: ({ studentFormData, id }) => ({
-        url: `/StudentProfile/AddProfile?userId=1173`,
+        url: `/StudentProfile/AddProfile?userId=1000`,
         method: "POST",
         transformResponse: console.log(id),
         body: studentFormData,
