@@ -18,7 +18,7 @@ import {
 } from "../../services/Registration/registrationSlice";
 
 export default function StudentMultiStep() {
-  const [step1, setStep1] = React.useState(false);
+  const [step1, setStep1] = React.useState(true);
   const [step2, setStep2] = React.useState(false);
   const [step3, setStep3] = React.useState(false);
   const [step4, setStep4] = React.useState(false);
