@@ -18,11 +18,11 @@ export default function HomePage() {
       <HeaderLower />
 
       <HomeSteps />
-      <Reviews />
+      {/* <Reviews /> */}
       <Companies />
-      <div className="mt-20">
+      {/* <div className="mt-20">
         <Cards />
-      </div>
+      </div> */}
 
       <StillHaveDout />
       <Faq />
