@@ -247,7 +247,7 @@ export const data = [
                 />
               </svg>
 
-              <p className="text-primary text-2xl  ml-2"> 500₹/Month</p>
+              <p className="text-primary text-2xl  ml-2"> 5000₹/Month</p>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -527,7 +527,7 @@ export const data = [
                 />
               </svg>
 
-              <p className="text-primary text-2xl  ml-2"> 500₹/Month</p>
+              <p className="text-primary text-2xl  ml-2"> 5000₹/Month</p>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -633,8 +633,7 @@ export const data = [
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal text-black text-lg">
-                Unlimited job
-listings
+                  Unlimited job listings
                 </Typography>
               </li>
               <li className="flex items-center gap-4">
@@ -642,11 +641,9 @@ listings
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal text-black text-lg">
-                Unlimited profile
-access
+                  Unlimited profile access
                 </Typography>
               </li>
-             
             </ul>
           </CardBody>
         </Card>
@@ -662,7 +659,7 @@ access
             floated={false}
             shadow={false}
             color="transparent"
-            className=" rounded-none border-b border-white/10 pb-8 text-center"
+            className=" rounded-none border-b border-white/10 text-center"
           >
             <Typography
               variant="small"
@@ -725,9 +722,7 @@ access
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal text-black text-lg">
-                Candidate skills
-and assessment
-scores visibility
+                  Candidate skills and assessment scores visibility
                 </Typography>
               </li>
               <li className="flex items-center gap-4">
@@ -735,11 +730,9 @@ scores visibility
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal text-black text-lg">
-                Application
-tracking system
+                  Application tracking system
                 </Typography>
               </li>
-             
             </ul>
           </CardBody>
           <CardFooter className="mt-2 p-0">
@@ -797,7 +790,7 @@ tracking system
                 />
               </svg>
 
-              <p className="text-primary text-2xl  ml-2"> 500₹/Month</p>
+              <p className="text-primary text-2xl  ml-2"> 5000₹/Month</p>
 
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -823,15 +816,12 @@ tracking system
               </p>
             </Typography>
             <ul className="flex flex-col gap-4 mt-5">
-             
               <li className="flex items-center gap-4">
                 <span className="rounded-full text-black  p-1">
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal text-black text-lg">
-                Candidate
-assessments -
-virtual / in person
+                  Candidate assessments - virtual / in person
                 </Typography>
               </li>
               <li className="flex items-center gap-4">
@@ -839,8 +829,7 @@ virtual / in person
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal text-black text-lg">
-                Interview - industry
-consultants
+                  Interview - industry consultants
                 </Typography>
               </li>
               <li className="flex items-center gap-4">
@@ -848,8 +837,7 @@ consultants
                   <CheckIcon />
                 </span>
                 <Typography className="font-normal text-black text-lg">
-                Candidate
-recommendations
+                  Candidate recommendations
                 </Typography>
               </li>
             </ul>

@@ -11,10 +11,10 @@ export const studentApiSlice = apiSlice.injectEndpoints({
       providesTags: ["registerPost"],
     }),
     addStudentProfile: builder.mutation({
-      query: ({ studentFormData, id }) => ({
-        url: `/StudentProfile/AddProfile?userId=1000`,
+      query: ( studentFormData) => ({
+        url: `/StudentProfile/AddProfile?userId=${studentFormData.userId}`,
         method: "POST",
-        transformResponse: console.log(id),
+        transformResponse: console.log(studentFormData),
         body: studentFormData,
       }),
       invalidatesTags: ["registerPost"],
