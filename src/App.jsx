@@ -58,6 +58,7 @@ import PricingPage from "./Pages/PricingPage.jsx";
 
 import { onlyAdmin } from "./Compoments/config/roles";
 import RecruiterRequire from "./features/RecruiterRequire/REcruiterREquire.jsx";
+import AddProfileDetails from "./Compoments/studentProfile/AddProfileDetails.jsx";
 
 function App() {
   return (
@@ -118,9 +119,10 @@ function App() {
             >
               <Route path="/jobsection" element={<JobSection />} />
               <Route path="/jobdetails/:id" element={<JobDetailsById />} />
-              <Route path="/edit/profile" element={<MultiStepStudentForm />} />
+              {/* <Route path="/edit/profile" element={<MultiStepStudentForm />} /> */}
               <Route path="/profile/:id" element={<Myprofile />} />
               <Route path="/savejob/:id" element={<Savejobs />} />
+              <Route path="/edit/profile" element={<AddProfileDetails/>} />
             </Route>
             <Route path="/pricingpage" element={<PricingPage />} />
           </Route>
