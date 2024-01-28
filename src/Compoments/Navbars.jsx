@@ -132,7 +132,7 @@ export default function Navbars() {
           <p className="flex items-center text-white">Study Abroad</p>
         </Typography>
       </Link>
-      <Link to="/aboutus">
+      {/* <Link to="/aboutus">
         <Typography
           as="li"
           variant="small"
@@ -141,7 +141,7 @@ export default function Navbars() {
         >
           <p className="flex items-center text-white">About Us</p>
         </Typography>
-      </Link>
+      </Link> */}
       {/* <Typography
         as="li"
         variant="small"
