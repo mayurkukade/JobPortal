@@ -10,8 +10,8 @@ import {
 } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import Pref from "./Images/preferable-icon 1.png";
-import { useState } from "react";
-import { useEffect } from "react";
+// import { useState } from "react";
+// import { useEffect } from "react";
 
 
 import {
@@ -26,7 +26,7 @@ import { useSelector } from "react-redux";
 
 export default function Navbars() {
   const [openNav, setOpenNav] = React.useState(false);
-  const [theme, setTheme] = useState("light");
+  // const [theme, setTheme] = useState("light");
   const [open, setOpen] = React.useState(false);
 
   const handleOpen = () => setOpen(!open);
@@ -62,13 +62,13 @@ export default function Navbars() {
   // const handleThemeSwitch = () => {
   //   setTheme(theme === "dark" ? "light" : "dark");
   // };
-  useEffect(() => {
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-    }
-  }, [theme]);
+  // useEffect(() => {
+  //   if (theme === "dark") {
+  //     document.documentElement.classList.add("dark");
+  //   } else {
+  //     document.documentElement.classList.remove("dark");
+  //   }
+  // }, [theme]);
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center  ">

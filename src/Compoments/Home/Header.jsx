@@ -5,8 +5,8 @@ export default function Header() {
   return (
     <div className="flex bg-background dark:bg-dark container mx-auto ">
       {/* left side of container */}
-      <div className="md:pt-20 md:mb-8  md:spl-[50px]  ">
-        <p className=" md:text-6xl font-[Poppins] font-semibold dark:text-white text-text xl:text-8xl ">
+      <div className="md:pt-20 md:mb-8  md:spl-[50px]   ">
+        <p className=" md:text-6xl animate-slidein [--slidein-delay:300ms] opacity-0 font-[Poppins] font-semibold dark:text-white text-text xl:text-8xl ">
           We Help
           <div className="pt-3">
             <span className="text-accent    ">You</span> To Craft
@@ -16,11 +16,11 @@ export default function Header() {
           </div>
         </p>
 
-        <p className="mt-10 dark:text-white font-[Poppins] md:text-2xl xl:text-2lg">
+        <p className="mt-10 animate-slidein [--slidein-delay:500ms] opacity-0 dark:text-white font-[Poppins] md:text-2xl xl:text-2lg">
           Join us and take your career to the <br /> next level.
         </p>
 
-        <div className="flex md:mt-[3rem] gap-4 ">
+        <div className="flex md:mt-[3rem] gap-4 animate-slidein [--slidein-delay:700ms] opacity-0">
           <Button className="bg-white text-primary" size="lg">
             How does it work?
           </Button>
