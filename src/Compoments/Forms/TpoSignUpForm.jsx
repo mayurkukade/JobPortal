@@ -112,7 +112,7 @@ const TpoSignUpForm = () => {
       otp: OTP,
     });
     if (res.data && res.data.status) {
-      toast.success("Sended OTP to your email");
+      toast.success("Email has been verified");
     }
   };
   const inputStyle = {

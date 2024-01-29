@@ -72,6 +72,7 @@ export default function Navbars() {
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center  ">
+    <Link to='/'>
       <Typography
         as="li"
         variant="small"
@@ -82,6 +83,7 @@ export default function Navbars() {
           Home
         </p>
       </Typography>
+      </Link>
       <Link to="/jobsection">
         <Typography
           as="li"
@@ -132,7 +134,7 @@ export default function Navbars() {
           <p className="flex items-center text-white">Study Abroad</p>
         </Typography>
       </Link>
-      {/* <Link to="/aboutus">
+      <Link to="/aboutus">
         <Typography
           as="li"
           variant="small"
@@ -141,7 +143,7 @@ export default function Navbars() {
         >
           <p className="flex items-center text-white">About Us</p>
         </Typography>
-      </Link> */}
+      </Link>
       {/* <Typography
         as="li"
         variant="small"
