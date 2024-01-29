@@ -137,9 +137,9 @@ const Companies = ({ size, onStartPerformance, onEndPerformance }) => {
           {times(20, Number).map((id) => (
             <Motion
               key={`marquee-example-company-${id}`}
-              initDeg={randomIntFromInterval(0, 360)}
+              initDeg={randomIntFromInterval(0, 180)}
               direction={Math.random() > 0.5 ? "clockwise" : "counterclockwise"}
-              velocity={12}
+              velocity={30}
               radius={scale * 40}
               
             >
