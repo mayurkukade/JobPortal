@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080",
+    baseUrl: "https://backendpe.up.railway.app",
   }),
   prepareHeaders:(headers)=>{
       let token = Cookies.get('jwtToken')
