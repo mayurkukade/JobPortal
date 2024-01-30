@@ -5,7 +5,7 @@ import {
   ListItem,
   ListItemPrefix,
   ListItemSuffix,
-  Chip,
+  
 } from "@material-tailwind/react";
 import { BsAndroid2 } from "react-icons/bs";
 import { FaFire } from "react-icons/fa";
@@ -15,6 +15,7 @@ import { GiRobotGolem } from "react-icons/gi";
 import { IoEarth } from "react-icons/io5";
 import { SiHiveBlockchain } from "react-icons/si";
 import { RiSpeakLine } from "react-icons/ri";
+import companyLogo from '../Images/Opticalarclogo.png'
 const Sidebar = () => {
   return (
     <Card className="h-[calc(100vh-2rem)] w-full max-w-[20rem] p-4 shadow-xl shadow-blue-gray-900/5">

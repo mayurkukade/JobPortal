@@ -4,7 +4,7 @@ import Cookies from "js-cookie";
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080",
+    baseUrl: "http://backendpe.up.railway.app",
   }),
   prepareHeaders:(headers)=>{
       let token = Cookies.get('jwtToken')
@@ -19,6 +19,6 @@ export const apiSlice = createApi({
       }
       return headers;
   },
-  tagTypes: ['registerPost','save','mentor','itTrainig','bootCamp','job','application'],
+  tagTypes: ['registerPost','plans','save','mentor','itTrainig','bootCamp','job','application','recruiter'],
   endpoints: (builder) => ({}),
 });

@@ -129,8 +129,11 @@ export default function JobSecond({
       jobId,
       studentApplicationStatus: "Pending",
     });
-    console.log(res);
-    toast.success("Applied Successfully");
+    console.log(res.data.code);
+    if(res?.data?.code){
+      toast.success("Applied Successfully");
+    }
+  
     if (res.error) {
       toast.error(res.error.data.message);
     }

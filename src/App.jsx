@@ -3,7 +3,7 @@ import HomePage from "./Pages/HomePage";
 import JobSection from "./Pages/JobSection";
 import JobDetails from "./Compoments/Job details/JobDetails";
 import AppLayout from "./Compoments/layout/AppLayout";
-import { Counter } from "./features/counter/Counter";
+
 import RegistrationPage from "./Pages/RegistrationPage";
 import StudentSignUpForm from "./Compoments/Forms/StudentSignUpForm";
 import TpoSignUpForm from "./Compoments/Forms/TpoSignUpForm";
@@ -36,23 +36,43 @@ import PublishJob from "./Compoments/Hr/DashboardFeatures/PublishJob";
 import TokenRequire from "./features/TokenRequire/TokenRequire";
 import Myprofile from "./Pages/Myprofile";
 import Savejobs from "./Pages/Savejobs";
-import GetStartedPage from './Pages/GetStartedPage'
+import GetStartedPage from "./Pages/GetStartedPage";
+import { onlyRecruiter } from "./Compoments/config/onlyRecruiter.js";
 
 import SkillsLayout from "./Compoments/layout/SkillsLayout";
 import Skillsweb from "./Compoments/skills/Skillsweb";
 import SkillsAI from "./Compoments/skills/SkillsAI";
 import CourseDetails from "./Compoments/skills/CourseDetails";
+
+import NotFound from "./Pages/NotFound";
+import CourseplaylistLayOut from "./Compoments/layout/CourseplaylistLayOut.jsx";
+import Courseplay from "./Compoments/skills/Courseplay.jsx";
+import MentorPage from "./Pages/MentorPage.jsx";
+import StudyABroad from "./Pages/StudyABroad.jsx";
+import RecruiterLayout from "./Compoments/layout/RecruiterLayout.jsx";
+import Recruiter from "./Pages/Recruiter.jsx";
+import RecruiterJobs from "./Compoments/recruiter/RecruiterJobs.jsx";
+import RecruiterJobPublish from "./Compoments/recruiter/RecruiterJobPublish.jsx";
+import PlansAdminPage from "./Compoments/admin/PlansAdminPage.jsx";
+import PricingPage from "./Pages/PricingPage.jsx";
+
+import { onlyAdmin } from "./Compoments/config/roles";
+import RecruiterRequire from "./features/RecruiterRequire/REcruiterREquire.jsx";
+import AddProfileDetails from "./Compoments/studentProfile/AddProfileDetails.jsx";
+
 function App() {
   return (
     <>
       <Routes>
         <Route element={<AppLayout />}>
-          {/* admin */}
-
           <Route
-            element={<AdminRequire allowedRoles={[...Object.values(ROLES)]} />}
+            element={
+              <AdminRequire allowedRoles={[...Object.values(onlyAdmin)]} />
+            }
           >
             <Route path="/admin" element={<Admin />} />
+            {/* admin */}
+
             <Route path="/admin/studentlist" element={<StudentList />} />
             <Route
               path="/admin/studentlist/studentDetails/:studentId"
@@ -88,6 +108,7 @@ function App() {
               element={<MentorDetails />}
             />
             <Route path="/admin/mentor/edit/:id" element={<MentorEdit />} />
+            <Route path="/admin/plans" element={<PlansAdminPage />} />
           </Route>
 
           <Route>
@@ -96,32 +117,58 @@ function App() {
                 <TokenRequire allowedRoles={[...Object.values(ROLES)]} />
               }
             >
-              <Route path="/jobsection" element={<JobSection />} />
-              <Route path="/jobdetails/:id" element={<JobDetailsById />} />
-              <Route path="/edit/profile" element={<MultiStepStudentForm />} />
+            
+              {/* <Route path="/edit/profile" element={<MultiStepStudentForm />} /> */}
               <Route path="/profile/:id" element={<Myprofile />} />
               <Route path="/savejob/:id" element={<Savejobs />} />
+              <Route path="/edit/profile" element={<AddProfileDetails/>} />
             </Route>
+            <Route path="/pricingpage" element={<PricingPage />} />
           </Route>
-
+          <Route path="/jobsection" element={<JobSection />} />
+              <Route path="/jobdetails/:id" element={<JobDetailsById />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
-          {/* <Route path="/jobsection" element={<JobSection />} />
-          <Route path="/jobdetails/:id" element={<JobDetailsById />} /> */}
-          <Route path="/profile" element={<MultiStepStudentForm />} />
+         
 
-          
-            <Route path="/skills" element={<SkillsLayout />}>
-              <Route index  element={<Skillsweb />} />
-              <Route path="Ai" element={<SkillsAI/>} />
-              
-            </Route>
-            <Route path="/skills/details" element={<CourseDetails/>} />
+          {/* <Route path="/skills" element={<SkillsLayout />}>
+            <Route index element={<Skillsweb />} />
+            <Route path="Ai" element={<SkillsAI />} />
+          </Route>
+          <Route path="/courseplaylist/:id" element={<CourseplaylistLayOut />}>
+            <Route path="list/:id" element={<Courseplay />} />
+          </Route>
+          <Route path="/skills/details" element={<CourseDetails />} /> */}
 
-          <Route path="/counter" element={<Counter />} />
+         
           <Route path="/Dashboard/*" element={<Dashboard />} />
           <Route path="/PublishJob" element={<PublishJob />} />
           <Route path="/getstarted" element={<GetStartedPage />} />
+          <Route path="mentor" element={<MentorPage />} />
+
+          <Route element={<RecruiterLayout />}>
+            <Route
+              element={
+                <RecruiterRequire
+                  allowedRoles={[...Object.values(onlyRecruiter)]}
+                />
+              }
+            >
+              <Route path="/recruiter" element={<Recruiter />} />
+              <Route path="/recruiter/jobs" element={<RecruiterJobs />} />
+              <Route
+                path="/recruiter/publishedjob"
+                element={<RecruiterJobPublish />}
+              />
+            </Route>
+          </Route>
+
+          <Route path="/studyabroad" element={<StudyABroad />} />
+
+          <Route path="/privacypolicy" element={<PrivacyPolicy />} />
+          <Route path="/termsandcondition" element={<TermsAndConditions />} />
+          <Route path="/cookiepolicy" element={<CookiePolicy />} />
+          <Route path="/securityguidelines" element={<SecurityGuidelines />} />
         </Route>
 
         <Route path="/register" element={<RegistrationPage />} />
@@ -130,10 +177,8 @@ function App() {
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/signin" element={<SignIn />} />
-        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
-        <Route path="/termsandcondition" element={<TermsAndConditions />} />
-        <Route path="/cookiepolicy" element={<CookiePolicy />} />
-        <Route path="/securityguidelines" element={<SecurityGuidelines />} />
+
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

@@ -1,10 +1,10 @@
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
-import React from "react";
+
 import { Outlet, useLocation } from "react-router-dom";
 import { Navigate } from "react-router-dom";
-import toast from "react-hot-toast";
-import { Toaster } from "react-hot-toast";
+
+
 
 const TokenRequire = ({ allowedRoles }) => {
   console.log(allowedRoles);
@@ -15,6 +15,7 @@ const TokenRequire = ({ allowedRoles }) => {
   
     const decodejwt = jwtDecode(cookiesJwt);
     userAuthRoles = decodejwt.authorities[0];
+    console.log(userAuthRoles)
     console.log(cookiesJwt);
   } catch (error) {
    
@@ -32,7 +33,7 @@ const TokenRequire = ({ allowedRoles }) => {
   );
 
   return <div>
-  <Toaster position="top-center"  />
+ 
   {content}</div>;
 };
 

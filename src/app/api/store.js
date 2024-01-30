@@ -1,5 +1,5 @@
 import {configureStore} from '@reduxjs/toolkit'
-import counterReducer from '../../features/counter/counterSlice'
+
 
 import { setupListeners } from '@reduxjs/toolkit/query'
 import { registrationSlice } from '../../services/Registration/registrationSlice'
@@ -10,10 +10,12 @@ import { studentApiSlice } from '../../services/studentApi/studentApiSlice'
 import {itTrainingSlice} from '../../services/itTraining/itTrainingSlice'
 import { bootCampSlice } from '../../services/bootcamp/bootCampSlice'
 import { studentApplicationApiSlice } from '../../services/studentApplication/studentApplicationApiSlice'
+import { plansApiSlice } from '../../services/plans/plansApiSlice'
+import { recruiterApiSlice } from '../../services/Recruiter/recruiterApiSlice'
 export const store = configureStore({
     reducer:{
 
-        counter:counterReducer,
+        
         authSlice:authSlice,
        [apiSlice.reducerPath]:apiSlice.reducer,
         [registrationSlice.reducerPath]:registrationSlice.reducer,
@@ -21,7 +23,9 @@ export const store = configureStore({
         [studentApiSlice.reducerPath] : studentApiSlice.reducer,
         [itTrainingSlice.reducerPath]:itTrainingSlice.reducer,
         [bootCampSlice.reducerPath]:bootCampSlice.reducer,
-        [studentApplicationApiSlice.reducerPath]:studentApplicationApiSlice.reducer
+        [studentApplicationApiSlice.reducerPath]:studentApplicationApiSlice.reducer,
+        [plansApiSlice.reducerPath] : plansApiSlice,
+        [recruiterApiSlice.reducerPath]:recruiterApiSlice.reducer
       
        
     },

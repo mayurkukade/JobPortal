@@ -1,4 +1,3 @@
-
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
 
@@ -20,21 +19,21 @@ export default function HeaderLower() {
     const timeout = setTimeout(() => {
       // First animation to 400
       const animation1 = animate(count1, 1200, {
-        duration: 2
+        duration: 2,
       });
 
       // Second animation to 300
       const animation2 = animate(count2, 200, {
-        duration: 2
+        duration: 2,
       });
       // First animation to 400
       const animation3 = animate(count3, 2000, {
-        duration: 2
+        duration: 2,
       });
 
       // Second animation to 300
       const animation4 = animate(count4, 30, {
-        duration: 2
+        duration: 2,
       });
 
       // Stop both animations when the component unmounts
@@ -52,41 +51,47 @@ export default function HeaderLower() {
   }, [count1, count2, count3, count4]);
   return (
     <>
-    
       <div className="w-full md:mt-3 xl:mt-[7rem]   h-3 flex-shrink-0 bg-primary "></div>
       <div className="flex justify-center bg-faintBackgroundBlue p-5 dark:bg-dark  ">
         <div className="md:grid md:grid-cols-12 mt-5 xl:gap-12 md:divide-x-4 md:divide-gray-900">
           {/* First block */}
           <div className="col-span-3 w-[300px]  ">
-            <p className="text-3xl text-accent flex justify-center">  <motion.h1>{rounded1}</motion.h1>+</p>
+            <p className="text-3xl text-accent flex justify-center">
+              {" "}
+              <motion.span>{rounded1}</motion.span>+
+            </p>
             <p className="text-[30px] flex justify-center text-[#060000]">
               Job Available
             </p>
           </div>
           {/* Second block */}
           <div className="col-span-3 w-[300px]  ">
-            <p className="text-3xl text-accent flex justify-center"><motion.h1>{rounded2}</motion.h1>+</p>
+            <p className="text-3xl text-accent flex justify-center">
+              <motion.span>{rounded2}</motion.span>+
+            </p>
             <p className="text-[30px] flex justify-center text-[#060000]">
               Top Companies
             </p>
           </div>
           {/* First block */}
           <div className="col-span-3 w-[300px]  ">
-            <p className="text-3xl text-accent flex justify-center"><motion.h1>{rounded3}</motion.h1>+</p>
+            <p className="text-3xl text-accent flex justify-center">
+              <motion.span>{rounded3}</motion.span>+
+            </p>
             <p className="text-[30px] flex justify-center text-[#060000]">
               Canditate Hired
             </p>
           </div>
           {/* First block */}
           <div className="col-span-3 w-[300px]  ">
-            <p className="text-3xl text-accent flex justify-center"><motion.h1>{rounded4}</motion.h1>+</p>
+            <p className="text-3xl text-accent flex justify-center">
+              <motion.span>{rounded4}</motion.span>+
+            </p>
             <p className="text-[30px] flex justify-center text-[#060000]">
               Class Available
             </p>
           </div>
-          
         </div>
-        
       </div>
       <div className="w-full   h-3 flex-shrink-0 bg-primary "></div>
     </>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import JobHeader from "../Compoments/JobSection/JobHeader";
 import JobSecond from "../Compoments/JobSection/JobSecond";
 import { useGetAllJobQuery } from "../services/job/jobApiSlice";
