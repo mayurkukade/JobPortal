@@ -117,19 +117,18 @@ function App() {
                 <TokenRequire allowedRoles={[...Object.values(ROLES)]} />
               }
             >
-            
               {/* <Route path="/edit/profile" element={<MultiStepStudentForm />} /> */}
               <Route path="/profile/:id" element={<Myprofile />} />
               <Route path="/savejob/:id" element={<Savejobs />} />
-              <Route path="/edit/profile" element={<AddProfileDetails/>} />
+              <Route path="/edit/profile" element={<AddProfileDetails />} />
+              <Route path="/jobsection" element={<JobSection />} />
+          <Route path="/jobdetails/:id" element={<JobDetailsById />} />
             </Route>
             <Route path="/pricingpage" element={<PricingPage />} />
           </Route>
-          <Route path="/jobsection" element={<JobSection />} />
-              <Route path="/jobdetails/:id" element={<JobDetailsById />} />
+         
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
-         
 
           {/* <Route path="/skills" element={<SkillsLayout />}>
             <Route index element={<Skillsweb />} />
@@ -140,7 +139,6 @@ function App() {
           </Route>
           <Route path="/skills/details" element={<CourseDetails />} /> */}
 
-         
           <Route path="/Dashboard/*" element={<Dashboard />} />
           <Route path="/PublishJob" element={<PublishJob />} />
           <Route path="/getstarted" element={<GetStartedPage />} />
