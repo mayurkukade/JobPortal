@@ -4,23 +4,68 @@ import { jwtDecode } from "jwt-decode";
 import { FaXTwitter } from "react-icons/fa6";
 import { VscGithub } from "react-icons/vsc";
 import { TiSocialLinkedinCircular } from "react-icons/ti";
-import { CgProfile } from "react-icons/cg";
+import { CgLayoutGrid, CgProfile } from "react-icons/cg";
 import { HiOutlineAcademicCap } from "react-icons/hi";
 import { AiOutlineSafetyCertificate } from "react-icons/ai";
 import { CiCircleMore } from "react-icons/ci";
-import { useGetStudentQuery } from "../services/studentApi/studentApiSlice.js";
-import {Input} from "@material-tailwind/react";
-import { useParams } from "react-router-dom";
+import { FaEdit } from "react-icons/fa";
+import { useCertificateUpdateMutation } from "../services/studentApi/studentApiSlice.js";
+import {
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+} from "@material-tailwind/react";
+import {
 
+  useGetDegreeStudentProfileQuery,
+  useGetStudentQuery
+} from "../services/studentApi/studentApiSlice.js";
+import { Input } from "@material-tailwind/react";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useauthHooks } from "../Compoments/hooks/authHooks.js";
+import CertificateDetails from "../Compoments/myprofile/CertificateDetails.jsx";
 const Myprofile = () => {
- const {id} = useParams()
+  const [openEducation, setOpenEducation] = useState(false);
+  const [certificateId, setCertificateId] = useState();
+  const [certificationInputForm, setCertificationInputForm] = useState({
+   
+    certificate: "",
+    institute: "",
+    durationFrom: "",
+    durationTo: "",
+  });
+  const {useDecode} = useauthHooks()
+  console.log(certificateId)
+  console.log(useDecode)
+
+  const handleOpenEducation = (id) => {
+    console.log(id)
+    setOpenEducation(!openEducation);
+    setCertificateId(id);
+  };
+  const { id } = useParams();
   const {
     data: studentBasicDetailsApi,
     isLoading,
     isError,
     isSuccess,
   } = useGetStudentQuery(id);
-  console.log(studentBasicDetailsApi);
+
+ 
+
+  
+
+  const {
+    data: studentdegree,
+    isSuccess: studentDegreeSuccess,
+    isLoading: studentDegreeLoading,
+    isError: studentDegreeError,
+  } = useGetDegreeStudentProfileQuery(useDecode?.userId);
+
+
+  console.log(studentdegree);
   let basicDetails;
   if (isLoading) {
     basicDetails = <p>loading</p>;
@@ -30,6 +75,34 @@ const Myprofile = () => {
     basicDetails = studentBasicDetailsApi?.response;
   }
 
+  let studentDegreefetched;
+  if (studentDegreeLoading) {
+    studentDegreefetched = <p>Loading...</p>;
+  } else if (studentDegreeError) {
+    studentDegreefetched = <p>Error</p>;
+  } else if (studentDegreeSuccess) {
+    studentDegreefetched = studentdegree;
+  }
+
+  console.log(studentDegreefetched);
+  const startYear = 1990;
+  const endYear = 2030;
+
+  const year = Array.from(
+    { length: endYear - startYear + 1 },
+    (_, index) => startYear + index
+  );
+
+  const CertificationOnChaneHandle = (e) => {
+    e.preventDefault();
+    const { name, value } = e.target;
+    setCertificationInputForm({
+      ...certificationInputForm,
+      [name]: value,
+    });
+  };
+
+ 
   return (
     <div className="grid grid-cols-4   gap-1">
       <div className="bg-[#F8F8FF]">
@@ -132,14 +205,85 @@ const Myprofile = () => {
           </div>
           <p className="text-2xl">Education Details</p>
         </div>
-        <div>
-          <h3>B Tech / BE (Full Time) </h3>
-          <p>Rashtrasant Tukadoji Maharaj Nagpur University</p>
-          <p>2016 - 2021</p>
-        </div>
+        <Dialog open={openEducation} handler={handleOpenEducation}>
+          <DialogHeader>Education Details</DialogHeader>
+          <form className="flex flex-col justify-center space-y-8 p-5 ">
+            <div className="space-y-8">
+              <div className="flex justify-center gap-10 items-center w-[35rem]"></div>
+              <div className="flex justify-center gap-10 items-center w-[35rem]">
+                <p className="w-20">Course Certification</p>
+                <Input
+                  label="Course"
+                  name="certificate"
+                  onChange={CertificationOnChaneHandle}
+                  value={certificationInputForm.certificate}
+                />
+              </div>
+              <div className="flex justify-center gap-10 items-center w-[35rem]">
+                <p className="w-20">Institute</p>
+                <Input
+                  label="Institute"
+                  name="institute"
+                  onChange={CertificationOnChaneHandle}
+                  value={certificationInputForm.institute}
+                />
+              </div>
+              <div className="flex justify-start gap-10 items-center w-[35rem]">
+                <p className="w-20">Year</p>
+                <div className="flex  gap-5">
+                  <select
+                    name="durationFrom"
+                    onChange={CertificationOnChaneHandle}
+                    className="w-fit border border-gray-700 mt-1 p-2 rounded-md overflow-x-auto"
+                  >
+                    <option>From</option>
+                    {year.map((yearData, index) => {
+                      return <option key={index}>{yearData}</option>;
+                    })}
+                  </select>
+
+                  <select
+                    name="durationTo"
+                    onChange={CertificationOnChaneHandle}
+                    className="w-fit border border-gray-700 mt-1 p-2 rounded-md overflow-x-auto"
+                  >
+                    <option>To</option>
+                    {year.map((yearData, index) => {
+                      return <option key={index}>{yearData}</option>;
+                    })}
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <Button className="w-fit" >
+              Submit
+            </Button>
+          </form>
+        </Dialog>
+        {studentDegreefetched?.list?.map((studentDegree, index) => {
+          console.log(studentDegree.degreeId);
+          return (
+            <div key={index}>
+              <div className="flex items-center gap-5">
+                <h3>
+                  {studentDegree?.degree} {studentDegree?.course}{" "}
+                </h3>
+                <FaEdit
+                  className="cursor-pointer"
+                  onClick={() => handleOpenEducation(studentDegree?.degreeId)}
+                />
+              </div>
+              <p>{studentDegree?.institute}</p>
+              <p>
+                {studentDegree?.batchFrom} - {studentDegree?.batchTo}
+              </p>
+            </div>
+          );
+        })}
+        <div></div>
         <div className=" flex gap-5 mb-1 mt-5 items-center">
           <div className="rounded-full bg-blue-gray-200 p-1 m-1">
-            {" "}
             <span>
               <AiOutlineSafetyCertificate size={"22"} />
             </span>
@@ -147,7 +291,28 @@ const Myprofile = () => {
           <p className="text-2xl">Certification Details</p>
         </div>
         <div>
-          <p>XYZ Certification</p>
+        {/* {
+          certificateFetchedData?.list?.map((certificateFetched,index)=>{
+            console.log(certificateFetched)
+            return(
+              <>
+              <div className="flex items-center gap-5" key={index}>
+              <p>{certificateFetched.certificate}</p>
+                <FaEdit
+                  className="cursor-pointer"
+                  onClick={() => handleOpenEducation(certificateFetched?.certificateId)}
+                />
+              </div>
+              <p>{certificateFetched.certificate}</p>
+              <p>{certificateFetched.institute}</p>
+              <p>{certificateFetched.durationFrom}</p>
+              <p>{certificateFetched.durationTo}</p>
+              </>
+            )
+          })
+        } */}
+        <CertificateDetails />
+         
         </div>
         <div className=" flex gap-5 mb-1 mt-5 items-center">
           <div className="rounded-full bg-blue-gray-200 p-1 m-1">
@@ -222,8 +387,7 @@ const Myprofile = () => {
           <p>Request a recommendation from -</p>
         </div>
         <div className="flex justify-center mt-2 ml-5 mr-5">
-        <Input  />
-        
+          <Input />
         </div>
         <Button className="ml-5 mt-2">Send</Button>
 

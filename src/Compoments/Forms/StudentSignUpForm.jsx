@@ -87,7 +87,7 @@ const StudentSignUpForm = () => {
       otp: OTP,
     });
     if (res.data && res.data.status) {
-      toast.success("Sended OTP to your email");
+      toast.success("OTP verify successful");
     }
   };
   const inputStyle = {

@@ -122,11 +122,12 @@ function App() {
               <Route path="/profile/:id" element={<Myprofile />} />
               <Route path="/savejob/:id" element={<Savejobs />} />
               <Route path="/edit/profile" element={<AddProfileDetails/>} />
+              <Route path="/jobsection" element={<JobSection />} />
+              <Route path="/jobdetails/:id" element={<JobDetailsById />} />
             </Route>
             <Route path="/pricingpage" element={<PricingPage />} />
           </Route>
-          <Route path="/jobsection" element={<JobSection />} />
-              <Route path="/jobdetails/:id" element={<JobDetailsById />} />
+      
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
          

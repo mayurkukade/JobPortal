@@ -31,14 +31,15 @@ const RecruiterSidebar = () => {
     },
     closed: {
       width: "4.6rem",
+      
       transition: {
         damping: 40,
       },
     },
   };
   const [isOpen, setIsOpen] = useState(true);
-  //   const {useDecode} = useauthHooks()
-  // console.log(useDecode)
+    const {useDecode} = useauthHooks()
+  console.log(useDecode)
   const {
     data: companyDetails,
     isLoading,
@@ -105,6 +106,12 @@ const RecruiterSidebar = () => {
             </Typography>
           </div> */}
           <List>
+            <Link to={"/recruiter"}>
+              <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
+             <span className="text-xs">Ref.No.</span> 
+              <span className="text-darkBlueBackground font-Montserrat font-semibold text-start"> {isSuccess? content?.responseData?.refNo :null && 'Company Name'}</span> 
+              </ListItem>
+            </Link>
             <Link to={"/recruiter"}>
               <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
                 <ListItemPrefix>
