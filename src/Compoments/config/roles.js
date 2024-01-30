@@ -3,7 +3,8 @@ export const ROLES = {
     Manager: 'Manager',
     Admin: 'ADMIN',
     Student:"STUDENT",
-    Company:"COMPANY"
+    Company:"COMPANY",
+    Hr:"HR"
   
 }
 

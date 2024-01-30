@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
@@ -10,20 +10,21 @@ import { TfiBag } from "react-icons/tfi";
 import { IoChatbubblesOutline } from "react-icons/io5";
 import opticalraclogo from "../Images/Opticalarclogo.png";
 import { VscAccount } from "react-icons/vsc";
-
+import { useCompanyByUserIdQuery } from "../../services/Recruiter/recruiterApiSlice";
+import { useauthHooks } from "../hooks/authHooks";
 import {
   Avatar,
   Card,
   List,
   ListItem,
   ListItemPrefix,
-  ListItemSuffix,
+  
 } from "@material-tailwind/react";
 
 const RecruiterSidebar = () => {
   const Sidebar_animation = {
     open: {
-      width: "12rem",
+      width: "14rem",
       transition: {
         damping: 40,
       },
@@ -36,7 +37,25 @@ const RecruiterSidebar = () => {
     },
   };
   const [isOpen, setIsOpen] = useState(true);
-  console.log(isOpen);
+  //   const {useDecode} = useauthHooks()
+  // console.log(useDecode)
+  const {
+    data: companyDetails,
+    isLoading,
+    isError,
+    isSuccess
+  } = useCompanyByUserIdQuery('1001');
+  let content;
+  if (isLoading) {
+    content = <p>Loading..</p>;
+  } else if (isError) {
+    content = <p>Error...</p>;
+  } else if (companyDetails) {
+    content = companyDetails;
+  }
+
+  console.log(content);
+
   return (
     <>
       <motion.div
@@ -69,12 +88,13 @@ const RecruiterSidebar = () => {
           <IoIosArrowBack size={25} />
         </motion.div>
         <Card className="  shadow-xl shadow-blue-gray-900/5">
-          <List>
+          <List className="text-wrap">
             <ListItem>
-              <ListItemPrefix>
-                <Avatar src={opticalraclogo} size="lg" className="p-1" />
-              </ListItemPrefix>
-              Optical Arc
+              <Avatar src={opticalraclogo} size="lg" className="p-1 " />
+              <p className="text-wrap text-primary text-lg font-poppins">
+                
+                {isSuccess? content?.responseData?.companyName :null && 'Company Name'}
+              </p>
             </ListItem>
           </List>
         </Card>
@@ -86,7 +106,7 @@ const RecruiterSidebar = () => {
           </div> */}
           <List>
             <Link to={"/recruiter"}>
-              <ListItem  className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
+              <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
                 <ListItemPrefix>
                   <RxDashboard className="h-6 w-6" />
                 </ListItemPrefix>
@@ -107,7 +127,7 @@ const RecruiterSidebar = () => {
                 <IoIosPeople className="h-6 w-6" />
               </ListItemPrefix>
               Talent Pool
-              <ListItemSuffix></ListItemSuffix>
+            
             </ListItem>
             <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
               <ListItemPrefix>

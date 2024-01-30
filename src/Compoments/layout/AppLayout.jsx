@@ -31,9 +31,9 @@ const AppLayout = () => {
       </main>
 
       {/* Footer in the last outlet in the middle */}
-      <Footer>
+      {/* <Footer>
         <Footer/>
-      </Footer>
+      </Footer> */}
       </div>
     </div>
   );

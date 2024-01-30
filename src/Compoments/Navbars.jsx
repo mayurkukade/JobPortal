@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   Navbar,
-  
   Typography,
   Button,
   IconButton,
@@ -13,7 +12,6 @@ import Pref from "./Images/preferable-icon 1.png";
 // import { useState } from "react";
 // import { useEffect } from "react";
 
-
 import {
   Dialog,
   DialogHeader,
@@ -22,12 +20,11 @@ import {
 } from "@material-tailwind/react";
 import Cookies from "js-cookie";
 import Profile from "./Profile/Profile";
-import { useSelector } from "react-redux";
 
 export default function Navbars() {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
   // const [theme, setTheme] = useState("light");
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
 
   const handleOpen = () => setOpen(!open);
   const navigate = useNavigate();
@@ -48,10 +45,6 @@ export default function Navbars() {
   // console.log(token)
 
   const isAuthenticatedSelector = Cookies.get("cookie");
-  console.log(isAuthenticatedSelector);
-
-  const tokenSelector = useSelector((state) => state.authSlice.token);
-  console.log(tokenSelector);
 
   React.useEffect(() => {
     window.addEventListener(
@@ -72,28 +65,34 @@ export default function Navbars() {
 
   const navList = (
     <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center  ">
-    <Link to='/'>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="flex items-center gap-x-2 p-1 font-medium"
-      >
-        <p className="flex items-center text-white">
-          Home
-        </p>
-      </Typography>
-      </Link>
-      <Link to="/jobsection">
+    <li>
+    <Link to="/">
         <Typography
-          as="li"
+          
           variant="small"
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <p className="flex items-center text-white">Jobs</p>
+          <span className="flex items-center text-white">Home</span>
         </Typography>
       </Link>
+    </li>
+
+    <li>
+    <Link to="/jobsection">
+        <Typography
+          
+          variant="small"
+          color="blue-gray"
+          className="flex items-center gap-x-2 p-1 font-medium"
+        >
+          <span className="flex items-center text-white">Jobs</span>
+        </Typography>
+      </Link>
+
+    </li>
+      
+     
       {/* <Link to="/skills">
         <Typography
           as="li"
@@ -104,7 +103,7 @@ export default function Navbars() {
           <p className="flex items-center text-white">Courses</p>
         </Typography>
       </Link> */}
-{/* <Link to={'/pricingpage'}>
+      {/* <Link to={'/pricingpage'}>
       <Typography
         as="li"
         variant="small"
@@ -114,36 +113,44 @@ export default function Navbars() {
         <p className="flex items-center text-white">Pricing</p>
       </Typography>
 </Link> */}
-      <Link to={"/mentor"}>
+<li>
+<Link to={"/mentor"}>
         <Typography
-          as="li"
+          
           variant="small"
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <p className="flex items-center text-white">Mentor</p>
+          <span className="flex items-center text-white">Mentor</span>
         </Typography>
       </Link>
+</li>
+      <li>
       <Link to={"/studyabroad"}>
         <Typography
-          as="li"
+          
           variant="small"
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <p className="flex items-center text-white">Study Abroad</p>
+          <span className="flex items-center text-white">Study Abroad</span>
         </Typography>
       </Link>
-      <Link to="/aboutus">
+      </li>
+     
+     <li>
+     <Link to="/aboutus">
         <Typography
-          as="li"
+          
           variant="small"
           color="blue-gray"
           className="flex items-center gap-x-2 p-1 font-medium"
         >
-          <p className="flex items-center text-white">About Us</p>
+          <span className="flex items-center text-white">About Us</span>
         </Typography>
       </Link>
+     </li>
+     
       {/* <Typography
         as="li"
         variant="small"
@@ -161,15 +168,17 @@ export default function Navbars() {
   return (
     <Navbar className="  sticky top-0 z-30 h-max max-w-full rounded-none px-4 py-2 lg:px-8   bg-primary">
       <div className=" flex items-center justify-between text-blue-gray-900 xl:ml-[4.2rem]">
-       <Link to={'/'}>
-        <Typography
-          as="a"
-          
-          className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl xl:text-4xl xl:ml "
-        >
-          <img src={Pref} className="w-10 ml-10 lg:block hidden" alt="" />
-          <div className="ml-2 text-white">Preferable</div>
-        </Typography>
+        <Link to={"/"}>
+          <Typography className="mr-4 cursor-pointer py-1.5 font-medium text-[#CF4307] text-2xl xl:text-4xl xl:ml ">
+            <img
+              src={Pref}
+              className="w-10 ml-10 lg:block hidden animate-slidein [--slidein-delay:300ms]"
+              
+            />
+            <span className="ml-2 text-white">
+              Preferable
+            </span>
+          </Typography>
         </Link>
         {/* <Typography className="lg:block hidden">
           <input

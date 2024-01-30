@@ -6,15 +6,15 @@ export default function Header() {
     <div className="flex bg-background dark:bg-dark container mx-auto ">
       {/* left side of container */}
       <div className="md:pt-20 md:mb-8  md:spl-[50px]   ">
-        <p className=" md:text-6xl animate-slidein [--slidein-delay:300ms] opacity-0 font-[Poppins] font-semibold dark:text-white text-text xl:text-8xl ">
-          We Help
+        <div className=" md:text-6xl animate-slidein [--slidein-delay:300ms] opacity-0 font-[Poppins] font-semibold dark:text-white text-text xl:text-8xl ">
+         <p>We Help</p> 
           <div className="pt-3">
             <span className="text-accent    ">You</span> To Craft
           </div>
           <div className="pt-3">
             Your <span className="text-accent ">Career</span>
           </div>
-        </p>
+        </div>
 
         <p className="mt-10 animate-slidein [--slidein-delay:500ms] opacity-0 dark:text-white font-[Poppins] md:text-2xl xl:text-2lg">
           Join us and take your career to the <br /> next level.

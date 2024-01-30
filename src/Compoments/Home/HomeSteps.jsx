@@ -1,4 +1,4 @@
-import { Button, Card, CardHeader, Typography } from "@material-tailwind/react";
+import { Button, Card,  Typography } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import applyjobsvg from "../Images/homeImages/Group 39647.png";
 import { FaArrowTrendUp } from "react-icons/fa6";
