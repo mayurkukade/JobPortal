@@ -128,7 +128,7 @@ function App() {
             <Route path="/pricingpage" element={<PricingPage />} />
           </Route>
       
-          <Route path="/aboutus" element={<AboutUs />} />
+          {/* <Route path="/aboutus" element={<AboutUs />} /> */}
           <Route path="/" element={<HomePage />} />
          
 

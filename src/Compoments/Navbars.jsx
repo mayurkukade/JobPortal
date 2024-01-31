@@ -138,7 +138,7 @@ export default function Navbars() {
       </Link>
       </li>
      
-     <li>
+     {/* <li>
      <Link to="/aboutus">
         <Typography
           
@@ -149,7 +149,7 @@ export default function Navbars() {
           <span className="flex items-center text-white">About Us</span>
         </Typography>
       </Link>
-     </li>
+     </li> */}
      
       {/* <Typography
         as="li"
