@@ -10,6 +10,7 @@ export const ROLES = {
 
 export const onlyAdmin ={
     Admin: 'ADMIN',
+    Hr:"HR"
 }
 
 export const onlyRecruiter = {

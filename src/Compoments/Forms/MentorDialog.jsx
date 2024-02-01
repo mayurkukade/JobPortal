@@ -67,7 +67,7 @@ const MentorDialog = () => {
 
   return (
     <>
-      <Button onClick={handleOpen}>Add Bootcamp</Button>
+      <Button onClick={handleOpen} className="mt-5">Add Bootcamp</Button>
       <Dialog
         open={open}
         handler={handleOpen}

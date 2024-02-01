@@ -1,7 +1,7 @@
 import { Button, Input } from "@material-tailwind/react";
 import { Select, Option, Textarea } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
-
+import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
 import React, { useRef, useState } from "react";
 import toast from "react-hot-toast";
@@ -9,22 +9,26 @@ import { Toaster } from "react-hot-toast";
 const GetStartedPage = () => {
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate()
+
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
     emailjs
       .sendForm(
-        "service_ik9vhy8",
-        "template_kk8z3cr",
+        "service_z2dqrdr",
+        "template_akvt99h",
         form.current,
-        "pKSapdiBTt527GzRH"
+        "PBa6HAOGgexX7XV_k"
       )
       .then(
         (result) => {
           console.log(result.text);
           toast.success("You get reply within 24 hours");
           setLoading(false);
+          navigate('/')
+          
         },
         (error) => {
           console.log(error.text);

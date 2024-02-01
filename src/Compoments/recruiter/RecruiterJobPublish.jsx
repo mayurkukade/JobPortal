@@ -60,7 +60,7 @@ const RecruiterJobPublish = () => {
         postDate: date,
         salary: salary,
         noOfPost: 3,
-        logo: "https://example.com/logo.png",
+        logo: company,
         experienceLevel: experince,
         jobType: type,
         status: "active",

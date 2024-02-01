@@ -6,9 +6,9 @@ import iconPod from "../Images/mentor/iconPod.svg";
 function FirstPart() {
   return (
     <div>
-      <div className="bg-light-blue-900 w-full text-center">
+      <div className="bg-navyblue w-full text-center">
         <div>
-          <p className="text-white text-3xl pt-12">
+          <p className="text-textnavyblue text-3xl pt-12">
             Don’t Settle for job satisfaction <br />
             Choose to thrive in your career instead!
           </p>

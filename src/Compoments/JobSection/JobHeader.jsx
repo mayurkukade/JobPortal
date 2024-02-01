@@ -261,13 +261,13 @@ export default function JobHeader({
               {!jobSearch.length == 0 && jobFocus && (
                 <ul className="bg-gray-300 absolute   z-[1000] w-[12.5rem] space-y-2  h-40 overflow-y-auto text-left p-2">
                   {jobRecomadated.map((item, index) => {
-                    console.log(item.props.children.length);
+                
                     return (
                       <>
                         <div
                           key={index}
                           className="cursor-pointer hover:bg-gray-100 p-2 rounded"
-                          onClick={(e) => handleSelectJob(item.props.children)}
+                          onClick={() => handleSelectJob(item.props.children)}
                         >
                           {item}
                         </div>
@@ -281,13 +281,13 @@ export default function JobHeader({
               {!city.length == 0 && cityFocus && cityRecomadated && (
                 <ul className="bg-gray-300 absolute   z-[1000] w-[12.5rem] space-y-2  h-40 overflow-y-auto text-left p-2">
                   {cityRecomadated.map((item, index) => {
-                    console.log(item.props.children);
+                   
                     return (
                       <>
                         <div
                           key={index}
                           className="cursor-pointer hover:bg-gray-100 p-2 rounded"
-                          onClick={(e) => handleSelectCity(item.props.children)}
+                          onClick={() => handleSelectCity(item.props.children)}
                         >
                           {item}
                         </div>

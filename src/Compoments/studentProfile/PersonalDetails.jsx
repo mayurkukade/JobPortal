@@ -1,6 +1,6 @@
 import { Button } from "@material-tailwind/react";
 import React from "react";
-
+import toast, { Toaster } from 'react-hot-toast';
 import {
   Input,
   Popover,
@@ -22,13 +22,17 @@ import { industries } from "../Data/Industry.js";
 import { noticePeriodDays } from "../Data/Notice.js";
 import { experienceDurations } from "../Data/Experiance.js";
 import { annualSalaryRanges } from "../Data/AnnualSalary.js";
+import { useState } from "react";
+import { useUploadFilesMutation } from "../../services/fileUplaod/uploadFile.js";
 // eslint-disable-next-line react/prop-types
 const PersonalDetails = ({ formPersonalDetails, setFormPersonalDetails }) => {
-  const [birthDate, setBirthDate] = React.useState();
+  const [birthDate, setBirthDate] = useState();
+  
+
 
   const { countries } = useCountries();
   const [country, setCountry] = React.useState(221);
-
+const [uploadFiles] = useUploadFilesMutation()
   const { name, flags, countryCallingCode } = countries[country];
   console.log(name);
   const dateResult = birthDate ? format(birthDate, "MM-dd-yy") : null;
@@ -41,11 +45,35 @@ const PersonalDetails = ({ formPersonalDetails, setFormPersonalDetails }) => {
       [name]: value,
     }));
   };
+  const handleFileChange = async(event) => {
+    const file = event.target.files[0];
+  console.log(file)
+    const formData = new FormData();
+ console.log(formData)
+    formData.append('image', file);
+    formData.append('documentType', file.type); // Assuming you want to append the file type
+    formData.append('userId', '1102');
+  
+  
+    try {
+      // Call the upload mutation with the FormData
+      const response = await uploadFiles(formData);
+      console.log(response);
+      toast.success('Successfully toasted!')
+    } catch (error) {
+      console.error('Upload failed:', error);
+    }
+  };
 
-  console.log(formPersonalDetails);
-  console.log(setFormPersonalDetails);
+  
+  
+  
   return (
     <>
+    <Toaster
+  position="top-center"
+  reverseOrder={false}
+/>
       <p className="text-xl w-auto bg-gray-400 p-2 ">Personal Details</p>
       <div className="grid grid-cols-3 md:grid-cols-6 items-center gap-12 p-5 mt-5 ">
         <div className="md:space-y-12 space-y-4 col-span-1 ">
@@ -57,7 +85,7 @@ const PersonalDetails = ({ formPersonalDetails, setFormPersonalDetails }) => {
           <p>Preferred Location</p>
         </div>
         <div className="md:space-y-8 space-y-4 col-span-2 ">
-          <input type="file" accept="image/*" />
+          <input type="file" accept="image/*" onChange={handleFileChange} />
           <Input
             type="text"
             label="Name"

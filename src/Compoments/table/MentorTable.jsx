@@ -49,15 +49,15 @@ const MentorTable = () => {
       accessor: "",
       Cell: ({ row }) => (
         <div className=" flex gap-2 ">
-          <Button onClick={() => handleButtonClick(row.original.mentorId)}>
+          {/* <Button onClick={() => handleButtonClick(row?.original?.mentorId)}>
             Details
           </Button>
-          <Button onClick={() => handleEditButtonClick(row.original.mentorId)}>
+          <Button onClick={() => handleEditButtonClick(row?.original?.mentorId)}>
             Edit
           </Button>
           <Button onClick={() => handleDeleteButtonClick(row.original.mentorId)}>
             Delete
-          </Button>
+          </Button> */}
        
         </div>
       ),
@@ -69,19 +69,20 @@ const MentorTable = () => {
   if (isLoading) {
     return <p>isLoading</p>;
   } else {
-    mentorApiData = apiData.response;
+    mentorApiData = apiData?.response;
   }
-  const handleButtonClick = (id) => {
-    navigate(`/admin/mentor/details/${id}`);
-    // Handle button click, e.g., perform an action based on the student ID
-    console.log(`Button clicked for student ID: ${id}`);
-  };
-  const handleDeleteButtonClick = (id) => {
-  deleteMentor(id)
-  };
-  const handleEditButtonClick = (id) => {
-    navigate(`/admin/mentor/edit/${id}`);
-  };
+  console.log(mentorApiData,isError)
+  // const handleButtonClick = (id) => {
+  //   navigate(`/admin/mentor/details/${id}`);
+  //   // Handle button click, e.g., perform an action based on the student ID
+  //   console.log(`Button clicked for student ID: ${id}`);
+  // };
+  // const handleDeleteButtonClick = (id) => {
+  // deleteMentor(id)
+  // };
+  // const handleEditButtonClick = (id) => {
+  //   navigate(`/admin/mentor/edit/${id}`);
+  // };
 
   return (
     <div>

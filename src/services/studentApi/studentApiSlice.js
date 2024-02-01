@@ -23,15 +23,25 @@ export const studentApiSlice = apiSlice.injectEndpoints({
       query: (id) => ({
         url: `/degree/getDegree?userId=${id}`,
       }),
-      providesTags: ["registerPost"],
+      providesTags: ["registerPost"]
+    }),
+
+    degreeStudentProfileUpdate:builder.mutation({
+      query:({degrees,educationId})=>({
+        url:`/degree/updateDegreeDetails?degreeId=${educationId}`,
+        method:"PATCH",
+        body:degrees
+      }),
+      invalidatesTags: ["registerPost"]
     }),
 
     getCertificate: builder.query({
-      query: () => ({
-        url: `/certificate/getCertificate?userId=1102`,
+      query: (id) => ({
+        url: `/certificate/getCertificate?userId=${id}`,
       }),
       providesTags: ["registerPost"],
     }),
+
 
     CertificateUpdate: builder.mutation({
       query: ({ certificationInputForm, certificateId }) => ({
@@ -50,6 +60,7 @@ export const {
   useGetStudentQuery,
   useAddStudentProfileMutation,
   useGetDegreeStudentProfileQuery,
+  useDegreeStudentProfileUpdateMutation,
   useCertificateUpdateMutation,
   useGetCertificateQuery,
 } = studentApiSlice;

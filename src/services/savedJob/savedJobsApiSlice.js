@@ -20,8 +20,8 @@ export const savedJobsAPiSlice = apiSlice.injectEndpoints({
             providesTags:["save"]
         }),
         getSavedJobBYUserId:builder.query({
-            query:(userId)=>({
-                url:`/save/getsavedjobByUserId?userId=${userId}`,
+            query:()=>({
+                url:`/save/getsavedjobByUserId?userId=1102`,
                 
             }),
             providesTags:["save"]

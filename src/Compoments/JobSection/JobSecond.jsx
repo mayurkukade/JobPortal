@@ -158,7 +158,10 @@ return  <p>error</p>
   
 }
   // Add other dependencies if needed
-  const jobData = mainFilter?.list?.map((item) => {
+  const jobData = mainFilter?.list?.map((item,index) => {
+    const logo = ['https://logo.clearbit.com/tata.com',"https://docs.material-tailwind.com/img/face-2.jpg","https://docs.material-tailwind.com/img/face-2.jpg"]
+  
+    console.log(item.logo)
     return (
       <div key={item.jobId} className="mt-2 pl-1 pr-1">
         <Toaster position="top-center" reverseOrder={false} />
@@ -176,12 +179,16 @@ return  <p>error</p>
               <Avatar
                 size="lg"
                 variant="square"
-                src={Lens}
-                alt="tania andrew"
+                src={item?.logo}
+                alt={item?.companyName}
                 className="object-cover p-3 w-fit "
               />
+      
             </Link>
-
+            <img
+        src="https://logo.clearbit.com/uber.com"
+        alt="Uber Logo"
+      />
             <div className="flex w-full flex-col gap-0.5 ">
               <div className="flex items-center justify-between ">
                 <Link to={`/jobdetails/${item.jobId}`} target="_blank">

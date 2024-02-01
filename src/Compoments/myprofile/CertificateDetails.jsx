@@ -8,6 +8,7 @@ import {
   DialogFooter,
   Input,
 } from "@material-tailwind/react";
+import { useauthHooks } from "../hooks/authHooks";
 import { useCertificateUpdateMutation } from "../../services/studentApi/studentApiSlice";
 import { useGetCertificateQuery } from "../../services/studentApi/studentApiSlice";
 const CertificateDetails = () => {
@@ -20,6 +21,8 @@ const [CertificateUpdate] = useCertificateUpdateMutation()
     durationFrom: "",
     durationTo: "",
   });
+  const { useDecode } = useauthHooks();
+  console.log(useDecode)
   const startYear = 1990;
   const endYear = 2030;
 
@@ -31,7 +34,7 @@ const [CertificateUpdate] = useCertificateUpdateMutation()
     data: certificateFetched,
     isLoading: certificateLoading,
     isError: certificateError,
-  } = useGetCertificateQuery();
+  } = useGetCertificateQuery(useDecode?.userId);
   console.log(certificateFetched);
   let certificateFetchedData;
   if (certificateFetched) {
