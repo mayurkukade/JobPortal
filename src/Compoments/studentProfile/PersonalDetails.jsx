@@ -51,7 +51,7 @@ const [uploadFiles] = useUploadFilesMutation()
     const formData = new FormData();
  console.log(formData)
     formData.append('image', file);
-    formData.append('documentType', file.type); // Assuming you want to append the file type
+    formData.append('documentType', 'profile'); // Assuming you want to append the file type
     formData.append('userId', '1102');
   
   

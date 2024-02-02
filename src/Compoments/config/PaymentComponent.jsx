@@ -31,7 +31,7 @@ const PaymentComponent = () => {
         key: 'rzp_test_80O2m3SmaMOrVp',
         currency: 'INR',
         amount: 500,
-        order_id: orderId, // Use the dummy order_id
+        order_id:'order_NW00fJfXegBLS7', // Use the dummy order_id
         name: 'Donation',
         description: 'Thank you for nothing. Please give us some money',
         handler: function (response) {

@@ -1,5 +1,6 @@
 import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { useEffect } from "react";
+import PaymentComponent from "../config/PaymentComponent";
 
 export default function HeaderLower() {
   const count1 = useMotionValue(0);
@@ -93,6 +94,7 @@ export default function HeaderLower() {
           </div>
         </div>
       </div>
+      <PaymentComponent/>
       <div className="w-full   h-3 flex-shrink-0 bg-primary "></div>
     </>
   );

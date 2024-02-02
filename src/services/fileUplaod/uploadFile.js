@@ -13,8 +13,9 @@ export const uploadFile = apiSlice.injectEndpoints({
       invalidatesTags:['upload']
     }),
     getDocument: builder.query({
-      query: () => ({
-        url: "/uploadFile/getDocuments?userId=1102&DocumentType=ok",
+      query: ({userId,fileType}) => ({
+        url: `/uploadFile/getDocuments?userId=${userId}&DocumentType=${fileType}`,
+        transferResponse:console.log(userId,fileType)
       }),
       providesTags:['upload']
     }),

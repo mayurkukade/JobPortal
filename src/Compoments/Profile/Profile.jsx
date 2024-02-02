@@ -14,10 +14,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { logoutSuccess } from "../../features/authSlice/authSlice";
 import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
+import { useGetDocumentQuery } from "../../services/fileUplaod/uploadFile";
+import { useauthHooks } from "../hooks/authHooks";
+
 
 const Profile = () => {
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
+  const {useDecode} = useauthHooks()
+  console.log(useDecode)
+
+  const userId = useDecode?.userId
+const fileType = 'profile'
+  const {data,isLoading,isSuccess,isError} = useGetDocumentQuery({userId,fileType})
+
+console.log(data)
+
+let fetchedProfile 
+if(isLoading){
+  fetchedProfile = <p>...</p>
+}else if(isError){
+  fetchedProfile = <p>❌</p>
+}else if(isSuccess){
+  fetchedProfile = data?.response[0].documentLink
+}
+
+  console.log(fetchedProfile)
 
   const logOutSelector = useSelector(
     (state) => state.authSlice.isAuthenticated
@@ -45,7 +68,7 @@ const Profile = () => {
           
           alt="tania andrew"
           className="cursor-pointer  "
-          src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+          src={fetchedProfile}
         />
    
       </MenuHandler>

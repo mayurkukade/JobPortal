@@ -19,6 +19,7 @@ import { useParams } from "react-router-dom";
 import { useauthHooks } from "../Compoments/hooks/authHooks.js";
 import CertificateDetails from "../Compoments/myprofile/CertificateDetails.jsx";
 import EducationDetails from "../Compoments/myprofile/educationDetails.jsx";
+import ProfilePicture from "../Compoments/Profile/ProfilePicture.jsx";
 const Myprofile = () => {
 
  
@@ -75,13 +76,7 @@ const Myprofile = () => {
     <div className="grid grid-cols-4   gap-1">
       <div className="bg-[#F8F8FF]">
         <div className="flex flex-col items-center mt-5 ">
-          <Avatar
-            src="https://docs.material-tailwind.com/img/face-2.jpg"
-            alt="avatar"
-            withBorder={true}
-            className="p-0.5"
-            size="xxl"
-          />
+          <ProfilePicture/>
           <h3 className="mt-5 capitalize">{basicDetails.fullName}</h3>
           <h5 className="lowercase">{basicDetails.email}</h5>
           <h5>{basicDetails.moNumber}</h5>
