@@ -177,18 +177,15 @@ return  <p>error</p>
           >
             <Link to={`/jobdetails/${item.jobId}`} target="_blank">
               <Avatar
-                size="lg"
-                variant="square"
+                size="xl"
+                variant="rounded"
                 src={item?.logo}
                 alt={item?.companyName}
-                className="object-cover p-3 w-fit "
+                className="object-cover p-2 w-fit "
               />
       
             </Link>
-            <img
-        src="https://logo.clearbit.com/uber.com"
-        alt="Uber Logo"
-      />
+         
             <div className="flex w-full flex-col gap-0.5 ">
               <div className="flex items-center justify-between ">
                 <Link to={`/jobdetails/${item.jobId}`} target="_blank">
