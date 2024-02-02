@@ -94,7 +94,7 @@ const SignIn = () => {
     <>
       <Navbars />
       <section className="bg-blue-gray-900 h-[100vh] sm:h-[86.5vh] xs:h-[90.5vh]">
-        <Toaster position="top-center" reverseOrder={false} />
+        <Toaster position="top-center" reverseOrder={true} />
         <div className="flex justify-center items-center h-full ">
         <Card className="mx-auto w-full max-w-[24rem]">
           <CardBody className="flex flex-col gap-4">

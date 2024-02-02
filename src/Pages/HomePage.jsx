@@ -3,8 +3,8 @@ import HeaderLower from "../Compoments/Home/HeaderLower";
 
 // import Testimonals from "../Compoments/Home/Testimonals";
 
-// import Cards from "../Compoments/Home/Cards";
-// import Reviews from "../Compoments/Home/Reviews";
+import Cards from "../Compoments/Home/Cards";
+import Reviews from "../Compoments/Home/Reviews";
 import HomeSteps from "../Compoments/Home/HomeSteps";
 import Companies from "../Compoments/Home/Comapnies.jsx";
 import StillHaveDout from "../Compoments/Home/StillHaveDout.jsx";
@@ -18,11 +18,11 @@ export default function HomePage() {
       <HeaderLower />
 
       <HomeSteps />
-      {/* <Reviews /> */}
+      <Reviews />
       <Companies />
-      {/* <div className="mt-20">
+      <div className="mt-20">
         <Cards />
-      </div> */}
+      </div>
 
       <StillHaveDout />
       <Faq />

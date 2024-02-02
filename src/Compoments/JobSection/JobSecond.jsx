@@ -14,10 +14,7 @@ import {
   Select,
   Option,
 } from "@material-tailwind/react";
-import { useGetAllJobQuery } from "../../services/job/jobApiSlice";
-import { calcLength } from "framer-motion";
-import { useState } from "react";
-import { Button } from "@material-tailwind/react";
+
 import {
   useGetSavedJobBYUserIdQuery,
   usePostSaveJobMutation,
@@ -33,22 +30,7 @@ import {
 import { Toaster } from "react-hot-toast";
 import BootCampCard from "../../UI/BootCampCard";
 
-function StarIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="h-5 w-5 text-yellow-700"
-    >
-      <path
-        fillRule="evenodd"
-        d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
+
 
 export default function JobSecond({
   mainFilterData,
@@ -158,10 +140,9 @@ return  <p>error</p>
   
 }
   // Add other dependencies if needed
-  const jobData = mainFilter?.list?.map((item,index) => {
-    const logo = ['https://logo.clearbit.com/tata.com',"https://docs.material-tailwind.com/img/face-2.jpg","https://docs.material-tailwind.com/img/face-2.jpg"]
+  const jobData = mainFilter?.list?.map((item) => {
   
-    console.log(item.logo)
+
     return (
       <div key={item.jobId} className="mt-2 pl-1 pr-1">
         <Toaster position="top-center" reverseOrder={false} />
@@ -273,7 +254,7 @@ return  <p>error</p>
                       <CiLocationOn />
                       <Typography>{item.jobLocation}</Typography>
                     </div>
-                    <div className="xxs:hidden xs:hidden ss:block ss:flex ss:items-center ">
+                    <div className="xxs:hidden xs:hidden  ss:flex ss:items-center ">
                       <CiCalendarDate />
                       <Typography>{item.postDate}</Typography>
                     </div>
@@ -318,32 +299,11 @@ return  <p>error</p>
   } else {
     console.log("error");
   }
-  // Dependency array with saveToggle as a dependency
+  
 
   return (
     <>
-      {/* <div className="w-full  bg-blue-gray-50 h-[4rem] flex ">
-        <div className="flex  gap-5 w-fit  items-center ml-9">
-          <p className="">Filter:</p>
-          <Select label="Any Exp.Level">
-            <Option>0-1 years</Option>
-            <Option>1-3 years</Option>
-            <Option>4-6 years</Option>
-            <Option>7-10years</Option>
-            <Option>11-15years</Option>
-            <Option>15+ years</Option>
-          </Select>
-
-          <Select label="Any Location">
-            <Option>Pune</Option>
-            <Option>Mumbai</Option>
-            <Option>Delhi</Option>
-            <Option>Bengluru</Option>
-            <Option>Nashik</Option>
-            <Option>Hydrabad</Option>
-          </Select>
-        </div>
-      </div> */}
+     
       <div className="mx-auto container flex gap-12">
         <div >{fetchedJob}</div>
         <div className="hidden md:block">

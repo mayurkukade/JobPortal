@@ -134,7 +134,7 @@ const StudentSignUpForm = () => {
       } else {
         toast.success("Successful registration");
         setTimeout(() => {
-          navigate("/");
+          navigate("/signin");
         }, 500);
       }
     } catch (error) {
