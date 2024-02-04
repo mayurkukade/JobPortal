@@ -48,7 +48,7 @@ import NotFound from "./Pages/NotFound";
 import CourseplaylistLayOut from "./Compoments/layout/CourseplaylistLayOut.jsx";
 import Courseplay from "./Compoments/skills/Courseplay.jsx";
 import MentorPage from "./Pages/MentorPage.jsx";
-import StudyABroad from "./Pages/StudyABroad.jsx";
+import StudyABroad from "./Pages/StudyAbroad.jsx";
 import RecruiterLayout from "./Compoments/layout/RecruiterLayout.jsx";
 import Recruiter from "./Pages/Recruiter.jsx";
 import RecruiterJobs from "./Compoments/recruiter/RecruiterJobs.jsx";
@@ -57,7 +57,7 @@ import PlansAdminPage from "./Compoments/admin/PlansAdminPage.jsx";
 import PricingPage from "./Pages/PricingPage.jsx";
 
 import { onlyAdmin } from "./Compoments/config/roles";
-import RecruiterRequire from "./features/RecruiterRequire/REcruiterREquire.jsx";
+import RecruiterRequire from "./features/RecruiterRequire/RecruiterREquire.jsx";
 import AddProfileDetails from "./Compoments/studentProfile/AddProfileDetails.jsx";
 
 function App() {
