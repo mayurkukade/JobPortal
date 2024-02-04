@@ -57,7 +57,7 @@ import PlansAdminPage from "./Compoments/admin/PlansAdminPage.jsx";
 import PricingPage from "./Pages/PricingPage.jsx";
 
 import { onlyAdmin } from "./Compoments/config/roles";
-import RecruiterRequire from "./features/RecruiterRequire/RecruiterREquire.jsx";
+import RecruiterRequire from "./features/RecruiterRequire/RecruiterRequire.jsx";
 import AddProfileDetails from "./Compoments/studentProfile/AddProfileDetails.jsx";
 
 function App() {
