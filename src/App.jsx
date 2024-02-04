@@ -112,7 +112,7 @@ function App() {
             <Route path="/admin/plans" element={<PlansAdminPage />} />
           </Route>
 
-          <Route>
+          
             <Route
               element={
                 <TokenRequire allowedRoles={[...Object.values(ROLES)]} />
@@ -127,7 +127,7 @@ function App() {
               <Route path="/jobdetails/:id" element={<JobDetailsById />} />
             </Route>
             <Route path="/pricingpage" element={<PricingPage />} />
-          </Route>
+     
       
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />

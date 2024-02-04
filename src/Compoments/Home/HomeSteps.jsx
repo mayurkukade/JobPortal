@@ -5,7 +5,7 @@ import { FaArrowTrendUp } from "react-icons/fa6";
 import { GiReturnArrow } from "react-icons/gi";
 import { PiStudentBold } from "react-icons/pi";
 
-import arrowline from "../Images/homeImages/vector-section-1 (1).svg";
+import arrowline from "../Images/homeImages/step1.png";
 import step from "../Images/homeImages/Group 39648.png";
 import step4 from "../Images/homeImages/Group 39656.png";
 import step3 from "../Images/homeImages/vector-section-2.svg";
@@ -148,7 +148,7 @@ const HomeSteps = () => {
         <img
           alt="img"
           src={arrowline}
-          className="flex flex-col md:ml-[15rem] "
+          className="flex flex-col md:ml-[15rem] h-[12rem] text-faintBackgroundBlue "
         />
         {/* section two */}
         <div className="flex justify-between items-start bg-[#ede9fb] rounded-3xl p-5 pt-10 ">
