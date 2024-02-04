@@ -1,9 +1,9 @@
 import { Button, Input } from "@material-tailwind/react";
-import { Select, Option, Textarea } from "@material-tailwind/react";
+import {  Textarea } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
 
 import emailjs from "@emailjs/browser";
-import React, { useRef, useState } from "react";
+import  { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 const GetStartedPage = () => {
@@ -15,10 +15,10 @@ const GetStartedPage = () => {
     setLoading(true);
     emailjs
       .sendForm(
-        "service_ik9vhy8",
-        "template_kk8z3cr",
+        "service_z2dqrdr",
+        "template_akvt99h",
         form.current,
-        "pKSapdiBTt527GzRH"
+        "PBa6HAOGgexX7XV_k"
       )
       .then(
         (result) => {
