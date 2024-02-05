@@ -169,7 +169,7 @@ function App() {
           <Route path="/termsandcondition" element={<TermsAndConditions />} />
           <Route path="/cookiepolicy" element={<CookiePolicy />} />
           <Route path="/securityguidelines" element={<SecurityGuidelines />} />
-        </Route>
+      
 
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/studentSignUp" element={<StudentSignUpForm />} />
