@@ -1,9 +1,9 @@
 import { Button, Input } from "@material-tailwind/react";
-import { Select, Option, Textarea } from "@material-tailwind/react";
+import {  Textarea } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import React, { useRef, useState } from "react";
+import  { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 const GetStartedPage = () => {
