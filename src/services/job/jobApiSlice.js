@@ -7,10 +7,7 @@ export const jobApiSlice = apiSlice.injectEndpoints({
                 url:`/job/all`,
              })
            
-            // transformResponse:(data)=>{
-                
-            //  return   data?.list?.sort((a,b)=> b.jobId - a.jobId)
-            // }
+          
             ,
             providesTags:["job","application"]
         }),
@@ -23,6 +20,7 @@ export const jobApiSlice = apiSlice.injectEndpoints({
             }),
             invalidatesTags:["Job"]
         }),
+        
         byIdJobs:builder.query({
             query:(id)=>({
                 url:`/job/getJob?JobId=${id}`,

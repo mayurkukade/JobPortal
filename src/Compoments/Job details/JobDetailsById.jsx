@@ -7,8 +7,9 @@ import toast from "react-hot-toast";
 import Cookies from "js-cookie";
 import { jwtDecode } from "jwt-decode";
 import { Toaster } from "react-hot-toast";
-import { useGetApplicationByUserIdQuery } from "../../services/studentApplication/studentApplicationApiSlice";
+import { useGetStudentQuery } from "../../services/studentApi/studentApiSlice";import { useGetApplicationByUserIdQuery } from "../../services/studentApplication/studentApplicationApiSlice";
 import { useByIdJobsQuery } from "../../services/job/jobApiSlice";
+import { useGetDocumentQuery } from "../../services/fileUplaod/uploadFile";
 import { useStudentApplyPostMutation } from "../../services/studentApplication/studentApplicationApiSlice";
 const JobDetailsById = () => {
   const [formattedDate, setFormattedDate] = useState('');
@@ -17,6 +18,10 @@ const JobDetailsById = () => {
   const { data, isLoading, isError, isSuccess } = useByIdJobsQuery(id);
   console.log(data);
   const [studentApplyPost] = useStudentApplyPostMutation();
+  
+   
+ 
+
   const getCookie = Cookies.get("cookie");
   const decodeCookie = jwtDecode(getCookie);
   console.log(decodeCookie.userId);
@@ -27,6 +32,8 @@ const JobDetailsById = () => {
     isSuccess: studentAppliedSuccess,
   } = useGetApplicationByUserIdQuery(decodeCookie?.userId);
   console.log(StudentAppliedList);
+
+  
 
   const uniqueStudentAppliedJob = new Set();
   StudentAppliedList?.response?.forEach((item) => {
@@ -59,6 +66,36 @@ const JobDetailsById = () => {
   } else {
     content = <p>error</p>;
   }
+  const {data:isFetchHr,isLoading:isLoadingHr,isSuccess:isSuccessHr,isError:isFetchedError } = useGetStudentQuery(content?.user_Id)
+  console.log(isFetchHr)
+  let hrDetails
+  if(isLoading){
+    hrDetails = <p>Loading...</p>
+  }else if(isSuccessHr){
+    hrDetails = isFetchHr?.response
+  }else if(isFetchedError){
+    hrDetails = <p>error</p>
+  }
+const userId = content?.user_Id
+const fileType = "profile"
+  const {data:hrProfile,isLoading:hrLoading,isError:hrError,isSuccess:hrSuccess} = useGetDocumentQuery({userId,fileType})
+
+console.log(hrProfile)
+
+let fetchedProfile 
+if(isLoading){
+  fetchedProfile = <p>...</p>
+}else if(hrError){
+  fetchedProfile = <p>❌</p>
+}else if(hrSuccess){
+  fetchedProfile = hrProfile?.response[0].documentLink
+}
+console.log(fetchedProfile)
+  console.log(hrDetails)
+  console.log(content.user_Id)
+
+  const logo = content?.logo
+  console.log(logo)
   useEffect(() => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -84,7 +121,7 @@ const JobDetailsById = () => {
             <Avatar
               size="xl"
               variant="square"
-              src={Lens}
+              src={logo}
               alt="tania andrew"
               className="object-cover p-3 w-fit mt-12 bg-white"
             />
@@ -128,44 +165,26 @@ const JobDetailsById = () => {
           </div>
         </div>
       </div>
+      
       <div className="container mx-aut flex gap-8 justify-between">
         <Card className=" w-[68%] h-auto p-7 ">
           <Typography className="text-lg">
-            Position : Lead React.js Engineer
+            Position : {content?.postName}
           </Typography>
-          <Typography className="text-lg">Location : Location</Typography>
           <Typography className="text-lg">
-            Position : Lead React.js Engineer
+            Salary : {content?.salary ? content?.salary : 'negotiable ' }
           </Typography>
+          
+          {/* <Typography className="text-lg">
+            Position : Lead React.js Engineer
+          </Typography> */}
+          <Typography className="text-lg">Address:{content?.address}</Typography>
+          <Typography className="text-lg">Location:{content?.jobLocation}</Typography>
 
-          <Typography className="text-lg">Responsibility:</Typography>
+          <Typography className="text-lg mt-5">Responsibility:</Typography>
 
           <Typography className="text-justify">
-            - Lead a team of React developers, providing guidance and support
-            throughout the development lifecycle. - Collaborate with
-            cross-functional teams to define project requirements and deliver
-            high-quality solutions. - Develop and maintain scalable and reusable
-            React components. - Ensure code quality and adherence to best
-            practices through code reviews and mentorship. - Stay up-to-date
-            with the latest trends and advancements in React and related
-            technologies. - Troubleshoot and resolve technical issues in a
-            timely manner. - Continuously improve development processes and
-            workflows. Requirements : - Strong experience in React.js
-            development, including hands-on experience with React hooks and
-            context API. - Proficient in JavaScript (ES6+) and modern web
-            technologies (HTML5, CSS3). - Solid understanding of front-end
-            development principles, including responsive design and
-            cross-browser compatibility. - Experience with state management
-            libraries like Redux or MobX. - Familiarity with front-end build
-            tools like Webpack or Babel. - Strong problem-solving and debugging
-            skills. - Excellent communication and leadership abilities. -
-            Bachelor's degree in Computer Science or related field (or
-            equivalent work experience). Nice to Have : - Experience with
-            server-side rendering (SSR) using frameworks like Next.js. -
-            Familiarity with TypeScript. - Knowledge of UI/UX design principles.
-            If you are passionate about React development and have strong
-            leadership skills, we would love to hear from you. Apply now to join
-            our dynamic team and make an impact in the industry!
+            {content?.jobDescription}
           </Typography>
           <div className="flex gap-5 mt-4">
             <button
@@ -194,13 +213,14 @@ const JobDetailsById = () => {
               color="blue-gray"
               floated={false}
               shadow={false}
-              className="mx-0 flex items-center gap-4 pt-0 pb-8"
+              className="mx-0 flex justify-center h-[6rem] items-center "
             >
               <Avatar
                 size="lg"
                 variant="circular"
-                src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
+                src={fetchedProfile?fetchedProfile :"https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"}
                 alt="tania andrew"
+                className="ml-3 mr-2"
               />
               <div className="flex w-full flex-col gap-0.5">
                 <div className="flex items-center justify-between">
@@ -209,22 +229,22 @@ const JobDetailsById = () => {
                     color="blue-gray"
                     className="text-white"
                   >
-                    Anil Deshmukh
+                    {hrDetails?.fullName}
                   </Typography>
                 </div>
                 <Typography color="blue-gray" className="text-white">
-                  Manager at Justdial Limited
+                  Recruiter at  {content.companyName}
                 </Typography>
               </div>
             </CardHeader>
           </Card>
-          <CardHeader className="shadow-lg">
+          {/* <CardHeader className="shadow-lg">
             <div className="flex justify-center gap-10 p-1  ">
               {/* <div>
                 <p className="text-center">811</p>
                 <p>Job Views</p>
               </div> */}
-              <div>
+              {/* <div>
                 <p className="text-center">333</p>
                 <p>Applications</p>
               </div>
@@ -232,10 +252,10 @@ const JobDetailsById = () => {
                 <p className="text-center">1272731</p>
                 <p>Job Code</p>
               </div>
-            </div>
-          </CardHeader>
+            </div> */}
+          {/* </CardHeader> */} 
 
-          <div className="mt-5 space-y-2">
+          {/* <div className="mt-5 space-y-2">
             <Typography>Posted in</Typography>
             <Typography className="text-lg font-semibold">
               Backend Developer
@@ -245,7 +265,7 @@ const JobDetailsById = () => {
             <Typography className="text-lg font-semibold">
               Full Stack Development
             </Typography>
-          </div>
+          </div> */}
         </Card>
       </div>
     </>

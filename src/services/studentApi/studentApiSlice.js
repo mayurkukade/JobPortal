@@ -3,7 +3,10 @@ import { apiSlice } from "../apiSlice";
 export const studentApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getStudent: builder.query({
-      query: (id) => `/user/getById?userId=${id}`,
+      query: (id) =>({
+        url :`/user/getById?userId=${id}`,
+        transferResponse:console.log(id)
+      }) ,
       providesTags: ["registerPost"],
     }),
     getAllStudent: builder.query({

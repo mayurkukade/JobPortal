@@ -60,7 +60,6 @@ import { onlyAdmin } from "./Compoments/config/roles";
 import RecruiterRequire from "./features/RecruiterRequire/RecruiterRequire.jsx";
 import AddProfileDetails from "./Compoments/studentProfile/AddProfileDetails.jsx";
 
-
 function App() {
   return (
     <>
@@ -112,7 +111,7 @@ function App() {
             <Route path="/admin/plans" element={<PlansAdminPage />} />
           </Route>
 
-          
+          <Route>
             <Route
               element={
                 <TokenRequire allowedRoles={[...Object.values(ROLES)]} />
@@ -144,7 +143,6 @@ function App() {
           <Route path="/PublishJob" element={<PublishJob />} />
           <Route path="/getstarted" element={<GetStartedPage />} />
           <Route path="mentor" element={<MentorPage />} />
-       
 
           <Route element={<RecruiterLayout />}>
             <Route
@@ -169,7 +167,7 @@ function App() {
           <Route path="/termsandcondition" element={<TermsAndConditions />} />
           <Route path="/cookiepolicy" element={<CookiePolicy />} />
           <Route path="/securityguidelines" element={<SecurityGuidelines />} />
-      
+        </Route>
 
         <Route path="/register" element={<RegistrationPage />} />
         <Route path="/studentSignUp" element={<StudentSignUpForm />} />
