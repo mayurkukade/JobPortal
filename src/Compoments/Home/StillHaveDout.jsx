@@ -15,6 +15,8 @@ const StillHaveDout = () => {
   const sendEmail = (e) => {
     e.preventDefault();
     setLoading(true);
+    
+   
     emailjs
       .sendForm(
         "service_z2dqrdr",
@@ -57,6 +59,8 @@ const StillHaveDout = () => {
                     name="mobile_number"
                     type="tel"
                     label="WhatsApp Number"
+                    maxLength={10}
+                    minLength={10}
                     required
                   />
                 </div>

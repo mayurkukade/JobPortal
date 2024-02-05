@@ -263,11 +263,12 @@ const [uploadFiles] = useUploadFilesMutation()
               </MenuList>
             </Menu>
             <Input
-              type="tel"
+              type="number"
               onChange={personalDetailsOnChange}
               name="phone"
               value={personalDetailsOnChange.phone}
               placeholder="Mobile Number"
+              maxLength={10}
               className="rounded-l-none !border-t-blue-gray-200 focus:!border-t-gray-900"
               labelProps={{
                 className: "before:content-none after:content-none",
@@ -277,6 +278,7 @@ const [uploadFiles] = useUploadFilesMutation()
               }}
               min={10}
               max={10}
+              required
             />
           </div>
           <select

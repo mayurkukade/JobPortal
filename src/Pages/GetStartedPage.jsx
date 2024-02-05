@@ -1,15 +1,15 @@
 import { Button, Input } from "@material-tailwind/react";
-import {  Textarea } from "@material-tailwind/react";
+import { Textarea } from "@material-tailwind/react";
 import { Spinner } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 import emailjs from "@emailjs/browser";
-import  { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 const GetStartedPage = () => {
   const [loading, setLoading] = useState(false);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const form = useRef();
   const sendEmail = (e) => {
@@ -27,8 +27,7 @@ const GetStartedPage = () => {
           console.log(result.text);
           toast.success("You get reply within 24 hours");
           setLoading(false);
-          navigate('/')
-          
+          navigate("/");
         },
         (error) => {
           console.log(error.text);
@@ -58,11 +57,21 @@ const GetStartedPage = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-12 mb-5">
             <div className="w-full sm:w-72 mb-5 sm:mb-0">
               <p className="text-gray-200">Mobile</p>
-              <Input className="text-white" name="mobile_number" type="tel" required />
+              <Input
+                className="text-white"
+                name="mobile_number"
+                type="tel"
+                required
+              />
             </div>
             <div className="w-full sm:w-72">
               <p className="text-gray-200">Email</p>
-              <Input className="text-white" type="email" name="user_email" required />
+              <Input
+                className="text-white"
+                type="email"
+                name="user_email"
+                required
+              />
             </div>
           </div>
 
@@ -87,10 +96,14 @@ const GetStartedPage = () => {
                 className="w-full rounded-lg mt-2 bg-primary border text-white h-10"
                 name="user_service"
               >
-                <option value="jobs">Jobs</option>
-                <option value="bootcamp">Bootcamp</option>
-                <option value="MS/MBA">MS/MBA</option>
-                <option value="Hiring/Post JObs">Hiring/Post Jobs</option>
+                <option value="jobs">
+                  Study Abroad/Higher Education Guidance
+                </option>
+                <option value="bootcamp">Upskilling Consultation for Students/Professionals
+</option>
+                <option value="MS/MBA">Company Start-Up Support for Students/Professionals
+</option>
+                <option value="Hiring/Post JObs"> Career Counselling with Parents for School Students (1-12)</option>
                 <option value="Mentor">Mentor</option>
               </select>
             </div>
