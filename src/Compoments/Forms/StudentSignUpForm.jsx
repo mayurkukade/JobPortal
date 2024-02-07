@@ -1,8 +1,17 @@
 import { Button, Input } from "@material-tailwind/react";
 import OtpInput from "react-otp-input";
-import { useEffect} from "react";
+import { useEffect,useRef} from "react";
 import { Link } from "react-router-dom";
 import { Spinner } from "@material-tailwind/react";
+import { FaRegEyeSlash } from "react-icons/fa6";
+import { FaEye } from "react-icons/fa";
+
+import {
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+} from "@material-tailwind/react";
 import {
   Card,
   CardBody,
@@ -19,23 +28,42 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { Toaster } from "react-hot-toast";
 import Navbars from "../Navbars";
+import { useCountries } from "use-react-countries";
+
+const USER_REGEX = /^[a-zA-Z]+ [a-zA-Z]+$/;
 
 const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
 const StudentSignUpForm = () => {
-  const [fullNameState, setFullName] = useState("");
+  
   const [emailState, setEmail] = useState("");
   const [mobileNumberState, setMobileNumber] = useState();
-  const [passwordState, setPasswordState] = useState("");
+  
   const [referenceState, setReferenceState] = useState("");
   const [genderState, setGender] = useState("");
   const [isVerifyOpen, setVerifyOpen] = useState(false);
   const [OTP, setOTP] = useState("");
   const [loader, setLoader] = useState(false);
 
+  const [fullNameState, setFullName] = useState("");
+  const [isValidName,setIsValidName] = useState("")
+  const [isFullNameFocus,setIsFullNameFocus] = useState("")
+
+  const [passwordState, setPasswordState] = useState("");
+  const [isValidPwd,setIsValidPwd] = useState("")
+  const [isPwdFocus,setIsFocus] = useState("")
+  const [showpwd, setHidePwd] = useState(false);
+
+
+  const { countries } = useCountries();
+  const [country, setCountry] = useState(221);
+  const { name, flags, countryCallingCode } = countries[country];
+
   const [validEmail, setVaidEmail] = useState();
   const [emailVerify] = useEmailVerifyMutation();
   const [otpVerify] = useOtpVerifyMutation();
+
+  const userRef = useRef()
 
   console.log(emailState);
 
@@ -141,14 +169,26 @@ const StudentSignUpForm = () => {
       console.error("Error during form submission:", error);
     }
   };
-
+  useEffect(() => {
+    userRef.current.focus();
+  }, []);
   console.log(validEmail);
 
   useEffect(() => {
     setVaidEmail(emailRegex.test(emailState));
   }, [emailState]);
 
+  useEffect(()=>{
+setIsValidName(USER_REGEX.test(fullNameState))
+  },[fullNameState])
+
+  useEffect(()=>{
+setIsValidPwd(PWD_REGEX.test(passwordState))
+  },[passwordState])
+
+  console.log(isValidName)
   console.log(validEmail);
+  console.log(isValidPwd)
   return (
     <>
       <Navbars />
@@ -167,8 +207,30 @@ const StudentSignUpForm = () => {
                 name="fullName"
                 value={fullNameState}
                 onChange={onChangeFullName}
+                ref={userRef}
+                aria-invalid = {isValidName ? "false" : "true"}
+                aria-describedby="uidnote"
+                
+                onFocus={() => setIsFullNameFocus(true)}
+        onBlur={() => setIsFullNameFocus(false)}
                 required
               />
+               <p
+        id="uidnote"
+        className={
+          isFullNameFocus && fullNameState && !isValidName
+            ? "visible text-red-700 text-sm"
+            : "hidden"
+        }
+      >
+        4 to 24 characters.
+        <br />
+        add fullname,give space between firstname and lastname.
+        <br />
+        must begin with a letter.
+        <br />
+        letters, numbers, underscores, hyphens allowed.
+      </p>
               <div className="flex gap-5">
                 <Input
                   type="text"
@@ -182,6 +244,7 @@ const StudentSignUpForm = () => {
                 <Button
                   className="bg-primary flex justify-center items-center"
                   onClick={sendEmailHandler}
+                  disabled={!validEmail}
                 >
                   {loader ? (
                     <Spinner />
@@ -216,24 +279,101 @@ const StudentSignUpForm = () => {
                 </div>
               )}
 
-              <Input
-                type="number"
-                label="mobile number"
-                name="mobileNumber"
-                value={mobileNumberState}
-                onChange={onChangeMobileNumber}
-                required
+            
+              <div className="relative flex w-auto">
+        <Menu placement="bottom-start">
+          <MenuHandler>
+            <Button
+              ripple={false}
+              variant="text"
+              color="blue-gray"
+              className="flex h-10 items-center gap-2 rounded-r-none border border-r-0 border-blue-gray-200 bg-blue-gray-500/10 pl-3"
+            >
+              <img
+                src={flags.svg}
+                alt={name}
+                className="h-4 w-4 rounded-full object-cover"
               />
-
+              {countryCallingCode}
+            </Button>
+          </MenuHandler>
+          <MenuList className="max-h-[20rem] max-w-[18rem]">
+            {countries.map(({ name, flags, countryCallingCode }, index) => {
+              return (
+                <MenuItem
+                  key={name}
+                  value={name}
+                  className="flex items-center gap-2"
+                  onClick={() => setCountry(index)}
+                >
+                  <img
+                    src={flags.svg}
+                    alt={name}
+                    className="h-5 w-5 rounded-full object-cover"
+                  />
+                  {name} <span className="ml-auto">{countryCallingCode}</span>
+                </MenuItem>
+              );
+            })}
+          </MenuList>
+        </Menu>
+        <Input
+          type="tel"
+          name="mobileNumber"
+          placeholder="Mobile Number"
+          value={mobileNumberState}
+          onChange={onChangeMobileNumber}
+          className="w-auto rounded-l-none !border-t-blue-gray-200 focus:!border-t-gray-900"
+          labelProps={{
+            className: "before:content-none after:content-none",
+          }}
+          containerProps={{
+            className: "min-w-0",
+          }}
+          maxLength={10}
+          minLength={10}
+          required
+        />
+      </div>
               <Input
-                type="password"
+                  type={showpwd ? "password" : "text"}
                 label="password"
                 name="password"
                 value={passwordState}
                 onChange={onChangePassword}
+                aria-invalid={isValidPwd?"false":"true"}
+                aria-describedby="uidpwd"
+                onFocus={()=>setIsFocus(true)}
+                onBlur={()=>setIsFocus(false)}
+                icon={
+          showpwd ? (
+            <FaEye
+              size={"1.2rem"}
+              onClick={() => setHidePwd(!showpwd)}
+              className="cursor-pointer"
+            />
+          ) : (
+            <FaRegEyeSlash
+              size={"1.2rem"}
+              onClick={() => setHidePwd(!showpwd)}
+              className="cursor-pointer"
+            />
+          )
+        }
                 required
               />
-
+ <p
+        id="uidpwd"
+        className={
+          isPwdFocus && passwordState && !isValidPwd
+            ? "visible text-red-700 text-sm"
+            : "hidden"
+        }
+      >
+        8 to 24 characters.<br />
+                            Must include uppercase and lowercase letters, a number and a special character.<br />
+                            Allowed special characters: <span aria-label="exclamation mark">!</span> <span aria-label="at symbol">@</span> <span aria-label="hashtag">#</span> <span aria-label="dollar sign">$</span> <span aria-label="percent">%</span>
+      </p>
               <Input
                 type="text"
                 label="reference"

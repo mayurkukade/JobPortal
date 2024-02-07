@@ -94,7 +94,7 @@ export default function HeaderLower() {
           </div>
         </div>
       </div>
-      <PaymentComponent/>
+      {/* <PaymentComponent/> */}
       <div className="w-full   h-3 flex-shrink-0 bg-primary "></div>
     </>
   );

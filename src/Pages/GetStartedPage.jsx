@@ -62,6 +62,8 @@ const GetStartedPage = () => {
                 name="mobile_number"
                 type="tel"
                 required
+                maxLength={10}
+                minLength={10}
               />
             </div>
             <div className="w-full sm:w-72">

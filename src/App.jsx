@@ -59,6 +59,7 @@ import PricingPage from "./Pages/PricingPage.jsx";
 import { onlyAdmin } from "./Compoments/config/roles";
 import RecruiterRequire from "./features/RecruiterRequire/RecruiterRequire.jsx";
 import AddProfileDetails from "./Compoments/studentProfile/AddProfileDetails.jsx";
+import MobileField from "./Compoments/Forms/MobileField.jsx";
 
 function App() {
   return (
@@ -129,6 +130,7 @@ function App() {
          
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/" element={<HomePage />} />
+          <Route path="check" element={<MobileField/>} />
 
           {/* <Route path="/skills" element={<SkillsLayout />}>
             <Route index element={<Skillsweb />} />

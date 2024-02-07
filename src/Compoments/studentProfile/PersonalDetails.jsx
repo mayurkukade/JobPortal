@@ -24,10 +24,12 @@ import { experienceDurations } from "../Data/Experiance.js";
 import { annualSalaryRanges } from "../Data/AnnualSalary.js";
 import { useState } from "react";
 import { useUploadFilesMutation } from "../../services/fileUplaod/uploadFile.js";
+import { useauthHooks } from "../hooks/authHooks.js";
 // eslint-disable-next-line react/prop-types
 const PersonalDetails = ({ formPersonalDetails, setFormPersonalDetails }) => {
   const [birthDate, setBirthDate] = useState();
-  
+  const {useDecode}  = useauthHooks()
+  console.log(useDecode)
 
 
   const { countries } = useCountries();
@@ -52,7 +54,7 @@ const [uploadFiles] = useUploadFilesMutation()
  console.log(formData)
     formData.append('image', file);
     formData.append('documentType', 'profile'); // Assuming you want to append the file type
-    formData.append('userId', '1102');
+    formData.append('userId', useDecode?.userId);
   
   
     try {

@@ -5,11 +5,11 @@ import {
   MenuItem,
   Avatar,
   Typography,
-  useSelect,
 } from "@material-tailwind/react";
 
+import avatarUnknown from "../Images/default-avatar-profile-icon.webp";
 import Cookies from "js-cookie";
-import { useEffect } from "react";
+
 import { useDispatch, useSelector } from "react-redux";
 import { logoutSuccess } from "../../features/authSlice/authSlice";
 import { Link, useNavigate } from "react-router-dom";
@@ -17,30 +17,32 @@ import { jwtDecode } from "jwt-decode";
 import { useGetDocumentQuery } from "../../services/fileUplaod/uploadFile";
 import { useauthHooks } from "../hooks/authHooks";
 
-
 const Profile = () => {
   const dispatch = useDispatch();
 
   const navigate = useNavigate();
-  const {useDecode} = useauthHooks()
-  console.log(useDecode)
+  const { useDecode } = useauthHooks();
+  console.log(useDecode);
 
-  const userId = useDecode?.userId
-const fileType = 'profile'
-  const {data,isLoading,isSuccess,isError} = useGetDocumentQuery({userId,fileType})
+  const userId = useDecode?.userId;
+  const fileType ="profile";
+  const { data, isLoading, isSuccess, isError } = useGetDocumentQuery({
+    userId,
+    fileType,
+  });
+console.log(data,isError)
+  let fetchedProfile;
+  if (isLoading) {
+    fetchedProfile = <p>...</p>;
+  } else if (isError) {
+    fetchedProfile = <p>❌</p>;
+    console.log(fetchedProfile)
+  } else if (isSuccess) {
+    fetchedProfile = data?.response[0]?.documentLink;
+    
+  }
 
-console.log(data)
-
-let fetchedProfile 
-if(isLoading){
-  fetchedProfile = <p>...</p>
-}else if(isError){
-  fetchedProfile = <p>❌</p>
-}else if(isSuccess){
-  fetchedProfile = data?.response[0].documentLink
-}
-
-  console.log(fetchedProfile)
+  console.log(fetchedProfile);
 
   const logOutSelector = useSelector(
     (state) => state.authSlice.isAuthenticated
@@ -59,18 +61,13 @@ if(isLoading){
 
   return (
     <Menu>
-     <MenuHandler>
-
-     
-
+      <MenuHandler>
         <Avatar
           variant="circular"
-          
           alt="tania andrew"
-          className="cursor-pointer  "
-          src={fetchedProfile}
+          className="cursor-pointer   "
+          src={isError?avatarUnknown:fetchedProfile}
         />
-   
       </MenuHandler>
       <MenuList>
         <MenuItem className="flex items-center gap-2">
@@ -151,9 +148,9 @@ if(isLoading){
             />
           </svg>
           <Link to={`/savejob/1173`}>
-          <Typography variant="small" className="font-medium">
-            Saved Jobs
-          </Typography>
+            <Typography variant="small" className="font-medium">
+              Saved Jobs
+            </Typography>
           </Link>
         </MenuItem>
         <MenuItem className="flex items-center gap-2">
