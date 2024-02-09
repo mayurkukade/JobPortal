@@ -323,7 +323,7 @@ const EventsRightSide = () => {
           </p>
         </div>
         <div className="flex justify-center">
-          <Button className="w-fit mt-2 bg-primary">Register Now</Button>
+        <Link to={'/event/register'}> <Button className="w-fit mt-2 bg-primary">Register Now</Button></Link>    
         </div>
         <p className="mt-5 text-center">
           For more information regarding Preferable’s services,
