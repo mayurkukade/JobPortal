@@ -9,7 +9,7 @@ import { Navigate } from "react-router-dom";
 const TokenRequire = ({ allowedRoles }) => {
   console.log(allowedRoles);
   const cookiesJwt = Cookies.get("cookie");
-  let userAuthRoles = [];
+  let userAuthRoles 
 
   try {
   

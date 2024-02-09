@@ -4,7 +4,14 @@ import { jwtDecode } from "jwt-decode";
 export const useauthHooks = ()=>{
     
     const cookie = Cookies.get("cookie")
-const useDecode = jwtDecode(cookie)
+    console.log(cookie)
+    let useDecode
+    if(cookie){
+         useDecode = jwtDecode(cookie)
+    }else{
+         useDecode = null
+    }
+
     
     console.log(useDecode,'authHook')
 return  {useDecode}

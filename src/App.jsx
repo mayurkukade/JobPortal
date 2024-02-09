@@ -48,7 +48,7 @@ import NotFound from "./Pages/NotFound";
 import CourseplaylistLayOut from "./Compoments/layout/CourseplaylistLayOut.jsx";
 import Courseplay from "./Compoments/skills/Courseplay.jsx";
 import MentorPage from "./Pages/MentorPage.jsx";
-import StudyABroad from "./Pages/StudyAbroad.jsx";
+import StudyAbroad from "./Pages/StudyAbroad.jsx";
 import RecruiterLayout from "./Compoments/layout/RecruiterLayout.jsx";
 import Recruiter from "./Pages/Recruiter.jsx";
 import RecruiterJobs from "./Compoments/recruiter/RecruiterJobs.jsx";
@@ -60,6 +60,9 @@ import { onlyAdmin } from "./Compoments/config/roles";
 import RecruiterRequire from "./features/RecruiterRequire/RecruiterRequire.jsx";
 import AddProfileDetails from "./Compoments/studentProfile/AddProfileDetails.jsx";
 import MobileField from "./Compoments/Forms/MobileField.jsx";
+import NewStudentAddDetails from "./features/newUser/newStudentAddDetails.jsx";
+import Events from "./Pages/Events.jsx";
+import EventRegister from "./Pages/EventRegister.jsx";
 
 function App() {
   return (
@@ -112,25 +115,24 @@ function App() {
             <Route path="/admin/plans" element={<PlansAdminPage />} />
           </Route>
 
-          <Route>
-            <Route
-              element={
-                <TokenRequire allowedRoles={[...Object.values(ROLES)]} />
-              }
-            >
-              {/* <Route path="/edit/profile" element={<MultiStepStudentForm />} /> */}
-              <Route path="/profile/:id" element={<Myprofile />} />
-              <Route path="/savejob/:id" element={<Savejobs />} />
-              <Route path="/edit/profile" element={<AddProfileDetails />} />
-              <Route path="/jobsection" element={<JobSection />} />
-          <Route path="/jobdetails/:id" element={<JobDetailsById />} />
-            </Route>
-            <Route path="/pricingpage" element={<PricingPage />} />
+          <Route
+            element={<TokenRequire allowedRoles={[...Object.values(ROLES)]} />}
+          >
+            {/* <Route path="/edit/profile" element={<MultiStepStudentForm />} /> */}
+            <Route path="/profile/:id" element={<Myprofile />} />
+            <Route path="/savejob/:id" element={<Savejobs />} />
+            <Route path="/edit/profile" element={<AddProfileDetails />} />
+            <Route path="/jobsection" element={<JobSection />} />
+            <Route path="/jobdetails/:id" element={<JobDetailsById />} />
           </Route>
-         
+          <Route path="/pricingpage" element={<PricingPage />} />
+
           <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/" element={<HomePage />} />
-          <Route path="check" element={<MobileField/>} />
+          <Route element={<NewStudentAddDetails />}>
+            <Route path="/" element={<HomePage />} />
+          </Route>
+
+          <Route path="check" element={<MobileField />} />
 
           {/* <Route path="/skills" element={<SkillsLayout />}>
             <Route index element={<Skillsweb />} />
@@ -145,6 +147,7 @@ function App() {
           <Route path="/PublishJob" element={<PublishJob />} />
           <Route path="/getstarted" element={<GetStartedPage />} />
           <Route path="mentor" element={<MentorPage />} />
+          <Route path="/studyabroad" element={<StudyAbroad />} />
 
           <Route element={<RecruiterLayout />}>
             <Route
@@ -162,9 +165,9 @@ function App() {
               />
             </Route>
           </Route>
-
-          <Route path="/studyabroad" element={<StudyABroad />} />
-
+          
+        <Route path="/events/001" element={<Events/>} />
+        <Route path="event/register" element={<EventRegister/>} />
           <Route path="/privacypolicy" element={<PrivacyPolicy />} />
           <Route path="/termsandcondition" element={<TermsAndConditions />} />
           <Route path="/cookiepolicy" element={<CookiePolicy />} />
@@ -172,11 +175,12 @@ function App() {
         </Route>
 
         <Route path="/register" element={<RegistrationPage />} />
-        <Route path="/studentSignUp" element={<StudentSignUpForm />} />
+        <Route path="/studentsignup" element={<StudentSignUpForm />} />
         <Route path="/tpo" element={<TpoSignUpForm />} />
         <Route path="/recruitersignup" element={<RecruiterSignUpForm />} />
         <Route path="/jobdetails" element={<JobDetails />} />
         <Route path="/signin" element={<SignIn />} />
+
 
         <Route path="*" element={<NotFound />} />
       </Routes>

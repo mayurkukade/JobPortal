@@ -25,13 +25,15 @@ import { annualSalaryRanges } from "../Data/AnnualSalary.js";
 import { useState } from "react";
 import { useUploadFilesMutation } from "../../services/fileUplaod/uploadFile.js";
 import { useauthHooks } from "../hooks/authHooks.js";
+import { useDispatch } from "react-redux"
+import { showNewUserMessage } from "../../features/newUser/newUserSlice.js";
 // eslint-disable-next-line react/prop-types
 const PersonalDetails = ({ formPersonalDetails, setFormPersonalDetails }) => {
   const [birthDate, setBirthDate] = useState();
   const {useDecode}  = useauthHooks()
   console.log(useDecode)
 
-
+const dispatch = useDispatch()
   const { countries } = useCountries();
   const [country, setCountry] = React.useState(221);
 const [uploadFiles] = useUploadFilesMutation()
@@ -55,6 +57,9 @@ const [uploadFiles] = useUploadFilesMutation()
     formData.append('image', file);
     formData.append('documentType', 'profile'); // Assuming you want to append the file type
     formData.append('userId', useDecode?.userId);
+
+    dispatch(showNewUserMessage())
+
   
   
     try {
@@ -80,15 +85,15 @@ const [uploadFiles] = useUploadFilesMutation()
       <div className="grid grid-cols-3 md:grid-cols-6 items-center gap-12 p-5 mt-5 ">
         <div className="md:space-y-12 space-y-4 col-span-1 ">
           <p>Profile Picture</p>
-          <p>Name</p>
-          <p>Gender</p>
+          {/* <p>Name</p>
+          <p>Gender</p> */}
           <p>Date Of Birth</p>
           <p>Current Location</p>
           <p>Preferred Location</p>
         </div>
         <div className="md:space-y-8 space-y-4 col-span-2 ">
           <input type="file" accept="image/*" onChange={handleFileChange} />
-          <Input
+          {/* <Input
             type="text"
             label="Name"
             name="name"
@@ -104,7 +109,7 @@ const [uploadFiles] = useUploadFilesMutation()
             <option>Gender</option>
             <option value={"male"}>Male</option>
             <option value={"female"}>Female</option>
-          </select>
+          </select> */}
 
           <Popover placement="bottom">
             <PopoverHandler>
@@ -217,7 +222,7 @@ const [uploadFiles] = useUploadFilesMutation()
           </select>
         </div>
         <div className="md:space-y-12 space-y-4 col-span-1 ">
-          <p>Phone</p>
+          {/* <p>Phone</p> */}
           <p>Industry</p>
 
           <p>Notice Peroid</p>
@@ -226,7 +231,7 @@ const [uploadFiles] = useUploadFilesMutation()
           <p>Expected Salary</p>
         </div>
         <div className="md:space-y-8 space-y-4 col-span-2  ">
-          <div className="relative flex w-full max-w-[24rem]">
+          {/* <div className="relative flex w-full max-w-[24rem]">
             <Menu placement="bottom-start">
               <MenuHandler>
                 <Button
@@ -282,7 +287,7 @@ const [uploadFiles] = useUploadFilesMutation()
               max={10}
               required
             />
-          </div>
+          </div> */}
           <select
             onChange={personalDetailsOnChange}
             value={personalDetailsOnChange.industry}

@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
@@ -11,14 +11,20 @@ import { IoChatbubblesOutline } from "react-icons/io5";
 import opticalraclogo from "../Images/Opticalarclogo.png";
 import { VscAccount } from "react-icons/vsc";
 import { useCompanyByUserIdQuery } from "../../services/Recruiter/recruiterApiSlice";
+import { IoCopyOutline } from "react-icons/io5";
+import { IconButton, Typography } from "@material-tailwind/react";
+import { useCopyToClipboard } from "usehooks-ts";
+import { CheckIcon, DocumentDuplicateIcon } from "@heroicons/react/24/outline";
+
 import { useauthHooks } from "../hooks/authHooks";
 import {
   Avatar,
+  Button,
   Card,
   List,
   ListItem,
   ListItemPrefix,
-  
+  Tooltip,
 } from "@material-tailwind/react";
 
 const RecruiterSidebar = () => {
@@ -31,21 +37,23 @@ const RecruiterSidebar = () => {
     },
     closed: {
       width: "4.6rem",
-      
+
       transition: {
         damping: 40,
       },
     },
   };
   const [isOpen, setIsOpen] = useState(true);
-    const {useDecode} = useauthHooks()
-  console.log(useDecode)
+  const { useDecode } = useauthHooks();
+  const [value, copy] = useCopyToClipboard();
+  const [copied, setCopied] = useState(false)
+  console.log(useDecode);
   const {
     data: companyDetails,
     isLoading,
     isError,
-    isSuccess
-  } = useCompanyByUserIdQuery('1001');
+    isSuccess,
+  } = useCompanyByUserIdQuery("1001");
   let content;
   if (isLoading) {
     content = <p>Loading..</p>;
@@ -93,8 +101,9 @@ const RecruiterSidebar = () => {
             <ListItem>
               <Avatar src={opticalraclogo} size="lg" className="p-1 " />
               <p className="text-wrap text-primary text-lg font-poppins">
-                
-                {isSuccess? content?.responseData?.companyName :null && 'Company Name'}
+                {isSuccess
+                  ? content?.responseData?.companyName
+                  : null && "Company Name"}
               </p>
             </ListItem>
           </List>
@@ -107,10 +116,37 @@ const RecruiterSidebar = () => {
           </div> */}
           <List>
             <Link to={"/recruiter"}>
-              <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
-             <span className="text-xs">Ref.No.</span> 
-              <span className="text-darkBlueBackground font-Montserrat font-semibold text-start"> {isSuccess? content?.responseData?.refNo :null && 'Company Name'}</span> 
-              </ListItem>
+              <div className="flex w-[10.5rem] justify-center items-center">
+                <ListItem>
+                  <span className="text-xs mr-2">Ref.No.</span>
+                  <span className="text-darkBlueBackground font-Montserrat font-semibold text-start">
+                    {" "}
+                    {isSuccess ? (
+                      <div className="flex justify-center items-center gap-2">
+                        {content?.responseData?.refNo}{" "}
+                      </div>
+                    ) : (
+                      null && "Company Name"
+                    )}
+                  </span>
+                </ListItem>
+                <Tooltip content={copied?'copied':'copy'}>
+                <IconButton
+                className="bg-transparent h-6"
+          onMouseLeave={() => setCopied(false)}
+          onClick={() => {
+            copy(content?.responseData?.refNo);
+            setCopied(true);
+          }}
+        >
+          {copied ? (
+            <CheckIcon className="h-5 w-5 text-black" />
+          ) : (
+            <DocumentDuplicateIcon className="h-5 w-5 text-black" />
+          )}
+        </IconButton>
+        </Tooltip>
+              </div>
             </Link>
             <Link to={"/recruiter"}>
               <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
@@ -134,7 +170,6 @@ const RecruiterSidebar = () => {
                 <IoIosPeople className="h-6 w-6" />
               </ListItemPrefix>
               Talent Pool
-            
             </ListItem>
             <ListItem className="hover:bg-blue-500 hover:text-white focus:bg-blue-500 focus:text-white">
               <ListItemPrefix>

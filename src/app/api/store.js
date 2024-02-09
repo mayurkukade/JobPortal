@@ -13,11 +13,13 @@ import { studentApplicationApiSlice } from '../../services/studentApplication/st
 import { plansApiSlice } from '../../services/plans/plansApiSlice'
 import { recruiterApiSlice } from '../../services/Recruiter/recruiterApiSlice'
 import { uploadFile } from '../../services/fileUplaod/uploadFile'
+import newUserSlice from '../../features/newUser/newUserSlice'
 export const store = configureStore({
     reducer:{
 
         
         authSlice:authSlice,
+        newUserSlice:newUserSlice,
        [apiSlice.reducerPath]:apiSlice.reducer,
         [registrationSlice.reducerPath]:registrationSlice.reducer,
         [jobApiSlice.reducerPath]: jobApiSlice.reducer,
