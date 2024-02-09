@@ -25,6 +25,7 @@ export const studentApiSlice = apiSlice.injectEndpoints({
     getDegreeStudentProfile: builder.query({
       query: (id) => ({
         url: `/degree/getDegree?userId=${id}`,
+        transferResponse:console.log(id)
       }),
       providesTags: ["registerPost"]
     }),

@@ -1,4 +1,4 @@
-import mayurakshi from "../Images/mentor/MayurakshiSen2.jpg";
+import mayurakshi from "../Images/mentor/mayurakshiSen2.jpg";
 import sumit from "../Images/mentor/Sumit Jadhav.jpeg";
 import Mayur from "../Images/mentor/MayurPingale.jpeg";
 import { FaLinkedin } from "react-icons/fa";

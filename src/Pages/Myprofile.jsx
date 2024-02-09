@@ -1,4 +1,4 @@
-import { Avatar, Button } from "@material-tailwind/react";
+import {  Button } from "@material-tailwind/react";
 
 import { FaXTwitter } from "react-icons/fa6";
 import { VscGithub } from "react-icons/vsc";
@@ -18,7 +18,7 @@ import { useParams } from "react-router-dom";
 
 import { useauthHooks } from "../Compoments/hooks/authHooks.js";
 import CertificateDetails from "../Compoments/myprofile/CertificateDetails.jsx";
-import EducationDetails from "../Compoments/myprofile/educationDetails.jsx";
+import EducationDetails from "../Compoments/myprofile/EducationDetails.jsx";
 import ProfilePicture from "../Compoments/Profile/ProfilePicture.jsx";
 const Myprofile = () => {
 

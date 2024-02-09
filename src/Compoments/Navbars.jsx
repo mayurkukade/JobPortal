@@ -29,7 +29,7 @@ export default function Navbars() {
   const handleOpen = () => setOpen(!open);
   const navigate = useNavigate();
   const studentFormNavigate = () => {
-    navigate("/studentSignUp");
+    navigate("/studentsignup");
     handleOpen();
   };
   const tpoFormNavigate = () => {
@@ -134,6 +134,18 @@ export default function Navbars() {
           className="flex items-center gap-x-2 p-1 font-medium"
         >
           <span className="flex items-center text-white">Study Abroad</span>
+        </Typography>
+      </Link>
+      </li>
+      <li>
+      <Link to={"/events/001"}>
+        <Typography
+          
+          variant="small"
+          color="blue-gray"
+          className="flex items-center gap-x-2 p-1 font-medium"
+        >
+          <span className="flex items-center text-white">Events</span>
         </Typography>
       </Link>
       </li>
